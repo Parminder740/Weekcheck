@@ -1,0 +1,96 @@
+{
+  "dashboard": {
+    "WELCOME": "Welcome to {{appName}}"
+  },
+  "topbar": {
+    "messages": {
+    	"MAIN": "Messages",
+      	"HEADER": "Unread messages",
+      	"SEEALL": "See All"
+    },
+    "notifications": {
+      "MAIN": "Notifications",
+      "HEADER": "You have new notifications",
+      "SEEALL": "See All"
+    },
+    "user": {
+      "PROFILE": "My Profile",
+      "MESSAGES" : "My Messages",
+      "LOCKSCREEN" : "Lock Screen",
+      "LOGOUT" : "Log Out"
+    }
+  },
+  "offsidebar": {
+  },
+  "sidebar": {
+    "heading": {
+      "NAVIGATION": "Main Navigation"
+    },
+    "search": {
+      "PLACEHOLDER": "Search..."
+    },
+    "nav": {
+      "dashboard": {
+      	"MAIN": "Dashboard",
+        "HEADER": "My Dashboard"
+      },
+      "timeoff": {
+      	"MAIN": "Time Off",
+        "CREATE": "Create",
+        "VIEW": "View",
+         "page":{
+             "create":{
+                 "HEADER": "Create Time Off",
+                 "DESCRIPTION": "Need to request time off?  No problem!  Just fill in the info below, submit and wait to hear back.  Couldn't be simpler."
+             }
+         }
+      },
+      "message": {
+        "MAIN": "Messages",
+        "CREATE": "Create",
+        "VIEW": "View"
+      },
+      "notification":{
+          "MAIN": "Notifications",
+          "VIEW": "View"
+      },
+      "schedule": {
+        "MAIN": "Schedule",
+        "VIEW": "View",
+        "PERSONAL": "View Mine"
+      },
+      "employee": {
+        "MAIN": "Employee",
+        "ADD": "Add",
+        "INFO": "Info"
+      },
+      "business": {
+          "MAIN": "Business",
+          "INFO": "Info"
+      },
+      "settings": {
+		  "MAIN": "Business Administration",
+          "LOCATIONS": "Locations",
+		  "EMPLOYEEGROUPS": "Employee Groups",
+		  "SHIFTS": "Shift Settings",
+		  "REPORTS": "Reports"
+      },
+      "employees": {
+		  "MAIN": "Employees"
+      }
+    }
+  },
+  "footer": {
+    "copyright": {
+    	"MAIN": "Copyright",
+      	"MESSAGE": "All rights reserved"
+    }
+  },
+  "setting": {
+  	"MAIN" : "Style Selector",
+    "FIXEDHEADER": "Fixed header",
+    "FIXEDSIDEBAR": "Fixed sidebar",
+    "CLOSEDSIDEBAR": "Closed sidebar",
+    "FIXEDFOOTER": "Fixed footer"
+  }
+}
