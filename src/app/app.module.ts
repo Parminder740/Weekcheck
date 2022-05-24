@@ -7,12 +7,14 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
+import { AddOrJoinBussinessComponent } from './add-or-join-bussiness/add-or-join-bussiness.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    AddOrJoinBussinessComponent
   ],
   imports: [
     BrowserModule,
