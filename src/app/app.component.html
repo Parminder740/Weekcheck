@@ -1,3 +1,4 @@
+rohan
 <body ng-controller="AppCtrl" ng-class="{'ie' : browserUtils.isIE()}" class="ng-scope"><script id="__bs_script__">//<![CDATA[
   document.write("<script async src='/browser-sync/browser-sync-client.js?v=2.27.9'><\/script>".replace("HOST", location.hostname));
 //]]></script><script async="" src="/browser-sync/browser-sync-client.js?v=2.27.9"></script>
@@ -168,7 +169,7 @@
 
 <style class="ng-scope">
 .nav-sub{
-  margin-left: 70px !important; 
+  margin-left: 70px !important;
 }
 
 .app-sidebar-closed .nav > li.open .nav-sub {
@@ -334,7 +335,7 @@
               </div><!-- end ngIf: user.userImage == 'assets/images/default-user.png' || user.userImage == null || user.userImage == '' -->
               <span class="username ng-binding">piyush
                   <i class="ti-angle-down"></i>
-                  
+
               </span>
           </a>
           <ul class="dropdown-menu dropdown-dark">
@@ -533,7 +534,7 @@
 </div>
 <div class="panel-collapse collapse in" collapse="!isOpen" style="height: auto;">
   <div class="panel-body" ng-transclude="">
-                        
+
                           <!-- ngIf: waitingTimeOffs.length == 0 --><div class="no-items ng-scope" ng-if="waitingTimeOffs.length == 0">No items to display</div><!-- end ngIf: waitingTimeOffs.length == 0 -->
 
                           <!-- ngRepeat: timeOffItem in waitingTimeOffs = (filteredTimeOffs | filter:filterTimeOffsWaiting) -->
@@ -669,14 +670,14 @@
                                   </div>
                               </form>
                               <div class="button-row" ng-if="shiftItem.status != 11 && shiftItem.status != 5">
-                                  <button style="margin-right: 5px;" ng-if="shiftItem.allowableActions[2]==='bid'" ng-click="bidOnAvailableShift(shiftItem)" type="button" class="btn btn-sm-wk"> 
-                  Bid 
+                                  <button style="margin-right: 5px;" ng-if="shiftItem.allowableActions[2]==='bid'" ng-click="bidOnAvailableShift(shiftItem)" type="button" class="btn btn-sm-wk">
+                  Bid
                </button>
                                   <button style="margin-right: 5px;" ng-if="shiftItem.allowableActions[1]==='update'" ng-click="updateAvailableShiftOffer(shiftItem)" class="btn btn-sm-wk">
                   Update
                </button>
                                   <button style="margin-right: 5px;float: right;" ng-if="shiftItem.allowableActions[0]==='cancel'" ng-click="cancelAvailableShift(shiftItem)" class="btn btn-sm-wk">
-                  Cancel  
+                  Cancel
                </button>
                               </div>
                           </div>
