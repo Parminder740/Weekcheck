@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
+import { RegisterComponent } from '../register/register.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,5 +12,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+openDialog(){
+  this.dialog.open(RegisterComponent)
+}
 }
