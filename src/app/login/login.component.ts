@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from '../register/register.component';
 @Component({
   selector: 'app-login',
@@ -12,7 +12,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
-openDialog(){
-  this.dialog.open(RegisterComponent)
-}
+  openDialog() {
+    const dialogRef = this.dialog.open(RegisterComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
+  }
 }
