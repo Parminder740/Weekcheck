@@ -17,13 +17,9 @@ import { SigninComponent } from './signin/signin.component';
     AppComponent,
     RegisterComponent,
     LoginComponent,
-
     AddOrJoinBussinessComponent,
-
     SigninComponent,
-
-    LocationDetailsComponent,
-
+    LocationDetailsComponent
   ],
   imports: [
     BrowserModule,

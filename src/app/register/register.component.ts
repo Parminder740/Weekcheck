@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { SigninComponent } from '../signin/signin.component';
 @Component({
   selector: 'app-register',
@@ -8,9 +8,14 @@ import { SigninComponent } from '../signin/signin.component';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    public dialogRef: MatDialogRef<RegisterComponent>,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+  onNoClick(): void {
+    this.dialogRef.close();
   }
  openSignin(){
    this.dialog.open(SigninComponent)
