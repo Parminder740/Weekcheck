@@ -1,0 +1,17 @@
+@font-face {
+  font-family: YanoneKaffeesatzRegular;
+  src: url("assets/fonts/YanoneKaffeesatz-Regular-webfont.eot");
+  src: url("assets/fonts/YanoneKaffeesatz-Regular-webfont.woff") format("woff"), url("assets/fonts/YanoneKaffeesatz-Regular-webfont.eot?#iefix") format("embedded-opentype"), url("assets/fonts/YanoneKaffeesatz-Regular-webfont.ttf") format("truetype"), url("assets/fonts/YanoneKaffeesatz-Regular-webfont.svg#Entypo") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-family-primary: "Raleway", sans-serif;
+@font-family-secondary: "Lato", sans-serif;
+@font-family-default: Helvetica, Arial, sans-serif;
+
+@font-size-base: 13px;
+@font-size-normal: 14px;
+@font-size-large: floor((@font-size-base * 1.25)); // ~15px
+@font-size-extra-large: floor((@font-size-base * 1.35)); // ~17px
+@font-size-small: ceil((@font-size-base * 0.85)); // ~12px
+@font-size-extra-small: floor((@font-size-base * 0.85)); // ~11px

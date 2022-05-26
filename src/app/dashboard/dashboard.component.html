@@ -1,33 +1,48 @@
 <!-- start: PAGE TITLE -->
+<mat-toolbar >
+    <div >
+    <img ng-src="assets/images/weekcheck-logo-full_small.png" alt="Week Check" style="max-width:160px" src="assets/assets/images/weekcheck-logo-full_small.png">
+    </div>
+  </mat-toolbar>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+  </mat-drawer-container>
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>    
+
 <section id="page-title">
     <div class="row">
         <div class="col-sm-8">
-            <!-- <h1 class="mainTitle" translate="sidebar.nav.dashboard.HEADER">{{ currTitle }}</h1> -->
-
-            <br />
-            <!-- start: TOP BAR: BUTTONS & LOCATION -->
-            <!-- <div="{'personalview': dashboardView =DASH_PERSONAL}"> -->
+                <h1 class="mainTitle">DASHBOARD</h1><br/>
+            <div>
                 <div class="dashboard-top-left">
-                    <a ui-sref="app.notification.view" style="margin-top:10px" class="btn btn-dark-wk">View
-                        Notifications</a>
+                    <a ui-sref="app.notification.view" style="margin-top:10px" class="btn btn-dark-wk">View Notifications</a>
                     <div style="margin-top:10px" class="btn-spacer"></div>
                     <a ui-sref="app.employee.info" style="margin-top:10px" class="btn btn-dark-wk">View Preferences</a>
                     <div style="margin-top:10px" class="btn-spacer"></div>
-                    <!-- <div class="badge-btn emp-req-btn"="(isAdmin || isScheduler)"> -->
-                        <!-- <a ui-sref="app.dashboard.employeeregister" style="margin-top:10px" class="btn btn-dark-wk"> -->
-                            Employee Register Request
-                            <!-- <span class="notification-count badge" ng-hide="openEmployeeRequests.length == 0">{{openEmployeeRequests.length}}</span> -->
-                        <!-- </a> -->
-                    <!-- </div> -->
+                    <div class="badge-btn emp-req-btn">
+                        <a ui-sref="app.dashboard.employeeregister" style="margin-top:10px" class="btn btn-dark-wk">Employee Register Request
+                            <span class="notification-count badge" ></span>
+                        </a>
+                    </div>
 
                 </div>
             </div>
             <!-- end: TOP BAR: BUTTONS & LOCATION -->
         </div>
-        <!-- <div ncy-breadcrumb></div> -->
-    <!-- </div> -->
+        <div ncy-breadcrumb></div>
+    </div>
 </section>
-<!-- end: PAGE TITLE -->
+<!-- end: PAGE TITLE     -->
 
 <div class="container-fluid container-fullw bg-white">
 
@@ -39,14 +54,14 @@
                     <span class="dashViewLabel">Dashboard view:</span>
                     <div class="btn-group dashView" data-toggle="buttons">
                         <label class="btn btn-default">
-                            <!-- <input id="dashboardViewSched" name="dashboardViewRadio" ="setDashboardView(DASH_SCHED)" value="{{DASH_SCHED}}" ng-model="$parent.dashboardView" -->
-                            <!-- type="radio">Scheduler -->
+                            <input id="dashboardViewSched" name="dashboardViewRadio"  value="" 
+                        type="radio">Scheduler
                             <i class="ti-settings"></i>
                             <div class="btn-spacer"></div>
                         </label>
                         <label class="btn btn-default">
-                            <!-- <input id="dashboardViewPer" name="dashboardViewRadio" ="setDashboardView(DASH_PERSONAL)" value="{{DASH_PERSONAL}}" -->
-                            <!-- ng-model="$parent.dashboardView" type="radio">Personal -->
+                            <input id="dashboardViewPer" name="dashboardViewRadio" value=""
+                            type="radio">Personal 
                             <i class="ti-user"></i>
                         </label>
                     </div>
@@ -107,7 +122,7 @@
             <div class="panel panel-default dashboard-panel pending-offers-panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        <!-- <span>Pending Shift Offers ({{ filteredShiftOfferItems.length }})</span> -->
+                        <span>Pending Shift Offers </span>
 
                         <div class="btn-group dashboard-location-group" dropdown>
 
@@ -118,7 +133,7 @@
                             </button>
                             <ul style="margin-left:-85px;" class="dropdown-menu">
                                 <li data-ng-repeat="offerType in filterItem.offerTypes | filter:schedOrPerOfferType">
-                                    <!-- <a data-="setOfferTypeFilter()">{{offerType.name}}</a> -->
+                                    <a data-="setOfferTypeFilter()">""</a>
                                 </li>
                             </ul>
 
@@ -512,10 +527,9 @@
                                 <i class="pull-left fa" ="{'fa-minus-circle': accorApproved.isOpen, 'fa-plus-circle': !accorApproved.isOpen}"></i>
                             </accordion-heading> -->
 
-                    <div class="no-items"   >No items to display</div>
+                    <div class="no-items">No items to display</div>
 
-                    <div class="timeoff-item"
-                        ng-repeat="timeOffItem in approvedTimeOffs = (filteredTimeOffs | filter:filterTimeOffsApproved)">
+                    <div class="timeoff-item">
 
                         <div class="row timeoff-item-row">
                             <div class="col-md-2 col-sm-2 timeoff-employee">
@@ -588,8 +602,7 @@
 
                     <div class="no-items">No items to display</div>
 
-                    <div class="timeoff-item"
-                        ng-repeat="timeOffItem in declinedTimeOffs = (filteredTimeOffs | filter:filterTimeOffsDeclined)">
+                    <div class="timeoff-item">
 
                         <div class="row timeoff-item-row">
                             <div class="col-md-2 col-sm-2 timeoff-employee">
