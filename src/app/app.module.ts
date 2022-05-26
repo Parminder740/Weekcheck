@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
+import { BussinessSetupComponent } from './bussiness-setup/bussiness-setup.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SigninComponent } from './signin/signin.component';
     LoginComponent,
     AddOrJoinBussinessComponent,
     SigninComponent,
-    LocationDetailsComponent
+    LocationDetailsComponent,
+    BussinessSetupComponent
   ],
   imports: [
     BrowserModule,
