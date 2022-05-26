@@ -1,0 +1,748 @@
+<!-- start: PAGE TITLE -->
+<mat-toolbar >
+    <div >
+    <img ng-src="assets/images/weekcheck-logo-full_small.png" alt="Week Check" style="max-width:160px" src="assets/assets/images/weekcheck-logo-full_small.png">
+    </div>
+  </mat-toolbar>
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+      <button (click)="showFiller = !showFiller" mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-drawer>
+  </mat-drawer-container>
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      Toggle sidenav
+    </button>
+  </div>    
+
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+                <h1 class="mainTitle">DASHBOARD</h1><br/>
+            <div>
+                <div class="dashboard-top-left">
+                    <a ui-sref="app.notification.view" style="margin-top:10px" class="btn btn-dark-wk">View Notifications</a>
+                    <div style="margin-top:10px" class="btn-spacer"></div>
+                    <a ui-sref="app.employee.info" style="margin-top:10px" class="btn btn-dark-wk">View Preferences</a>
+                    <div style="margin-top:10px" class="btn-spacer"></div>
+                    <div class="badge-btn emp-req-btn">
+                        <a ui-sref="app.dashboard.employeeregister" style="margin-top:10px" class="btn btn-dark-wk">Employee Register Request
+                            <span class="notification-count badge" ></span>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end: TOP BAR: BUTTONS & LOCATION -->
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE     -->
+
+<div class="container-fluid container-fullw bg-white">
+
+    <div class="row">
+        <div class="col-md-6">
+            <!-- start: SCHEDULER SWITCH VIEW -->
+            <div class="scheduler-switchview-row">
+                <div>
+                    <span class="dashViewLabel">Dashboard view:</span>
+                    <div class="btn-group dashView" data-toggle="buttons">
+                        <label class="btn btn-default">
+                            <input id="dashboardViewSched" name="dashboardViewRadio"  value="" 
+                        type="radio">Scheduler
+                            <i class="ti-settings"></i>
+                            <div class="btn-spacer"></div>
+                        </label>
+                        <label class="btn btn-default">
+                            <input id="dashboardViewPer" name="dashboardViewRadio" value=""
+                            type="radio">Personal 
+                            <i class="ti-user"></i>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- end: SCHEDULER SWITCH VIEW -->
+        </div>
+        <div class="col-md-6" style="padding-right:0">
+            <!-- start: LOCATION CHANGE -->
+            <!--
+  	   <div class="form-group">
+        <ui-select ng-model="selectedLocation" on-select="onLocationChange($item)" class="bare-dropdown">
+          <ui-select-match placeholder="Select..."> <span class="ti-map-alt"></span> {{$select.selected.name}} <span style="color:gray">{{$select.selected.address}}</span></ui-select-match>
+          <ui-select-choices repeat="location in locations | filter: $select.search">
+            <div class="ui-select-item-primary" ng-bind-html="location.name | highlight: $select.search"></div>
+            <small class="ui-select-item-secondary"> <span ="location.address" ng-bind-html="location.address | highlight: $select.search" /><span ="location.state" ng-bind-html="', ' + location.state | highlight: $select.search" /> </small> </ui-select-choices>
+        </ui-select>
+      	</div>
+        -->
+            <!-- start: LOCATION CHANGE -->
+
+        </div>
+    </div>
+
+
+
+    <!-- start: CALENDAR -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="scheduler"  class="scheduler">
+            </div>
+        </div>
+    </div>
+
+    <!--<style>
+        .k-scheduler-views {
+            display: none;
+        }
+    </style>-->
+
+    <!--
+    <div class="row">
+    	<div class="col-md-12">
+        <div class="mobile-calendar-container" style="position:relative" ng-controller="DashboardCalendarMobileCtrl">
+            <div id="scheduler" kendo-WeekKeeperScheduler="scheduler" k-options="schedulerOptions" class="scheduler"></div>
+        </div>
+        </div>
+    </div>
+      -->
+
+    <!-- end: CALENDAR -->
+    <div style="clear:both"></div>
+    <!-- start: PENDING OFFERS -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default dashboard-panel pending-offers-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span>Pending Shift Offers </span>
+
+                        <div class="btn-group dashboard-location-group" dropdown>
+
+                            <button class="btn btn-default dropdown-toggle" type="button" id="offerTypeDropDown"
+                                dropdown-toggle>
+                                <!-- <span>{{ selectedOfferTypeDisplay }}</span> -->
+                                <span class="caret"></span>
+                            </button>
+                            <ul style="margin-left:-85px;" class="dropdown-menu">
+                                <li data-ng-repeat="offerType in filterItem.offerTypes | filter:schedOrPerOfferType">
+                                    <a data-="setOfferTypeFilter()">""</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </h3>
+                </div>
+                <div class="panel-body">
+
+                    <div class="no-items">No items to display</div>
+
+                    <div class="shift-item"
+                        ng-repeat="shiftItem in filteredShiftOfferItems = (pendingShiftOfferItems | orderBy: 'eventID' | filter:offerTypeFilter)">
+
+                        <div class="row shift-item-title-row">
+                            <div class="col-md-5 col-sm-4 col-xs-6">
+                                <span class="trade-offer-icon"></span> TRADE OFFER
+                            </div>
+                            <div class="col-md-5 col-sm-4 col-xs-6">
+                                <span class="available-shift-icon"></span> AVAILABLE SHIFT
+                                <span>OFFER</span>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-6">
+                                SENT:
+                                <!-- <span class="date">{{ formatSentDate(shiftItem.dateInitiated) }}</span> -->
+                            </div>
+                            <div class="col-md-4 col-sm-5 col-xs-12">
+                                <span>BY:
+                                    <!-- <span class="person" ="!shiftItem.isOfferByYou && shiftItem.eventType!==4">{{ formatInitiatorName(shiftItem.eventID) }}</span> -->
+                                    <span
+                                        class="person">Management</span>
+                                    <!--<span class="person" ="shiftItem.isOfferByMgmt && !shiftItem.isOfferByYou">Management</span>-->
+                                    <span class="person">You</span>
+                                </span>
+
+                                <span>
+                                    TO:
+                                    <!-- <span class="person" ="!shiftItem.isOfferToYou">{{ shiftItem.receivingEmployee }}</span> -->
+                                    <span class="person">You</span>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="row shift-item-row trade-shift">
+                            <div class="col-md-4 col-sm-4">
+                                <div class="shift-desc">
+                                    TRADE AWAY SHIFT:
+                                </div>
+
+                                <div class="trade-shift-info">
+                                    <p>DATE:
+                                        <i class="ti-calendar"></i>
+                                        <!-- <span class="date">{{ formatStartDate(shiftItem.tradingStart) }}</span> -->
+                                    </p>
+                                    <p>TIME:
+                                        <i class="ti-time"></i>
+                                        <!-- <span class="time">{{ formatStartToEndTime(shiftItem.tradingStart, shiftItem.tradingEnd) }}</span> -->
+                                    </p>
+                                    <p>POSITION:
+                                        <!-- <span class="position">{{ shiftItem.tradingRoleName }}</span> -->
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <div class="shift-desc">
+                                    RECEIVING SHIFT:
+                                </div>
+
+                                <div class="trade-shift-info">
+                                    <p>DATE:
+                                        <i class="ti-calendar"></i>
+                                        <!-- <span class="date">{{ formatStartDate(shiftItem.receivingStart) }}</span> -->
+                                    </p>
+                                    <p>TIME:
+                                        <i class="ti-time"></i>
+                                        <!-- <span class="time">{{ formatStartToEndTime(shiftItem.receivingStart, shiftItem.receivingEnd) }}</span> -->
+                                    </p>
+                                    <p>POSITION:
+                                        <!-- <span class="position">{{ shiftItem.receivingRoleName }}</span> -->
+                                    </p>
+                                </div>
+
+                            </div>
+                            <div
+                                class="col-md-4 col-sm-4 btn-status-col">
+
+                                <div class="status-messages">
+                                    <div class="msg-item">
+                                        <span class="fa fa-circle"></span>
+                                        <!-- <span>{{ shiftItem.statusText }}</span> -->
+                                    </div>
+                                    <div class="msg-item">
+                                        <span class="fa fa-check"></span>
+                                        <!-- <span>{{ shiftItem.statusText }}</span> -->
+                                    </div>
+                                    <div class="msg-item">
+                                        <span class="fa fa-circle"></span>
+                                        <!-- <span>{{ shiftItem.statusText }}</span> -->
+                                    </div>
+                                    <div class="msg-item" style="padding-top:25px">
+                                        <span class="fa fa-times-circle"></span>
+                                        <!-- <span>{{ shiftItem.statusText }}</span> -->
+                                    </div>
+                                    <div class="msg-item" style="padding-top:25px">
+                                        <span class="fa fa-times-circle"></span>
+                                        <!-- <span>{{ shiftItem.statusText }}</span> -->
+                                    </div>
+                                </div>
+
+                                <!--TODO-->
+                                <div class="button-row" style="margin: auto;">
+                                    <!-- Trade Offer - No action yet taken -->
+                                    <button style="margin-top: 4px;"class="btn btn-sm-wk"
+                                        style="margin-right: 5px;">
+                                        Accept Trade
+                                    </button>
+                                    <button style="margin-top: 4px;" class="btn btn-sm-wk">
+                                        Decline Trade
+                                    </button>
+                                    <button style="margin-top: 4px;" class="btn btn-sm-wk">
+                                        View Details
+                                    </button>
+
+                                    <!-- Trade Offer - Awaiting manager approval -->
+                                    <button> 0" ="" class="btn btn-sm-wk">
+                                        Cancel Trade
+                                    </button>
+                                </div>
+
+                                <!--<div class="button-row" style="margin: auto;" ="dashboardView==DASH_SCHED && shiftItem.status == 4">-->
+                                <div class="button-row" style="margin: auto;">
+
+                                    <!-- Trade Offer - Awaiting manager approval -->
+                                    <button class="btn btn-sm-wk" style="margin-right: 5px;">
+                                        Approve Trade
+                                    </button>
+                                    <button class="btn btn-sm-wk" style="margin-right: 5px;">
+                                        Deny Trade
+                                    </button>
+                                    <button style="margin-top: 4px;" class="btn btn-sm-wk">
+                                        View Details
+                                    </button>
+                                </div>
+                                <!--END TODO-->
+                            </div>
+                        </div>
+
+                        <div class="row shift-item-row available-shift">
+                            <div class="col-md-8 col-sm-8 col">
+                                <div class="available-shift-info">
+                                    <i class="ti-calendar"></i>
+                                    <!-- <span class="date">{{ formatStartDate(shiftItem.receivingStart) }}</span> -->
+                                    <i class="ti-time"></i>
+                                    <!-- <span class="time">{{ formatStartToEndTime(shiftItem.receivingStart, shiftItem.receivingEnd) }}</span> -->
+                                </div>
+                                <div class="available-shift-offerer">
+                                    <div class="profile-pic">
+                                        <div class="default-profile-pic">
+                                            <!-- {{defaultProfileContent(formatInitiatorName(shiftItem.eventID))}} -->
+                                        </div>
+                                        <div class="default-profile-pic">
+                                            M
+                                        </div>
+                                        <!--
+                                        <img class="profile-pic-img" src="assets/images/{{ shiftItem.offerByProfileIcon }}" />
+                                        -->
+                                    </div>
+                                    <div class="available-shift-offerer">
+                                        OFFERED BY:
+                                        <!-- <span class="person" ="!shiftItem.isOfferByMgmt">{{ formatInitiatorName(shiftItem.eventID) }}</span> -->
+                                        <span class="person">Management</span>
+                                    </div>
+                                    <div class="available-shift-position">
+                                        POSITION:
+                                        <!-- <span class="position">{{ shiftItem.receivingRoleName }}</span> -->
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 btn-status-col">
+                                <div class="status-messages">
+                                    <!--
+                                    <div class="msg-item">
+                                        <span ="shiftItem.statusText==='AcceptedAndComplete'" class="fa fa-check"></span>
+                                        <span ="shiftItem.statusText!=='AcceptedAndComplete'" class="fa fa-circle"></span>
+                                        <span>{{shiftItem.statusText}}</span>
+                                    </div>
+                                    -->
+                                    <div class="msg-item" style="padding-top:25px">
+                                        <span class="fa fa-times-circle"></span>
+                                        <!-- <span>{{ shiftItem.statusText }}</span> -->
+                                    </div>
+                                    <div class="msg-item" style="padding-top:25px">
+                                        <span class="fa fa-times-circle"></span>
+                                        <!-- <span>{{ shiftItem.statusText }}</span> -->
+                                    </div>
+                                    <div class="msg-item">
+                                        <span class="fa fa-check"></span>
+                                        <!-- <span>{{ shiftItem.statusText }}</span>/ -->
+                                    </div>
+                                    <div class="msg-item">
+                                        <span class="fa fa-check"></span>
+                                        <!-- <span>{{ shiftItem.statusText }}</span> -->
+                                    </div>
+                                    <div class="msg-item">
+                                        <span class="fa fa-circle"></span>
+                                        <!-- <span ="shiftItem.bidsCnt == 0">{{ shiftItem.statusText }}</span> -->
+                                        <span>No one has bid</span>
+                                        <div>
+
+                                            <!-- Available Shift - No action yet taken -->
+                                            <!--<button ="shiftItem.status == 1 && !shiftItem.isOfferByYou && !shiftItem.isBidByYou && shiftItem.requiresApproval" ="bidOnAvailableShift(shiftItem)" class="btn btn-sm-wk" style="margin-right: 5px;">
+                                        Bid on Shift
+                                    </button>-->
+                                            <button class="btn btn-dark-azure">
+                                                View</button>
+                                            <button class="btn btn-sm-wk" style="margin-right: 5px;">
+                                                Bid
+                                            </button>
+                                            <!-- <button style="margin-right: 5px;margin-top: 0px;" ="openBids(shiftItem)" class="btn btn-sm-wk">
+                                        View Bids 
+                                    </button>   -->
+                                            <!--<button ="shiftItem.status == 1 && !shiftItem.isOfferByYou && !shiftItem.isBidByYou" ="" class="btn btn-sm-wk">
+                                        Hide Offer
+                                    </button>-->
+
+                                            <!-- Available Shift - Bid placed -->
+                                            <button class="btn btn-dark-azure">
+                                                View</button>
+                                            <button class="btn btn-sm-wk" style="margin-right: 5px;">
+                                                Unbid
+                                            </button>
+                                            <!--<button ="shiftItem.isBidByYou" ="" class="btn btn-sm-wk">
+                                        Hide Offer
+                                    </button>-->
+                                            <!-- Available Shift Offer - No bids -->
+                                            <!--<button ="shiftItem.status[shiftItem.status.length - 1].type==STATUS_TYPE_NOBIDS || shiftItem.status[shiftItem.status.length - 1].type==STATUS_TYPE_AWAITINGMGRAPPROVAL" ="" class="btn btn-sm-wk">-->
+                                            <button class="btn btn-sm-wk">
+                                                Cancel
+                                            </button>
+                                        </div>
+                                        <div>
+
+                                            <!-- Available Shift - Bid placed -->
+                                            <button style="margin-right: 5px;" class="btn btn-sm-wk"
+                                                style="margin-top:2px;">
+                                                Bid
+                                            </button>
+                                            <button style="margin-right: 5px;" class="btn btn-sm-wk"
+                                                style="margin-top:2px;">
+                                                Update
+                                            </button>
+                                            <button style="margin-right: 5px;" class="btn btn-sm-wk">
+                                                Cancel
+                                            </button>
+                                            <button class="btn btn-sm-wk" style="margin-top:2px;">
+                                                View Bids
+                                            </button>
+
+                                            <!-- Available Shift Offer - No bids -->
+                                            <!--<button ="shiftItem.status[shiftItem.status.length - 1].type==STATUS_TYPE_NOBIDS || shiftItem.status[shiftItem.status.length - 1].type==STATUS_TYPE_AWAITINGMGRAPPROVAL" ="" class="btn btn-sm-wk">-->
+                                            <button class="btn btn-sm-wk" style="margin-right: 5px;margin-top:2px;">
+                                                Bid
+                                            </button>
+                                            <button class="btn btn-sm-wk" style="margin-right: 5px;margin-top:2px;">
+                                                Update
+                                            </button>
+                                            <button class="btn btn-sm-wk" style="margin-right: 5px; margin-top:2px;">
+                                                Cancel
+                                            </button>
+                                            <button class="btn btn-sm-wk" style="margin-top:2px;">
+                                                View Details
+                                            </button>
+
+                                        </div>
+                                        <!-- <span ="shiftItem.bidsCnt > 0 && dashboardView!=DASH_SCHED && !shiftItem.isBidByYou">{{ shiftItem.statusText }} -->
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end shift item -->
+
+                </div>
+                <!-- end panel body -->
+                <div class="panel-footer">
+                    <!-- <button ="" class="btn btn-light-wk">View Hidden Offers</button> -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end: PENDING OFFERS -->
+
+    <!-- start: TIMEOFFS -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default dashboard-panel timeoffs-panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span>TimeOffs</span>
+                    </h3>
+                </div>
+                <div class="panel-body">
+
+                    <!-- <accordion close-others="true" id="timeoffs-accordion">
+                        <accordion-group ng-init="accorWaiting = {isOpen: true}" is-open="accorWaiting.isOpen" ="{isOpen: accorWaiting.isOpen}">
+                            <accordion-heading>
+                                <span>Waiting on Approval ({{ waitingTimeOffs.length }})</span>
+                                <i class="pull-left fa" ="{'fa-minus-circle': accorWaiting.isOpen, 'fa-plus-circle': !accorWaiting.isOpen}"></i>
+                            </accordion-heading> -->
+                    <div class="no-items">No items to display</div>
+
+                    <div class="timeoff-item"
+                        ng-repeat="timeOffItem in waitingTimeOffs = (filteredTimeOffs | filter:filterTimeOffsWaiting)">
+
+                        <div class="row timeoff-item-row">
+                            <div class="col-md-2 col-sm-2 timeoff-employee">
+                                <div style="border-bottom:1px solid #fff" class="dashboard-label">Requested By:</div>
+                                <div class="profile-pic">
+                                    <div class="default-profile-pic ng-binding ng-scope">
+                                        <!-- {{ timeOffItem.initials }} -->
+                                    </div>
+                                </div>
+                                <div style="min-height:60px">
+                                    <!-- <div class="person">{{ timeOffItem.employeeName }}</div> -->
+                                </div>
+                            </div>
+                            <div class="startend">
+                                <div class="startend-indicator">START</div>
+
+                                <div class="timeoff-info">
+                                    <i class="ti-calendar"></i>
+                                    <!-- <span class="date">{{ timeOffItem.startDate }}</span> -->
+                                    <i class="ti-time"></i>
+                                    <!-- <span class="time">{{ timeOffItem.startTime }}</span> -->
+                                </div>
+
+                            </div>
+                            <div class="startend">
+                                <div class="startend-indicator">END</div>
+
+                                <div class="timeoff-info">
+                                    <i class="ti-calendar"></i>
+                                    <!-- <span class="date">{{ timeOffItem.endDate }}</span> -->
+                                    <i class="ti-time"></i>
+                                    <!-- <span class="time">{{ timeOffItem.endTime }}</span> -->
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 col-sm-4 btn-status-col msg-count-1">
+
+                                <div class="status-messages">
+                                    <div class="msg-item">
+                                        <span class="fa fa-circle"></span>
+                                        <span>Awaiting Manager Approval</span>
+                                    </div>
+                                </div>
+
+                                <div class="button-row">
+                                    <button class="btn btn-sm-wk">Cancel</button>
+                                </div>
+
+                                <div class="button-row">
+                                    <button class="btn btn-sm-wk " style="margin-right: 5px;">Approve</button>
+                                    <button class="btn btn-sm-wk">Decline</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end time off item -->
+
+
+                    <!-- </accordion-group> -->
+                    <div id="p_prldr" class="k-loading-mask">
+                        <div class="k-loading-image"></div>
+                    </div>
+                    <!-- <accordion-group ng-init="accorApproved = {isOpen: false}" is-open="accorApproved.isOpen" ="{isOpen: accorApproved.isOpen}">
+                            <accordion-heading>
+                                <span>Approved ({{ approvedTimeOffs.length }})</span>
+                                <i class="pull-left fa" ="{'fa-minus-circle': accorApproved.isOpen, 'fa-plus-circle': !accorApproved.isOpen}"></i>
+                            </accordion-heading> -->
+
+                    <div class="no-items">No items to display</div>
+
+                    <div class="timeoff-item">
+
+                        <div class="row timeoff-item-row">
+                            <div class="col-md-2 col-sm-2 timeoff-employee">
+                                <div style="border-bottom:1px solid #fff" class="dashboard-label">Requested By:</div>
+                                <div class="profile-pic">
+                                    <div
+                                        class="default-profile-pic ng-binding ng-scope">
+                                        <!-- {{ timeOffItem.initials }} -->
+                                    </div>
+                                </div>
+                                <div style="min-height:60px">
+                                    <!-- <div class="person">{{ timeOffItem.employeeName }}</div> -->
+                                </div>
+                            </div>
+                            <div
+                                class="startend">
+                                <div class="startend-indicator">START</div>
+
+                                <div class="timeoff-info">
+                                    <i class="ti-calendar"></i>
+                                    <!-- <span class="date">{{ timeOffItem.startDate }}</span> -->
+                                    <i class="ti-time"></i>
+                                    <!-- <span class="time">{{ timeOffItem.startTime }}</span> -->
+                                </div>
+
+                            </div>
+                            <div
+                                class="startend 'col-sm-4': dashboardView!=DASH_SCHED, 'col-sm-4': dashboardView!=DASH_SCHED}">
+                                <div class="startend-indicator">END</div>
+
+                                <div class="timeoff-info">
+                                    <i class="ti-calendar"></i>
+                                    <!-- <span class="date">{{ timeOffItem.endDate }}</span> -->
+                                    <i class="ti-time"></i>
+                                    <!-- <span class="time">{{ timeOffItem.endTime }}</span> -->
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 col-sm-4 btn-status-col msg-count-1">
+
+                                <div class="blank-break">&nbsp;</div>
+                                <div class="status-messages">
+                                    <div class="msg-item">
+                                        <span class="fa fa-check"></span>
+                                        <span>Approved</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="button-row">
+                                    <button class="btn btn-sm-wk ng-scope"
+                                        style="margin-top: 10px">Cancel</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- end time off item -->
+
+
+                    <!-- </accordion-group> -->
+                    <!-- <accordion-group ng-init="accorDeclined = {isOpen: false}" is-open="accorDeclined.isOpen" ="{isOpen: accorDeclined.isOpen}"> -->
+                    <!-- <accordion-heading> -->
+                    <!-- <span>Declined ({{ declinedTimeOffs.length }})</span> -->
+                    <i
+                        class="pull-left fa"></i>
+                    <!-- </accordion-heading> -->
+
+
+                    <div class="no-items">No items to display</div>
+
+                    <div class="timeoff-item">
+
+                        <div class="row timeoff-item-row">
+                            <div class="col-md-2 col-sm-2 timeoff-employee">
+                                <div style="border-bottom:1px solid #fff" class="dashboard-label">Requested By:</div>
+                                <div class="profile-pic">
+                                    <div
+                                        class="default-profile-pic ng-binding ng-scope">
+                                        <!-- {{ timeOffItem.initials }} -->
+                                    </div>
+                                </div>
+                                <div style="min-height:60px">
+                                    <!-- <div class="person">{{ timeOffItem.employeeName }}</div> -->
+                                </div>
+                            </div>
+                            <div
+                                class="startend">
+                                <div class="startend-indicator">START</div>
+
+                                <div class="timeoff-info">
+                                    <i class="ti-calendar"></i>
+                                    <!-- <span class="date">{{ timeOffItem.startDate }}</span> -->
+                                    <i class="ti-time"></i>
+                                    <!-- <span class="time">{{ timeOffItem.startTime }}</span> -->
+                                </div>
+                            </div>
+                            <div
+                                class="startend">
+                                <div class="startend-indicator">END</div>
+
+                                <div class="timeoff-info">
+                                    <i class="ti-calendar"></i>
+                                    <!-- <span class="date">{{ timeOffItem.endDate }}</span> -->
+                                    <i class="ti-time"></i>
+                                    <!-- <span class="time">{{ timeOffItem.endTime }}</span> -->
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 btn-status-col msg-count-1">
+
+                                <div class="blank-break" style="height:23px">&nbsp;</div>
+                                <div class="status-messages">
+                                    <span class="fa fa-times-circle"></span>
+                                    <span>Declined</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end time off item -->
+                    <!-- </accordion-group> -->
+                    <!-- </accordion> -->
+                </div>
+                <!-- end panel body -->
+                <div class="panel-footer">
+                    <button class="btn btn-light-wk">Create New</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- end: TIMEOFFS -->
+
+    <!-- Approve a Bid Modal -->
+    <script type="text/ng-template" id="approveABidModal.html">
+                            <div class="modal-header modal-header-edit">
+                                <button  aria-hidden="true" class="close" type="button">&times;</button>
+                            </div>
+                            <div class="modal-body approve-shift-bid-modal">
+
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-12">
+                                        <h3>Approve Shift Bid</h3>
+                                        <p>This shift has been bid on by the following candidates:</p>
+                                        <div class="notif-status">
+                                            <span>Current Status:</span><span>Pending Approval</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-xs-12">
+                                        <fieldset>
+                                            <legend>
+                                                Shift Being Offered
+                                            </legend>
+                                            <div>
+                                                <span class="modal-label">By:</span> <span class="person" >{{ formatInitiatorName(shiftItem.eventID) }}</span><span class="person" >Management</span>
+                                                <br />
+                                                <span class="modal-label">Role:</span> {{ shiftItem.receivingRoleName }}
+                                                <br />
+                                                <span class="modal-label">Shift Date:</span> {{ formatStartDate(shiftItem.receivingStart) }}
+                                                <br />
+                                                <span class="modal-label">Shift Time:</span> {{ formatStartToEndTime(shiftItem.receivingStart, shiftItem.receivingEnd) }}
+                                                <br />
+                                                <div>
+                                                    <!-- <div >
+                                                        <span class="modal-label">{{groups.groupingName}}:{{groups.groupingOptionName}}</span>
+                                                    </div> -->
+                                                </div>
+
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <form id="form1" name="Form" class="ng-pristine ng-valid">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div  class="ng-scope">
+                                                <fieldset>
+                                                    <legend>
+                                                        Candidate
+                                                    </legend>
+                                                    <div class="row">
+                                                        <div class="col-md-4 col-sm-5 col-xs-12">
+                                                            <span class="modal-label">Name:</span> {{ candidate.employeeName }}
+                                                            <br />
+                                                        </div>
+                                                        <div class="col-md-5 col-sm-4 col-xs-12" style="margin-bottom: 10px">
+                                                            <span class="modal-label">Role:</span> {{ getRoleName(candidate.employeeID) }} <br>
+                                                            <span class="modal-label">Scheduled Hours:</span> {{ candidate.scheduledHours + "hrs"}} <br>
+                                                            <span class="modal-label">Prefered Hours:</span> {{ getPreferedHoursPerWeek(candidate.preferedHoursPerWeek) }}
+                                                        </div>
+                                                        <div class="col-md-3 col-sm-3 col-xs-12" style="text-align: center;">
+                                                            <button class="btn btn-light-wk" type="button">
+                                        Approve
+                                    </button>
+                                                        </div>
+                                                    </div>
+                                                </fieldset>
+                                            </div>
+                                            <!-- end ngRepeat: candidate in candidates -->
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="button-row" >
+                                    <button style="margin-right: 5px;"  type="button" class="btn btn-sm-wk"> 
+                    Bid 
+                 </button>
+                                    <button style="margin-right: 5px;" class="btn btn-sm-wk">
+                    Update
+                 </button>
+                                    <button style="margin-right: 5px;float: right;" class="btn btn-sm-wk">
+                    Cancel  
+                 </button>
+                                </div>
+                            </div>
+                        </script>
+</div>

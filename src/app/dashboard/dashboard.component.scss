@@ -1,0 +1,856 @@
+// .k-state-selected > .k-link{
+//   background-color: #428bca;
+// }
+.btn-dark-wk {
+    background: #1C2B36;
+    color: #fff;
+  }
+  
+  .btn-light-wk {
+    background: #0280ba;
+    color: #fff;
+  }
+  
+  .btn-dark-wk:hover, .btn-light-wk:hover {
+    color: #fff;
+  }
+  
+  .btn-sm-wk {
+    font-size: 12px;
+    padding: 5px 11px;
+    background: #C3DAE2;
+    border: 1px solid #0280ba;
+    color: #0280ba;
+  }
+  
+  .btn-sm-wk:hover {
+    color: #0280ba;
+  }
+  
+  .notification-count.badge {
+    background-color: #0280ba;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: normal;
+    min-width: 27px;
+    padding: 9px 7.5px 7px;
+    position: absolute;
+    right: -1px;
+    top: -21px;
+    vertical-align: top;
+  }
+  
+  .badge-btn {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .btn-spacer::after {
+    border-right: 1px solid #ccc;
+    content: " ";
+    display: inline-block;
+    height: 22px;
+    margin-top: -3px;
+  }
+  .btn-spacer {
+    display: inline-block;
+    height: 15px;
+    margin-left: 8px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  .form-group.dashboard-location-group {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  
+  .dashboard-location-group label {
+    color: #333;
+    margin-right: 10px;
+  }
+  
+  .dashboard-top-right {
+    text-align: right;
+  }
+  
+  .dashboard-panel {
+    border: 1px solid #ddd;
+    -webkit-box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .dashboard-panel, .dashboard-panel .panel-heading {
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+  }
+  
+  .dashboard-panel .panel-heading {
+    padding: 8px 0 0;
+    background: #c3dae2;
+  }
+  
+  .dashboard-panel .panel-footer {
+    text-align: center;
+    background: #c3dae2;
+  }
+  
+  .dashboard-panel .panel-title {
+    text-align: center;
+  }
+  
+  .dashboard-panel .panel-title > span {
+    font-family: "Raleway";
+    color: #0280ba;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .dashboard-panel .panel-body {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .dashboard-panel .person, .dashboard-panel .date, .dashboard-panel .time, .available-shift-offerer .position, .available-shift-offerer .person, .available-shift-offerer .profile-pic {
+    font-family: Helvetica;
+    color: #000;
+    font-size: 12.5px;
+  }
+  
+  .dashboard-panel .shift-item-title-row .trade-offer-icon {
+    background: transparent url("https://www.weekkeeper.com/assets/feature-icons-v3.png") repeat scroll 0 -10px / 685px auto;
+    display: inline-block;
+    height: 40px;
+    vertical-align: middle;
+    width: 50px;
+  }
+  
+  .dashboard-panel .shift-item-title-row .available-shift-icon {
+    background: transparent url("https://www.weekkeeper.com/assets/feature-icons-v3.png") repeat scroll -285px -10px / 685px auto;
+    display: inline-block;
+    height: 40px;
+    vertical-align: middle;
+    width: 50px;
+  }
+  
+  .shift-item-title-row > div {
+    line-height: 3.5em;
+    padding-left: 5px;
+  }
+  
+  .shift-desc, .shift-item-title-row, .trade-shift-info, .available-shift-offerer, .available-shift-info, .timeoff-info {
+    font-family: "Raleway";
+    font-size: 12px;
+    font-weight: 100;
+  }
+  
+  .trade-shift-info .date, .trade-shift-info .time, .available-shift-info .date, .available-shift-info .time, .timeoff-info .date, .timeoff-info .time {
+    color: #0280ba;
+  
+  }
+  
+  .available-shift-offerer, .available-shift-position {
+    height: 30px;
+    line-height: 2.5em;
+  }
+  
+  .available-shift-offerer {
+    border-bottom: 1px solid #fff;
+  }
+  
+  .dashboard-panel .position {
+    font-family: Helvetica;
+    color: #1C2B36;
+  }
+  
+  .row.shift-item-row.available-shift {
+    padding-left: 0;
+  }
+  
+  .row.shift-item-row.available-shift .col {
+    padding: 0;
+  }
+  
+  .available-shift-info {
+    border-bottom: 1px solid #fff;
+    padding: 10px 0 9px 13px;
+  }
+  
+  .dashboard-panel .profile-pic {
+    background: #f0f0f0;
+    border-right:1px solid #fff;
+    float: left;
+    height: 60px;
+    width: 60px;
+    margin-right: 12px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .dashboard-panel .default-profile-pic {
+    bottom: 0;
+    color: #0280ba;
+    display: inline-block;
+    font-size: 17px;
+    height: 30px;
+    left: -2px;
+    margin-bottom: auto;
+    margin-top: auto;
+    position: absolute;
+    right: 0;
+    top: 2px;
+  }
+  
+  .dashboard-panel .profile-pic-img {
+    border-right: 1px solid #fff;
+    width: 61px;
+    margin-top: 1px;
+  }
+  
+  .trade-shift-info .ti-calendar, .trade-shift-info .ti-time, .available-shift-info .ti-calendar, .available-shift-info .ti-time, .timeoff-info .ti-calendar, .timeoff-info .ti-time {
+    color: #1C2B36;
+    font-size: 12pt;
+    vertical-align: top;
+    padding: 0 6px;
+  }
+  
+  .shift-item, .timeoff-item {
+    margin-bottom: 5px;
+  }
+  
+  .shift-desc {
+    text-align: center;
+    margin-bottom: 11px;
+    margin-top: 10px;
+  }
+  
+  .row.shift-item-title-row {
+    padding: 0px;
+  }
+  
+  .row.shift-item-row, .row.timeoff-item-row {
+    padding: 0 7px;
+  }
+  
+  .row.shift-item-row > div:nth-child(1), .row.shift-item-row.trade-shift > div:nth-child(2), .row.tradeoff-item-row > div:nth-child(1), .row.tradeoff-item-row.trade-shift > div:nth-child(2), .row.timeoff-item-row > div:nth-child(1), .row.timeoff-item-row > div:nth-child(2) {
+    border-right: 1px solid #fff;
+  }
+  
+  .row.shift-item-row .btn-status-col, .row.tradeoff-item-row .btn-status-col {
+    text-align: center;
+  }
+  
+  .shift-item-title-row {
+    background: #E5E5E5;
+    border: 1px solid #ccc;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .shift-item-row, .tradeoff-item-row, .timeoff-item-row {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-top: none;
+  }
+  
+  .shift-item-title-row .person:first-child {
+    padding-right: 15px;
+  }
+  
+  .dashboard-panel .button-row {
+    bottom: 0;
+    display: inline-block;
+    height: 39px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 232px;
+    padding-top: 10px;
+  }
+  
+  .dashboard-panel .msg-count-1 .button-row {
+    margin-bottom: 12px;
+  }
+  
+  .dashboard-panel .trade-shift .msg-count-1 .button-row {
+    margin-bottom: 23px;
+  }
+  
+  .dashboard-panel .trade-shift .msg-count-2 .button-row {
+    margin-bottom: 8px;
+  }
+  
+  .dashboard-panel .available-shift .msg-count-2 .button-row {
+    margin-bottom: 3px;
+  }
+  
+  .dashboard-panel .status-messages {
+    color: #999;
+    font-family: "Raleway";
+    font-size: 11.5px;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+  
+  .dashboard-panel .status-messages .msg-item {
+    padding: 3px 0;
+  }
+  
+ 
+  
+  .dashboard-panel .trade-shift .msg-count-2 .status-messages {
+    margin-top: 18px;
+  }
+  
+  .dashboard-panel .available-shift .msg-count-2 .status-messages {
+    margin-top: 6px;
+  }
+  
+  .dashboard-panel .status-messages .fa-circle {
+    color: #EAD363;
+    font-size: 14px;
+    margin-right: 3px;
+  }
+  
+  .dashboard-panel .status-messages .fa-check {
+    color: #0280ba;
+    font-size: 14px;
+    margin-right: 3px;
+  }
+  
+  .dashboard-panel .status-messages .fa-times-circle {
+    color: #AF2222;
+    font-size: 14px;
+    margin-right: 3px;
+  }
+  
+  
+  
+  .available-shift .btn-status-col {
+    min-height: 100px;
+  }
+  
+  .trade-shift .btn-status-col {
+    min-height: 122px;
+  }
+  
+  .btn-status-col input {
+    min-width: 104px;
+    padding-bottom: 4px;
+    padding-top: 6px;
+    position: static;
+  }
+  
+  
+  .dashboard-panel .panel-heading .panel-title {
+    line-height: 2.1em;
+  }
+  
+  #timeoffs-accordion .panel-title {
+    font-size: 13px;
+    line-height: 2.7em;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  
+  #timeoffs-accordion .pull-left.fa {
+    color: #bbb;
+    font-size: 16px;
+    line-height: 2.2em;
+    margin-right: 14px;
+    padding-left: 15px;
+  }
+  
+  .timeoff-item-row {
+    margin-left: 14px;
+    margin-right: 14px;
+    border: 1px solid #ccc;
+  }
+  
+  .timeoff-item-row > div {
+    text-align: center;
+  }
+  
+  .timeoffs-panel .panel-body {
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+  
+  .timeoffs-panel .panel-group {
+    margin-bottom: 0;
+  }
+  
+  #timeoffs-accordion .panel-heading {
+    background: #f4f4f4 none repeat scroll 0 0;
+    border: 1px solid #c6c6c6;
+    height: 35px;
+    min-height: 35px;
+    padding-top: 0;
+    border-radius: 0;
+  }
+  
+  #timeoffs-accordion .isOpen .panel-heading {
+    background: #fff;
+    border: #fff;
+  }
+  
+  #timeoffs-accordion .isOpen .panel-body {
+    border-top: none;
+    padding-bottom: 10px;
+  }
+  
+  #timeoffs-accordion .panel-group > .panel {
+    margin-top: 0;
+  }
+  
+  #timeoffs-accordion .accordion-toggle {
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .timeoff-item .btn-status-col, .timeoff-item-row > div {
+    min-height: 78px;
+  }
+  
+  .timeoff-item .btn-status-col.msg-count-1 .button-row {
+    margin-bottom: 1px;
+  }
+  
+  .timeoff-item .btn-status-col.msg-count-1 .status-messages {
+    margin-top: 10px;
+  }
+  
+  .timeoff-item .startend-indicator {
+    background: #e5e5e5 none repeat scroll 0 0;
+    color: #0280ba;
+    display: inline-block;
+    font-family: helvetica;
+    font-size: 12px;
+    font-weight: 100;
+    margin-bottom: 9px;
+    margin-top: 14px;
+    padding: 3px 3px 1px;
+    width: 55px;
+  }
+  
+  #timeoffs-accordion .accordion-toggle:hover {
+    color: #0280ba;
+  }
+  
+  #timeoffs-accordion .accordion-toggle:hover .pull-left.fa {
+    color: #0280ba;
+  }
+  
+  .dashView .btn {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: #777;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 2em;
+    text-transform: uppercase;
+    vertical-align: top;
+    padding-left: 2px;
+  }
+  
+  .dashView .btn.active {
+    color: #0280ba !important;
+  }
+  
+  .dashView .btn i {
+    font-size: 16px;
+    line-height: 1.3em;
+    margin-left: 2px;
+    vertical-align: top;
+  }
+  
+  .dashViewLabel {
+    color: #1c2b36;
+    display: inline-block;
+    font-weight: 300;
+    line-height: 2.65em;
+    margin-right: 3px;
+    vertical-align: top;
+  }
+  
+  .dashView .btn-spacer::after {
+    border-right: 1px solid #ccc;
+    content: " ";
+    display: inline-block;
+    height: 13px;
+  }
+  
+  .dashView .btn-spacer {
+    height: 20px;
+    margin-right: 0;
+  }
+  
+  .personalview .emp-req-btn, .personalview .dashboard-top-left .btn-spacer:nth-child(4) {
+    display: none;
+  }
+  
+  .dashboard-panel .no-items {
+    color: #bbb;
+    display: block;
+    font-style: italic;
+    margin: 10px auto;
+    text-align: center;
+    width: 140px;
+  }
+  
+  .approve-shift-bid-modal h3 {
+    font-family: Raleway;
+    font-size: 27px;
+    font-weight: 400;
+    color: #1c2b36;
+    margin-bottom: 17px;
+  }
+  
+  .approve-shift-bid-modal fieldset legend {
+    font-family: Raleway;
+    color: #1c2b36;
+  }
+  
+  .approve-shift-bid-modal .notif-status span:nth-child(2) {
+    color: #0280ba;
+    font-weight: 100;
+    margin-left: 10px;
+  }
+  
+  .approve-shift-bid-modal fieldset .row {
+    padding-bottom: 0;
+  }
+  
+  .approve-shift-bid-modal fieldset {
+    padding-bottom: 10px;
+  }
+  
+  .approve-shift-bid-modal .modal-label {
+    font-weight: bold;
+    min-width: 46px;
+    display: inline-block;
+  }
+  
+  .approve-shift-bid-modal .modal-label.break-sm {
+    display: block;
+  }
+  
+  @media (max-width: 991px) {
+  
+    .dashboard-top-right, .dashboard-top-left {
+      text-align: center;
+    }
+  
+    .dashboard-top-left {
+      margin-bottom: 20px;
+    }
+  
+    .scheduler-switchview-row {
+      text-align: center;
+    }
+    
+  
+  }
+  
+  @media (max-width: 768px) {
+  
+  
+    .approve-shift-bid-modal .modal-label.break-sm {
+      display: inline-block;
+    }
+  
+    .row.shift-item-row, .row.timeoff-item-row {
+      padding: 0;
+    }
+  
+    .row.shift-item-row > div:nth-child(1), .row.shift-item-row.trade-shift > div:nth-child(2), .row.tradeoff-item-row > div:nth-child(1), .row.tradeoff-item-row.trade-shift > div:nth-child(2), .row.timeoff-item-row > div:nth-child(1), .row.timeoff-item-row > div:nth-child(2) {
+      border-bottom: 1px solid #fff;
+      border-right: 0;
+    }
+  
+    .trade-shift-info p {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 245px;
+    }
+  
+    .trade-shift .btn-status-col.msg-count-0, .available-shift .btn-status-col.msg-count-0 {
+      min-height: 41px;
+    }
+    .trade-shift .btn-status-col.msg-count-0 .status-messages, .available-shift .btn-status-col.msg-count-0 .status-messages {
+      margin: 9px;
+    }
+  
+    .available-shift .btn-status-col.msg-count-1, .trade-shift .btn-status-col.msg-count-1 {
+      min-height: 69px;
+    }
+  
+    .available-shift .btn-status-col.msg-count-1 .status-messages, .trade-shift .btn-status-col.msg-count-1 .status-messages, .available-shift .btn-status-col.msg-count-2 .status-messages, .trade-shift .btn-status-col.msg-count-2 .status-messages {
+      margin-top: 7px;
+    }
+  
+    .available-shift .btn-status-col.msg-count-1 .button-row, .trade-shift .btn-status-col.msg-count-1 .button-row, .available-shift .btn-status-col.msg-count-2 .button-row, .trade-shift .btn-status-col.msg-count-2 .button-row {
+      margin-bottom: 2px;
+    }
+  
+    .available-shift .btn-status-col.msg-count-2, .trade-shift .btn-status-col.msg-count-2 {
+      min-height: 93px;
+    }
+  
+    .shift-item-row.available-shift > div:first-child::after {
+      clear: both;
+      content: " ";
+      display: block;
+    }
+  
+    .shift-item-title-row > div:last-child {
+      padding-left: 13px;
+    }
+  
+  }
+  
+  @media (min-width: 320px) and (max-width: 474px) {
+  
+    .shift-item-title-row > div:first-child {
+      line-height: 1.4em;
+      margin-top: 12px;
+    }
+  
+    .available-shift-icon, .trade-offer-icon {
+      float: left;
+    }
+  
+    .shift-desc, .shift-item-title-row, .trade-shift-info, .available-shift-offerer, .available-shift-info, .timeoff-info {
+      color: #777;
+      font-size: 11px;
+    }
+  
+  
+  }
+  
+  @media (min-width: 320px) and (max-width: 538px) {
+  
+  
+    .dashboard-top-left .btn {
+      margin-bottom: 20px;
+      width: 90%;
+    }
+  
+    .dashboard-top-left .badge-btn {
+      width: 100%;
+    }
+  
+    .dashboard-top-left .btn-spacer {
+      display: none;
+    }
+  
+    .dashboard-top-left .notification-count.badge {
+      right: 11px;
+      top: -12px;
+    }
+  
+  }
+  
+  #calendar-placeholder {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    background: #f0f0f0;
+    vertical-align: middle;
+    text-align: center;
+    color: #ccc;
+    padding-top: 100px;
+  }
+  @media (max-width: 780px) {
+    .k-scheduler-footer{
+      display: none;    
+    }
+    .btn-status-col{
+      height: 100px;   
+    }
+  }    
+
+  body.modal-open {
+    /**  Need this, otherwise on mobile, the scrollbar from the table will show above the modal popup **/
+    .table-responsive {
+      z-index: 3;
+      position: relative;
+    }
+  }
+  
+  .emp-request-modal {
+  
+  
+    h3 {
+      font-family: Raleway;
+      font-size: 27px;
+      font-weight: 400;
+      color: #1c2b36;
+      margin-bottom: 17px;
+    }
+  
+    fieldset legend {
+      font-family: Raleway;
+      color: #1c2b36;
+    }
+  
+    .notif-status span:nth-child(2) {
+      color: #0280ba;
+      font-weight: 100;
+      margin-left: 10px;
+    }
+  
+    fieldset .row {
+      padding-bottom: 0;
+    }
+  
+    fieldset {
+      padding-bottom: 10px;
+    }
+  
+    .modal-label {
+      font-weight: bold;
+      min-width: 81px;
+      display: inline-block;
+      margin-bottom: 5px;
+    }
+  
+    .btn.btn-light-wk {
+      width: 80px;
+    }
+  
+  
+  
+    .radio-inline, .radio-inline + .radio-inline {
+      color: #1c2b36;
+      font-size: 14px;
+      line-height: 1.7em;
+      margin: 9px 16px !important;
+    }
+  
+    label.btn {
+      border: 0 none;
+      background: none;
+      min-height: 50px;
+      white-space: normal;
+      padding-left: 0px;
+      padding-right: 0px;
+  
+      /** Need this for mobile, otherwise when dropdown is selected, it is shown behind the second label **/
+      &:first-child {
+        z-index: 100;
+      }
+  
+      .label-text {
+        vertical-align: middle;
+      }
+  
+      .input-default {
+        font-size: 20px;
+        vertical-align: middle;
+        display: inline-block;
+        margin-top: -1px;
+      }
+  
+      .input-active {
+        display: none;
+        color: #0280ba;
+        font-size: 18px;
+        margin-right: 2px;
+        margin-left: 2.5px;
+        vertical-align: middle;
+  
+      }
+  
+      &.active {
+  
+        color: #0280ba !important;
+  
+        .input-default {
+          display: none;
+        }
+        .input-active {
+          display: inline;
+        }
+      }
+  
+    }
+  
+  
+    input[type="text"], input[type="password"], input[type="email"] {
+      padding-left: 13px;
+      margin-bottom: 10px;
+    }
+  
+  
+  
+  }
+  
+  @media (min-width: 320px) and (max-width: 440px) {
+    .emp-request-modal {
+      label.btn {
+  
+        width: 100%;
+  
+        .label-text {
+          font-size: 12.5px;
+        }
+      }
+    }
+  }
+
+  .topNav{
+    background:rgba(28, 43, 54, 0.97);
+    height: 100%;
+    padding-left: 3%;
+    padding-right: 5%;
+
+  }
+  mat-toolbar{
+      padding: 0px;
+  }
+  #page-title{
+    border-bottom: 1px solid #eee;
+    padding: 15px 0 10px 0;
+    position: relative;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+ .mainTitle 
+  {
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin: 0;
+    padding: 10px 0 0 0;
+    text-transform: uppercase;
+  }
+  #page-title .row {
+    margin: 0 15px;
+}
+.example-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
