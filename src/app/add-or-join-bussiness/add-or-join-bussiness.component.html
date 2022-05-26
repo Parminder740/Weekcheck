@@ -10,7 +10,7 @@
   }
 </style>
 
-<div id="container" class="wrap-content container fade-in-up ng-scope" ui-view="">
+<div id="container" class="wrap-content" >
 
 
       <div class="logo-title">
@@ -18,7 +18,7 @@
           <!--<span class="logo" style="font-family: Raleway; color:#333; font-size:18px;">Week Keeper</span>-->
       </div>
 
-  <form name="Form" id="form1" class="form-login" novalidate ng-submit="form.submit(Form)" ng-if="!showThankYou">
+  <form name="Form" id="form1" class="form-login" novalidate >
 
       <div class="row">
 
@@ -27,46 +27,48 @@
               <div class="registration-type-box">
                   <h4>Would you like to join a current business or create a new one?</h4>
 
-                  <div class="btn-group" data-toggle="buttons">
-                      <label class="btn btn-default" ng-class="{active: regtype == 'employee'}">
-                          <input name="regtypeopt" id="existingBusins" ng-click="setRegType('employee')" type="radio">
-                          <span class="ti-control-record input-default" ></span><span class="fa fa-dot-circle-o input-active"></span>
+                  <div class="btn-group" data-toggle="buttons" >
+                      <label class="btn btn-default" >
+                          <input name="regtypeopt" id="existingBusins" type="radio"  [checked]="true" (change)="select('je')">
+                          <span class="ti-control-record input-default" ></span>
                           <span class="label-text">Join Existing</span>
 
                       </label>
-                      <label class="btn btn-default" ng-class="{active: regtype == 'businessowner'}">
-                          <input name="regtypeopt" ng-click="setRegType('businessowner')" type="radio">
-                          <span class="ti-control-record input-default" ></span><span class="fa fa-dot-circle-o input-active"></span>
+                      <label class="btn btn-default" >
+                          <input name="regtypeopt"  type="radio" (change)="select('cnb')">
+                          <span class="ti-control-record input-default" ></span>
                           <span class="label-text">Create New Business</span>
                       </label>
                   </div>
 
                   <br />
                   <br />
-                  <div class="regtype-details-box" ng-if="regtype != ''">
-
-                      <div ng-if="regtype == 'employee'">
-                          <p style="margin: 5px 0 23px">
+                  <div class="regtype-details-box">
+                      <div class="business">
+                      <div *ngIf=" i == 'joinBussiness' ">
+                          <p  style="margin: 5px 0 23px">
                               Please enter the business code supplied by your employer.
                           </p>
-
-                          <input type="text" class="form-control" ng-required="true" name="businesscode" placeholder="Business Code" ng-model="businessModel.businessCode" />
+                          <div class="form-group" id="businessNameDiv" >
+                          <input type="text" class="form-control" name="businesscode" placeholder="Business Code"  />
                       </div>
-
-                      <div ng-if="regtype == 'businessowner'">
+                    </div>
+                      <div *ngIf=" i == 'newBussiness' ">
                           <p style="margin: 5px 0 23px">
                               Please input Business Name of your business:
                           </p>
-                          <div class="form-group" id="businessNameDiv" ng-class="{ 'has-error' : Form.businessname.$invalid && !Form.businessname.$pristine }">
-                              <input type="text" class="form-control" ng-required="true" name="businessname" placeholder="Business Name" ng-model="businessModel.name" />
+                          <div class="form-group" id="businessNameDiv" >
+                              <input type="text" class="form-control"  name="businessname" placeholder="Business Name" />
                           </div>
+
+                        </div>
                       </div>
 
-                  </div>
+                      <button id="bisunessSubmitBtn" routerLink="/sidenav" class="blue-col" mat-raised-button routerLink="sidenav">
+                        Submit
+                    </button>
 
-                  <button id="bisunessSubmitBtn" class="btn btn-light-wk login-btn" ng-if="regtype != ''">
-                      Submit
-                  </button>
+                  </div>
 
 
               </div>
@@ -79,11 +81,12 @@
 
   </form>
 
+  <!-- <br />
   <br />
   <br />
   <br />
   <br />
-  <br />
-  <br />
-      <div class="footer-copyright">2015 &copy; Week Check</div>
+  <br /> -->
+
 </div>
+<button routerLink="/sidenav">submit</button>

@@ -13,6 +13,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { SigninComponent } from './signin/signin.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,8 @@ import { LocationDetailsComponent } from './location-details/location-details.co
     LoginComponent,
     AddOrJoinBussinessComponent,
     SigninComponent,
-    LocationDetailsComponent
+    LocationDetailsComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,9 @@ import { LocationDetailsComponent } from './location-details/location-details.co
     BrowserAnimationsModule,
     MatDialogModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCheckboxModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

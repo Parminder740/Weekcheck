@@ -1,0 +1,42 @@
+.wrap-content
+{
+  text-align: center;
+  align-items: center;
+
+}
+.form-control
+{
+  width: 400px;
+}
+.form-group{
+  display: flex;
+  justify-content: center;
+}
+.business{
+  background-color: #f3f3f3;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: medium;
+  height: 170px;
+
+}
+.regtype-details-box{
+
+  display: flex;
+  justify-content: center;
+  display: inline-block;
+}
+.blue-col{
+  background-color:  #0280ba;
+  color: #f3f3f3;
+  margin-top: 25px;
+
+}
+
+#bisunessSubmitBtn{
+  float: right;
+}

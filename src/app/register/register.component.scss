@@ -10,3 +10,37 @@ button{
 .mat{
   float: right;
 }
+
+body {
+  background: #fff;
+}
+
+.main-content {
+  margin-left: 0;
+  margin-top: 0;
+}
+
+.main-login .login-box {
+  background: #f3f3f3 none repeat scroll 0 0;
+  border-radius: 10px;
+  margin: 20px auto 10px;
+  max-width: 100%;
+  padding: 38px 60px 30px;
+  width: 415px;
+}
+
+.login-box h4 {
+  color: #1c2b36;
+  font-size: 21px;
+  margin-bottom: 20px;
+  font-family: Raleway;
+}
+
+.input-icon > [class*="fa-"],
+.input-icon > [class*="ti-"] {
+  color: #0280ba;
+}
+.register{
+  background-color: #0280ba;
+  color: #f3f3f3;
+}

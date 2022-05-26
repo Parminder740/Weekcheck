@@ -35,8 +35,8 @@
                           <input type="password" id="password" name="password" class="form-control" ng-model="model.password" ng-minlength="6" required/>
                           <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span>
                       </div>
-                      <span class="help-block" ng-show="regForm.password.$error.required && !regForm.password.$pristine">Password is required</span>
-                      <span class="help-block" ng-show="regForm.password.$error.minlength && !regForm.password.$pristine">The password must be of minimum length 6 characters</span>
+                      <!-- <span class="help-block" ng-show="regForm.password.$error.required && !regForm.password.$pristine">Password is required</span>
+                      <span class="help-block" ng-show="regForm.password.$error.minlength && !regForm.password.$pristine">The password must be of minimum length 6 characters</span> -->
                   </div>
                   <div class="col-md-6 form-group" ng-class="{'has-error': regForm.confirmPassword.$error.match && !regForm.confirmPassword.$pristine}">
                       <label for="confirmPassword">Confirm Password</label>
@@ -44,16 +44,17 @@
                           <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" ng-model="model.confirmPassword" validate-equal="model.password" required/>
                           <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span>
                       </div>
-                      <span class="help-block" ng-show="regForm.confirmPassword.$error.match && !regForm.password.$pristine">Password mismatch</span>
+                      <!-- <span class="help-block" ng-show="regForm.confirmPassword.$error.match && !regForm.password.$pristine">Password mismatch</span> -->
                   </div>
 
               </div>
 
               <hr>
-
-              <button class="btn btn-light-wk login-btn" ng-disabled="regForm.$invalid">
+            <div >
+              <button class="btn btn-light-wk login-btn" ng-disabled="regForm.$invalid" routerLink="addorjoin">
                   Submit
               </button>
+            </div>
 
           </div>
           <!-- end comp registration box -->
