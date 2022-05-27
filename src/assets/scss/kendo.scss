@@ -1,0 +1,29 @@
+.has-error{
+  .k-state-focused{
+    border-color: danger;
+    -webkit-box-shadow: 0 0 7px 0 danger;
+    box-shadow: 0 0 7px 0 danger;
+  }
+}
+.has-success{
+  .k-state-focused{
+    border-color: success;
+    -webkit-box-shadow: 0 0 7px 0 success;
+    box-shadow: 0 0 7px 0 success;
+  }
+}
+.has-warning{
+  .k-state-focused{
+    border-color: warning;
+    -webkit-box-shadow: 0 0 7px 0 warning;
+    box-shadow: 0 0 7px 0 warning;
+  }
+}
+
+.k-overlay{
+  z-index: 1051 !important;
+}
+
+.k-window{
+  z-index: 1052 !important;
+}
