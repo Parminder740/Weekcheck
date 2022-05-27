@@ -25,9 +25,9 @@
                             <span class="input-icon">
 							<input type="email" class="form-control" name="email" placeholder="Email" ng-model="model.email" required ng-readonly="emailLocked"/>
 							<i class="fa fa-user"></i> </span>
-                            <span class="error text-small block" ng-if="formUtils.isFieldInError(Form.email)">Email is required.</span>
-                            <span class="error text-small block" ng-if="formUtils.isInvalidEmail(Form.email)">Please, enter a valid email address.</span>
-                            <span class="success text-small" ng-if="formUtils.isFieldValid(Form.email)">It's a valid e-mail!</span>
+                            <span class="error text-small block" *ngIf="formUtils.isFieldInError(Form.email)">Email is required.</span>
+                            <span class="error text-small block" *ngIf="formUtils.isInvalidEmail(Form.email)">Please, enter a valid email address.</span>
+                            <span class="success text-small" *ngIf="formUtils.isFieldValid(Form.email)">It's a valid e-mail!</span>
                         </div>-->
             <div class="form-group">
               <span class="input-icon">
@@ -43,8 +43,8 @@
                                 I forgot my password
                             </a> </span>
 
-                            <span class="error text-small block" ng-if="formUtils.isFieldInError(Form.password)">Password is required.</span>
-                            <span class="success text-small block" ng-if="formUtils.isFieldValid(Form.password)">Ok!</span>
+                            <span class="error text-small block" *ngIf="formUtils.isFieldInError(Form.password)">Password is required.</span>
+                            <span class="success text-small block" *ngIf="formUtils.isFieldValid(Form.password)">Ok!</span>
                         </div>-->
             <div class="form-group">
               <span class="input-icon"></span>

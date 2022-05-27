@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BussinessSetupComponent } from './bussiness-setup.component';
+import { BussinessSetComponent } from './bussiness-set.component';
 
-describe('BussinessSetupComponent', () => {
-  let component: BussinessSetupComponent;
-  let fixture: ComponentFixture<BussinessSetupComponent>;
+describe('BussinessSetComponent', () => {
+  let component: BussinessSetComponent;
+  let fixture: ComponentFixture<BussinessSetComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BussinessSetupComponent ]
+      declarations: [ BussinessSetComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BussinessSetupComponent);
+    fixture = TestBed.createComponent(BussinessSetComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

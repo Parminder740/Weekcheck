@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-bussiness-setup',
-  templateUrl: './bussiness-setup.component.html',
-  styleUrls: ['./bussiness-setup.component.scss']
+  selector: 'app-bussiness-set',
+  templateUrl: './bussiness-set.component.html',
+  styleUrls: ['./bussiness-set.component.scss']
 })
-export class BussinessSetupComponent implements OnInit {
-task:any='setup.view.basic'
-  constructor() { }
+export class BussinessSetComponent implements OnInit {
 
+  constructor() { }
+task:any='setup.view.basic'
   ngOnInit(): void {
   }
   submitForm(v:any){
@@ -23,5 +23,4 @@ task:any='setup.view.basic'
     console.log(this.task)
 
   }
-
 }

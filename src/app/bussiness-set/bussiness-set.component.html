@@ -29,10 +29,13 @@
   #status-buttons a:hover,
   #status-buttons a.active {
       text-decoration: none;
-      color: #0280ba
+      color: #0280ba ;
+    
+
   }
 
   #status-buttons span {
+
       background: #080808;
       display: block;
       height: 30px;
@@ -41,6 +44,10 @@
       width: 30px;
       border-radius: 50%;
       color: #fff
+  }
+  #status-buttons span:hover {
+    background-color: #0280ba;
+    color: #fff
   }
   /* active buttons */
 
@@ -136,9 +143,9 @@
 
 <div id="container" class="setup-view wrap-content container fade-in-up ng-scope">
 
-  <div style="margin-top:-20px">
+  <div style="margin-top:30px">
       <div class="logo-title">
-          <img ng-src="assets/images/weekcheck-logo-w_small.png" style="width:75px;margin-top: 30px" />
+          <img src="assets/images/weekcheck-logo-w_small.png" style="width:75px;margin-top: 30px" />
       </div>
    </div>
 
@@ -174,7 +181,7 @@
               </div>
               <div id="form-views" ui-view>
 
-<div *ngIf="task == 'setup.view.basic' ">
+<div *ngIf=" task == 'setup.view.basic' " >
 	<h3>Location Details</h3>
 
 	<p>Please fill out some basic information about your location to help us get your business set up correctly.</p>
@@ -188,6 +195,12 @@
           <input name="name" class="form-control" type="text" required />
       <!-- </text-container> -->
     </div>
+    <div class="col-sm-4">
+
+      <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
+        <label>Week start</label>
+        <input name="weekstart" class="form-control"  type="text" required />
+        </div>
     <!-- <div class="col-sm-4">
     	<text-container input="weekday" label="Week Start" error="Week Start is required">
             <ui-select name="weekday" ng-model="model.weekday" required>
@@ -212,7 +225,14 @@
       <!-- </text-container> -->
     </div>
     <div class="col-sm-4">
-      <ng-container input="state" label="State" error="State is required">
+
+      <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
+
+
+        <label>State</label>
+        <input name="state" class="form-control"  type="text" required />
+        </div>
+    <!-- <div class="col-sm-4"> -->
           <!-- <ng-select name="state" ng-model="model.state" on-select="onStateChange($item)" required>
               <ng-select-match placeholder="Select...">
                   {{$select.selected.abbreviation}} -->
@@ -224,8 +244,7 @@
                   </small> -->
               <!-- </ng-select-choices> -->
           <!-- </ng-select> -->
-      </ng-container>
-   </div>
+   <!-- </div> -->
 </div>
 <div class="row">
 	<div class="col-sm-8">
@@ -235,18 +254,31 @@
       <!-- </text-container> -->
     </div>
     <div class="col-sm-4">
+
       <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
-        <label>Week start</label>
-        <input name="weekstart" class="form-control"  type="text" required />
+
+
+
+
+        <label>Zip code</label>
+        <input name="zip" class="form-control"  type="text" required />
+
    </div>
+
+
+   <div class="col-sm-4">
+    <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
+      <!-- <label>State</label>
+        <input name="state" class="form-control"  type="text" required /> -->
+    <!-- </text-container> -->
+ </div>
     <div class="col-sm-4">
       <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
-        <label>Zip code</label>
-          <input name="zip" class="form-control"  type="text" required />
+        <!-- <label>Zip code</label>
+          <input name="zip" class="form-control"  type="text" required /> -->
       <!-- </text-container> -->
    </div>
 </div>
-<div ng-init="setForm(Form);"></div>
 </form>
 <div class="row" style="padding-bottom:0">
 	<div class="col-sm-12" style="text-align:center;">
@@ -254,10 +286,9 @@
 	<a  class="btn btn-dark-azure">
     Next <span class="fa fa-arrow-right"></span>
     </a>
-    </div>
 </div>
 
-
+</div>
 
 </div>
 
@@ -270,41 +301,41 @@
 
 <div class="row">
   <div class="col-sm-8">
-      <form name="RoleForm" id="form1" novalidate ng-submit="form.submit(Form)">
+      <form name="RoleForm" id="form1" novalidate >
 
-          <div class="form-group" id="shiftRoleDiv" ng-class="{ 'has-error' : Form.name.$invalid && !Form.name.$pristine }">
-              Name : <input name="name" class="form-control" type="text" ng-model="model.roleName" ng-required="true" />
+          <div class="form-group" id="shiftRoleDiv" >
+              Name : <input name="name" class="form-control" type="text"  />
           </div>
       </form>
   </div>
   <div class="col-sm-4">
       <br />
-      <button id="addShiftRoleId" class="btn btn-dark-azure btn-o" ng-click="addRole(RoleForm)" style="margin-top:5px"><span>Add Shift Role</span> <i class="ti-add">+</i></button>
+      <button id="addShiftRoleId" class="btn btn btn-o"  style="margin-top:5px; background-color: #fff; color:#0280ba; border: 1px solid #0280ba;"><span>Add Shift Role</span> <i class="ti-add">+</i></button>
   </div>
 </div>
 
 <div class="row">
   <div class="col-sm-12">
       <ul class="itemslist">
-          <li ng-repeat="shiftRole in businessroles" ng-class="$even?'odd':'even'">
+          <li >
               <div class="row" style="padding-bottom: 0;">
                   <div class="col-md-9">
                       <span editable-text="shiftRole.name" e-form="rowform" e-name="name" onbeforesave="validateName($data)" e-placeholder="Enter shift role name" style="line-height:33px"></span>
                   </div>
                   <div class="col-md-3 text-right">
 
-                      <form editable-form name="rowform" onbeforesave="saveShiftRole($data, shiftRole)" ng-show="rowform.$visible" class="form-buttons form-inline" style="margin:0px">
-
-                          <span class="ti-save" title="Save" ng-disabled="rowform.$waiting" ng-click="rowform.$submit()"></span>
-                          <span class="ti-na" title="Cancel" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"></span>
+                      <form editable-form name="rowform"   class="form-buttons form-inline" style="margin:0px">
+                        <!-- <span class="material-icons">edit</span> -->
+                          <span class="material-icons" title="Save" >edit</span>
+                          <span class="material-icons" title="Cancel" style="margin-left: 4px">delete</span>
 
                       </form>
-                      <div class="buttons form-buttons" ng-show="!rowform.$visible">
-                          <button class="btn btn-default" title="Edit" ng-click="rowform.$show()">
+                      <div class="buttons form-buttons" >
+                          <button class="btn btn-default" title="Edit" >
                         <span class="ti-pencil-alt"></span>
                         </button>
 
-                          <button class="btn btn-default" ng-click="deleteBusinessRole(shiftRole)">
+                          <button class="btn btn-default">
                         <span class="ti-trash"></span>
                         </button>
                       </div>
@@ -317,45 +348,47 @@
 
 <div class="row" style="padding-bottom:0">
   <div class="col-sm-12" style="text-align:center;">
-      <a ng-click="submitForm('setup.view.basic')" class="btn btn-dark-azure">
+      <a  class="btn btn-dark-azure">
           <span class="fa fa-arrow-left"></span> Prev
       </a>
-      <a ng-click="submitForm('setup.view.payment')" class="btn btn-dark-azure">
+      <a  class="btn btn-dark-azure" style="margin-left: 5px">
   Next <span class="fa fa-arrow-right"></span>
   </a>
   </div>
 </div>
 </div>
- <div *ngIf=" task == 'setup.view.payment' ">
-<div class="row" ng-show="!isPayed">
+ <div *ngIf="task == 'setup.view.payment'">
+<div class="row" >
   <div class="col-md-4">
       <strong>Please, choose the plan that works for you.</strong>
+      <input name="weekstart" class="form-control"  type="text" required />
 
   </div>
+  <div >
   <div class="col-md-4">
       <div class="form-group row no-padding">
-          <label class="col-sm-6">Name: </label> <strong><span ng-if="selectedPlan.isTrial">(Trial)</span></strong>
+          <label class="col-sm-6">Name: </label> <strong><span>(Trial)</span></strong>
       </div>
       <div class="form-group row no-padding">
           <label class="col-sm-6">Max employees: </label> <strong></strong>
       </div>
       <div class="form-group row no-padding">
-          <label class="col-sm-6">Price: </label> <strong ng-if="!selectedPlan.isTrial"></strong><strong ng-if="selectedPlan.isTrial">USD$ 0</strong>
+          <label class="col-sm-6">Price: </label> <strong ></strong><strong >USD$ 0</strong>
       </div>
   </div>
-  <div class="row" ng-if="selectedPlan.isTrial">
+  <div class="row" >
       <div class="col-md-8 col-md-offset-4">
           You have up to 9 employees trial for 30 days. After that time you have to make payment for the needed subscription plan
       </div>
   </div>
-  <div class="col-md-8 col-md-offset-4" style="padding-left: 30px;" ng-show="selectedPlan != null">
+  <div class="col-md-8 col-md-offset-4" style="padding-left: 30px;">
       <div class="form-group">
           <label>
-                  <input type="checkbox" ng-model="model.isHaveCupon"> I have a coupon
+                  <input type="checkbox" > I have a coupon
           </label>
       </div>
 
-      <div class="form-group" ng-if="model.isHaveCupon">
+      <div class="form-group">
 
 
               <form name="myform">
@@ -363,71 +396,74 @@
               <div class="col-md-5">
                   <div class="input-group">
                       <span class="input-group-addon"><i class="fa fa-scissors" aria-hidden="true"></i></span>
-                      <input type="text" ng-required="true" class="form-control" ng-model="couponcode" ng-readonly="isCheckCouponcode">
+                      <input type="text" class="form-control">
                   </div>
               </div>
-              <div class="col-md-4" ng-show="dis" >
-                  <button class="btn btn-dark-azure" ng-click=" myform.$valid && checkCouponCode(couponcode)"><i class="fa fa-search" aria-hidden="true"></i> Check coupon</button>
+              <div class="col-md-4" >
+                  <button class="btn btn-dark-azure" ><i class="fa fa-search" aria-hidden="true"></i> Check coupon</button>
               </div>
           </div>
 
       </form>
       </div>
   </div>
-  <div class="col-md-offset-4 col-md-8" style="padding-left: 30px;" ng-show="selectedPlan != null">
-      <form name="forum" novalidate ng-submit="form.submit(forum)">
+  <div class="container">
+  <div class="col-md-offset-4 col-md-8" style="padding-left: 30px;" >
+      <form name="forum" novalidate >
           <div class="form-group">
               <span class="help-block text-muted small-font">
                       Please input card details.You will be charged automatically after trial ends. You also will be able to update your subscription plan and to input other card details before the trial ends.
-              </span>
+              </span><br><br>
               <div class="input-group col-md-5">
-                  <span class="input-group-addon"><i class="fa fa-credit-card" aria-hidden="true"></i></span>
-                  <input type="credit card" name="number" class="form-control" placeholder="Enter Card Number" ng-model="card.number" minlength="19" maxlength="19" required />
+                  <span class="input-group-addon"><i  aria-hidden="true"></i></span>
+                  <div class="material-icons" style="margin-top: 7px; background-color:rgba(0, 0, 255, 0.822); color: white; border-bottom-left-radius: 3px; border-top-left-radius: 3px; padding: 10px;">credit_card</div><input type name="number" class="form-control" placeholder="Enter Card Number"  minlength="19" maxlength="19" required />
               </div>
-          </div>
+          </div><br>
           <div class="row ">
               <div class="col-md-3 col-sm-3 col-xs-3">
                   <span class="help-block text-muted small-font">Expiry Month</span>
                   <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                      <input type="text" name="exp_month" class="form-control" placeholder="MM" ng-model="card.exp_month" minlength="2" maxlength="2" min="1" max="12" required />
+                      <span class="input-group-addon"><i  style="margin-top: 7px; background-color:rgba(0, 0, 255, 0.822); color: white; border-bottom-left-radius: 3px; border-top-left-radius: 3px; padding: 10px;"class="fa fa-clock-o" aria-hidden="true"></i></span>
+                      <input type="text" name="exp_month" class="form-control" placeholder="MM"minlength="2" maxlength="2" min="1" max="12" required />
                   </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3">
                   <span class="help-block text-muted small-font">Expiry Year</span>
                   <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                      <input type="text" name="exp_year" class="form-control" placeholder="YY" ng-model="card.exp_year" minlength="2" maxlength="2"  required />
+                      <span class="input-group-addon"><i  style="margin-top: 7px; background-color:rgba(0, 0, 255, 0.822); color: white; border-bottom-left-radius: 3px; border-top-left-radius: 3px; padding: 10px;" class="fa fa-clock-o" aria-hidden="true"></i></span>
+                      <input type="text" name="exp_year" class="form-control" placeholder="YY"  minlength="2" maxlength="2"  required />
                   </div>
               </div>
               <div class="col-md-3 col-sm-3 col-xs-3">
                   <span class="help-block text-muted small-font">CCV</span>
                   <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                      <input type="ccv" name="cvc" class="form-control" placeholder="CCV" ng-model="card.cvc" minlength="3" maxlength="3" required />
+                      <span class="input-group-addon"><i  style="margin-top: 7px; background-color:rgba(0, 0, 255, 0.822); color: white; border-bottom-left-radius: 3px; border-top-left-radius: 3px; padding: 10px;" class="fa fa-lock" aria-hidden="true"></i></span>
+                      <input type="ccv" name="cvc" class="form-control" placeholder="CCV" minlength="3" maxlength="3" required />
                   </div>
               </div>
           </div>
-          <div ng-if="selectedPlan != null" ng-init="setForm(forum);"></div>
+          <div ></div>
       </form>
   </div>
 </div>
-<div class="row" ng-show="isPayed">
+</div>
+<div class="row">
   <div class="text-center" style="margin-bottom: 100px;margin-top: 30px;">
       <i class="fa fa-4x fa-handshake-o" aria-hidden="true"></i>
       <h2>Thank you!</h2>
-      <div>You are subscripted to the <strong> <span ng-if="selectedPlan.isTrial">(Trial)</span></strong> success</div>
+      <div>You are subscripted to the <strong> <span>(Trial)</span></strong> success</div>
   </div>
 </div>
-<div class="row" ng-show="selectedPlan != null">
+<div class="row">
   <div class="col-sm-12" style="text-align:center;">
-      <a ng-click="submitForm('setup.view.roles')" class="btn btn-dark-azure">
+      <a  class="btn btn-dark-azure">
           <span class="fa fa-arrow-left"></span> Prev
       </a>
-      <a ng-click="submitForm('setup.view.employees')" class="btn btn-dark-azure">
+      <a class="btn btn-dark-azure" style="margin-left: 5px">
   Next <span class="fa fa-arrow-right"></span>
   </a>
   </div>
+</div>
 </div>
 </div>
  <div *ngIf=" task== 'setup.view.complete' ">
@@ -474,10 +510,10 @@
 
 <div class="row" style="padding-bottom:0">
   <div class="col-sm-12" style="text-align:center;">
-      <a ng-click="submitForm('app.dashboard.main')" class="btn btn-dark-azure" ng-if="businessroles.length > 0">
+      <a class="btn btn-dark-azure">
   Start Schedule <span class="fa fa-arrow-right"></span>
   </a>
-      <div ng-if="businessroles.length == 0">
+      <div >
           <br><br> You're almost ready to start scheduling! Please add at least one shift role for your business in order to proceed.
           <br><br>
           <a ui-sref="setup.view.roles" class="btn btn-dark-azure">
@@ -498,7 +534,7 @@
   <div class="col-sm-12">
       <span style="color:#1C2B36; padding-right:35px">Current Number of Employees: <strong></strong></span>
 
-      <a ng-click="addEmployee()" class="btn btn-dark-wk" ng-disabled="$scope.business.maxEmployees >= businessEmployees.length">
+      <a class="btn btn-dark-wk">
              Add <span class="fa fa-user"></span>
           </a>
   </div>
@@ -522,11 +558,11 @@
       </div>
 
       <ul class="itemslist">
-          <li ng-repeat="employee in businessEmployees track by $index" ng-class="$even?'odd':'even'">
+          <li >
 
               <div class="row" style="padding-top:5px; padding-bottom:5px">
                   <div class="col-sm-4" style="padding-top:8px;">
-                      <i class="fa fa-user"></i> <span ng-if="employee.middleInitial"></span>
+                      <i class="fa fa-user"></i> <span ></span>
                   </div>
 
               </div>
@@ -539,11 +575,11 @@
 
 <div class="row" style="padding-bottom:0">
   <div class="col-sm-12" style="text-align:center;">
-      <a ng-click="submitForm('setup.view.payment')" class="btn btn-dark-azure">
-          <span class="fa fa-arrow-left"></span> Prev
+      <a class="btn btn-dark-azure">
+          <span class="fa fa-arrow-left" ></span> Prev
       </a>
-      <a ng-click="submitForm('setup.view.complete')" class="btn btn-dark-azure">
-  Next <span class="fa fa-arrow-right"></span>
+      <a  class="btn btn-dark-azure" style="margin-left: 5px">
+  Next <span class="fa fa-arrow-right" ></span>
   </a>
   </div>
 </div>
