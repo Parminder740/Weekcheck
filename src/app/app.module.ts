@@ -3,20 +3,25 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { BussinessSetComponent } from './bussiness-set/bussiness-set.component';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmployeesComponent } from './employees/employees.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
 import { LoginComponent } from './login/login.component';
 import { MatButtonModule } from '@angular/material/button';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from "@angular/material/sidenav";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
-import { BussinessSetComponent } from './bussiness-set/bussiness-set.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +33,7 @@ import { BussinessSetComponent } from './bussiness-set/bussiness-set.component';
     LocationDetailsComponent,
     DashboardComponent,
     BussinessSetComponent,
+    EmployeesComponent,
   ],
   imports: [
    BrowserModule,
@@ -39,7 +45,12 @@ import { BussinessSetComponent } from './bussiness-set/bussiness-set.component';
     CommonModule,
     MatCheckboxModule,
     MatToolbarModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatSidenavModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
