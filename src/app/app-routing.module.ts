@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
+import { EmployeesComponent } from './employees/employees.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "addorjoin", component: AddOrJoinBussinessComponent },
   { path: "location-details", component: LocationDetailsComponent },
-  { path: "BussinessSetup", component: BussinessSetupComponent}
+  { path: "business-setup", component: BussinessSetupComponent},
+  { path: "employees", component: EmployeesComponent}
 ];
 
 @NgModule({

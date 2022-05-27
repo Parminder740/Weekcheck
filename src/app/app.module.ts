@@ -6,17 +6,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LocationDetailsComponent } from './location-details/location-details.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { LoginComponent } from './login/login.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
+import { EmployeesComponent } from './employees/employees.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import { SigninComponent } from './signin/signin.component';
     SigninComponent,
     LocationDetailsComponent,
     DashboardComponent,
+    EmployeesComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,11 @@ import { SigninComponent } from './signin/signin.component';
     MatIconModule,
     MatCheckboxModule,
     MatToolbarModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

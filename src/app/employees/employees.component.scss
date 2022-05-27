@@ -1,0 +1,63 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+.header{
+  height: 100px;
+}
+.header-title
+{
+  font-size: xx-large;
+}
+.btn btn-dark-wk
+{
+  background-color: black;
+}
+.col-md-3{
+  margin-top: 15px;
+  padding-left: 55px;
+}
+.btn-emp{
+  background-color: black;
+  color: aliceblue;
+  margin: 10px;
+  font-size: medium;
+}
+.btn-req{background-color: black;
+  color: aliceblue;
+  font-size: medium;
+}
+.col-md-6{
+  margin-top: 20px;
+  padding-left: 5px;
+  display: flex;
+}
+.col-md-7{
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+  color: #333;
+  display: flex;
+  text-align: right;
+  clear: both;
+}
+.dropsection-link{
+margin-left: 20px;
+color: #0d6efd;
+}
+.btn btn-dark-azure{
+  margin-left: 10px;
+}
+.input-box
+{
+  margin-top: 30px;
+  margin-right: 40px;
+
+}
+.inp-rol{
+  height: 30px;
+  width: 500px;
+  margin-top: 20px;
+  padding-left: 30px;
+}
+mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
