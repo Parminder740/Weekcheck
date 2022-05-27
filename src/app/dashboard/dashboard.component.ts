@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  panelOpenState = false;
   showFiller = false;
+  logo:boolean=true
   constructor() { }
 
   ngOnInit(): void {
   }
-
+onClick(){
+this.logo=!this.logo
+}
 }
