@@ -19,7 +19,7 @@ import { ReportsComponent } from './reports/reports.component';
   ],
   imports: [
     CommonModule,
-    BussinessAdminRoutingModule,
+    BussinessAdminRoutingModule, 
   ]
 })
 export class BussinessAdminModule { }
