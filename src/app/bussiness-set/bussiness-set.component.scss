@@ -1,10 +1,36 @@
-h1{
+h1 {
   text-align: center;
 }
-.logo-title{
+
+.logo-title {
   text-align: center;
 }
-.btn{
+
+.btn {
   color: white;
 }
 
+.material-icons {
+  background-color: rgba(0, 81, 255, 0.822);
+  color: white;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  padding: 10px;
+}
+
+.clock{
+  background-color: rgba(0, 81, 255, 0.822);
+  color: white;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  padding: 10px;
+}
+
+.creditcard
+{
+display: flex;
+}
+.row{
+  
+  flex-wrap: nowrap;
+}

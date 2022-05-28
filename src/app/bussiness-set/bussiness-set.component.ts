@@ -9,12 +9,15 @@ export class BussinessSetComponent implements OnInit {
 
   constructor() { }
 task:any='setup.view.basic'
+toggle:boolean=false
   ngOnInit(): void {
   }
   submitForm(v:any){
     console.log(v)
+    this.toggle=!this.toggle
     switch(v){
-      case  'setup.view.basic': this.task ='setup.view.basic'; break;
+
+      case  'setup.view.basic': this.task ='setup.view.basic' ;  break;
       case  'setup.view.roles': this.task ='setup.view.roles'; break;
       case  'setup.view.payment': this.task ='setup.view.payment'; break;
       case  'setup.view.employees': this.task ='setup.view.employees'; break;
@@ -23,4 +26,5 @@ task:any='setup.view.basic'
     console.log(this.task)
 
   }
+
 }

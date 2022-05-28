@@ -1,207 +1,225 @@
 <style>
   body {
-      background: #fff;
+    background: #fff;
   }
 
   .main-content {
-      margin-left: 0;
-      margin-top: 0;
+    margin-left: 0;
+    margin-top: 0;
   }
 
   .glyphicon-remove::before {
-      content: "" !important;
+    content: "" !important;
   }
+
   /* BASIC STYLINGS
 ============================================================================= */
   /* numbered buttons */
 
-
+  #status-buttons  .black span{
+  background-color: #0280ba  ;
+    color: #fff
+}
 
   #status-buttons a {
-      color: #080808;
-      display: inline-block;
-      font-size: 12px;
-      margin-right: 10px;
-      text-align: center;
-      text-transform: uppercase;
+    color: #080808;
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 10px;
+    text-align: center;
+    text-transform: uppercase;
   }
 
   #status-buttons a:hover,
   #status-buttons a.active {
-      text-decoration: none;
-      color: #0280ba ;
-    
+    text-decoration: none;
+    color: #0280ba;
+
 
   }
 
   #status-buttons span {
 
-      background: #080808;
-      display: block;
-      height: 30px;
-      margin: 0 auto 10px;
-      padding-top: 7px;
-      width: 30px;
-      border-radius: 50%;
-      color: #fff
-  }
-  #status-buttons span:hover {
-    background-color: #0280ba;
+    background: #080808;
+    display: block;
+    height: 30px;
+    margin: 0 auto 10px;
+    padding-top: 7px;
+    width: 30px;
+    border-radius: 50%;
     color: #fff
   }
+
+  #status-buttons span:hover {
+    background-color: #0280ba  ;
+    color: #fff
+  }
+
+
   /* active buttons */
 
   #status-buttons a.active span {
-      background: #0280ba;
+    background: #0280ba;
   }
+
   /* ANIMATION STYLINGS
 ============================================================================= */
 
   #signup-form {
-      position: relative;
-      min-height: 300px;
-      overflow: hidden;
-      padding: 30px;
+    position: relative;
+    min-height: 300px;
+    overflow: hidden;
+    padding: 30px;
   }
+
   /* basic styling for entering and leaving */
   /* left and right added to ensure full width */
 
   #form-views.ng-enter,
   #form-views.ng-leave {
-      position: absolute;
-      left: 30px;
-      right: 30px;
-      transition: 0.5s all ease;
-      -moz-transition: 0.5s all ease;
-      -webkit-transition: 0.5s all ease;
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
   }
+
   /* enter animation */
 
   #form-views.ng-enter {
-      -webkit-animation: slideInRight 0.5s both ease;
-      -moz-animation: slideInRight 0.5s both ease;
-      animation: slideInRight 0.5s both ease;
+    -webkit-animation: slideInRight 0.5s both ease;
+    -moz-animation: slideInRight 0.5s both ease;
+    animation: slideInRight 0.5s both ease;
   }
+
   /* leave animation */
 
   #form-views.ng-leave {
-      -webkit-animation: slideOutLeft 0.5s both ease;
-      -moz-animation: slideOutLeft 0.5s both ease;
-      animation: slideOutLeft 0.5s both ease;
+    -webkit-animation: slideOutLeft 0.5s both ease;
+    -moz-animation: slideOutLeft 0.5s both ease;
+    animation: slideOutLeft 0.5s both ease;
   }
+
   /* ANIMATIONS
 ============================================================================= */
   /* slide out to the left */
 
   @keyframes slideOutLeft {
-      to {
-          transform: translateX(-200%);
-      }
+    to {
+      transform: translateX(-200%);
+    }
   }
 
   @-moz-keyframes slideOutLeft {
-      to {
-          -moz-transform: translateX(-200%);
-      }
+    to {
+      -moz-transform: translateX(-200%);
+    }
   }
 
   @-webkit-keyframes slideOutLeft {
-      to {
-          -webkit-transform: translateX(-200%);
-      }
+    to {
+      -webkit-transform: translateX(-200%);
+    }
   }
+
   /* slide in from the right */
 
   @keyframes slideInRight {
-      from {
-          transform: translateX(200%);
-      }
-      to {
-          transform: translateX(0);
-      }
+    from {
+      transform: translateX(200%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
   }
 
   @-moz-keyframes slideInRight {
-      from {
-          -moz-transform: translateX(200%);
-      }
-      to {
-          -moz-transform: translateX(0);
-      }
+    from {
+      -moz-transform: translateX(200%);
+    }
+
+    to {
+      -moz-transform: translateX(0);
+    }
   }
 
   @-webkit-keyframes slideInRight {
-      from {
-          -webkit-transform: translateX(200%);
-      }
-      to {
-          -webkit-transform: translateX(0);
-      }
+    from {
+      -webkit-transform: translateX(200%);
+    }
+
+    to {
+      -webkit-transform: translateX(0);
+    }
   }
+
 </style>
 
 
 <div id="container" class="setup-view wrap-content container fade-in-up ng-scope">
 
   <div style="margin-top:30px">
-      <div class="logo-title">
-          <img src="assets/images/weekcheck-logo-w_small.png" style="width:75px;margin-top: 30px" />
-      </div>
-   </div>
+    <div class="logo-title">
+      <img src="assets/images/weekcheck-logo-w_small.png" style="width:75px;margin-top: 30px" />
+    </div>
+  </div>
 
   <div class="row">
 
-      <div class="col-md-12">
+    <div class="col-md-12">
 
-          <div class="complete-registration-box">
+      <div class="complete-registration-box">
 
-              <h1 style="margin: 35px 0 15px;">Business Setup</h1>
-
-          </div>
-          <!-- end comp registration box -->
-
+        <h1 style="margin: 35px 0 15px;">Business Setup</h1>
 
       </div>
+      <!-- end comp registration box -->
+
+
+    </div>
 
   </div>
   <!-- end row -->
 
   <div class="row">
-      <div class="col-md-12">
+    <div class="col-md-12">
 
-          <div id="form-container">
-              <div class="page-header text-center" style="padding-top:0; margin-top:0">
-                  <div id="status-buttons" class="text-center">
-                      <a (click)="submitForm('setup.view.basic')"><span>1</span> Location</a>
-                      <a (click)="submitForm('setup.view.roles')"><span>2</span> Shift Roles</a>
-                      <a (click)="submitForm('setup.view.payment')"><span>3</span> Payment Information</a>
-                      <a (click)="submitForm('setup.view.employees')"><span>4</span> Employees</a>
-                      <a (click)="submitForm('setup.view.complete')"><span>5</span> Getting Started</a>
-                  </div>
-              </div>
-              <div id="form-views" ui-view>
-
-<div *ngIf=" task == 'setup.view.basic' " >
-	<h3>Location Details</h3>
-
-	<p>Please fill out some basic information about your location to help us get your business set up correctly.</p>
-
-
-<form name="Form" id="form1" novalidate >
-<div class="row" style="padding-bottom:0">
-	<div class="col-sm-8">
-      <!-- <text-container input="name" label="Name" error="Name is required"> -->
-        <label>Name</label>
-          <input name="name" class="form-control" type="text" required />
-      <!-- </text-container> -->
-    </div>
-    <div class="col-sm-4">
-
-      <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
-        <label>Week start</label>
-        <input name="weekstart" class="form-control"  type="text" required />
+      <div id="form-container">
+        <div class="page-header text-center" style="padding-top:0; margin-top:0">
+          <div id="status-buttons" class="text-center">
+            <a (click)="submitForm('setup.view.basic')" [ngClass]="{'black' : toggle} "><span>1</span> Location  </a>
+            <a (click)="submitForm('setup.view.roles')"><span>2</span> Shift Roles</a>
+            <a (click)="submitForm('setup.view.payment')"><span>3</span> Payment Information</a>
+            <a (click)="submitForm('setup.view.employees')"><span>4</span> Employees</a>
+            <a (click)="submitForm('setup.view.complete')"><span>5</span> Getting Started</a>
+          </div>
         </div>
-    <!-- <div class="col-sm-4">
+        <div id="form-views" ui-view>
+
+          <div *ngIf=" task == 'setup.view.basic' " id="blue">
+            <h3>Location Details</h3>
+
+            <p>Please fill out some basic information about your location to help us get your business set up correctly.
+            </p>
+
+
+            <form name="Form" id="form1" novalidate>
+              <div class="row" style="padding-bottom:0">
+                <div class="col-sm-8">
+                  <!-- <text-container input="name" label="Name" error="Name is required"> -->
+                  <label>Name</label>
+                  <input name="name" class="form-control" type="text" required />
+                  <!-- </text-container> -->
+                </div>
+                <div class="col-sm-4">
+
+                  <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
+                  <label>Week start</label>
+                  <input name="weekstart" class="form-control" type="text" required />
+                </div>
+                <!-- <div class="col-sm-4">
     	<text-container input="weekday" label="Week Start" error="Week Start is required">
             <ui-select name="weekday" ng-model="model.weekday" required>
                 <ui-select-match placeholder="Select...">
@@ -213,382 +231,415 @@
             </ui-select>
         </text-container>
     </div> -->
-</div>
-<div class="row" style="padding-bottom:0">
-	<div class="col-sm-8">
-      <!-- <text-container input="address" label="Address" error="Address is required"> -->
-        <label>Address</label>
-          <input name="address" class="form-control" type="text" required />
+              </div>
+              <div class="row" style="padding-bottom:0">
+                <div class="col-sm-8">
+                  <!-- <text-container input="address" label="Address" error="Address is required"> -->
+                  <label>Address</label>
+                  <input name="address" class="form-control" type="text" required />
 
-            <!-- </text-container> -->
+                  <!-- </text-container> -->
 
-      <!-- </text-container> -->
-    </div>
-    <div class="col-sm-4">
+                  <!-- </text-container> -->
+                </div>
+                <div class="col-sm-4">
 
-      <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
+                  <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
 
 
-        <label>State</label>
-        <input name="state" class="form-control"  type="text" required />
-        </div>
-    <!-- <div class="col-sm-4"> -->
-          <!-- <ng-select name="state" ng-model="model.state" on-select="onStateChange($item)" required>
+                  <label>State</label>
+                  <input name="state" class="form-control" type="text" required />
+                </div>
+                <!-- <div class="col-sm-4"> -->
+                <!-- <ng-select name="state" ng-model="model.state" on-select="onStateChange($item)" required>
               <ng-select-match placeholder="Select...">
                   {{$select.selected.abbreviation}} -->
-              <!-- </ng-select-match> -->
-              <!-- <ng-select-choices repeat="state in states | filter: $select.search"> -->
-                  <!-- <div class="ui-select-item-primary" ng-bind-html="state.abbreviation | highlight: $select.search"></div> -->
-                  <!-- <small>
+                <!-- </ng-select-match> -->
+                <!-- <ng-select-choices repeat="state in states | filter: $select.search"> -->
+                <!-- <div class="ui-select-item-primary" ng-bind-html="state.abbreviation | highlight: $select.search"></div> -->
+                <!-- <small>
                       <span class="ui-select-item-secondary" ng-bind-html="state.name | highlight: $select.search" />
                   </small> -->
-              <!-- </ng-select-choices> -->
-          <!-- </ng-select> -->
-   <!-- </div> -->
-</div>
-<div class="row">
-	<div class="col-sm-8">
-      <!-- <text-container input="city" label="City" error="City is required"> -->
-        <label>City</label>
-          <input name="city" class="form-control" type="text"  required />
-      <!-- </text-container> -->
-    </div>
-    <div class="col-sm-4">
+                <!-- </ng-select-choices> -->
+                <!-- </ng-select> -->
+                <!-- </div> -->
+              </div>
+              <div class="row">
+                <div class="col-sm-8">
+                  <!-- <text-container input="city" label="City" error="City is required"> -->
+                  <label>City</label>
+                  <input name="city" class="form-control" type="text" required />
+                  <!-- </text-container> -->
+                </div>
+                <div class="col-sm-4">
 
-      <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
-
-
+                  <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
 
 
-        <label>Zip code</label>
-        <input name="zip" class="form-control"  type="text" required />
-
-   </div>
 
 
-   <div class="col-sm-4">
-    <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
-      <!-- <label>State</label>
+                  <label>Zip code</label>
+                  <input name="zip" class="form-control" type="text" required />
+
+                </div>
+
+
+                <div class="col-sm-4">
+                  <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
+                  <!-- <label>State</label>
         <input name="state" class="form-control"  type="text" required /> -->
-    <!-- </text-container> -->
- </div>
-    <div class="col-sm-4">
-      <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
-        <!-- <label>Zip code</label>
+                  <!-- </text-container> -->
+                </div>
+                <div class="col-sm-4">
+                  <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
+                  <!-- <label>Zip code</label>
           <input name="zip" class="form-control"  type="text" required /> -->
-      <!-- </text-container> -->
-   </div>
-</div>
-</form>
-<div class="row" style="padding-bottom:0">
-	<div class="col-sm-12" style="text-align:center;">
+                  <!-- </text-container> -->
+                </div>
+              </div>
+            </form>
+            <div class="row" style="padding-bottom:0">
+              <div class="col-sm-12" style="text-align:center;">
 
-	<a  class="btn btn-dark-azure">
-    Next <span class="fa fa-arrow-right"></span>
-    </a>
-</div>
+                <a class="btn btn-dark-azure">
+                  Next <span class="fa fa-arrow-right"></span>
+                </a>
+              </div>
 
-</div>
+            </div>
 
-</div>
-
-<div *ngIf="task == 'setup.view.roles' ">
-<h3>
-
-  Shift Roles</h3>
-
-<p>Please add your business roles. Example: Resaurants would have Server, Host, Cook, etc.</p>
-
-<div class="row">
-  <div class="col-sm-8">
-      <form name="RoleForm" id="form1" novalidate >
-
-          <div class="form-group" id="shiftRoleDiv" >
-              Name : <input name="name" class="form-control" type="text"  />
           </div>
-      </form>
-  </div>
-  <div class="col-sm-4">
-      <br />
-      <button id="addShiftRoleId" class="btn btn btn-o"  style="margin-top:5px; background-color: #fff; color:#0280ba; border: 1px solid #0280ba;"><span>Add Shift Role</span> <i class="ti-add">+</i></button>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-sm-12">
-      <ul class="itemslist">
-          <li >
-              <div class="row" style="padding-bottom: 0;">
-                  <div class="col-md-9">
-                      <span editable-text="shiftRole.name" e-form="rowform" e-name="name" onbeforesave="validateName($data)" e-placeholder="Enter shift role name" style="line-height:33px"></span>
+          <div *ngIf="task == 'setup.view.roles' "><br>
+            <hr>
+            <h3>Shift Roles</h3>
+
+            <p>Please add your business roles. Example: Resaurants would have Server, Host, Cook, etc.</p>
+
+
+            <div class="row">
+              <div class="col-sm-8">
+                <form name="RoleForm" id="form1" novalidate>
+
+                  <div class="form-group" id="shiftRoleDiv">
+                    Name : <input name="name" class="form-control" type="text" />
                   </div>
-                  <div class="col-md-3 text-right">
+                </form>
+              </div>
+              <div class="col-sm-4">
+                <br />
+                <button id="addShiftRoleId" class="btn btn btn-o"
+                  style="margin-top:5px; background-color: #fff; color:#0280ba; border: 1px solid #0280ba;"><span>Add
+                    Shift Role</span> <i class="ti-add">+</i></button>
+              </div>
+            </div>
 
-                      <form editable-form name="rowform"   class="form-buttons form-inline" style="margin:0px">
-                        <!-- <span class="material-icons">edit</span> -->
-                          <span class="material-icons" title="Save" >edit</span>
+            <div class="row">
+              <div class="col-sm-12">
+                <ul class="itemslist">
+                  <li>
+                    <div class="row" style="padding-bottom: 0;">
+                      <div class="col-md-9">
+                        <span editable-text="shiftRole.name" e-form="rowform" e-name="name"
+                          onbeforesave="validateName($data)" e-placeholder="Enter shift role name"
+                          style="line-height:33px"></span>
+                      </div>
+                      <div class="col-md-3 text-right">
+
+                        <form editable-form name="rowform" class="form-buttons form-inline" style="margin:0px">
+                          <!-- <span class="material-icons">edit</span> -->
+                          <span class="material-icons" title="Save">edit</span>
                           <span class="material-icons" title="Cancel" style="margin-left: 4px">delete</span>
 
-                      </form>
-                      <div class="buttons form-buttons" >
-                          <button class="btn btn-default" title="Edit" >
-                        <span class="ti-pencil-alt"></span>
-                        </button>
+                        </form>
+                        <div class="buttons form-buttons">
+                          <button class="btn btn-default" title="Edit">
+                            <span class="ti-pencil-alt"></span>
+                          </button>
 
                           <button class="btn btn-default">
-                        <span class="ti-trash"></span>
-                        </button>
+                            <span class="ti-trash"></span>
+                          </button>
+                        </div>
                       </div>
-                  </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
-          </li>
-      </ul>
-  </div>
-</div>
+            </div>
 
-<div class="row" style="padding-bottom:0">
-  <div class="col-sm-12" style="text-align:center;">
-      <a  class="btn btn-dark-azure">
-          <span class="fa fa-arrow-left"></span> Prev
-      </a>
-      <a  class="btn btn-dark-azure" style="margin-left: 5px">
-  Next <span class="fa fa-arrow-right"></span>
-  </a>
-  </div>
-</div>
-</div>
- <div *ngIf="task == 'setup.view.payment'">
-<div class="row" >
-  <div class="col-md-4">
-      <strong>Please, choose the plan that works for you.</strong>
-      <input name="weekstart" class="form-control"  type="text" required />
-
-  </div>
-  <div >
-  <div class="col-md-4">
-      <div class="form-group row no-padding">
-          <label class="col-sm-6">Name: </label> <strong><span>(Trial)</span></strong>
-      </div>
-      <div class="form-group row no-padding">
-          <label class="col-sm-6">Max employees: </label> <strong></strong>
-      </div>
-      <div class="form-group row no-padding">
-          <label class="col-sm-6">Price: </label> <strong ></strong><strong >USD$ 0</strong>
-      </div>
-  </div>
-  <div class="row" >
-      <div class="col-md-8 col-md-offset-4">
-          You have up to 9 employees trial for 30 days. After that time you have to make payment for the needed subscription plan
-      </div>
-  </div>
-  <div class="col-md-8 col-md-offset-4" style="padding-left: 30px;">
-      <div class="form-group">
-          <label>
-                  <input type="checkbox" > I have a coupon
-          </label>
-      </div>
-
-      <div class="form-group">
-
-
-              <form name="myform">
-          <div class="row">
-              <div class="col-md-5">
-                  <div class="input-group">
-                      <span class="input-group-addon"><i class="fa fa-scissors" aria-hidden="true"></i></span>
-                      <input type="text" class="form-control">
-                  </div>
+            <div class="row" style="padding-bottom:0">
+              <div class="col-sm-12" style="text-align:center;">
+                <a class="btn btn-dark-azure">
+                  <span class="fa fa-arrow-left"></span> Prev
+                </a>
+                <a class="btn btn-dark-azure" style="margin-left: 5px">
+                  Next <span class="fa fa-arrow-right"></span>
+                </a>
               </div>
-              <div class="col-md-4" >
-                  <button class="btn btn-dark-azure" ><i class="fa fa-search" aria-hidden="true"></i> Check coupon</button>
-              </div>
+            </div>
           </div>
+          <div *ngIf="task == 'setup.view.payment'">
+            <div class="row">
+              <div class="col-md-4">
+                <strong>Please, choose the plan that works for you.</strong>
+                <input name="weekstart" class="form-control" type="text" required />
 
-      </form>
-      </div>
-  </div>
-  <div class="container">
-  <div class="col-md-offset-4 col-md-8" style="padding-left: 30px;" >
-      <form name="forum" novalidate >
-          <div class="form-group">
-              <span class="help-block text-muted small-font">
-                      Please input card details.You will be charged automatically after trial ends. You also will be able to update your subscription plan and to input other card details before the trial ends.
-              </span><br><br>
-              <div class="input-group col-md-5">
-                  <span class="input-group-addon"><i  aria-hidden="true"></i></span>
-                  <div class="material-icons" style="margin-top: 7px; background-color:rgba(0, 0, 255, 0.822); color: white; border-bottom-left-radius: 3px; border-top-left-radius: 3px; padding: 10px;">credit_card</div><input type name="number" class="form-control" placeholder="Enter Card Number"  minlength="19" maxlength="19" required />
               </div>
-          </div><br>
-          <div class="row ">
-              <div class="col-md-3 col-sm-3 col-xs-3">
-                  <span class="help-block text-muted small-font">Expiry Month</span>
-                  <div class="input-group">
-                      <span class="input-group-addon"><i  style="margin-top: 7px; background-color:rgba(0, 0, 255, 0.822); color: white; border-bottom-left-radius: 3px; border-top-left-radius: 3px; padding: 10px;"class="fa fa-clock-o" aria-hidden="true"></i></span>
-                      <input type="text" name="exp_month" class="form-control" placeholder="MM"minlength="2" maxlength="2" min="1" max="12" required />
+              <div>
+                <div class="col-md-4">
+                  <div class="form-group row no-padding">
+                    <label class="col-sm-6">Name: </label>
                   </div>
-              </div>
-              <div class="col-md-3 col-sm-3 col-xs-3">
-                  <span class="help-block text-muted small-font">Expiry Year</span>
-                  <div class="input-group">
-                      <span class="input-group-addon"><i  style="margin-top: 7px; background-color:rgba(0, 0, 255, 0.822); color: white; border-bottom-left-radius: 3px; border-top-left-radius: 3px; padding: 10px;" class="fa fa-clock-o" aria-hidden="true"></i></span>
-                      <input type="text" name="exp_year" class="form-control" placeholder="YY"  minlength="2" maxlength="2"  required />
+                  <div class="form-group row no-padding">
+                    <label class="col-sm-6">Max employees: </label> <strong></strong>
                   </div>
-              </div>
-              <div class="col-md-3 col-sm-3 col-xs-3">
-                  <span class="help-block text-muted small-font">CCV</span>
-                  <div class="input-group">
-                      <span class="input-group-addon"><i  style="margin-top: 7px; background-color:rgba(0, 0, 255, 0.822); color: white; border-bottom-left-radius: 3px; border-top-left-radius: 3px; padding: 10px;" class="fa fa-lock" aria-hidden="true"></i></span>
-                      <input type="ccv" name="cvc" class="form-control" placeholder="CCV" minlength="3" maxlength="3" required />
+                  <div class="form-group row no-padding">
+                    <label class="col-sm-6">Price: </label> <strong>USD$ 0</strong>
                   </div>
-              </div>
-          </div>
-          <div ></div>
-      </form>
-  </div>
-</div>
-</div>
-<div class="row">
-  <div class="text-center" style="margin-bottom: 100px;margin-top: 30px;">
-      <i class="fa fa-4x fa-handshake-o" aria-hidden="true"></i>
-      <h2>Thank you!</h2>
-      <div>You are subscripted to the <strong> <span>(Trial)</span></strong> success</div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12" style="text-align:center;">
-      <a  class="btn btn-dark-azure">
-          <span class="fa fa-arrow-left"></span> Prev
-      </a>
-      <a class="btn btn-dark-azure" style="margin-left: 5px">
-  Next <span class="fa fa-arrow-right"></span>
-  </a>
-  </div>
-</div>
-</div>
-</div>
- <div *ngIf=" task== 'setup.view.complete' ">
-<h3>
+                </div><br>
 
-  Getting Started</h3>
-
-<p>Couple more things to know before you get started.</p>
-
-<br />
-
-<div class="row">
-  <div class="col-sm-2" style="color:#1c2b36; padding:0">
-      <div style="padding:10px;">Creating a shift</div>
-  </div>
-  <div class="col-sm-10" style="padding:0">
-      <div style="padding:10px; border:1px solid #f0f0f0">Double click in any block/cell on the scheduler page.</div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-2" style="color:#1c2b36; padding:0">
-      <div style="padding:10px;">Publishing</div>
-  </div>
-  <div class="col-sm-10" style="padding:0">
-      <div style="padding:10px; border:1px solid #f0f0f0">Publishing notifies your employees, and shifts are made visable to employees once published.</div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-2" style="color:#1c2b36; padding:0">
-      <div style="padding:10px;">Preferences</div>
-  </div>
-  <div class="col-sm-10" style="padding:0">
-      <div style="padding:10px; border:1px solid #f0f0f0">This allows employees to make you aware of times they Like, Dislike, and are Unavailable to work. </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-2" style="color:#1c2b36; padding:0">
-      <div style="padding:10px;">How To</div>
-  </div>
-  <div class="col-sm-10" style="padding:0">
-      <div style="padding:10px; border:1px solid #f0f0f0">We encourage you to read through our How To Page to know all our site has to offer, or to help you if you get stuck.</div>
-  </div>
-</div>
-
-<div class="row" style="padding-bottom:0">
-  <div class="col-sm-12" style="text-align:center;">
-      <a class="btn btn-dark-azure">
-  Start Schedule <span class="fa fa-arrow-right"></span>
-  </a>
-      <div >
-          <br><br> You're almost ready to start scheduling! Please add at least one shift role for your business in order to proceed.
-          <br><br>
-          <a ui-sref="setup.view.roles" class="btn btn-dark-azure">
-              <span class="fa fa-arrow-left"></span> Add Shift Roles
-          </a>
-      </div>
-  </div>
-</div>
-</div>
- <div *ngIf=" task == 'setup.view.employees' ">
-<div class="row">
-  <div class="col-sm-12">
-      <h3>Employees</h3>
-      <p>Please add your employees. You can invite them now or wait until later.</p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-12">
-      <span style="color:#1C2B36; padding-right:35px">Current Number of Employees: <strong></strong></span>
-
-      <a class="btn btn-dark-wk">
-             Add <span class="fa fa-user"></span>
-          </a>
-  </div>
-</div>
-
-<br /><br />
-
-<div class="row">
-  <div class="col-sm-12">
-
-      <div class="row">
-          <div class="col-sm-4">
-              <strong>Person</strong>
-          </div>
-          <div class="col-sm-4">
-              <strong>Primary Role</strong>
-          </div>
-          <div class="col-sm-4">
-              <strong>Secondary Role</strong>
-          </div>
-      </div>
-
-      <ul class="itemslist">
-          <li >
-
-              <div class="row" style="padding-top:5px; padding-bottom:5px">
-                  <div class="col-sm-4" style="padding-top:8px;">
-                      <i class="fa fa-user"></i> <span ></span>
+                <div class="row">
+                  <div class="col-md-8 col-md-offset-4">
+                    You have up to 9 employees trial for 30 days. After that time you have to make payment for the
+                    needed subscription plan
+                  </div>
+                </div>
+                <div class="col-md-8 col-md-offset-4" >
+                  <div class="form-group">
+                    <label>
+                      <input type="checkbox"> I have a coupon
+                    </label>
                   </div>
 
+                  <div class="form-group">
+
+
+                    <!-- <form name="myform">
+                      <div class="row">
+                        <div class="col-md-5">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-scissors" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control">
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <button class="btn btn-dark-azure"><i class="fa fa-search" aria-hidden="true"></i> Check
+                            coupon</button>
+                        </div>
+                      </div>
+
+                    </form> -->
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="col-md-offset-4 col-md-8" style="padding-left: 30px;">
+                    <form name="forum" novalidate>
+                      <div class="form-group">
+                        <span class="help-block text-muted small-font">
+                          Please input card details.You will be charged automatically after trial ends. You also will be
+                          able to update your subscription plan and to input other card details before the trial ends.
+                        </span><br><br>
+                        <div class="input-group col-sm-6">
+                          <span class="input-group-addon"><i aria-hidden="true"></i></span>
+                          <div class="creditcard">
+                            <div class="material-icons">credit_card</div>
+                            <input type name="number" class="form-control"
+                              placeholder="Enter Card Number" minlength="19" maxlength="19" required />
+                          </div>
+                        </div>
+                      </div><br>
+                      <div class="row ">
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                          <span class="help-block text-muted small-font">Expiry Month</span>
+                          <div class="input-group">
+                          <div class="clock">
+
+                            <span class="input-group-addon"><i style="margin-top: 8px; " class="fa fa-clock-o"
+                                aria-hidden="true"></i></span>
+                              </div>
+
+                              <input type="text" name="exp_month" class="form-control" placeholder="MM" minlength="2"
+                                 maxlength="2" min="1" max="12" required />
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                          <span class="help-block text-muted small-font">Expiry Year</span>
+                          <div class="input-group">
+                            <div class="clock">
+                            <span class="input-group-addon"><i style="margin-top: 7px; " class="fa fa-clock-o"
+                                aria-hidden="true"></i></span>
+                              </div>
+
+                            <input type="text" name="exp_year" class="form-control" placeholder="YY"
+                               minlength="2" maxlength="2" required />
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                          <span class="help-block text-muted small-font">CCV</span>
+                          <div class="input-group">
+                          <div class="clock">
+
+                            <span class="input-group-addon"><i style="margin-top: 7px; " class="fa fa-lock"
+                                aria-hidden="true"></i></span>
+                                </div>
+                            <input type="ccv" name="cvc" class="form-control" placeholder="CCV"
+                              minlength="3" maxlength="3" required />
+                          </div>
+                        </div>
+                      </div>
+                      <div></div>
+                    </form>
+                  </div>
+                </div>
               </div>
-
-          </li>
-      </ul>
-  </div>
-</div>
-
-
-<div class="row" style="padding-bottom:0">
-  <div class="col-sm-12" style="text-align:center;">
-      <a class="btn btn-dark-azure">
-          <span class="fa fa-arrow-left" ></span> Prev
-      </a>
-      <a  class="btn btn-dark-azure" style="margin-left: 5px">
-  Next <span class="fa fa-arrow-right" ></span>
-  </a>
-  </div>
-</div>
-</div>
-
+              <div class="row">
+                <div class="text-center" style="margin-bottom: 100px;margin-top: 30px;">
+                  <i class="fa fa-4x fa-handshake-o" aria-hidden="true"></i>
+                  <h2>Thank you!</h2>
+                  <div>You are subscripted to the <strong> <span>(Trial)</span></strong> success</div>
+                </div>
               </div>
+              <div class="row">
+                <div class="col-sm-12" style="text-align:center;">
+                  <a class="btn btn-dark-azure">
+                    <span class="fa fa-arrow-left"></span> Prev
+                  </a>
+                  <a class="btn btn-dark-azure" style="margin-left: 5px">
+                    Next <span class="fa fa-arrow-right"></span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf=" task== 'setup.view.complete' ">
+            <h3>
+
+              Getting Started</h3>
+
+            <p>Couple more things to know before you get started.</p>
+
+            <br />
+
+            <div class="row">
+              <div class="col-sm-2" style="color:#1c2b36; padding:0">
+                <div style="padding:10px;">Creating a shift</div>
+              </div>
+              <div class="col-sm-10" style="padding:0">
+                <div style="padding:10px; border:1px solid #f0f0f0">Double click in any block/cell on the scheduler
+                  page.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2" style="color:#1c2b36; padding:0">
+                <div style="padding:10px;">Publishing</div>
+              </div>
+              <div class="col-sm-10" style="padding:0">
+                <div style="padding:10px; border:1px solid #f0f0f0">Publishing notifies your employees, and shifts are
+                  made visable to employees once published.</div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2" style="color:#1c2b36; padding:0">
+                <div style="padding:10px;">Preferences</div>
+              </div>
+              <div class="col-sm-10" style="padding:0">
+                <div style="padding:10px; border:1px solid #f0f0f0">This allows employees to make you aware of times
+                  they Like, Dislike, and are Unavailable to work. </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-2" style="color:#1c2b36; padding:0">
+                <div style="padding:10px;">How To</div>
+              </div>
+              <div class="col-sm-10" style="padding:0">
+                <div style="padding:10px; border:1px solid #f0f0f0">We encourage you to read through our How To Page to
+                  know all our site has to offer, or to help you if you get stuck.</div>
+              </div>
+            </div>
+
+            <div class="row" style="padding-bottom:0">
+              <div class="col-sm-12" style="text-align:center;">
+                <a class="btn btn-dark-azure">
+                  Start Schedule <span class="fa fa-arrow-right"></span>
+                </a>
+                <div>
+                  <br><br> You're almost ready to start scheduling! Please add at least one shift role for your business
+                  in order to proceed.
+                  <br><br>
+                  <a ui-sref="setup.view.roles" class="btn btn-dark-azure">
+                    <span class="fa fa-arrow-left"></span> Add Shift Roles
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf=" task == 'setup.view.employees' ">
+            <div class="row">
+              <div class="col-sm-12">
+                <h3>Employees</h3>
+                <p>Please add your employees. You can invite them now or wait until later.</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <span style="color:#1C2B36; padding-right:35px">Current Number of Employees: <strong></strong></span>
+
+                <a class="btn btn-dark-wk">
+                  Add <span class="fa fa-user"></span>
+                </a>
+              </div>
+            </div>
+
+            <br /><br />
+
+            <div class="row">
+              <div class="col-sm-12">
+
+                <div class="row">
+                  <div class="col-sm-4">
+                    <strong>Person</strong>
+                  </div>
+                  <div class="col-sm-4">
+                    <strong>Primary Role</strong>
+                  </div>
+                  <div class="col-sm-4">
+                    <strong>Secondary Role</strong>
+                  </div>
+                </div>
+
+                <ul class="itemslist">
+                  <li>
+
+                    <div class="row" style="padding-top:5px; padding-bottom:5px">
+                      <div class="col-sm-4" style="padding-top:8px;">
+                        <i class="fa fa-user"></i> <span></span>
+                      </div>
+
+                    </div>
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+
+            <div class="row" style="padding-bottom:0">
+              <div class="col-sm-12" style="text-align:center;">
+                <a class="btn btn-dark-azure">
+                  <span class="fa fa-arrow-left"></span> Prev
+                </a>
+                <a class="btn btn-dark-azure" style="margin-left: 5px">
+                  Next <span class="fa fa-arrow-right"></span>
+                </a>
+              </div>
+            </div>
           </div>
 
+        </div>
       </div>
+
+    </div>
   </div>
 
   <br /><br /><br />
@@ -597,4 +648,3 @@
 
   <br>
 </div>
-
