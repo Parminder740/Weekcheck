@@ -8,12 +8,25 @@
             <mat-icon>menu</mat-icon>
         </button>
         <img *ngIf="logo" ng-src="assets/images/weekcheck-logo-full_small.png" alt="Week Check" style="max-width:160px"
-            src="assets/assets/images/weekcheck-logo-full_small.png">
-
+            src="assets/assets/images/weekcheck-logo-full_small.png">                
     </mat-toolbar>
 
 
     <mat-drawer #drawer class="example-sidenav" mode="side">
+
+
+        <div id="sidenav" class="sidenav">
+            <header class="sidenav__header header">
+                <button class="sidenav__button" aria-label="Expand" onClick="toggle()">
+                    <span class="sidenav__button-icon">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </span>
+                </button>
+                
+            </header>
+    
+        </div>
+
         <div>
             <img ng-src="assets/images/weekcheck-logo-full_small.png" alt="Week Check" style="max-width:160px"
                 src="assets/assets/images/weekcheck-logo-full_small.png">
