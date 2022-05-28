@@ -1,0 +1,209 @@
+<!-- start: PAGE TITLE -->
+
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="mainTitle" translate="sidebar.nav.business.page.info.HEADER"></h1>
+        </div>
+        <div ncy-breadcrumb></div>
+        <div class="col-md-12" style="margin-top: 13px;">
+            <div class="col-md-3" style="margin-top:5px;">
+                <span style="font-family: Raleway;color: #777;"><i class="fa fa-building-o"></i>&nbsp; BUSINESS CODE:</span>
+                <span style="color: #333;font-family: Raleway;"></span>
+            </div>
+            <div class="col-md-4">
+                <label class="dropsection-link" for="search" style="font-size: 14px;position: relative;line-height: 2em;margin-left:20px;">Items per page:</label>
+                <input type="number" min="1" max="100" class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="pageSize" style="max-width:100%;width: 95px;margin-right: 5px;margin-top: 0px;">
+            </div>
+        </div>
+        </div>
+        
+</section>
+<!-- end: PAGE TITLE -->
+
+<div class="container-fluid container-fullw bg-white">
+    <div class="row">
+        <div class="col-md-6 vcenter">
+            <div></div>location<span ng-if="locations.length > 1">s</span></div>
+        </div>
+        <div class="col-md-6 text-right">
+            <button class="btn btn-light-wk" ng-click="addLocation()"><span>Add</span> <i class="fa fa-map-marker" style="font-size: 19px; margin-left:3px; margin-right:1px;"></i><sup><i class="ti-add">+</i></sup></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- <accordion close-others="true" id="locations-accordion">
+                <accordion-group ng-init="accorLocations = {isOpen: selectedLocation.locationID == location.locationID}" is-open="accorLocations.isOpen" ng-class="{isOpen: accorLocations.isOpen}" dir-paginate="location in locations | itemsPerPage: pageSize" current-page="currentPage">
+                    <accordion-heading> <span id="{{location.locationID}}" ng-click="toggleAccordion(location)"></span> <i class="pull-left fa" ng-click="toggleAccordion(location)" ng-class="{'fa-chevron-down': accorLocations.isOpen, 'fa-chevron-right': !accorLocations.isOpen}"></i> </accordion-heading> -->
+                    <div class="container" style="position:relative">
+                        <div class="accordion-buttons">
+
+                            <div class="btn-group location-group settings-menu" >
+                                <button id="settings-menu-btn" class="btn btn-default dropdown-toggle" type="button" dropdown-toggle>
+                      <span><i class="ti-settings"></i></span>
+                      <span class="caret"></span>
+                  </button>
+                                <ul class="dropdown-menu dropdown-align-left">
+                                    <li><a data-ng-click="editLocation()">Edit Details</a></li>
+                                    <li class="divider"></li>
+                                    <li><a data-ng-click="setSearchLocation()">Edit Employees</a></li>
+                                    <li><a data-ng-click="editEmployeeGroups()">Edit Employee Groups</a></li>
+                                    <li class="divider"></li>
+                                    <li><a data-ng-click="editShiftGroups()">Edit Shift Groups</a></li>
+                                    <li><a data-ng-click="editShiftRoles()">Edit Shift Roles</a></li>
+                                    <li class="divider"></li>
+                                    <li><a data-ng-click="editAdmin()">Edit Administrators</a></li>
+                                    <li><a data-ng-click="editSchedulers()">Edit Schedulers</a></li>
+                                    <li><a data-ng-click="editSchedulerGroups()">Edit Scheduler Groups</a></li>
+                                    <li class="divider"></li>
+                                    <li><a data-ng-click="deleteLocation()">Delete</a></li>
+                                </ul>
+
+                            </div>
+
+
+
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div style="padding:15px; background:#F0F3F4; margin-bottom:10px;">
+                                    <div class="pull-left" style="color:#333; font-weight: 300;">LOCATION DETAILS</div>
+                                    <div class="pull-right" style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333" data-ng-click="editLocation()">Edit <i class="fa fa-pencil"></i></div>
+                                    <div style="clear:both"></div>
+                                    <br />
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="subheading-blue"><i class="fa fa-building-o"></i> Address</div>
+                                            <div class="info-details" style="word-break: break-all;">
+                                             <br /></div>
+                                            <br />
+                                        </div>
+                                        <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="subheading-blue"><i class="fa fa-calendar-o"></i> Week Start</div>
+                                            <div class="info-details">  </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="subheading-blue"><i class="fa fa-user"></i> Employees</div>
+                                            <div class="info-details"><a  style="color:#333; border-bottom:1px dotted;"> total</a></div>
+                                        </div>
+                                        <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                                            <div class="subheading-blue"><i class="fa fa-lock"></i> Business Code</div>
+                                            <div class="info-details"></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <table class="tabbable tab-col-right">
+                                    <th heading="Employee Groups">
+                                        <div>
+                                            <div style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333" data-ng-click="editEmployeeGroups()">Edit <i class="fa fa-pencil"></i></div>
+                                            <div ng-show="!locationGroupsFiltered || locationGroupsFiltered.length === 0" style="color:gray; margin-top:7px">
+                                                No employee groups have been set up for this location.
+                                            </div>
+                                            <ul class="itemslist">
+                                                <li ng-repeat="employeeGroup in locationGroupsFiltered = (locationGroups | filter:locationGroupsFilter(2))" ng-class="$even?'odd':'even'">
+                                                    <span class="group-label"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </th>
+                                    <th heading="Shift Settings">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <span class="subheading">Shift Groups</span>
+                                                <span class="pull-right" style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333" data-ng-click="editShiftGroups()">Edit <i class="fa fa-pencil"></i></span>
+                                                <div style="clear:both; height:5px;"></div>
+                                                <div>
+                                                    <div ng-show="!shiftGroupsFiltered || shiftGroupsFiltered.length === 0" style="color:gray; margin-top:7px">
+                                                        No shift groups have been set up for this location.
+                                                    </div>
+                                                    <ul class="itemslist">
+                                                        <li ng-repeat="shiftGroup in shiftGroupsFiltered = (locationGroups | filter:locationGroupsFilter(1))" ng-class="$even?'odd':'even'">
+                                                            <span class="group-label"></span> 
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <span class="subheading">Shift Roles</span>
+                                                <span class="pull-right" style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333" data-ng-click="editShiftRoles()">Edit <i class="fa fa-pencil"></i></span>
+                                                <div style="clear:both; height:5px;"></div>
+                                                <div>
+                                                    <div ng-show="locationRoles.length === 0" style="color:gray; margin-top:7px">
+                                                        No shift roles have been set up for this location.
+                                                    </div>
+                                                    <ul class="itemslist">
+                                                        <li ng-repeat="shiftRole in locationRoles" ng-class="$even?'odd':'even'">  </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th heading="Special Access">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <span class="subheading">Administrators</span>
+                                                <span class="pull-right" style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333" data-ng-click="editAdmin()">Edit <i class="fa fa-pencil"></i></span>
+                                                <div style="clear:both; height:5px;"></div>
+                                                <ul class="itemslist">
+                                                    <li ng-repeat="admin in locationEmployees | filter:locationAdminFilter" ng-class="$even?'odd':'even'"> <i class="fa fa-user"></i> <span ng-if="admin.middleInitial"></span>  </li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <br />
+                                                <span class="subheading">Schedulers</span>
+                                                <span class="pull-right" style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333" data-ng-click="editSchedulers()">Edit <i class="fa fa-pencil"></i></span>
+                                                <div style="clear:both; height:5px;"></div>
+                                                <div>Schedulers may be restricted to employee groups, and will be restricted to managing scheduling activity for only the employee groups listed under their name below. If no groups are listed that scheduler
+                                                    has access to schedule all employees.</div>
+                                                <br>
+                                                <ul class="itemslist">
+                                                    <li ng-repeat="scheduler in locationEmployees | filter:locationSchedulerFilter" style="border-bottom:1px dotted #ddd"> <i class="fa fa-user"></i>  <span ng-if="scheduler.middleInitial"></span>
+
+                                                        <span class="pull-right" style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333; margin-top: 20px; margin-right:-10px;" data-ng-click="editSchedulerGroups(scheduler.employeeID)">Edit <i class="fa fa-pencil"></i></span>
+                                                        <div ng-show="locationGroups.length === 0" style="color:gray; margin-top:7px; width: calc(100% - 30px)">
+                                                            No groups exist to assign schedulers to.
+                                                        </div>
+                                                        <ul ng-show="scheduler.schedulerFocus && scheduler.schedulerFocus.length > 0" class="itemslist" style="margin-bottom:0; margin-top:10px; padding-right: 20px;">
+                                                            <li ng-repeat="locationGroup in locationGroups | filter: {type:2}" ng-class="$even?'odd':'even'">
+                                                                <div class="row" style="padding-bottom:0">
+                                                                    <div class="col-md-5" style="color:gray;">
+                                                                        <span class="group-label" style="width:100%"></span>
+                                                                    </div>
+                                                                    <div class="col-md-7">
+                                                                        <div ng-repeat="employeeGroupOpt in schedulerFocusGroups = ( scheduler.schedulerFocus | filter: {groupingName: locationGroup.groupingName} )">
+                                                                           
+                                                                        </div>
+                                                                        <span ng-if="schedulerFocusGroups.length === 0" style="color:gray">no option set</span>
+
+                                                                    </div>
+                                                                </div>
+
+                                                            </li>
+                                                        </ul>
+
+                                                        <div ng-show="!scheduler.schedulerFocus || scheduler.schedulerFocus.length === 0" style="color:gray">
+                                                            No scheduler restrictions
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </th>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end location item -->
+
+                </div>
+            </div>
+
+<div class="text-center">
+    <!-- <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls> -->
+</div>
