@@ -12,10 +12,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onClick() {
-    this.logo = !this.logo
+   
+   toggle() {
+    let element:any = document.getElementById("sidenav");
+    element.classList.toggle("is-collapsed");
+     this.logo = !this.logo
   }
-
 
 
 }
