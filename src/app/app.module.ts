@@ -22,6 +22,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
+import {MatCardModule} from '@angular/material/card';
 import { BussinessAdminModule } from './bussiness-admin/bussiness-admin.module';
 
 @NgModule({
@@ -51,6 +52,8 @@ import { BussinessAdminModule } from './bussiness-admin/bussiness-admin.module';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSidenavModule,
+    MatCardModule,
+
     BussinessAdminModule
 
   ],
