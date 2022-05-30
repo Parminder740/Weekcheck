@@ -1,0 +1,245 @@
+<style>
+	select {
+		-moz-appearance: meterchunk ;
+	}
+	
+	.row1 {
+		display: inline-block;
+		width: auto ;
+	}
+	
+	.divmain {
+		width: 100%;
+		margin-top: 10px;
+	}
+	
+	.divsub {
+		width: 30%;
+		display: inline-block;
+	}
+	
+	.divsub label {
+		width: 70px;
+	}
+</style>
+<section id="page-title">
+	<div class="row">
+		<div class="col-sm-8">
+			<h1 class="mainTitle" translate="sidebar.nav.business.page.info.HEADER"></h1>
+		</div>
+		<div ncy-breadcrumb></div>
+	</div>
+</section>
+<!-- end: PAGE TITLE -->
+<div class="container-fluid container-fullw bg-white">
+
+	<div class="row">
+		<div class=" col-sm-5 col-md-5">
+			<fieldset class="ng-scope" style="padding-bottom:0px;">
+				<legend>
+					Required Report Criteria
+				</legend>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="form-group">
+							<label for="repeatSelect">Location : </label>
+							<select name="repeatSelect" id="repeatSelect" ng-model="selLoc" ng-change="changeLocation(selLoc)" class="form-control">
+								<option ng-repeat="option in business" ng-selected="selectedItemvalue == option.locationID" value=""></option>
+							</select>
+							<span class="error text-small block ng-binding ng-scope" ng-if="locationHasError">Location is required</span>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>Start Time : </label>
+							<input kendo-date-picker ng-model="startTime" onkeydown="return false;" required class="form-control" style="width:100%;font-size: 13px;"
+							/>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="form-group">
+							<label>End Time : </label>
+							<input kendo-date-picker ng-model="endTime" onkeydown="return false;" required class="form-control" style="width:100%;font-size: 13px;" />
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="col-sm-5 col-md-6">
+			<fieldset class="ng-scope" style="padding-bottom:0px;">
+				<legend>
+					Advanced Report Filtering
+				</legend>
+				<div class="row">
+					<div class="col-sm-4 col-md-4">
+						<div class="form-group">
+							<label>Group : </label>
+							<!-- <multiselect ng-model="selGrouping" ms-header="Select Groups" options="c.name for c in groups" data-multiple="true" data-compare-by="groupingOptionID"
+								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150">
+							</multiselect> -->
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-3">
+						<div class="form-group">
+							<label>Role : </label>
+							<!-- <multiselect ng-model="selRole" ms-header="Select Roles" options="c.name for c in roles" data-multiple="true" data-compare-by="roleID"
+								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150">
+							</multiselect> -->
+						</div>
+					</div>
+					<div class="col-sm-4 col-md-5">
+						<div class="form-group">
+							<label>Employee : </label>
+							<!-- <!-- <multiselect ng-model="selEmpl" ms-header="Select Employees" options="c.firstName for c in emplists" data-multiple="true" data-compare-by="employeeID"
+								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150"> 
+							</multiselect> -->
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</div>
+		<div class="col-sm-2 col-md-1" style="padding-top:20px">
+			<button ng-click="searchReport(startTime,endTime,selLoc,selGrouping,selRole,selEmpl)" class="btn btn-dark-azure btn-sm" >Run Report</button>
+		</div>
+	</div>
+	<div ng-if="divStep1">
+		<div class="row">
+			<div class="col-md-10">
+				<div class="col-grt"  kendo-chart k-legend="{ position: 'top' }" k-tooltip="{visible: true,  format: '{0}%', template: '#= category #: #= value #'}"
+					k-series-defaults="{ type: 'column', color : '#0280ba' }" k-series="[
+			 { field: 'entityValue', name: '# of Employee Matching Criteria' , categoryField: 'entityName'},
+ ]" k-data-source="angularData" k-series-click="onSeriesClick" style="height: 400px;"></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-10">
+				<div class="panel panel-default dashboard-panel pending-offers-panel">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<span class="ng-binding">Full Report - Matching Above Criteria</span>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<div style="margin-top:10px">
+							<table class="table table-striped itemslist table-bordered">
+								<thead>
+									<tr>
+										<th>Name</th> 
+										<th width="15%" style="text-align:center;">Call Offs</th>
+										<th width="15%" style="text-align:center;">Lates</th>
+										<th width="25%" style="text-align:center;">Approved Time Offs</th>
+										<th width="25%" style="text-align:center;">Accepted Available Shifts</th>
+										<!--<th width="10%">Offered Shifts</th>-->
+										<!--<th width="10%">Requested Days Off</th>-->
+										<!--<th width="10%">Days On Call</th>-->
+									</tr>
+									<thead>
+										<tbody>
+											<tr ng-repeat="option in empgrids">
+												<!-- <td><a ng-click="loadEmployeeDetails({{option.employeeID}})">{{option.name}}</a></td>
+												<td style="text-align: center"><a ng-click="loadEmpFieldDetails({{option.employeeID}}, 'CallOffs')">{{option.noofCallOffs}}</a></td>
+												<td style="text-align: center"><a ng-click="loadEmpFieldDetails({{option.employeeID}}, 'Lates')">{{option.noofLates}}</a></td>
+												<td style="text-align: center"><a ng-click="loadEmpFieldDetails({{option.employeeID}}, 'ApprovedTimeOffs')">{{option.noofApprovedTimeOf}}</a></td>
+												<td style="text-align: center"><a ng-click="loadEmpFieldDetails({{option.employeeID}}, 'AcceptedAvailableShifts')">{{option.noofAcceptedAvailableShifts}}</a></td> -->
+												
+											</tr>
+										</tbody>
+                                        </thead>
+
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog" style="z-index:9999;">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-body">
+					<table class="itemslist table table-bordered" ng-class="$even?'odd':'even'">
+						<thead>
+							<tr>
+								<th>Employee Name</th>
+								<th>Date</th>
+							</tr>
+							<thead>
+								<tbody ng-repeat="option in empColumnGridData">
+									<tr>
+										<td></td>
+										<td></td>
+									</tr>
+								</tbody>
+                                </thead>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Modal -->
+	<div id="myModal1" class="modal fade" role="dialog">
+		<div class="modal-dialog" style="z-index:9999;">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-body">
+					<table class="itemslist table table-bordered" ng-class="$even?'odd':'even'">
+						<tbody ng-repeat="option in empTotalGridData">
+							<tr class="even">
+								<td>Name</td>
+									<td></td>
+							</tr>
+							<tr class="odd">
+								<td>Call Offs</td>
+									<td></td>
+							</tr>
+							<tr class="even">
+								<td>Lates</td>
+									<td></td>
+							</tr>
+							<tr class="odd">
+								<td>Approved Time Offs</td>
+									<td></td>
+							</tr>
+							<tr class="even">
+								<td>Accepted Available Shifts</td>
+									<td></td>
+							</tr>
+							<!--<tr class="odd">
+								<td>Offered Shifts</th>
+									<td>{{option.noofOfferedShifts}}</td>
+							</tr>-->
+							<!--<tr class="even">
+								<td>Requested Days Off</th>
+									<td>{{option.noofTotalTimeOff}}</td>
+							</tr class="odd">-->
+							<!--<tr>
+								<td>Days On Call</th>
+									<td>{{option.noofDaysOnCall}}</td>
+							</tr>-->
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<style>
+		.col-grt text{
+		font-size: 10px; 
+		}
+	</style>
+	

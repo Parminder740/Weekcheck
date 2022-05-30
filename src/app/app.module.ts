@@ -23,6 +23,7 @@ import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
 import {MatCardModule} from '@angular/material/card';
+import { BussinessAdminModule } from './bussiness-admin/bussiness-admin.module';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {MatCardModule} from '@angular/material/card';
     MatNativeDateModule,
     MatSidenavModule,
     MatCardModule,
-   
+
+    BussinessAdminModule
 
   ],
   providers: [],

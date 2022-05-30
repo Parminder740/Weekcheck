@@ -39,9 +39,10 @@
               "src/assets/scss/variables.scss",
               "src/assets/scss/main.scss",
               "./node_modules/bootstrap/scss/bootstrap.scss"
-
+              
             ],
-            "scripts": []
+            "scripts": ["node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
