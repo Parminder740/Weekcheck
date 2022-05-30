@@ -22,6 +22,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { SigninComponent } from './signin/signin.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import { SigninComponent } from './signin/signin.component';
     MatFormFieldModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatCardModule,
+   
 
   ],
   providers: [],

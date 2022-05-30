@@ -3,10 +3,13 @@
 }
 .header{
   height: 100px;
+  background-color: rgb(241, 238, 238);
 }
 .header-title
 {
-  font-size: xx-large;
+  font-size: 33px;
+  font-family: Helvetica,Arial,sans-serif;
+
 }
 .btn btn-dark-wk
 {
@@ -21,10 +24,13 @@
   color: aliceblue;
   margin: 10px;
   font-size: medium;
+  border-radius: 6px;
+  height:38px
 }
 .btn-req{background-color: black;
   color: aliceblue;
   font-size: medium;
+  border-radius: 6px
 }
 .col-md-6{
   margin-top: 20px;
@@ -39,10 +45,12 @@
   text-align: right;
   clear: both;
 }
-.dropsection-link{
-margin-left: 20px;
+.dropsection-link:hover{
 color: #0d6efd;
 }
+.dropsection-link{
+  margin-left: 20px;
+  }
 .btn btn-dark-azure{
   margin-left: 10px;
 }
@@ -60,4 +68,53 @@ color: #0d6efd;
 }
 mat-form-field + .mat-form-field {
   margin-left: 8px;
+}
+.modal-title{
+  font-size: large;
+
+}
+#light-col{
+  color: rgba(51, 49, 49, 0.678);
+}
+.modal-title{
+  margin-top: 20px;
+  display: flex;
+  font-size:x-large;
+
+}
+.dropsection-link{
+  display: flex;
+  font-size: large;
+}
+.header-1{
+  height: 71px;
+
+}
+.card-header{
+  height: 71px;
+}
+.side-header
+{
+  display:flex;
+  float: right;
+  width: fit-content;
+
+}
+.maticon
+{
+  width: 200px;
+  display: flex;
+  text-align: center;
+
+}
+#fa-fa{
+  width: 200px;
+  display: flex;
+  text-align: center;
+  margin-top: 5px;
+}
+.building{
+  flex-direction:column;
+  display: flex;
+  justify-content: center;
 }
