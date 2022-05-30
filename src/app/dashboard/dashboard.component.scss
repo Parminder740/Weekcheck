@@ -1041,7 +1041,7 @@ $text-light: #a7bbeb; //#86a1e4;
 $text-on-primary: #fff;
 
 $sidenav-width: 16rem;
-$sidenav-gutter: 1.5rem;
+$sidenav-gutter: 1rem;
 $icon-width: 2.5rem;
 $icon-size: 1.25rem;
 $radius: 1rem;
@@ -1286,10 +1286,10 @@ body {
 }
 
 .nav {
+  width: 100%;
   $scroll-track: $primary-lighter;
   $scroll-thumb: $text-light;
   overflow: hidden;
-  overflow-y: auto;
   scrollbar-color: $scroll-thumb transparent;
   scrollbar-width: thin;
   transition: scrollbar-color 200ms;
@@ -1319,6 +1319,15 @@ body {
       background: $scroll-track;
     }
   }
+  .nav-sub {
+    list-style: none;
+    padding: 1px 0;
+    margin: 0;
+    margin-left: 70px;
+    background: #0e161c;
+}
+
+
 }
 
 .nav__list {
@@ -1328,6 +1337,7 @@ body {
   margin: 0;
   padding: 0;
   min-width: $icon-width;
+  width: 100%;
 }
 
 .nav__divider {
@@ -1345,9 +1355,12 @@ body {
 
 .nav__item {
   position: relative;
-
+  display: flex;
   &+& {
     margin-top: .25rem;
+  }
+  i {
+    padding: 14px 0;
   }
 }
 
@@ -1363,7 +1376,7 @@ body {
 
 .nav__label {
   @include label;
-  margin-right: 2.35rem;
+  padding: 10px 0;
 }
 
 .nav__badge {

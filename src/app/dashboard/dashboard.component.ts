@@ -8,6 +8,9 @@ export class DashboardComponent implements OnInit {
   panelOpenState = false;
   showFiller = false;
   logo: boolean = true
+  isBA:boolean=false
+  isTO:boolean=false
+  isNotif:boolean=false
   constructor() { }
 
   ngOnInit(): void {

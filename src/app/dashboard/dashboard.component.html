@@ -13,17 +13,109 @@
           <mat-icon id="navBtn" aria-hidden="true" >menu</mat-icon>
                 </span>
       </button>
-
     </header>
+    <nav class="sidenav__nav nav">
+      <ul class="nav__list">
+        <li class="header">
+          <small >Business</small>
+        </li>
+        <li class="nav__item is-active">         
+        	<span class="nav__icon">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </span>
+          <span class="nav__label">Dashboard</span>
+        </li>
+        <li class="nav__item is-active">         
+        	<span class="nav__icon">
+            <i class="fa fa-solid fa-pencil"></i>
+          </span>
+          <span class="nav__label">Business Adminstration
+          </span>
+          <i class="fa fa-angle-left" (click)="isBA=!isBA" aria-hidden="true"></i>
+        </li>
+        <li>
+          <ul *ngIf="isBA" class="nav-sub">
+            <li>location</li>
+            <li>Employee Groups</li>
+            <li>Shift Groups</li>
+            <li>Shift Roles</li>
+            <li>Reports</li>
+          </ul>
+        </li>
+        
+        <li class="nav__item is-active">         
+        	<span class="nav__icon">
+            <i class="fa far fa-user"></i>
+          </span>
+          <span class="nav__label">Employees</span>
+        </li>
 
+      </ul>
+      <ul class="nav__list">
+        <li class="header">
+          <small>Location</small>
+        </li>
+
+        <li class="nav__item is-active">         
+        	<span class="nav__icon">
+            <i class="material-icons">alarm</i>
+          </span>
+          <span class="nav__label">Time Off
+          </span>
+          <i class="fa fa-angle-left" (click)="isTO=!isTO" aria-hidden="true"></i>
+        </li>
+        <li>
+          <ul *ngIf="isTO" class="nav-sub">
+            <li>Create</li>
+            <li>View</li>
+          </ul>
+        </li>
+        
+        <li class="nav__item is-active">         
+        	<span class="nav__icon">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </span>
+          <span class="nav__label">Schedule</span>
+        </li>
+
+      </ul>
+      <ul class="nav__list">
+        <li class="header">
+          <small>Account</small>
+        </li>
+        <li class="nav__item is-active">         
+          <span class="nav__icon">
+            <i class=" fa fa-regular fa-bell"></i>
+          </span>
+          <span class="nav__label">Notifications
+          </span>
+          <i class="fa fa-angle-left" (click)="isNotif=!isNotif" aria-hidden="true"></i>
+        </li>
+        <li>
+          <ul *ngIf="isNotif" class="nav-sub">
+            <li>View</li>
+          </ul>
+        </li>
+        
+        <li class="nav__item is-active">         
+          <span class="nav__icon">
+            <i class=" fa fa-regular fa-id-card"></i>
+          </span>
+          <span class="nav__label">Profile</span>
+        </li>
+        <li class="nav__item is-active">         
+          <span class="nav__icon">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          </span>
+          <span class="nav__label">Account Settings</span>
+        </li>
+        
+      </ul>
+    </nav>
   </div>
 
   <div class="content" [ngClass]="logo ? 'offset-2p5':'offset-0p5'">
     <mat-toolbar class="fixed-top">
-      <!-- <button *ngIf="logo" type="button"  mat-button (click)="drawer.toggle()">
-                    <mat-icon>menu</mat-icon>
-                </button> -->
-     
       <img *ngIf="!logo" src="assets/images/weekcheck-logo-full_small.png"  alt="Week Check" style="max-width:160px;margin-left: 100px;" >
       
     </mat-toolbar>
@@ -753,15 +845,15 @@
                                         </div>
                                     </script>
       </div>
-      <footer>
-        <div class="footer-inner">
-          © 2022 GO WITH WEST. All rights reserved
-        </div>
-      </footer>
+    
 
  
     </div>
-
+    <footer>
+      <div class="footer-inner">
+        © 2022 GO WITH WEST. All rights reserved
+      </div>
+    </footer>
 
   </div>
   
