@@ -103,9 +103,9 @@ header .dropdown-off-sidebar {
     color: #5c798f !important;
   }
 }
-@dark: #1C2B36 !important;
+$dark: #1C2B36 !important;
 #sidebar {
-  background: @dark;
+  background: $dark;
 }
 #sidebar:before {
   border-right-width: 0 !important;
@@ -121,9 +121,9 @@ header .dropdown-off-sidebar {
   color: #96abbb;
 }
 #sidebar nav > ul {
-  background: @dark;
-  border-bottom-color: @dark;
-  border-top-color: @dark;
+  background: $dark;
+  border-bottom-color: $dark;
+  border-top-color: $dark;
 }
 #sidebar nav > ul > li a:active:focus {
   background: #05080b !important;
