@@ -25,6 +25,9 @@ import { SigninComponent } from './signin/signin.component';
 import { MatCardModule } from '@angular/material/card';
 import { BussinessAdminModule } from './bussiness-admin/bussiness-admin.module';
 import { SchedulerModule } from "@progress/kendo-angular-scheduler";
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
+import { LayoutComponent } from './layout/layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +39,7 @@ import { SchedulerModule } from "@progress/kendo-angular-scheduler";
     DashboardComponent,
     BussinessSetComponent,
     EmployeesComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,9 +58,9 @@ import { SchedulerModule } from "@progress/kendo-angular-scheduler";
     MatSidenavModule,
     MatCardModule,
     SchedulerModule,
-
-    BussinessAdminModule
-
+    BussinessAdminModule,
+    TooltipModule.forRoot(),
+    AccordionModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

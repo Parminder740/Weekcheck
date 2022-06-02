@@ -7,16 +7,25 @@ import { LocationDetailsComponent } from './location-details/location-details.co
 import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
+import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
+
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+
   { path: "addorjoin", component: AddOrJoinBussinessComponent },
   { path: "location-details", component: LocationDetailsComponent },
   { path: 'BussinessSetup', component: BussinessSetComponent },
-  { path: "employees", component: EmployeesComponent },
-  { path: "dashboard", component: DashboardComponent },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
+      { path: 'dashboard', component: DashboardComponent },
+      { path: "employees", component: EmployeesComponent },
+    ]
+  },
 
 ];
 
