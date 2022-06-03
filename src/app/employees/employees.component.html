@@ -1,22 +1,4 @@
-<div class="header-1">
-  <mat-card class="card-header">
-    <div class="side-header">
-    <div class="building"><i class="fa fa-building" id="fa-fa" aria-hidden="true"></i>
-    <p>test2</p></div>
-    <div><mat-icon class="maticon">notifications</mat-icon>
-    REMAINDER ON</div>
-  	<div><mat-icon class="maticon">notifications_none</mat-icon>
-    <label>NOTIFICATIONS</label></div>
-    <div><button style="color: skyblue;"  data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
-  to</button></div>
-    <p style="margin-left:4px">test</p>
-    <mat-icon style="margin:1px">keyboard_arrow_down</mat-icon>
-     <div></div>
-  </div>
 
-  </mat-card>
-
-</div>
   <mat-toolbar class="header">
    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
 
@@ -24,7 +6,7 @@
   <p class="header-title">EMPLOYEES</p>
   <span class="example-spacer"></span>
 
-  <button class="btn-emp" data-bs-toggle="modal" data-bs-target="#exampleModal">Add
+  <button class="btn-emp">Add
     <mat-icon>perm_identity</mat-icon>
   </button>
 
@@ -66,7 +48,7 @@
 
   <div class="row employees-searchsection bottomborder" style="border-color:#bbb; margin-left:0; margin-right:0">
       <div class="col-md-3">
-          <input class="wk-input"  placeholder="Search employees" style="width:100%">
+          <input class="wk-input" ng-model="searchText" placeholder="Search employees" style="width:100%">
       </div>
       <div class="col-md-7">
           <div class="col-md-6">
@@ -75,7 +57,7 @@
                 <label class="dropsection-link" for="search" style="color: #000;font-size: 14px;line-height: 2em;position: relative; ">Items per page:</label>
 
                 <input class="col-md-09" type="number" min="1" max="100" class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max"
-                style="width: 95px;float: right; margin-top: 0px; margin-left: 30px;margin-right: 10px;">
+                style="width: 95px;float: right; margin-top: 0px; margin-left: 30px;">
 
               </div>
 
@@ -83,24 +65,24 @@
 
           </div>
           <div class="col-md-6">
-              <a class="dropsection-link" type="button" (click)="filterData()">
-                  <i  style="margin-top:10px"  class="fa fa-filter"></i> Filters</a>
+              <a class="dropsection-link" (click)="filterData()">
+                  <i class="fa fa-filter"></i> Filters</a>
 
-              <a class="dropsection-link" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  <i style="margin-top:10px"  class="fa fa-list"></i> Seniority List</a>
-              <a type="button" class="dropsection-link" data-bs-toggle="modal"  data-bs-target="#exampleModal"  style="margin-left: 13px;">
-                  <i style="margin-top:10px" class="fa fa-envelope" ></i>Send</a>
+              <a class="dropsection-link">
+                  <i class="fa fa-list"></i> Seniority List</a>
+              <a class="dropsection-link" style="margin-left: 13px;">
+                  <i class="fa fa-envelope"></i>Send</a>
           </div>
       </div>
       <div class="col-md-2" style="text-align:right">
 
-          <div class="btn-group" >
+          <div class="btn-group" dropdown ng-show="thisUser.isAdmin()">
               <button class="btn btn-default dropdown-toggle" type="button" dropdown-toggle
                   style="color:#1C2B36">
                   <span>Edit Multiple
-                      <!-- <i class="ti-settings"></i> -->
+                      <i class="ti-settings"></i>
                   </span>
-                  <!-- <span class="caret"></span> -->
+                  <span class="caret"></span>
               </button>
               <!-- <ul class="dropdown-menu dropdown-align-left " ng-if="isMultipleEmployeesSelected()">
                   <li>
@@ -180,18 +162,18 @@
                       />
                       <span id="" ng-click="toggleAccordion(employee)"></span>
                       <span ng-if="selectedLocation.locationID">
-                          <span ng-if="employee.scheduler && !employee.isBusinessAdmin && !employee.isBusinessOwner" >
-                              <!-- <small>Scheduler</small> -->
+                          <span ng-if="employee.scheduler && !employee.isBusinessAdmin && !employee.isBusinessOwner" ng-click="toggleAccordion(employee)">|
+                              <small>Scheduler</small>
                           </span>
                       </span>
-                      <span ng-if="employee.isBusinessAdmin && !employee.isBusinessOwner" >
-                          <!-- <small>Admin</small> -->
+                      <span ng-if="employee.isBusinessAdmin && !employee.isBusinessOwner" ng-click="toggleAccordion(employee)">|
+                          <small>Admin</small>
                       </span>
-                      <span ng-if="employee.isBusinessOwner" >
-                          <!-- <small>Business Owner</small> -->
+                      <span ng-if="employee.isBusinessOwner" ng-click="toggleAccordion(employee)">|
+                          <small>Business Owner</small>
                       </span>
 
-                      <i class="pull-left fa" ></i>
+                      <i class="pull-left fa" ng-click="toggleAccordion(employee)" ng-class="{'fa-chevron-down': accorEmployees.isOpen, 'fa-chevron-right': !accorEmployees.isOpen}"></i>
 
                   <!-- </accordion-heading> -->
                   <div class="container" style="position:relative; padding-top:10px">
@@ -260,7 +242,7 @@
                          (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
-
+          Self aware panel
         </mat-panel-title>
         <mat-panel-description>
           Currently I am {{panelOpenState ? 'open' : 'closed'}}
@@ -436,89 +418,3 @@
 <div><p>I'm visible because I am open</p></div>
     </mat-expansion-panel>
   </mat-accordion>
-
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Send Email</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-        </div>
-
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-            <label id="light-col"> Employee(s) to send email</label><br>
-            <input class="form-control" type="text">
-          </div>
-            <div class="mb-3">
-              <label for="recipient-name" class="col-form-label"></label>
-              <input type="text" class="form-control" id="recipient-name" placeholder="Title">
-            </div>
-            <div class="mb-3">
-              <label for="message-text" class="col-form-label">Message:</label>
-              <textarea style="height: 90px;" class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-          <button type="button" class="btn btn-primary">Send</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Launch static backdrop modal
-  </button> -->
-
-  <!-- Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-fullscreen-sm-down">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="staticBackdropLabel">Seniority List</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button><br>
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="mb-3">
-              <label for="recipient-name" class="col-form-label">Recipient:</label>
-              <input type="text" class="form-control" id="recipient-name">
-            </div>
-            <div class="mb-3">
-              <label for="message-text" class="col-form-label">Message:</label>
-              <textarea class="form-control" id="message-text"></textarea>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Send message</button>
-        </div>
-      </div>
-    </div>
-  </div>

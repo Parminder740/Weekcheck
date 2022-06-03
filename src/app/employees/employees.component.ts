@@ -16,5 +16,4 @@ filterData(){
 this.task = !this.task
 console.log(this.task)
 }
-
 }
