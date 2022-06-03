@@ -34,14 +34,23 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss",
+              "src/assets/scss/fonts.scss",
               "src/assets/scss/variables.scss",
               "src/assets/scss/main.scss",
-              "./node_modules/bootstrap/scss/bootstrap.scss"
-
+              "src/assets/scss/styles.scss",
+              "src/assets/scss/theme-6.scss",
+              "./node_modules/bootstrap/scss/bootstrap.scss",
+              "src/assets/scss/top-nav.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -107,6 +116,9 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "node_modules/@progress/kendo-theme-default/dist/all.css"
+              },
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],

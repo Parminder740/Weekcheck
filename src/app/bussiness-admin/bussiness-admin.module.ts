@@ -7,7 +7,10 @@ import { EmpGroupComponent } from './emp-group/emp-group.component';
 import { ShiftRolesComponent } from './shift-roles/shift-roles.component';
 import { ShiftGroupsComponent } from './shift-groups/shift-groups.component';
 import { ReportsComponent } from './reports/reports.component';
-
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -15,11 +18,16 @@ import { ReportsComponent } from './reports/reports.component';
     EmpGroupComponent,
     ShiftRolesComponent,
     ShiftGroupsComponent,
-    ReportsComponent
+    ReportsComponent,
+
   ],
   imports: [
     CommonModule,
-    BussinessAdminRoutingModule, 
+    BussinessAdminRoutingModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatCardModule
   ]
 })
 export class BussinessAdminModule { }

@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { SchedulerEvent } from '@progress/kendo-angular-scheduler';
-import { Day } from '@progress/kendo-date-math';
-import { sampleData, displayDate } from './events-utc';
 
 @Component({
-  
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class LayoutComponent implements OnInit {
+
   isSidenav: boolean = true
   panelOpenState = false;
   showFiller = false;
@@ -18,9 +15,6 @@ export class DashboardComponent implements OnInit {
   isTO: boolean = false
   isNotif: boolean = false
   isHeader: boolean = true
-  selectedDate: Date = displayDate;
-  events: SchedulerEvent[] = sampleData;
-  weekStart: Day = Day.Tuesday;
   navbarCollapsed: boolean = false;
   open: any;
   notifications = [];
@@ -83,5 +77,6 @@ export class DashboardComponent implements OnInit {
   doSomeCoolStaff(){
 
   }
+
 
 }
