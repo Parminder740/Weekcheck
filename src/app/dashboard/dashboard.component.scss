@@ -880,7 +880,7 @@ mat-toolbar {
 }
 
 #page-title {
-  background: rgb(210, 210, 210);
+  background: #f7f7f8;
   border-bottom: 1px solid #eee;
   padding: 15px 0 10px 0;
   position: relative;
@@ -1199,9 +1199,11 @@ body {
 .content {
   flex: 1;
   border-radius: $radius;
+
   &.offset-2p5 {
     margin-left: 18%;
   }
+
   &.offset-0p5 {
     margin-left: 7%;
   }
@@ -1285,11 +1287,16 @@ body {
   }
 }
 
+#dashboardViewSched {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .nav {
   width: 100%;
   $scroll-track: $primary-lighter;
   $scroll-thumb: $text-light;
-  overflow: hidden;
   scrollbar-color: $scroll-thumb transparent;
   scrollbar-width: thin;
   transition: scrollbar-color 200ms;
@@ -1319,13 +1326,14 @@ body {
       background: $scroll-track;
     }
   }
+
   .nav-sub {
     list-style: none;
     padding: 1px 0;
     margin: 0;
     margin-left: 70px;
     background: #0e161c;
-}
+  }
 
 
 }
@@ -1356,9 +1364,11 @@ body {
 .nav__item {
   position: relative;
   display: flex;
+
   &+& {
     margin-top: .25rem;
   }
+
   i {
     padding: 14px 0;
   }
@@ -1461,10 +1471,13 @@ body {
 
 .fixed-top {
   background: #fff;
+  justify-content: space-between;
+
 }
 
 .dynamic-page-area {
-  padding-top: 70px;
+  padding-top: 50px;
+  margin-left: -20px;
 }
 
 .footer-inner {
@@ -1473,4 +1486,25 @@ body {
   height: 70px;
   padding: 20px;
   color: #fff;
+  margin-left: -35px;
 }
+.btn-default-radio :hover{
+background: #c6cdd1f5;
+}
+
+i.rotate {
+  transform: translateY(-50% 01.5s) rotate(-180deg) ;
+}
+i.rotate_90{
+  transform:  rotate(-90deg) ;
+  width: 10px;
+
+}
+
+.flex-end{
+  align-items: flex-end;
+}
+.space-between{
+  justify-content: space-between;
+}
+

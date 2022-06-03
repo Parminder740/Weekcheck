@@ -160,11 +160,9 @@
 
 <div id="container" class="setup-view wrap-content container fade-in-up ng-scope">
 
-  <div style="margin-top:30px">
     <div class="logo-title">
       <img src="assets/images/weekcheck-logo-w_small.png" style="width:75px;margin-top: 30px" />
     </div>
-  </div>
 
   <div class="row">
 
@@ -189,11 +187,11 @@
       <div id="form-container">
         <div class="page-header text-center" style="padding-top:0; margin-top:0">
           <div id="status-buttons" class="text-center">
-            <a (click)="submitForm('setup.view.basic')" [ngClass]="{'black' : toggle} "><span>1</span> Location  </a>
-            <a (click)="submitForm('setup.view.roles')"><span>2</span> Shift Roles</a>
-            <a (click)="submitForm('setup.view.payment')"><span>3</span> Payment Information</a>
-            <a (click)="submitForm('setup.view.employees')"><span>4</span> Employees</a>
-            <a (click)="submitForm('setup.view.complete')"><span>5</span> Getting Started</a>
+            <a (click)="submitForm('setup.view.basic')" [ngClass]="{'black' : toggle1} "><span>1</span> Location  </a>
+            <a (click)="submitForm('setup.view.roles')" [ngClass]="{'black' : toggle2} "><span>2</span> Shift Roles </a>
+            <a (click)="submitForm('setup.view.payment')" [ngClass]="{'black' : toggle3} "><span>3</span> Payment Information</a>
+            <a (click)="submitForm('setup.view.employees')" [ngClass]="{'black' : toggle4}" ><span>4</span> Employees</a>
+            <a (click)="submitForm('setup.view.complete')" [ngClass]="{'black' : toggle5} "><span>5</span> Getting Started</a>
           </div>
         </div>
         <div id="form-views" ui-view>
@@ -560,7 +558,7 @@
 
             <div class="row" style="padding-bottom:0">
               <div class="col-sm-12" style="text-align:center;">
-                <a class="btn btn-dark-azure">
+                <a class="btn btn-dark-azure" routerLink="/dashboard">
                   Start Schedule <span class="fa fa-arrow-right"></span>
                 </a>
                 <div>

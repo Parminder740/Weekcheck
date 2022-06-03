@@ -1,0 +1,308 @@
+<!-- start: PAGE TITLE -->
+
+
+
+<!-- <mat-drawer-container class="example-container"> -->
+
+<div class="main-container app">
+  <div id="sidenav" class="position-fixed sidenav">
+    <header class="sidenav__header header">
+      <img *ngIf="logo" src="assets/images/weekcheck-logo-full_small.png" alt="Week Check" style="max-width:160px;">
+      <button class="sidenav__button" aria-label="Expand" (click)="toggle()" style="margin-right: 25px;">
+        <span class="sidenav__button-icon">
+          <mat-icon id="navBtn" aria-hidden="true">menu</mat-icon>
+        </span>
+      </button>
+    </header>
+
+    <nav class="sidenav__nav nav">
+      <ul class="nav__list">
+        <li class="header" *ngIf="isHeader">
+          <small>Business</small>
+        </li>
+        <li class="nav__item is-active">
+          <span class="nav__icon">
+            <i class="fa fa-home" aria-hidden="true"></i>
+          </span>
+          <span class="nav__label">Dashboard</span>
+        </li>
+        <li class="nav__item is-active" (click)="isBA=!isBA">
+          <span class="nav__icon">
+            <i class="fa fa-solid fa-pencil"></i>
+          </span>
+          <span class="nav__label">Business Adminstration
+          </span>
+          <i class="fa fa-angle-left " [class.rotate_90]="isBA" aria-hidden="true"></i>
+        </li>
+        <li>
+          <ul *ngIf="isBA" class="nav-sub">
+            <li>location</li>
+            <li>Employee Groups</li>
+            <li>Shift Groups</li>
+            <li>Shift Roles</li>
+            <li>Reports</li>
+          </ul>
+        </li>
+
+        <li class="nav__item is-active">
+          <span class="nav__icon">
+            <i class="fa far fa-user"></i>
+          </span>
+          <span class="nav__label">Employees</span>
+        </li>
+
+      </ul>
+      <ul class="nav__list">
+        <li class="header" *ngIf="isHeader">
+          <small>Location</small>
+        </li>
+
+        <li class="nav__item is-active" (click)="isTO=!isTO">
+          <span class="nav__icon">
+            <i class="material-icons" style="margin-right: 10px;">alarm</i>
+          </span>
+          <span class="nav__label">Time Off
+          </span>
+          <i class="fa fa-angle-left" [class.rotate_90]="isTO" aria-hidden="true"></i>
+        </li>
+        <li>
+          <ul *ngIf="isTO" class="nav-sub">
+            <li>Create</li>
+            <li>View</li>
+          </ul>
+        </li>
+
+        <li class="nav__item is-active">
+          <span class="nav__icon">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </span>
+          <span class="nav__label">Schedule</span>
+        </li>
+
+      </ul>
+      <ul class="nav__list">
+        <li class="header" *ngIf="isHeader">
+          <small>Account</small>
+        </li>
+        <li class="nav__item is-active" (click)="isNotif=!isNotif">
+          <span class="nav__icon">
+            <i class=" fa fa-regular fa-bell"></i>
+          </span>
+          <span class="nav__label">Notifications
+          </span>
+          <i class="fa fa-angle-left" [class.rotate_90]="isNotif" aria-hidden="true"></i>
+        </li>
+        <li>
+          <ul *ngIf="isNotif" class="nav-sub">
+            <li>View</li>
+          </ul>
+        </li>
+
+        <li class="nav__item is-active">
+          <span class="nav__icon">
+            <i class=" fa fa-regular fa-id-card"></i>
+          </span>
+          <span class="nav__label">Profile</span>
+        </li>
+        <li class="nav__item is-active">
+          <span class="nav__icon">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+          </span>
+          <span class="nav__label">Account Settings</span>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+
+  <div class="content" [ngClass]="logo ? 'offset-2p5':'offset-0p5'">
+
+
+
+    <!-- <header ng-include=" 'common/templates/topNavbar.tpl.html' " ng-controller="TopNavCtrl" class="navbar navbar-default navbar-static-top ng-scope">start: TOP NAVBAR -->
+
+    <!-- start: NAVBAR COLLAPSE -->
+    <div class="navbar d-flex fixed-top">
+      <div class="navbar-collapse d-flex space-between">
+        <div>
+          <a href="#" class="navbar-brand navbar-brand-secondary">
+
+            <img src="../../assets/images/weekcheck-logo-full_small.png" alt="Week Check" style="max-width:190px"
+              src="../../assets/images/weekcheck-logo-full_small.png">
+          </a>
+        </div>
+        <div style="height: 100%">
+          <ul class="nav navbar-right " ct-fullheight="window" data-ct-fullheight-exclusion="header"
+            data-ct-fullheight-if="isSmallDevice">
+            <!-- ngIf: isAdmin && isTrial -->
+            <!-- LOCATION SWITCHER -->
+            <li class="dropdown" dropdown="" (toggle)="toggled(open)">
+              <a href="" class=" ng-binding" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                <div>
+                  <i class="fa fa-building-o"></i>
+                </div>
+                <div>ahsbscb</div>
+              </a>
+              <ul role="menu" class="dropdown-menu dropdown-light fadeInUpShort dropdown-large">
+                <!-- ngRepeat: business in businesses track by business.businessID -->
+                <li class="dropdown-header ng-binding" *ngFor="let business of businesses">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i> Techpro
+                </li>
+                <!-- ngRepeat: location in business.locations track by location.locationID -->
+                <li *ngFor=" let location of business.locations" class="ng-scope">
+                  <a (click)="changeLocation(location)" href="#" class="menu-toggler">
+                    <div class="ng-binding"> Mr Tire MKT 63 Cleveland</div>
+                    <address class="ng-binding">
+                      <i class="fa fa-building-o" aria-hidden="true"></i> Mkt 63</address>
+                  </a>
+                </li><!-- end ngRepeat: location in business.locations track by location.locationID -->
+                <li role="separator" class="divider" ng-repeat-end=""></li>
+                <!-- end ngRepeat: business in businesses track by business.businessID -->
+                <li class="dropdown-header ng-binding"
+                  ng-repeat-start="business in businesses track by business.businessID">
+                  <i class="fa fa-briefcase" aria-hidden="true"></i> ytgyugyi
+                </li>
+                <!-- ngRepeat: location in business.locations track by location.locationID -->
+                <li *ngFor="let location in business.locations" class="ng-scope">
+                  <a (click)="changeLocation(location)" href="#" class="menu-toggler">
+                    <div class="ng-binding"> ytgyugyi</div>
+                    <address class="ng-binding">
+                      <i class="fa fa-building-o" aria-hidden="true"></i> gjfyj</address>
+                  </a>
+                </li><!-- end ngRepeat: location in business.locations -->
+                <li *ngFor="let location in business.locations" class="ng-scope">
+                  <a (click)="changeLocation(location)" href="#" class="menu-toggler">
+                    <div class="ng-binding"> dfghjk</div>
+                    <address class="ng-binding">
+                      <i class="fa fa-building-o" aria-hidden="true"></i> dfghjkl</address>
+                  </a>
+                </li><!-- end ngRepeat: location in business.locations -->
+                <li *ngFor="let location in business.locations" class="ng-scope">
+                  <a (click)="changeLocation(location)" href="#" class="menu-toggler">
+                    <div class="ng-binding"> dfghjk</div>
+                    <address class="ng-binding">
+                      <i class="fa fa-building-o" aria-hidden="true"></i> dfghjkl</address>
+                  </a>
+                </li><!-- end ngRepeat: location in business.locations -->
+                <!-- <li role="separator" class="divider" *ngFor=""></li> -->
+                <!-- end ngRepeat: business in businesses track by business.businessID -->
+                <!-- <li class="dropdown-header ng-binding" *ngFor-start="business in businesses track by business.businessID">
+                                  <i class="fa fa-briefcase" aria-hidden="true"></i> cvgng
+                              </li> -->
+                <!-- ngRepeat: location in business.locations -->
+                <li *ngFor="let location of business.locations" class="ng-scope">
+                  <a (click)="changeLocation(location)" href="#" class="menu-toggler">
+                    <div class="ng-binding"> cvgng</div>
+                    <address class="ng-binding">
+                      <i class="fa fa-building-o" aria-hidden="true"></i> gngv</address>
+                  </a>
+                </li><!-- end ngRepeat: location in business.locations -->
+                <li role="separator" class="divider" ng-repeat-end=""></li>
+                <!-- end ngRepeat: business in businesses track by business.businessID -->
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" *ngIf="remainderImg" (click)="setReminderOff()" class="ng-hide">
+                <i class="fa fa fa-bell"></i>Reminder Off
+              </a>
+              <a href="#" *ngIf="!remainderImg" (click)="setReminderOn()">
+                <i class="fa fa fa-bell"></i>Reminder On
+              </a>
+            </li>
+            <!-- /LOCATION SWITCHER -->
+            <!-- start: MESSAGES DROPDOWN -->
+            <li class="dropdown ng-hide" dropdown="" (toggle)="toggled(open)" *ngIf="false">
+              <a href="" class="" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                <span class="dot-badge partition-red ng-hide" *ngIf="messages.length > 0"></span>
+                <i class="ti-comment"></i>
+                <span translate="topbar.messages.MAIN" class="ng-scope">Messages</span>
+              </a>
+              <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
+                <li>
+                  <!--translate="topbar.messages.HEADER"-->
+                  <span class="dropdown-header ng-binding"> You have 0 unread messages</span>
+                </li>
+                <li class="view-all">
+                  <a href="#" translate="topbar.messages.SEEALL" class="ng-scope">See All</a>
+                </li>
+              </ul>
+            </li>
+            <!-- end: MESSAGES DROPDOWN -->
+            <!-- start: NOTIFICATIONS DROPDOWN -->
+            <li class="dropdown" (click)="getUnviewedNotificationsList()" dropdown="" (toggle)="toggled(open)">
+              <a href="" class="" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                <span class="dot-badge partition-red ng-hide" *ngIf="notifications.length > 0"></span>
+                <i class="fa fa fa-bell"></i>
+                <span translate="topbar.notifications.MAIN" class="ng-scope">Notifications</span>
+              </a>
+              <ul class="dropdown-menu dropdown-light dropdown-messages dropdown-large">
+                <li>
+                  <!--translate="topbar.notifications.HEADER"-->
+                  <span class="dropdown-header ng-binding"> You have 0 unread notifications</span>
+                </li>
+                <!-- ngRepeat: notification in notifications -->
+                <!-- ngIf: notifications.length > 0 -->
+              </ul>
+            </li>
+            <!-- end: NOTIFICATIONS DROPDOWN -->
+
+            <!-- start: USER OPTIONS DROPDOWN -->
+            <li class="dropdown current-user" dropdown="" (toggle)="toggled(open)">
+              <a href="" class="" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                <!-- ngIf: user.userImage !== 'assets/images/default-user.png' && user.userImage !== null && user.userImage !== '' -->
+                <!-- ngIf: user.userImage == 'assets/images/default-user.png' || user.userImage == null || user.userImage == '' -->
+                <div class="initial-box md ng-binding ng-scope"
+                  ng-if="user.userImage == 'assets/images/default-user.png' || user.userImage == null || user.userImage == ''"
+                  style="float: left; margin-right: 5px; min-width: 39px; max-width: 39px; min-height: 39px; max-height: 39px; font-size: 16px; padding-top: 6px;">
+                  ps
+                </div>
+                <!-- end ngIf: user.userImage == 'assets/images/default-user.png' || user.userImage == null || user.userImage == '' -->
+                <span class="username ng-binding">piyush
+                  <i class="ti-angle-down"></i>
+
+                </span>
+              </a>
+              <ul class="dropdown-menu dropdown-dark">
+                <li>
+                  <a ui-sref="app.employee.info" translate="topbar.user.PROFILE" class="ng-scope"
+                    href="#/app/employee/info">My Profile</a>
+                </li>
+                <li>
+                  <a ui-sref="login.lockscreen" translate="topbar.user.LOCKSCREEN" class="ng-scope"
+                    href="#/login/lock">Lock Screen</a>
+                </li>
+                <li>
+                  <a translate="topbar.user.LOGOUT" (click)="logout()" class="ng-scope">Log Out</a>
+                </li>
+              </ul>
+            </li>
+            <!-- end: USER OPTIONS DROPDOWN -->
+          </ul>
+        </div>
+        <!-- start: MENU TOGGLER FOR MOBILE DEVICES -->
+        <!-- <div class="close-handle visible-xs-block menu-toggler" (click)="navbarCollapsed = true">
+                      <div class="arrow-left"></div>
+                      <div class="arrow-right"></div>
+                  </div> -->
+        <!-- end: MENU TOGGLER FOR MOBILE DEVICES -->
+      </div>
+    </div>
+    <a class="dropdown-off-sidebar" (click)="togglesidebar('off-sidebar')">
+      &nbsp;
+    </a>
+    <!-- end: NAVBAR COLLAPSE -->
+    <!-- start: TOP NAVBAR -->
+    <!-- </header> -->
+
+
+    <router-outlet></router-outlet>
+
+ 
+
+  </div>
+  
+  <footer>
+    <div class="footer-inner">
+      © 2022 GO WITH WEST. All rights reserved
+    </div>
+  </footer>
