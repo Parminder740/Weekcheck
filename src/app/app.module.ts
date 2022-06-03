@@ -28,6 +28,7 @@ import { SchedulerModule } from "@progress/kendo-angular-scheduler";
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { LayoutComponent } from './layout/layout.component';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { LayoutComponent } from './layout/layout.component';
     BussinessSetComponent,
     EmployeesComponent,
     LayoutComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
