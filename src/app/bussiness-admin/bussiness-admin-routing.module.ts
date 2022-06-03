@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'location',component:LocationComponent},
   {path:'emp-group',component:EmpGroupComponent},
   {path:'shift-roles',component:ShiftRolesComponent},
-  {path:'shift-groups',component:ShiftGroupsComponent},
+  {path:'shift-group',component:ShiftGroupsComponent},
   {path:'reports',component:ReportsComponent},
 ];
 
