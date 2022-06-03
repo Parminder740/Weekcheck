@@ -2,22 +2,22 @@
 	select {
 		-moz-appearance: meterchunk ;
 	}
-	
+
 	.row1 {
 		display: inline-block;
 		width: auto ;
 	}
-	
+
 	.divmain {
 		width: 100%;
 		margin-top: 10px;
 	}
-	
+
 	.divsub {
 		width: 30%;
 		display: inline-block;
 	}
-	
+
 	.divsub label {
 		width: 70px;
 	}
@@ -36,7 +36,7 @@
 	<div class="row">
 		<div class=" col-sm-5 col-md-5">
 			<fieldset class="ng-scope" style="padding-bottom:0px;">
-				<legend>
+				<legend style="color: blue">
 					Required Report Criteria
 				</legend>
 				<div class="row">
@@ -51,22 +51,27 @@
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
+            <div class="time">
 							<label>Start Time : </label>
-							<input kendo-date-picker ng-model="startTime" onkeydown="return false;" required class="form-control" style="width:100%;font-size: 13px;"
-							/>
-						</div>
+							<input kendo-date-picker ng-model="startTime" onkeydown="return false;" required class="form-control" style="width:100%;font-size: 13px;">
+							<button class="material-icons">date_range</button>
+              </div>
+            </div>
 					</div>
 					<div class="col-md-4">
 						<div class="form-group">
-							<label>End Time : </label>
-							<input kendo-date-picker ng-model="endTime" onkeydown="return false;" required class="form-control" style="width:100%;font-size: 13px;" />
-						</div>
+              <div class="time">
+							<label >End Time : </label>
+							<input kendo-date-picker ng-model="endTime" onkeydown="return false;" required class="form-control" style="width:70%;font-size: 13px;" />
+							<button class="material-icons">date_range</button>
+              </div>
+            </div>
 					</div>
 				</div>
 			</fieldset>
 		</div>
 		<div class="col-sm-5 col-md-6">
-			<fieldset class="ng-scope" style="padding-bottom:0px;">
+			<fieldset class="ng-scope" style="padding-bottom:0px; color: blue;">
 				<legend>
 					Advanced Report Filtering
 				</legend>
@@ -77,11 +82,15 @@
 							<!-- <multiselect ng-model="selGrouping" ms-header="Select Groups" options="c.name for c in groups" data-multiple="true" data-compare-by="groupingOptionID"
 								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150">
 							</multiselect> -->
+              <br>
+              <input type="text" placeholder="Select Groups" name="name">
 						</div>
 					</div>
 					<div class="col-sm-4 col-md-3">
 						<div class="form-group">
 							<label>Role : </label>
+              <br>
+              <input type="text" placeholder="Select Roles" name="name">
 							<!-- <multiselect ng-model="selRole" ms-header="Select Roles" options="c.name for c in roles" data-multiple="true" data-compare-by="roleID"
 								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150">
 							</multiselect> -->
@@ -90,8 +99,10 @@
 					<div class="col-sm-4 col-md-5">
 						<div class="form-group">
 							<label>Employee : </label>
-							<!-- <!-- <multiselect ng-model="selEmpl" ms-header="Select Employees" options="c.firstName for c in emplists" data-multiple="true" data-compare-by="employeeID"
-								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150"> 
+              <br>
+              <input type="text" placeholder="Select Employees" name="name">
+							<!-- <multiselect ng-model="selEmpl" ms-header="Select Employees" options="c.firstName for c in emplists" data-multiple="true" data-compare-by="employeeID"
+								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150">
 							</multiselect> -->
 						</div>
 					</div>
@@ -124,7 +135,7 @@
 							<table class="table table-striped itemslist table-bordered">
 								<thead>
 									<tr>
-										<th>Name</th> 
+										<th>Name</th>
 										<th width="15%" style="text-align:center;">Call Offs</th>
 										<th width="15%" style="text-align:center;">Lates</th>
 										<th width="25%" style="text-align:center;">Approved Time Offs</th>
@@ -141,7 +152,7 @@
 												<td style="text-align: center"><a ng-click="loadEmpFieldDetails({{option.employeeID}}, 'Lates')">{{option.noofLates}}</a></td>
 												<td style="text-align: center"><a ng-click="loadEmpFieldDetails({{option.employeeID}}, 'ApprovedTimeOffs')">{{option.noofApprovedTimeOf}}</a></td>
 												<td style="text-align: center"><a ng-click="loadEmpFieldDetails({{option.employeeID}}, 'AcceptedAvailableShifts')">{{option.noofAcceptedAvailableShifts}}</a></td> -->
-												
+
 											</tr>
 										</tbody>
                                         </thead>
@@ -239,7 +250,6 @@
 
 	<style>
 		.col-grt text{
-		font-size: 10px; 
+		font-size: 10px;
 		}
 	</style>
-	
