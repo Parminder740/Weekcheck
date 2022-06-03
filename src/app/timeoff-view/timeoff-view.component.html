@@ -1,0 +1,80 @@
+<!-- start: PAGE TITLE -->
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="mainTitle" translate="sidebar.nav.timeoff.VIEW">Title</h1>
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE -->
+
+<!-- start: VIEW TIME OFF -->
+<div class="container-fluid container-fullw  bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <ngx-tabset class="tabbable">
+                <ngx-tab headin ="Current">
+                    <div class="table-responsive">
+                        <table class="table table-striped" st-table="myFilteredData" st-safe-src="myData">
+                            <thead>
+                            <tr>
+                                <th st-sort="statusText">Status</th>
+                                <th st-sort="startTime">Start</th>
+                                <th st-sort="lastModified">Last Modified</th>
+                                <th>Actions</th>
+                            </tr>
+                            <tr>
+                                <th><input st-search="'statusText'" class="form-control" placeholder="Search ..." type="text"/>
+                                <th><input st-search="'startTimeDisplay'" class="form-control" placeholder="Search ..." type="text"/>
+                                <th><input st-search="'lastModifiedDisplay'" class="form-control" placeholder="Search ..." type="text"/>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="request in myFilteredData | orderBy:'-lastModified'"> 
+                                <td></td> 
+
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-dark-azure" ng-click="view(request)">View</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ngx-tab>
+                <ngx-tab heading="Needing Action">
+                    <div class="table-responsive">
+                        <table class="table table-striped" st-table="filteredNeedingAction" st-safe-src="needingAction">
+                            <thead>
+                            <tr>
+                                <th st-sort="statusText">Status</th>
+                                <th st-sort="startTime">Start</th>
+                                <th st-sort="lastModified">Last Modified</th>
+                                <th>Actions</th>
+                            </tr>
+                            <tr>
+                                <th><input st-search="'statusText'" class="form-control" placeholder="Search ..." type="text"/>
+                                <th><input st-search="'startTimeDisplay'" class="form-control" placeholder="Search ..." type="text"/>
+                                <th><input st-search="'lastModifiedDisplay'" class="form-control" placeholder="Search ..." type="text"/>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="request in filteredNeedingAction">
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <button class="btn btn-dark-azure" ng-click="view(request)">View</button>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </ngx-tab>
+            </ngx-tabset>
+        </div>
+    </div>
+</div>
+<!-- end: VIEW TIME OFF -->

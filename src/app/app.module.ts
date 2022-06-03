@@ -21,8 +21,16 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
+import {TabsModule} from 'ngx-tabset';
+
 import { SigninComponent } from './signin/signin.component';
 import { BussinessAdminModule } from './bussiness-admin/bussiness-admin.module';
+import { AccSettingsComponent } from './acc-settings/acc-settings.component';
+import { ProfileComponent } from './profile/profile.component';
+import { TimeoffCreateComponent } from './timeoff-create/timeoff-create.component';
+import { TimeoffViewComponent } from './timeoff-view/timeoff-view.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +43,12 @@ import { BussinessAdminModule } from './bussiness-admin/bussiness-admin.module';
     DashboardComponent,
     BussinessSetComponent,
     EmployeesComponent,
+    AccSettingsComponent,
+    ProfileComponent,
+    TimeoffCreateComponent,
+    TimeoffViewComponent,
+    NotificationsComponent,
+    ScheduleComponent,
   ],
   imports: [
    BrowserModule,
@@ -44,6 +58,7 @@ import { BussinessAdminModule } from './bussiness-admin/bussiness-admin.module';
     MatButtonModule,
     MatIconModule,
     CommonModule,
+    TabsModule,
     MatCheckboxModule,
     MatToolbarModule,
     MatExpansionModule,

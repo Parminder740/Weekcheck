@@ -1,5 +1,10 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
+  "System.config":{
+    "map": {
+        "ngx-tabset": "node_modules/ngx-tabset/bundles/ngx-tabset.umd.js"
+    }
+},
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
@@ -29,4 +34,5 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   }
+  
 }

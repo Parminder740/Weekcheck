@@ -1,0 +1,59 @@
+<!-- start: PAGE TITLE -->
+<section id="page-title">
+    <div class="row">
+        <div class="col-sm-8">
+            <h1 class="mainTitle" translate="sidebar.nav.notification.VIEW"></h1>
+        </div>
+        <div ncy-breadcrumb></div>
+    </div>
+</section>
+<!-- end: PAGE TITLE -->
+
+<!-- start: VIEW NOTIFICATIONS -->
+<div class="container-fluid container-fullw  bg-white">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-striped" st-table="filteredData" st-safe-src="data" st-set-filter="customFilter">
+                    <thead>
+                        <tr>
+                            <th st-sort="eventTypeText">Reason</th>
+                            <th st-sort="message">Message</th>
+                            <th st-sort="utcDateSent">Date Sent</th>
+                            <th st-sort="viewed">Viewed</th>
+                            <th>Actions</th>
+                        </tr>
+                        <tr>
+                            <th><input st-search="'eventTypeText'" class="form-control" placeholder="Search ..." type="text" /></th>
+                            <th><input st-search="'message'" class="form-control" placeholder="Search ..." type="text" /></th>
+                            <th><input st-search="'utcDateSentDisplay'" class="form-control" placeholder="Search ..." type="text" /></th>
+                            <th style="width: 13%">
+                                <!-- <st-select-distinct collection="data" predicate="viewed" default-value="No"></st-select-distinct> -->
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                            <tr ng-repeat="request in filteredData track by $index" ng-class="{ 'not-viewed-notification': request.viewed == 'No', 'viewed-notification': request.viewed == 'Yes' }" >                   
+
+                                           
+                        <!-- <tr ng-repeat="request in filteredData track by $index" ng-class="{ 'not-viewed-notification': request.viewed == 'No', 'viewed-notification': request.viewed == 'Yes' }" ng-hide="( !(isAdmin || isScheduler) && request.eventTypeText==='TimeOff')">               -->
+                            <!-- <tr ng-repeat="request in filteredData track by $index" ng-class="{ 'not-viewed-notification': request.viewed == 'No', 'viewed-notification': request.viewed == 'Yes' }" > -->                                 
+                                                 
+                            <td></td>
+                            <td></td>
+                            <td style="text-align: center"></td>
+                            <td style="text-align: center"></td>
+                            <td>
+                                <span ng-if="request.viewed == 'Yes'"><button class="btn btn-dark-azure" ng-click="view(request)" ng-disabled="isDisabled" ng-hide="nonViewable.indexOf(request.eventType) > -1"> <i class="ti-eye" ></i> Viewed</button></span>
+                                <span ng-if="request.viewed == 'No'"><button class="btn btn-dark-azure" ng-click="view(request)" ng-disabled="isDisabled" ng-hide="nonViewable.indexOf(request.eventType) > -1"> <i class="ti-eye" ></i> View</button></span>
+                                <span ng-if="request.viewed == 'Yes'"><button class="btn btn-dark-azure" ng-disabled="true" ng-show="nonViewable.indexOf(request.eventType) > -1"><i class="ti-eye" ></i> Viewed</button></span>
+                                <span ng-if="request.viewed == 'No'"><button class="btn btn-dark-azure" ng-click="markViewed(request)" ng-show="nonViewable.indexOf(request.eventType) > -1"><i class="ti-eye" ></i> Mark Viewed</button></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end: VIEW NOTIFICATIONS -->

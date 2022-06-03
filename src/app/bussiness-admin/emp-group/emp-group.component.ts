@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emp-group.component.scss']
 })
 export class EmpGroupComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -7,7 +7,8 @@ import { EmpGroupComponent } from './emp-group/emp-group.component';
 import { ShiftRolesComponent } from './shift-roles/shift-roles.component';
 import { ShiftGroupsComponent } from './shift-groups/shift-groups.component';
 import { ReportsComponent } from './reports/reports.component';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,9 @@ import { ReportsComponent } from './reports/reports.component';
   imports: [
     CommonModule,
     BussinessAdminRoutingModule, 
+    MatToolbarModule,
+    AccordionModule
+  
   ]
 })
 export class BussinessAdminModule { }
