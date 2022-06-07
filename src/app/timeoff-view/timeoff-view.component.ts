@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timeoff-view.component.scss']
 })
 export class TimeoffViewComponent implements OnInit {
-
+  currTitle:any
+  request:any
   constructor() { }
 
   ngOnInit(): void {
