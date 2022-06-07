@@ -29,6 +29,16 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotificationComponent } from './notification/notification.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ProfileComponent } from './profile/profile.component';
+import { TimeoffViewComponent } from './timeoff-view/timeoff-view.component';
+import { TimeoffCreateComponent } from './timeoff-create/timeoff-create.component';
+import { SchdeuleComponent } from './schdeule/schdeule.component';
+import {DropdownModule} from 'primeng/dropdown';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +52,12 @@ import { FooterComponent } from './footer/footer.component';
     EmployeesComponent,
     LayoutComponent,
     FooterComponent,
+    NotificationComponent,
+    SettingsComponent,
+    ProfileComponent,
+    TimeoffViewComponent,
+    TimeoffCreateComponent,
+    SchdeuleComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +78,8 @@ import { FooterComponent } from './footer/footer.component';
     SchedulerModule,
     BussinessAdminModule,
     TooltipModule.forRoot(),
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

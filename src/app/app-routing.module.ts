@@ -8,6 +8,18 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layout/layout.component';
+import { LocationComponent } from './bussiness-admin/location/location.component';
+import { EmpGroupComponent } from './bussiness-admin/emp-group/emp-group.component';
+import { ReportsComponent } from './bussiness-admin/reports/reports.component';
+import { ShiftRolesComponent } from './bussiness-admin/shift-roles/shift-roles.component';
+import { ShiftGroupsComponent } from './bussiness-admin/shift-groups/shift-groups.component';
+import { ViewComponent } from '@progress/kendo-angular-dateinputs';
+import { SettingsComponent } from './settings/settings.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NotificationComponent } from './notification/notification.component';
+import { TimeoffViewComponent } from './timeoff-view/timeoff-view.component';
+import { TimeoffCreateComponent } from './timeoff-create/timeoff-create.component';
+import { SchdeuleComponent } from './schdeule/schdeule.component';
 
 const routes: Routes = [
 
@@ -16,14 +28,25 @@ const routes: Routes = [
   { path: "register", component: RegisterComponent },
 
   { path: "addorjoin", component: AddOrJoinBussinessComponent },
-  { path: "location-details", component: LocationDetailsComponent },
   { path: 'BussinessSetup', component: BussinessSetComponent },
+  { path: '', component: BussinessSetComponent },
+  { path: 'settings', component: SettingsComponent},
+
   {
     path: '',
     component: LayoutComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: "employees", component: EmployeesComponent },
+      { path: 'emp-group', component:EmpGroupComponent },
+      { path: 'reports', component: ReportsComponent },
+      { path: 'shift-groups', component:ShiftGroupsComponent },
+      { path: 'shift-roles', component: ShiftRolesComponent },
+      { path: 'timeoff/view', component:TimeoffViewComponent  },
+      { path: 'timeoff/create', component: TimeoffCreateComponent },
+      { path: 'notifications', component: NotificationComponent},
+      { path: 'profile', component: ProfileComponent },
+      { path: 'schdeule', component: SchdeuleComponent},
     ]
   },
 
