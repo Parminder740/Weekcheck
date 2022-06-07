@@ -29,6 +29,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './footer/footer.component';
+import {DropdownModule} from 'primeng/dropdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +63,8 @@ import { FooterComponent } from './footer/footer.component';
     SchedulerModule,
     BussinessAdminModule,
     TooltipModule.forRoot(),
-    AccordionModule.forRoot()
+    AccordionModule.forRoot(),
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

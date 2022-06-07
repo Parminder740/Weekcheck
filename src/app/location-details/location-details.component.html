@@ -1,18 +1,16 @@
+<h1 class="header">Location Details</h1>
+
+<p>Please fill out some basic information about your location to help us get your business set up correctly.</p>
 
 
-	<h3>Location Details</h3>
-
-	<p>Please fill out some basic information about your location to help us get your business set up correctly.</p>
-
-
-<form name="Form" id="form1" novalidate >
-<div class="row" style="padding-bottom:0">
-	<div class="col-sm-8">
-      <!-- <text-container input="name" label="Name" error="Name is required"> -->
-          <input name="name" class="form-control" type="text" required />
-      <!-- </text-container> -->
-    </div>
-    <!-- <div class="col-sm-4">
+<form name="Form" id="form1" novalidate>
+    <div class="row" style="padding-bottom:0">
+        <div class="col-sm-8">
+            <!-- <text-container input="name" label="Name" error="Name is required"> -->
+            <input name="name" class="form-control" type="text" required />
+            <!-- </text-container> -->
+        </div>
+        <!-- <div class="col-sm-4">
     	<text-container input="weekday" label="Week Start" error="Week Start is required">
             <ui-select name="weekday" ng-model="model.weekday" required>
                 <ui-select-match placeholder="Select...">
@@ -24,14 +22,14 @@
             </ui-select>
         </text-container>
     </div> -->
-</div>
-<div class="row" style="padding-bottom:0">
-	<div class="col-sm-8">
-      <!-- <text-container input="address" label="Address" error="Address is required"> -->
-          <input name="address" class="form-control" type="text" required />
-      <!-- </text-container> -->
     </div>
-    <!-- <div class="col-sm-4">
+    <div class="row" style="padding-bottom:0">
+        <div class="col-sm-8">
+            <!-- <text-container input="address" label="Address" error="Address is required"> -->
+            <input name="address" class="form-control" type="text" required />
+            <!-- </text-container> -->
+        </div>
+        <!-- <div class="col-sm-4">
       <text-container input="state" label="State" error="State is required">
           <ui-select name="state" ng-model="model.state" on-select="onStateChange($item)" required>
               <ui-select-match placeholder="Select...">
@@ -46,30 +44,26 @@
           </ui-select>
       </text-container>
    </div> -->
-</div>
-<div class="row">
-	<div class="col-sm-8">
-      <!-- <text-container input="city" label="City" error="City is required"> -->
-          <input name="city" class="form-control" type="text"  required />
-      <!-- </text-container> -->
     </div>
-    <div class="col-sm-4">
-      <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
-          <input name="zip" class="form-control"  type="text" required />
-      <!-- </text-container> -->
-   </div>
-</div>
-<div ng-init="setForm(Form);"></div>
+    <div class="row">
+        <div class="col-sm-8">
+            <!-- <text-container input="city" label="City" error="City is required"> -->
+            <input name="city" class="form-control" type="text" required />
+            <!-- </text-container> -->
+        </div>
+        <div class="col-sm-4">
+            <!-- <text-container input="zip" label="Zip Code" error="Zip code is required"> -->
+            <input name="zip" class="form-control" type="text" required />
+            <!-- </text-container> -->
+        </div>
+    </div>
+    <div ng-init="setForm(Form);"></div>
 </form>
 <div class="row" style="padding-bottom:0">
-	<div class="col-sm-12" style="text-align:center;">
+    <div class="col-sm-12" style="text-align:center;">
 
-	<a  class="btn btn-dark-azure">
-    Next <span class="fa fa-arrow-right"></span>
-    </a>
+        <a class="btn btn-dark-azure">
+            Next <span class="fa fa-arrow-right"></span>
+        </a>
     </div>
 </div>
-
-
-
-

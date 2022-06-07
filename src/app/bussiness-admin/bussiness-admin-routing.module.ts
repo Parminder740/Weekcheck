@@ -12,6 +12,7 @@ const routes: Routes = [
   {path:'shift-roles',component:ShiftRolesComponent},
   {path:'shift-group',component:ShiftGroupsComponent},
   {path:'reports',component:ReportsComponent},
+  
 ];
 
 @NgModule({

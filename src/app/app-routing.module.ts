@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layout/layout.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
 
@@ -26,7 +27,13 @@ const routes: Routes = [
       { path: "employees", component: EmployeesComponent },
     ]
   },
-
+  {
+    path: '',
+    component: FooterComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+    ]
+  },
 ];
 
 @NgModule({
