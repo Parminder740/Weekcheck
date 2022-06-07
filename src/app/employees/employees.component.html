@@ -7,10 +7,10 @@
 
       <section id="page-title">
         <div class="row">
-          <div >
+          <div class="heading">
             <h1 class="mainTitle" translate="sidebar.nav.employees.page.main.HEADER">EMPLOYEES</h1>
           </div>
-          <div class="pull-right" >
+          <div class="pull-right" style="margin-top: 10px;">
             <a (click)="addEmployee()" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk">
               Add
               <span class="fa fa-user"></span>
@@ -57,19 +57,19 @@
           <div class="col-md-3">
             <input class="wk-input" (ngModel)="searchText" placeholder="Search employees" style="width:100%">
           </div>
-          <div class="col-md-7">
-            <div class="col-md-6">
+          <div class="col-md-7"style="display: flex;">
+            <div class="col-md-6" style="display: flex;">
               <div class="col-md-7">
                 <label class="dropsection-link" for="search"
                   style="color: #000;font-size: 14px;line-height: 2em;position: relative;">Items per page:</label>
               </div>
-              <div class="col-md-5">
+              <div class="col-md-5"style="display: flex;">
                 <input type="number" min="1" max="100"
                   class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" (ngModel)="pageSize"
-                  style="width: 95px;float: right;margin-top: 0px;">
+                  style="width: 95px;float: right;margin-top: 0px; ">
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" style="display: flex;" >
               <a (click)="showFilters()" class="dropsection-link">
                 <i class="fa fa-filter"></i> Filters</a>
               <span style="color:#0280ba; padding-top:5px;" *ngIf="filterCount > 0">({{filterCount}})</span>
@@ -167,9 +167,10 @@
                 current-page="currentPage" is-disabled="!selectedLocation.locationID">
 
                 <div accordion-heading>
+                  <i class="fa fa-angle-left"></i>
                   <input type="checkbox" (ngModel)="selectedEmployees[employee.employeeID]"
                     (click)="checkboxClick('$event')" style="left:-25px; position:absolute" />
-                  <span id="{{employee.employeeID}}" (click)="toggleAccordion(employee)">{{employee.name}}</span>
+                  <span id="{{employee.employeeID}}" (click)="toggleAccordion(employee)">piyush goyal</span>
                   <span *ngIf="selectedLocation">
                     <span *ngIf="employee.scheduler && !employee.isBusinessAdmin && !employee.isBusinessOwner"
                       (click)="toggleAccordion(employee)">|
@@ -184,7 +185,7 @@
                     <small>Business Owner</small>
                   </span>
 
-                  <i class="pull-left fa" (click)="toggleAccordion(employee)"
+                  <i class="fa fa-angle-left" (click)="toggleAccordion(employee)"
                     ng-class="{'fa-chevron-down': accorEmployees.isOpen, 'fa-chevron-right': !accorEmployees.isOpen}"></i>
 
                 </div>
