@@ -29,7 +29,16 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { LayoutComponent } from './layout/layout.component';
 import { FooterComponent } from './footer/footer.component';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
+import { NotificationComponent } from './notification/notification.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ProfileComponent } from './profile/profile.component';
+import { TimeoffViewComponent } from './timeoff-view/timeoff-view.component';
+import { TimeoffCreateComponent } from './timeoff-create/timeoff-create.component';
+import { SchdeuleComponent } from './schdeule/schdeule.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +52,12 @@ import {DropdownModule} from 'primeng/dropdown';
     EmployeesComponent,
     LayoutComponent,
     FooterComponent,
+    NotificationComponent,
+    SettingsComponent,
+    ProfileComponent,
+    TimeoffViewComponent,
+    TimeoffCreateComponent,
+    SchdeuleComponent,
   ],
   imports: [
     BrowserModule,

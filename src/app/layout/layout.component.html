@@ -20,7 +20,7 @@
         <li class="header" *ngIf="isHeader">
           <small>Business</small>
         </li>
-        <li class="nav__item is-active">
+        <li routerLink='/dashboard' class="nav__item is-active">
           <span class="nav__icon">
             <i class="fa fa-home" aria-hidden="true"></i>
           </span>
@@ -36,15 +36,15 @@
         </li>
         <li>
           <ul *ngIf="isBA" class="nav-sub">
-            <li>location</li>
-            <li>Employee Groups</li>
-            <li>Shift Groups</li>
-            <li>Shift Roles</li>
-            <li>Reports</li>
+            <li  routerLink='/location'>location</li>
+            <li  routerLink='/emp-group'>Employee Groups</li>
+            <li  routerLink='/shift-groups'>Shift Groups</li>
+            <li routerLink='/shift-roles'>  Shift Roles</li>
+            <li  routerLink='/reports'>Reports</li>
           </ul>
         </li>
 
-        <li class="nav__item is-active">
+        <li  routerLink='/employees' class="nav__item is-active">
           <span class="nav__icon">
             <i class="fa far fa-user"></i>
           </span>
@@ -67,12 +67,12 @@
         </li>
         <li>
           <ul *ngIf="isTO" class="nav-sub">
-            <li>Create</li>
-            <li>View</li>
+            <li  routerLink='/timeoff/create'>Create</li>
+            <li  routerLink='/timeoff/view'>View</li>
           </ul>
         </li>
 
-        <li class="nav__item is-active">
+        <li  routerLink='/schdeule' class="nav__item is-active">
           <span class="nav__icon">
             <i class="fa fa-calendar" aria-hidden="true"></i>
           </span>
@@ -84,7 +84,7 @@
         <li class="header" *ngIf="isHeader">
           <small>Account</small>
         </li>
-        <li class="nav__item is-active" (click)="isNotif=!isNotif">
+        <li   class="nav__item is-active" (click)="isNotif=!isNotif">
           <span class="nav__icon">
             <i class=" fa fa-regular fa-bell"></i>
           </span>
@@ -94,17 +94,17 @@
         </li>
         <li>
           <ul *ngIf="isNotif" class="nav-sub">
-            <li>View</li>
+            <li routerLink='/notifications'>View</li>
           </ul>
         </li>
 
-        <li class="nav__item is-active">
+        <li  routerLink='/profile' class="nav__item is-active">
           <span class="nav__icon">
             <i class=" fa fa-regular fa-id-card"></i>
           </span>
           <span class="nav__label">Profile</span>
         </li>
-        <li class="nav__item is-active">
+        <li  routerLink='/settings' class="nav__item is-active">
           <span class="nav__icon">
             <i class="fa fa-cog" aria-hidden="true"></i>
           </span>
