@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TimeoffViewComponent implements OnInit {
   currTitle:any
   request:any
+  bunty:any
   constructor() { }
 
   ngOnInit(): void {
