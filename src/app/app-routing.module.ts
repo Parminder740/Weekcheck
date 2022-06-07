@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layout/layout.component';
+import { FooterComponent } from './footer/footer.component';
 import { LocationComponent } from './bussiness-admin/location/location.component';
 import { EmpGroupComponent } from './bussiness-admin/emp-group/emp-group.component';
 import { ReportsComponent } from './bussiness-admin/reports/reports.component';
@@ -49,7 +50,13 @@ const routes: Routes = [
       { path: 'schdeule', component: SchdeuleComponent},
     ]
   },
-
+  {
+    path: '',
+    component: FooterComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+    ]
+  },
 ];
 
 @NgModule({
