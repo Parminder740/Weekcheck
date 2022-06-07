@@ -50,13 +50,7 @@ const routes: Routes = [
       { path: 'schdeule', component: SchdeuleComponent},
     ]
   },
-  {
-    path: '',
-    component: FooterComponent,
-    children: [
-      { path: 'login', component: LoginComponent },
-    ]
-  },
+
 ];
 
 @NgModule({
