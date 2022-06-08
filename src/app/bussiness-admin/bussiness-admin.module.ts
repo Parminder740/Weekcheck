@@ -1,5 +1,4 @@
 import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
-
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BussinessAdminRoutingModule } from './bussiness-admin-routing.module';
 import { CommonModule } from '@angular/common';
@@ -14,6 +13,7 @@ import { ShiftGroupsComponent } from './shift-groups/shift-groups.component';
 import { ShiftRolesComponent } from './shift-roles/shift-roles.component';
 import { TabsModule } from 'ngx-tabset';
 import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -32,8 +32,9 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatExpansionModule,
     MatIconModule,
     MatToolbarModule,
-    MatCardModule,
     NgxPaginationModule,
+    MatCardModule,
+    TabsModule
   ]
 })
 export class BussinessAdminModule { }

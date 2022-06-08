@@ -41,6 +41,8 @@ import { ButtonsModule } from "@progress/kendo-angular-buttons";
 import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 import { IntlModule } from "@progress/kendo-angular-intl";
 
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,6 +75,7 @@ import { IntlModule } from "@progress/kendo-angular-intl";
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
+    NgxPaginationModule,
     CommonModule,
     MatCheckboxModule,
     TabsModule,
@@ -87,7 +90,9 @@ import { IntlModule } from "@progress/kendo-angular-intl";
     BussinessAdminModule,
     TooltipModule.forRoot(),
     AccordionModule.forRoot(),
+    TabsModule.forRoot(),
     DropdownModule,
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
