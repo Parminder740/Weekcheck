@@ -37,10 +37,14 @@ import { TabsModule } from 'ngx-tabset';
 import { TimeoffCreateComponent } from './timeoff-create/timeoff-create.component';
 import { TimeoffViewComponent } from './timeoff-view/timeoff-view.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { NgSelectModule } from '@ng-select/ng-select';
+import { ButtonsModule } from "@progress/kendo-angular-buttons";
+import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
+import { IntlModule } from "@progress/kendo-angular-intl";
+
 @NgModule({
   declarations: [
     AppComponent,
+
     RegisterComponent,
     LoginComponent,
     AddOrJoinBussinessComponent,
@@ -57,9 +61,13 @@ import { NgSelectModule } from '@ng-select/ng-select';
     TimeoffViewComponent,
     TimeoffCreateComponent,
     SchdeuleComponent,
+ 
   ],
   imports: [
     BrowserModule,
+    ButtonsModule,
+    IntlModule,
+    DateInputsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
@@ -80,7 +88,6 @@ import { NgSelectModule } from '@ng-select/ng-select';
     TooltipModule.forRoot(),
     AccordionModule.forRoot(),
     DropdownModule,
-    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

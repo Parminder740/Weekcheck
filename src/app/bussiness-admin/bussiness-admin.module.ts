@@ -12,6 +12,8 @@ import { NgModule } from '@angular/core';
 import { ReportsComponent } from './reports/reports.component';
 import { ShiftGroupsComponent } from './shift-groups/shift-groups.component';
 import { ShiftRolesComponent } from './shift-roles/shift-roles.component';
+import { TabsModule } from 'ngx-tabset';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { ShiftRolesComponent } from './shift-roles/shift-roles.component';
 
   ],
   imports: [
+    TabsModule,
     CommonModule,
     AccordionModule ,
     BussinessAdminRoutingModule,
     MatExpansionModule,
     MatIconModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    NgxPaginationModule,
   ]
 })
 export class BussinessAdminModule { }

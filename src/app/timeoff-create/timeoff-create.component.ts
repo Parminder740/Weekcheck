@@ -8,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class TimeoffCreateComponent implements OnInit {
   currTitle='CREATE TIME OFF'
   logo:Boolean=true
-  employeeName='piyush'
+  employeeName:any
+  Form:any
+  form:any
+  model:any
   constructor() { }
-
+  public value: Date = new Date(2019, 5, 1, 22);
+  public format = "MM/dd/yyyy HH:mm";
   ngOnInit(): void {
   }
+  reset(a:any){
 
+  }
 }

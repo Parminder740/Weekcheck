@@ -2,7 +2,7 @@
 
 
 <div class="main-container app">
-  <div class="content" [ngClass]="logo ? 'offset-2p5':'offset-0p5'">
+  <div class="content" [ngClass]="true ? 'offset-2p5':'offset-0p5'">
     <div class="dynamic-page-area">
       <section id="page-title">
         <div class="row">
@@ -24,21 +24,36 @@
               <form name="Form" id="form1" novalidate ng-submit="form.submit(Form)">
                 <div class="row">
                   <div class="col-md-6">
-                    <div ng-include="'timeoff/templates/formData.tpl.html'">
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                      <fieldset>
-    <legend>
-        Time Off Info <span ng-show="employeeName !== undefined">for {{employeeName}}</span>
-    </legend>
-    <!-- <text-container input="startTime" label="Start Time" error="Start Time is required" success="Thank You!">
+                    <fieldset style="float: left; margin-bottom: 10px; padding: 20px;">
+                      <legend>
+                        Time Off Info <span ng-show="employeeName !== undefined">{{employeeName}}</span>
+                      </legend>
+                      <!-- <text-container input="startTime" label="Start Time" error="Start Time is required" success="Thank You!">
         <input kendo-date-time-picker name="startTime" k-ng-model="model.startTime" ng-model="model.startTimeStr" onkeydown="return false;" required />
     </text-container>
     <text-container input="endTime" label="End Time" error="End Time is required" success="Thank You!">
         <input kendo-date-time-picker name="endTime" k-ng-model="model.endTime" ng-model="model.endTimeStr" onkeydown="return false;" required />
     </text-container> -->
-    <div class="form-group">
+                      <!-- <div class="example-config">
+        Selected value is: {{ value | date: format }}
+      </div> -->
+      <div class="wrapper" style="margin-bottom: 30px;">
+        <div class="example-wrapper">
+          <p>Start Time:</p>
+          <kendo-datetimepicker [format]="format" [(value)]="value">
+          </kendo-datetimepicker>
+        </div>
+        <div class="example-wrapper">
+          <p>End Time:</p>
+          <kendo-datetimepicker [format]="format" [(value)]="value">
+          </kendo-datetimepicker>
+        </div>
+      </div>
+                    
+
+
+
+                      <!-- <div class="form-group">
         <label class="control-label">
             Is this request for the whole day?123               
         </label>
@@ -46,18 +61,22 @@
             <input type="checkbox" value="" id="allDay" name="allDay" ng-model="model.allDay">
             <label for="allDay"></label>
         </div>
-    </div>                     
-                        
-    <div class="form-group">
-        <label class="control-label">
-            Please add any notes you may have for the approver
-        </label>
-        <div class="note-editor note-editor-modal">
-            <textarea class="form-control autosize msd-elastic: \n;" ng-model="model.notes" maxlength="300"></textarea>
-        </div>
-    </div>
-</fieldset>
+    </div>                      -->
+
+                      <div class="form-group">
+                        <label class="control-label">
+                          Please add any notes you may have for the approver
+                        </label>
+                        <!-- <div class="note-editor note-editor-modal"> -->
+                          <textarea class="form-control autosize msd-elastic: \n;" (ngModel)="model.notes"
+                            maxlength="300"></textarea>
+                        <!-- </div> -->
+                      </div>
+                    </fieldset>
                   </div>
+                  <!-- <div class="col-md-6">
+                    
+                  </div> -->
                 </div>
                 <div class="row">
                   <div class="col-md-12">
@@ -65,7 +84,7 @@
                       <button type="submit" class="btn btn-dark-azure">
                         Submit
                       </button>
-                      <button type="reset" class="btn btn-dark-azure btn-o" ng-click="form.reset(Form)">
+                      <button type="reset" class="btn btn-dark-azure btn-o" style="margin-left: 5px;" (click)="form.reset(Form)">
                         Reset
                       </button>
                     </div>
