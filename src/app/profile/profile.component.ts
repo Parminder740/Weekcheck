@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  currTitle:any
+  currTitle="PROFILE"
   formatStartDate:any
   userInfo:any
   displayReminderTime:any
+  logo=true
+
   displayNotificationPref:any
   constructor() { }
   reminderOptions = [

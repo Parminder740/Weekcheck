@@ -1,47 +1,59 @@
-<!-- start: PAGE TITLE -->
-<h1>LOCATION</h1>
-<div class="header-1">
-  <mat-card class="card-header">
-    <div class="side-header">
-    <div class="building"><i class="fa fa-building" id="fa-fa" aria-hidden="true"></i>
-    <p>test2</p></div>
-    <div><mat-icon class="maticon">notifications</mat-icon>
-    REMAINDER ON</div>
-  	<div><mat-icon class="maticon">notifications_none</mat-icon>
-    <label>NOTIFICATIONS</label></div>
-    <div><button style="color: skyblue;" type="button" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
-  to</button></div>
-    <p style="margin-left:4px">test</p>
-    <mat-icon style="margin:1px">keyboard_arrow_down</mat-icon>
-     <div></div>
-  </div>
-
-  </mat-card>
-
-</div>
+<div class="main-container app">
 
 
-<mat-toolbar class="header">
- <p class="header-title">LOCATIONS</p>
- <span class="example-spacer"></span>
+  <div class="content" [ngClass]="logo ? 'offset-2p5':'offset-0p5'">
+    <div class="dynamic-page-area">
+      <!-- start: PAGE TITLE -->
+      <h1>LOCATION</h1>
+      <div class="header-1">
+        <mat-card class="card-header">
+          <div class="side-header">
+            <div class="building"><i class="fa fa-building" id="fa-fa" aria-hidden="true"></i>
+              <p>test2</p>
+            </div>
+            <div>
+              <mat-icon class="maticon">notifications</mat-icon>
+              REMAINDER ON
+            </div>
+            <div>
+              <mat-icon class="maticon">notifications_none</mat-icon>
+              <label>NOTIFICATIONS</label>
+            </div>
+            <div><button style="color: skyblue;" type="button" data-bs-container="body" data-bs-toggle="popover"
+                data-bs-placement="bottom" data-bs-content="Bottom popover">
+                to</button></div>
+            <p style="margin-left:4px">test</p>
+            <mat-icon style="margin:1px">keyboard_arrow_down</mat-icon>
+            <div></div>
+          </div>
 
- <!-- <button class="btn-emp" data-bs-toggle="modal" data-bs-target="#exampleModal">Add -->
-   <!-- <mat-icon>perm_identity</mat-icon> -->
- <!-- </button> -->
+        </mat-card>
 
- <!-- <button class="btn-req">t</button> -->
+      </div>
 
-</mat-toolbar>
-<section id="page-title">
-    <div class="row">
-        <div class="col-sm-8">
+
+      <mat-toolbar class="header">
+        <p class="header-title">LOCATIONS</p>
+        <span class="example-spacer"></span>
+
+        <!-- <button class="btn-emp" data-bs-toggle="modal" data-bs-target="#exampleModal">Add -->
+        <!-- <mat-icon>perm_identity</mat-icon> -->
+        <!-- </button> -->
+
+        <!-- <button class="btn-req">t</button> -->
+
+      </mat-toolbar>
+      <section id="page-title">
+        <div class="row">
+          <div class="col-sm-8">
             <h1 class="mainTitle" translate="sidebar.nav.business.page.info.HEADER"></h1>
-        </div>
-        <div ncy-breadcrumb></div>
-        <div class="col-md-12" style="margin-top: -87px;">
+          </div>
+          <div ncy-breadcrumb></div>
+          <div class="col-md-12" style="margin-top: -87px;">
             <div class="col-md-3" style="margin-bottom:-60px;">
-                <span style="font-family: Raleway;color: #777;"><i class="fa fa-building-o"></i>&nbsp; BUSINESS CODE:</span>
-                <span style="color: #333;font-family: Raleway;"></span>
+              <span style="font-family: Raleway;color: #777;"><i class="fa fa-building-o"></i>&nbsp; BUSINESS
+                CODE:</span>
+              <span style="color: #333;font-family: Raleway;"></span>
             </div>
             <div style="text-align: end">Business Administrator / Locations</div>
             <!-- <div class="col-md-4">
@@ -50,41 +62,49 @@
             </div> -->
 
 
-            <div class="col-md-4 inp-page" >
+            <div class="col-md-4 inp-page">
               <!-- <label class="dropsection-link" for="search" style="font-size: 14px;position: relative;line-height: 2em;
               margin-top: 25px;">Items per page:</label> -->
-              Items per page: <input type="number" min="1" max="100" ng-model="pageSize" style="max-width:100%;width: 95px;">
+              Items per page: <input type="number" min="1" max="100" ng-model="pageSize"
+                style="max-width:100%;width: 95px;">
+
+            </div>
+
 
           </div>
-
-
-        </div>
         </div>
 
-</section>
-<!-- end: PAGE TITLE -->
+      </section>
+      <!-- end: PAGE TITLE -->
 
-<div class="container-fluid container-fullw bg-white">
-    <div class="row">
-        <div class="col-md-6 vcenter">
-            <div></div>2 location<span ng-if="locations.length > 1">s</span></div>
-
-        </div>
-        <div class="col text-right" >
-           <div style="text-align: end"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span>Add</span> <i class="fa fa-map-marker" style="font-size: 19px; margin-left:3px; margin-right:1px;"></i><sup><i class="ti-add">+</i></sup></button>
-</div>
-            <div></div>location<span ng-if="locations.length > 1">s</span></div>
+      <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+          <div class="col-md-6 vcenter">
+            <div></div>2 location<span ng-if="locations.length > 1">s</span>
+          </div>
 
         </div>
-        <div class=" add-location">
-           <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap"><span>Add</span> <i class="fa fa-map-marker" style="font-size: 19px; margin-left:3px; margin-right:1px; "></i><sup><i class="ti-add">+</i></sup></button>
+        <div class="col text-right">
+          <div style="text-align: end"> <button class="btn btn-primary" data-bs-toggle="modal"
+              data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span>Add</span> <i class="fa fa-map-marker"
+                style="font-size: 19px; margin-left:3px; margin-right:1px;"></i><sup><i
+                  class="ti-add">+</i></sup></button>
+          </div>
+          <div></div>location<span ng-if="locations.length > 1">s</span>
         </div>
-    <!-- <div class="row">
+
+      </div>
+      <div class=" add-location">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          data-bs-whatever="@getbootstrap"><span>Add</span> <i class="fa fa-map-marker"
+            style="font-size: 19px; margin-left:3px; margin-right:1px; "></i><sup><i class="ti-add">+</i></sup></button>
+      </div>
+      <!-- <div class="row">
         <div class="col-md-12"> -->
-            <!-- <accordion close-others="true" id="locations-accordion">
+      <!-- <accordion close-others="true" id="locations-accordion">
                 <accordion-group ng-init="accorLocations = {isOpen: selectedLocation.locationID == location.locationID}" is-open="accorLocations.isOpen" ng-class="{isOpen: accorLocations.isOpen}" dir-paginate="location in locations | itemsPerPage: pageSize" current-page="currentPage">
                     <accordion-heading> <span id="{{location.locationID}}" ng-click="toggleAccordion(location)"></span> <i class="pull-left fa" ng-click="toggleAccordion(location)" ng-class="{'fa-chevron-down': accorLocations.isOpen, 'fa-chevron-right': !accorLocations.isOpen}"></i> </accordion-heading> -->
-                    <!-- <div class="container" style="position:relative">
+      <!-- <div class="container" style="position:relative">
                         <div class="accordion-buttons">
 
                             <div class="btn-group location-group settings-menu" >
@@ -219,202 +239,208 @@
                     </div>
                     <!-- end location item -->
 
-                <!-- </div>
+      <!-- </div>
             </div> --> -->
 
-<!-- <div class="text-center"> -->
-    <!-- <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls> -->
-<!-- </div> -->
+      <!-- <div class="text-center"> -->
+      <!-- <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls> -->
+      <!-- </div> -->
 
 
-<mat-accordion>
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Test 1
-      </mat-panel-title>
-      <mat-panel-description>
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Test 1
+            </mat-panel-title>
+            <mat-panel-description>
 
-      </mat-panel-description>
-    </mat-expansion-panel-header>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
 
-    <div class="row">
-      <div class="col-sm-4">
-          <div style="padding:15px; background:#F0F3F4; margin-bottom:10px;">
-              <div class="pull-left" style="color:#333; font-weight: 300;">LOCATION DETAILS</div>
-              <div class="pull-right" style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333" data-ng-click="editLocation()">Edit <i class="fa fa-pencil"></i></div>
-              <div style="clear:both"></div>
-              <br />
-              <div class="row">
+          <div class="row">
+            <div class="col-sm-4">
+              <div style="padding:15px; background:#F0F3F4; margin-bottom:10px;">
+                <div class="pull-left" style="color:#333; font-weight: 300;">LOCATION DETAILS</div>
+                <div class="pull-right"
+                  style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333"
+                  data-ng-click="editLocation()">Edit <i class="fa fa-pencil"></i></div>
+                <div style="clear:both"></div>
+                <br />
+                <div class="row">
                   <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
-                      <div class="subheading-blue"><i class="fa fa-building-o"></i> Address</div>
-                      <div class="info-details" style="word-break: break-all;">
-                       <br /></div>
-                      <br />
+                    <div class="subheading-blue"><i class="fa fa-building-o"></i> Address</div>
+                    <div class="info-details" style="word-break: break-all;">
+                      <br /></div>
+                    <br />
                   </div>
                   <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
-                      <div class="subheading-blue"><i class="fa fa-calendar-o"></i> Week Start</div>
-                      <div class="info-details">  </div>
+                    <div class="subheading-blue"><i class="fa fa-calendar-o"></i> Week Start</div>
+                    <div class="info-details"> </div>
                   </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                    <div class="subheading-blue"><i class="fa fa-user"></i> Employees</div>
+                    <div class="info-details"><a style="color:#333; border-bottom:1px dotted;"> total</a></div>
+                  </div>
+                  <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                    <div class="subheading-blue"><i class="fa fa-lock"></i> Business Code</div>
+                    <div class="info-details"></div>
+                  </div>
+
+                </div>
               </div>
-              <div class="row">
-                  <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
-                      <div class="subheading-blue"><i class="fa fa-user"></i> Employees</div>
-                      <div class="info-details"><a  style="color:#333; border-bottom:1px dotted;"> total</a></div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+
+
+
+
+
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add New Location</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <p for="recipient-name" class="col-form-label">Location Details</p>
+                </div>
+                <div class="row" style="padding-bottom:0">
+
+
+
+
+                  <div class="grid1">
+                    <div class="col-sm-8">
+                      <label style="font-weight: 300;">Name</label><br>
+                      <input name="name" class="formcontrol-1" type="text">
+                    </div>
+
+                    <div class="col-sm-8">
+                      <label style="font-weight: 300;">Week start</label><br>
+                      <input name="name" class="formcontrol" type="text">
+                    </div>
                   </div>
-                  <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
-                      <div class="subheading-blue"><i class="fa fa-lock"></i> Business Code</div>
-                      <div class="info-details"></div>
+
+
+
+
+                  <div class="grid1">
+                    <div class="col-sm-8">
+                      <label style="font-weight: 300;">Address</label><br>
+                      <input name="name" class="formcontrol-1" type="text">
+                    </div>
+
+                    <div class="col-sm-8">
+                      <label style="font-weight: 300;">State</label><br>
+                      <input name="name" class="formcontrol" type="text">
+                    </div>
                   </div>
 
-              </div>
+
+                  <div class="grid1">
+                    <div class="col-sm-8">
+                      <label style="font-weight: 300;">City</label><br>
+                      <input name="name" class="formcontrol-1" type="text">
+                    </div>
+                    <div class="col-sm-8">
+                      <label style="font-weight: 300;">Zip code</label><br>
+                      <input name="name" class="formcontrol" type="text">
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <div class="mb-3">
+                  <label for="message-text" class="col-form-label">Message:</label>
+                  <textarea class="form-control" id="message-text"></textarea>
+                </div>
+              </form>
+            </div>
+            <p style="margin-left:10px">Quick Import</p>
+
+            <div>
+              <label style="margin-left:10px" style="font-weight: 300;">Copy info from</label>
+              <input type="text" class="form-control">
+            </div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Send message</button>
+            </div>
           </div>
-      </div> </div>
-  </mat-expansion-panel>
-</mat-accordion>
-
-
-
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Location</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
+        </div>
       </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <p for="recipient-name" class="col-form-label">Location Details</p>
-            </div>
-            <div class="row" style="padding-bottom:0">
-
-
-
-
-          <div class="grid1">
-            <div class="col-sm-8">
-              <label style="font-weight: 300;">Name</label><br>
-              <input  name="name" class="formcontrol-1" type="text" >
-            </div>
-
-            <div class="col-sm-8">
-              <label style="font-weight: 300;">Week start</label><br>
-              <input name="name" class="formcontrol" type="text" >
-            </div>
-          </div>
-
-
-
-
-            <div class="grid1">
-            <div class="col-sm-8">
-              <label style="font-weight: 300;">Address</label><br>
-              <input name="name" class="formcontrol-1" type="text" >
-            </div>
-
-            <div class="col-sm-8">
-              <label style="font-weight: 300;">State</label><br>
-              <input name="name" class="formcontrol" type="text" >
-            </div>
-          </div>
-
-
-          <div class="grid1">
-          <div class="col-sm-8">
-              <label style="font-weight: 300;">City</label><br>
-              <input name="name" class="formcontrol-1" type="text">
-            </div>
-            <div class="col-sm-8">
-              <label style="font-weight: 300;">Zip code</label><br>
-              <input name="name" class="formcontrol" type="text">
-            </div>
-          </div>
-          </div>
-
-
-
-          <div class="mb-3">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div>
-        </form>
-      </div>
-      <p style="margin-left:10px">Quick Import</p>
-
-      <div>
-      <label style="margin-left:10px" style="font-weight: 300;" >Copy info from</label>
-      <input type="text" class="form-control" >
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content" style="width: 125%;
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 125%;
     height: 590px;">
-      <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLabel">Add New Location</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <p>Location Details</p>
-      <div class="modal-body">
-        <form>
-          <div class="row">
-            <div class="col">
-              <label for="recipient-name" class="col-form-label">Name</label>
-              <input type="text" class="form-control" >
+            <div class="modal-header">
+              <h1 class="modal-title" id="exampleModalLabel">Add New Location</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="col">
-              <label for="recipient-name" class="col-form-label">Week Start</label>
-              <input type="text" class="form-control" >
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <label for="recipient-name" class="col-form-label">Address</label>
-              <input type="text" class="form-control" >
-            </div>
-            <div class="col">
-              <label for="recipient-name" class="col-form-label">Stat</label>
-              <input type="text" class="form-control" >
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <label for="recipient-name" class="col-form-label">City</label>
-              <input type="text" class="form-control" >
-            </div>
-            <div class="col">
-              <label for="recipient-name" class="col-form-label">Zip Code</label>
-              <input type="text" class="form-control" >
-            </div>
-          </div>
-          <p>Quick import...........................</p>
-          <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">Copy info from</label>
-            <input type="text" class="form-control" id="recipient-name" placeholder="select...">
-          </div>
-          <!-- <div class="mb-3">
+            <p>Location Details</p>
+            <div class="modal-body">
+              <form>
+                <div class="row">
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">Name</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">Week Start</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">Address</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">Stat</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">City</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="col">
+                    <label for="recipient-name" class="col-form-label">Zip Code</label>
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <p>Quick import...........................</p>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Copy info from</label>
+                  <input type="text" class="form-control" id="recipient-name" placeholder="select...">
+                </div>
+                <!-- <div class="mb-3">
             <label for="message-text" class="col-form-label">Message:</label>
             <textarea class="form-control" id="message-text"></textarea>
           </div> -->
-        </form>
-      </div>
-      <div >
-        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              </form>
+            </div>
+            <div>
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
 
+            </div>
+            <div><button type="button" class="btn btn-primary"
+                style=" margin-left: 4%; margin-bottom: 4%; ">Submit</button></div>
+          </div>
+        </div>
       </div>
-      <div><button type="button" class="btn btn-primary" style=" margin-left: 4%; margin-bottom: 4%; ">Submit</button></div>
     </div>
   </div>
 </div>

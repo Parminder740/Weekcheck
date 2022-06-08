@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class LocationComponent implements OnInit {
   panelOpenState = false;
   task:any=false
+  logo=true
+
   constructor() { }
 
   ngOnInit(): void {
