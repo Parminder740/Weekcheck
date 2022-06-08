@@ -1,19 +1,18 @@
+<!-- start: PAGE TITLE -->
+
+
 <div class="main-container app">
 
-
   <div class="content" [ngClass]="logo ? 'offset-2p5':'offset-0p5'">
-    <div class="dynamic-page-area">
-      <!-- start: PAGE TITLE -->
-      <div class="container-fluid container-fullw bg-white">
-        <h1>EMPLOYEE GROUPS</h1>
-        <span>Business Administration / Employee Groups</span>
 
-        <section id="page-title">
+    <div class="dynamic-page-area">
+      <div class="container-fluid container-fullw bg-white">
+        <section id="page-title" style="background-color: rgba(128, 128, 128, 0.103);">
           <div class="row">
             <div class="col-sm-8">
-              <h1 class="mainTitle" translate="sidebar.nav.business.page.info.HEADER"></h1>
+              <h1 class="mainTitle" translate="sidebar.nav.business.page.info.HEADER">{{currTitle}}</h1>
             </div>
-            <div ncy-breadcrumb></div>
+            <div ncy-breadcrumb style="text-align: end;">Business Administration / Employee Groups</div>
           </div>
 
         </section>
@@ -23,109 +22,117 @@
 
           <p>Create and manage employee groups for your business. To add or remove employee groups from your business
             locations, please visit the <a ui-sref="app.settings.locations"
-              style="text-decoration:underline ">Locations</a> section.</p><br>
+              style="text-decoration:underline !important; color:#333">Locations</a> section.</p><br>
 
           <div class="row">
-
             <div class="col-md-3 vcenter">
-              <div ng-if="!employeeGroups || employeeGroups.length == 0"> <span
+              <div ng-if="!employeeGroups || employeeGroups.length == 0"><span ng-if="employeeGroups.length > 1"></span>
+              </div>
+              <div ng-if="employeeGroups.length > 0">{{employeeGroups.length}} employee group type<span
                   ng-if="employeeGroups.length > 1"></span></div>
-              <div ng-if="employeeGroups.length > "> <span ng-if="employeeGroups.length > 1"></span></div>
-            </div>
 
+            </div>
             <div class="col-md-4">
-              <!-- <label class="dropsection-link" for="search" style="font-size: 14px;position: relative;line-height: 2em;margin-left: 20px;">Items per page:</label> -->
-              <!-- Items per page: <input type="number" min="1" max="100" class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="pageSize" style="max-width:100%;width: 95px;margin-right: 5px;margin-top: 0px;">       -->
-              Items per page: <input type="number" min="1" max="100" ng-model="pageSize"
-                style="max-width:100%; width: 82px; margin-left: 7%;">
+              <label class="dropsection-link" for="search"
+                style="font-size: 14px;position: relative;line-height: 2em;margin-left: 20px;">Items per page:</label>
+              <input type="number" min="1" max="100"
+                class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="pageSize"
+                style="max-width:100%;width: 95px;float: right;margin-right: 5px;margin-top: 0px;">
             </div>
             <div class="col-md-5 text-right">
-              <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
-                style="float: right;"><span>Add Group Type</span> <i class="ti-add">+</i></button>
-            </div>
-            <div class="col-md-4">
-              1 employee group type
+              <button class="btn btn-" (click)="addGrouping()" style=" background-color: #0280ba; color: white;"
+                data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span>Add Group
+                  Type</span> <i class="ti-add">+</i></button>
             </div>
           </div>
           <div class="row">
             <div class="col-md-12">
-              <!-- <accordion close-others="true" id="groups-accordion"> -->
-              <!-- <accordion-group ng-init="accorGroups = {isOpen: $index < 1}" is-open="accorGroups.isOpen" ng-class="{isOpen: accorGroups.isOpen}" dir-paginate="employeeGroup in employeeGroups | itemsPerPage: pageSize" current-page="currentPage"> -->
-              <!--dir-paginate="employeeGroup in employeeGroups track by $index | itemsPerPage: pageSize" current-page="currentPage" >-->
-              <!-- <accordion-heading> <span>{{employeeGroup.groupingName}}</span> <i class="pull-left fa" ng-class="{'fa-chevron-down': accorGroups.isOpen, 'fa-chevron-right': !accorGroups.isOpen}"></i>  </accordion-heading> -->
-              <div class="container" style="position:relative">
-                <div class="accordion-buttons">
-                  <button class="btn btn-default" ng-click="editGrouping(employeeGroup)"><span
-                      class="ti-pencil-alt"></span></button>
-                  <button class="btn btn-default" ng-click="deleteBusinessGrouping(employeeGroup)"><span
-                      class="ti-trash"></span></button>
-                </div>
-                <div class="row">
-                  <div class="col-md-2" style="text-align:center">
-                    <i class="fa fa-group"
-                      style="color: #0280ba; font-size:20px; margin-bottom:12px; margin-top:6px;"></i> <br />
-                    <div> total <br /> group options:</div>
+              <accordion close-others="true" id="groups-accordion">
+                <accordion-group ng-init="accorGroups = {isOpen: $index < 1}" is-open="accorGroups.isOpen"
+                  [ngClass]="{isOpen: accorGroups.isOpen}"
+                  dir-paginate="employeeGroup in employeeGroups | itemsPerPage: pageSize" current-page="currentPage">
+                  <!--dir-paginate="employeeGroup in employeeGroups track by $index | itemsPerPage: pageSize" current-page="currentPage" >-->
+                  <div accordion-heading> <span>{{employeeGroup.groupingName}}</span> <i class="pull-left fa"
+                      ng-class="{'fa-chevron-down': accorGroups.isOpen, 'fa-chevron-right': !accorGroups.isOpen}"></i>
                   </div>
-                  <div class="col-md-6" style="border-right: 1px solid #eee">
-                    <div>
-                      <ul class="itemslist">
-                        <li ng-repeat="groupOption in employeeGroup.groupingOptions" ng-class="$even?'odd':'even'">
-                        </li>
-                      </ul>
+                  <div class="container" style="position:relative">
+                    <div class="accordion-buttons">
+                      <button class="btn btn-default" (click)="editGrouping(employeeGroup)"><span
+                          class="ti -pencil-alt"></span></button>
+                      <button class="btn btn-default" (click)="deleteBusinessGrouping(employeeGroup)"><span
+                          class="ti-trash"></span></button>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2" style="text-align:center">
+                        <i class="fa fa-group"
+                          style="color: #0280ba; font-size:20px; margin-bottom:12px; margin-top:6px;"></i> <br />
+                        <div>{{employeeGroup.groupingOptions.length}} total <br /> group options:</div>
+                      </div>
+                      <div class="col-md-6" style="border-right: 1px solid #eee">
+                        <div>
+                          <ul class="itemslist">
+                            <li ng-repeat="groupOption in employeeGroup.groupingOptions" ng-class="$even?'odd':'even'">
+                              {{groupOption.groupingOptionName}} </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        Require employees to be designated to a group:
+                        <div style="margin-top:10px">
+                          <span ng-if="employeeGroup.required" style="color:#1c2b36">Yes</span>
+                          <span ng-if="!employeeGroup.required" style="color:#1c2b36">No</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <div class="col-md-4">
-                    <label> Require employees to be designated to a group: </label>
-                    <br><br><br>
-                    <div>
-                      <span ng-if="employeeGroup.required" style="color:#1c2b36; float: inherit; ">Yes</span>
-                      <span ng-if="!employeeGroup.required" style="color:#1c2b36; float: inherit;">No</span>
+
+                  <!-- end group item -->
+
+                </accordion-group>
+              </accordion>
+            </div>
+          </div>
+          <div class="text-center">
+            <!-- <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls> -->
+          </div>
+
+          <div class="container">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content" style="width: 125%;
+     height:400px;">
+                  <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLabel">Add Employee Group Type</h1>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                  </div>
+                  This employee group will be automatically added to your current location:
+                  <br> <br>
+                  <p>Details</p>
+                  <div class="modal-body">
+                    <form>
+                      <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Group Name *</label>
+                        <input type="text" class="form-control" id="recipient-name">
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input position-static" type="checkbox" id="blankCheckbox"
+                          value="option1" aria-label="..."> Require employees to be designated to a group ?
+                      </div>
+
+
+                      <div>
+                        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+
+                      </div>
+                    </form>
+                    <br>
+                    <div><button type="button" class="btn btn-"
+                        style=" margin-left: 4%; margin-bottom: 4%;     background-color: #0280ba; color: white; ">Submit</button>
                     </div>
+
                   </div>
                 </div>
               </div>
-            </div>
-
-            <!-- end group item -->
-
-            <!-- </accordion-group> -->
-            <!-- </accordion> -->
-          </div>
-        </div>
-        <div class="text-center">
-          <!-- <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls> -->
-        </div>
-        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
-
-   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-         <div class="modal-header">
-           <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-           </button>
-         </div>
-         <div class="modal-body">
-           <form>
-             <div class="form-group">
-               <label for="recipient-name" class="col-form-label">Recipient:</label>
-               <input type="text" class="form-control" id="recipient-name">
-             </div>
-             <div class="form-group">
-               <label for="message-text" class="col-form-label">Message:</label>
-               <textarea class="form-control" id="message-text"></textarea>
-             </div>
-           </form>
-         </div>
-         <div class="modal-footer">
-           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-           <button type="button" class="btn btn-primary">Send message</button>
-         </div>
-       </div>
-     </div>
-   </div> -->
-      </div>
-    </div>
-  </div>
-</div>

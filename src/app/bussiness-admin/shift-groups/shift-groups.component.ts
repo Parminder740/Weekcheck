@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shift-groups.component.scss']
 })
 export class ShiftGroupsComponent implements OnInit {
-
+  currTitle ="SHIFT GROUPS"
+  shiftGroups:any
+  shiftGroup:any
+  groupOption:any
   constructor() { }
 
   ngOnInit(): void {

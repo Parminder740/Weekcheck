@@ -6,11 +6,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emp-group.component.scss']
 })
 export class EmpGroupComponent implements OnInit {
-logo=true
 
+  currTitle="EMPLOYEE GROUPS"
+  employeeGroups:any
+  employeeGroup:any
+  groupOption:any
+  accorGroups:any
+  logo:boolean=true
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  editGrouping(a:any){
+
+  }
+  deleteBusinessGrouping(a:any){
+
+  }
+  addGrouping(){
+
+  }
 }
