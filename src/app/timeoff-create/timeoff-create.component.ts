@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./timeoff-create.component.scss']
 })
 export class TimeoffCreateComponent implements OnInit {
-
+  currTitle='CREATE TIME OFF'
+  logo:Boolean=true
   constructor() { }
 
   ngOnInit(): void {

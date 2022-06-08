@@ -1,1 +1,54 @@
-<p>timeoff-create works!</p>
+<!-- start: PAGE TITLE -->
+
+
+<div class="main-container app">
+  <div class="content" [ngClass]="logo ? 'offset-2p5':'offset-0p5'">
+    <div class="dynamic-page-area">
+      <section id="page-title">
+        <div class="row">
+          <div class="col-sm-8">
+            <h1 class="mainTitle" translate="sidebar.nav.timeoff.CREATE">{{ currTitle }}</h1>
+          </div>
+          <div ncy-breadcrumb></div>
+        </div>
+      </section>
+      <!-- end: PAGE TITLE -->
+      <div id="p_prldr" class="k-loading-mask">
+        <div class="k-loading-image"></div>
+      </div>
+      <!-- start: CREATE TIME OFF -->
+      <div class="container-fluid container-fullw bg-white">
+        <div class="row">
+          <div class="col-md-12">
+            <div>
+              <form name="Form" id="form1" novalidate ng-submit="form.submit(Form)">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div ng-include="'timeoff/templates/formData.tpl.html'">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="pull-left">
+                      <button type="submit" class="btn btn-dark-azure">
+                        Submit
+                      </button>
+                      <button type="reset" class="btn btn-dark-azure btn-o" ng-click="form.reset(Form)">
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end: CREATE TIME OFF -->

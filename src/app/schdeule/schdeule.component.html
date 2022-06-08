@@ -1,1 +1,231 @@
-<p>schdeule works!</p>
+<!-- start: PAGE TITLE -->
+<div class="main-container app">
+
+
+  <div class="content" [ngClass]="logo ? 'offset-2p5':'offset-0p5'">
+    <div class="dynamic-page-area">
+
+      <section id="page-title" style="padding-top: 10px; padding-bottom: 10px">
+        <div class="row">
+          <div class="col-md-5 col-xs-12" style="padding-bottom:10px">
+            <h1 class="mainTitle" translate="sidebar.nav.schedule.VIEW">{{ currTitle }}</h1>
+          </div>
+
+
+
+          <div class="col-md-3 col-sm-5 col-xs-12" ng-show="( (user.isAdmin()) || (user.isScheduler()) )">
+            <a class="btn btn-lg btn-success" id="publishBtn" ng-disabled="isPublishDisabled() "
+              (click)="publish(currentView)" ng-href>
+              <i _ngcontent-txj-c379="" class="fa fa-solid fa-pencil"></i> Publish {{currentView}}
+              <span class="unpublished-count">({{unpublishedCount}} unpublished)</span>
+            </a>
+          </div>&nbsp;&nbsp;&nbsp;
+
+
+          <!-- <div layout="row" class="hidden-md hidden-lg ng-scope" *ngIf="isAdmin || isScheduler">
+            <a class="btn btn-primary" id="publishBtn" (click)="addNewShift()" ng-href="">
+              <i class="ti-plus" style="padding-right: 10px;"></i> Add Shift
+            </a> &nbsp;&nbsp;&nbsp;
+
+
+            <a class="btn btn-primary" id="publishBtn" (click)="available()" ng-href="">
+              <i class="ti-plus" style="padding-right: 10px;"></i> Available Shift
+            </a>
+          </div> -->
+
+
+          <!-- <div class="col-md-3 col-sm-4 col-xs-12 hidden-md hidden-lg" *ngIf="isAdmin || isScheduler">
+            <a class="btn btn-lg btn-primary" id="publishBtn" (click)="addNewShift()" ng-href>
+                <i class="ti-plus" style="padding-right: 10px;"></i> Add Shift
+            </a>
+        </div>
+        <div class="col-md-3 col-sm-5 col-xs-12" ng-show="( (user.isAdmin()) || (user.isScheduler()) )">
+            <a class="btn btn-lg btn-success" id="publishBtn" ng-disabled="isPublishDisabled()" (click)="publish(currentView)" ng-href>
+                <i class="ti-pencil-alt" style="padding-right: 10px;"></i> Publish {{currentView}} <span class="unpublished-count">({{unpublishedCount}} unpublished)</span>
+            </a>
+        </div> -->
+          <div class="col-md-3 col-sm-3 col-xs-12">
+            <div ncy-breadcrumb></div>
+          </div>
+        </div>
+      </section>
+      <!-- end: PAGE TITLE -->
+
+
+      <!-- start: SCHEDULE -->
+
+      <div class="container-fluid container-fullw bg-white">
+        <div>
+          <div class="row hide" id="filterSection"
+            style="background: #F0F3F4; margin-bottom:15px; padding: 20px 20px 30px 20px; margin-left:0; margin-right:0;">
+            <div class="col-md-12">
+              <h4
+                style="padding-bottom:3px; font-family:Raleway; font-weight: 400; color:#0280ba; font-size:16px; text-transform:uppercase">
+                Filter Options</h4>
+            </div>
+            <div class="col-md-6">
+              <label style="color:#000;">Employee Groups:</label>
+
+              <!-- <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
+                    ng-model="filterSelects.selectedFilterGroups" theme="select2" close-on-select="false" style="width:100%"
+                    (click)="dropDownOnAnyClick($event)" class="filterone">
+                    <ui-select-match placeholder="Select group...">{{$item.groupingName}} / {{$item.groupingOptionName}}</ui-select-match>
+                    <ui-select-choices group-by="groupingFn" repeat="groupOption in optionsData | filter: $select.search">
+                        <div ng-bind-html="groupOption.groupingOptionName | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select> -->
+
+              <br />
+              <br />
+
+              <label style="color:#000;">Employees:</label>
+
+              <!-- <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
+                    ng-model="filterSelects.selectedFilterEmployees" theme="select2" close-on-select="false" style="width:100%"
+                    (click)="dropDownOnAnyClick($event)" class="filterone">
+                    <ui-select-match placeholder="Select group...">{{$item.name}}</ui-select-match>
+                    <ui-select-choices repeat="employee in optionsDataEmployees | filter: $select.search">
+                        <div ng-bind-html="employee.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select> -->
+              <br />
+              <br />
+
+              <div class="setPos">
+                <a (click)="clearFilters()" class="btn btn-dark-azure btn-o ">
+                  Clear
+
+                </a>
+                <a id="saveFitrId" (click)="saveClickFilters()" class="btn btn-dark-azure btn-o">
+                  Run Filter
+                </a>
+
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label style="color:#000;">Shift Groups:</label>
+
+              <!-- <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
+                    ng-model="filterSelects.selectedFilterShiftGroups" theme="select2" close-on-select="false" style="width:100%"
+                    (click)="dropDownOnAnyClick($event)" class="filterone">
+                    <ui-select-match placeholder="Select group...">{{$item.groupingName}} / {{$item.groupingOptionName}}</ui-select-match>
+                    <ui-select-choices group-by="groupingFn" repeat="groupOption in shiftOptionsData | filter: $select.search">
+                        <div ng-bind-html="groupOption.groupingOptionName | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select> -->
+
+              <br>
+              <br>
+
+              <label style="color:#000;">Shift Roles:</label>
+              <!-- <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
+                    ng-model="filterSelects.selectedFilterRoles" theme="select2" close-on-select="false" style="width:100%" (click)="dropDownOnAnyClick($event)">
+                    <ui-select-match placeholder="Select role...">{{$item.name}}</ui-select-match>
+                    <ui-select-choices repeat="roleOption in optionsDataRoles | filter: $select.search">
+                        <div ng-bind-html="roleOption.name | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select> -->
+              <br>
+              <br>
+
+              <div class="setPos1">
+                <a (click)="clearFilters()" class="btn btn-dark-azure btn-o ">
+                  Clear
+
+                </a>
+                <a id="saveFitrId" (click)="saveClickFilters()" class="btn btn-dark-azure btn-o">
+                  Run Filter
+                </a>
+
+              </div>
+
+              <div class="col-md-12" style="padding-left:0px;">
+                <div class="schedule-tools">
+                  <ul class="fieldlist" style="list-style-type: none;padding-left:0px">
+                    <li style="float:left;">
+                      <input type="checkbox" id="checkPublish" class="k-checkbox" ng-model="filterOption.publish"
+                        ng-change="filterOptionChange()">
+                      <label class="k-checkbox-label" for="checkPublish">Published</label>
+                    </li>
+                    <li style="float:left;margin-left:10px;">
+                      <input type="checkbox" id="chkTimeOff" class="k-checkbox" ng-model="filterOption.timeoff"
+                        ng-change="filterOptionChange()">
+                      <label class="k-checkbox-label" for="chkTimeOff">Time Off</label>
+                    </li>
+                    <li style="float:left;margin-left:10px;">
+                      <input type="checkbox" id="chkAvailable" class="k-checkbox" ng-model="filterOption.available"
+                        ng-change="filterOptionChange()">
+                      <label class="k-checkbox-label" for="chkAvailable">Available</label>
+                    </li>
+                    <li style="float:left;margin-left:10px;">
+                      <input type="checkbox" id="chkUnpublish" class="k-checkbox" ng-model="filterOption.unpublish"
+                        ng-change="filterOptionChange()">
+                      <label class="k-checkbox-label" for="chkUnpublish">Un-Publish</label>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- <div class="visible-xs-block visible-sm-block" ng-controller="ViewMobileScheduleCtrl">
+        <div class="row">
+            <div class="col-xs-9">
+
+                <div>
+                    <div class="btn-group schedview" data-toggle="buttons">
+                        <label class="btn btn-default" ng-class="{active: schedView == 'full'}">
+                    <input id="schedViewFull" name="schedViewRadio" (click)="setSchedView('full')" value="full" ng-model="$parent.schedView" type="radio">Full
+                </label>
+                        <label class="btn btn-default" ng-class="{active: schedView == 'personal'}">
+                    <input id="schedViewPer" name="schedViewRadio" (click)="setSchedView('personal')" value="personal" ng-model="$parent.schedView" type="radio">Personal
+                </label>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-xs-1">
+                <button type="button" class="k-button mobile schedule-tool-btn" (click)="addNewShift()">
+        <i class="ti-plus"></i></button>
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class="k-button mobile schedule-tool-btn" (click)="openFilters()">
+        <i class="ti-filter"></i></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="mobile-calendar-container" style="position:relative; height:500px">
+                    <div id="scheduler" kendo-WeekKeeperScheduler="scheduler" k-options="options" class="scheduler"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+        <!-- <div class="hidden-xs hidden-sm"> -->
+        <div class="">
+          <a (click)="showFilters()" style="margin-right: 6px;" class="dropsection-link schedule-tool-btn">
+            <i class="fa fa-filter"></i> Filters</a>
+          <span style="color:#0280ba; padding-top:5px; margin-right:5px;" *ngIf="filterCount > 0"
+            class="schedule-tool-btn">({{filterCount}})</span>
+          <button type="button" class="k-button schedule-tool-btn" *ngIf="isAdmin || isScheduler"
+            (click)="viewWeekStats()" style="margin-right: 6px">
+            <i class="fa fa-bar-chart" aria-hidden="true"></i>Stats</button>
+
+          <div class="mobile-calendar-container" style="position:relative">
+            <div id="scheduler" kendo-WeekKeeperScheduler="scheduler" k-options="options" class="scheduler">
+
+              <kendo-scheduler [kendoSchedulerBinding]="events" [selectedDate]="selectedDate" [weekStart]="weekStart"
+                style="height: 650px;">
+                <kendo-scheduler-week-view startTime="07:00"> </kendo-scheduler-week-view>
+              </kendo-scheduler>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end: SCHEDULE -->

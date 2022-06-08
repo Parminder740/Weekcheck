@@ -1,6 +1,7 @@
 // .k-state-selected > .k-link{
 //   background-color: #428bca;
 // }
+
 .btn-dark-wk {
     background: #1C2B36;
     color: #fff;
@@ -1339,6 +1340,7 @@
   }
   
   .nav__list {
+    cursor: pointer;
     display: flex;
     flex-flow: column nowrap;
     list-style: none;

@@ -31,7 +31,6 @@ const routes: Routes = [
   { path: "addorjoin", component: AddOrJoinBussinessComponent },
   { path: 'BussinessSetup', component: BussinessSetComponent },
   { path: '', component: BussinessSetComponent },
-  { path: 'settings', component: SettingsComponent},
 
   {
     path: '',
@@ -39,15 +38,17 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: "employees", component: EmployeesComponent },
-      { path: 'emp-group', component:EmpGroupComponent },
+      { path: 'emp-group', component: EmpGroupComponent },
       { path: 'reports', component: ReportsComponent },
-      { path: 'shift-groups', component:ShiftGroupsComponent },
+      { path: 'shift-groups', component: ShiftGroupsComponent },
       { path: 'shift-roles', component: ShiftRolesComponent },
-      { path: 'timeoff/view', component:TimeoffViewComponent  },
+      { path: 'timeoff/view', component: TimeoffViewComponent },
       { path: 'timeoff/create', component: TimeoffCreateComponent },
-      { path: 'notifications', component: NotificationComponent},
+      { path: 'notifications', component: NotificationComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'schdeule', component: SchdeuleComponent},
+      { path: 'schdeule', component: SchdeuleComponent },
+      { path: 'settings', component: SettingsComponent },
+
     ]
   },
 

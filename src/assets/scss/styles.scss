@@ -11304,3 +11304,52 @@ div.zero-padding {
   text-align: right;
 }
   }
+  .content {
+    flex: 1;
+    // border-radius: $radius;
+  
+    &.offset-2p5 {
+      margin-left: 18%;
+    }
+  
+    &.offset-0p5 {
+      margin-left: 7%;
+    }
+  }
+  
+  .dynamic-page-area {
+    padding-top: 50px;
+    margin-left: -15px;
+  }
+  .heading{
+    width: 20%;
+  }
+  
+  .pull-right {
+    float: right !important;
+    display: flex;
+    width: fit-content;
+  }
+  .row {
+    padding-bottom: 15px;
+    justify-content: space-between;
+  }
+  #page-title h1 {
+    color: #333;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 1;
+    margin: 0;
+    padding: 10px 0 0 0;
+    text-transform: uppercase;
+  }
+  #page-title{
+    background: #f0f3f4;
+  }
+  .container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
