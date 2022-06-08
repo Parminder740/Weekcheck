@@ -8,7 +8,7 @@ import { BussinessAdminModule } from './bussiness-admin/bussiness-admin.module';
 import { BussinessSetComponent } from './bussiness-set/bussiness-set.component';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 import { EmployeesComponent } from './employees/employees.component';
 import { FooterComponent } from './footer/footer.component';
 import { LayoutComponent } from './layout/layout.component';
@@ -33,11 +33,11 @@ import { SchdeuleComponent } from './schdeule/schdeule.component';
 import { SchedulerModule } from "@progress/kendo-angular-scheduler";
 import { SettingsComponent } from './settings/settings.component';
 import { SigninComponent } from './signin/signin.component';
-import {TabsModule} from 'ngx-tabset';
+import { TabsModule } from 'ngx-tabset';
 import { TimeoffCreateComponent } from './timeoff-create/timeoff-create.component';
 import { TimeoffViewComponent } from './timeoff-view/timeoff-view.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +68,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     CommonModule,
     MatCheckboxModule,
     TabsModule,
-     MatToolbarModule,
+    MatToolbarModule,
     MatExpansionModule,
     MatFormFieldModule,
     MatDatepickerModule,
@@ -79,7 +79,8 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
     BussinessAdminModule,
     TooltipModule.forRoot(),
     AccordionModule.forRoot(),
-    DropdownModule
+    DropdownModule,
+    NgSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

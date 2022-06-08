@@ -28,6 +28,35 @@
                     </div>
                   </div>
                   <div class="col-md-6">
+                      <fieldset>
+    <legend>
+        Time Off Info <span ng-show="employeeName !== undefined">for {{employeeName}}</span>
+    </legend>
+    <!-- <text-container input="startTime" label="Start Time" error="Start Time is required" success="Thank You!">
+        <input kendo-date-time-picker name="startTime" k-ng-model="model.startTime" ng-model="model.startTimeStr" onkeydown="return false;" required />
+    </text-container>
+    <text-container input="endTime" label="End Time" error="End Time is required" success="Thank You!">
+        <input kendo-date-time-picker name="endTime" k-ng-model="model.endTime" ng-model="model.endTimeStr" onkeydown="return false;" required />
+    </text-container> -->
+    <div class="form-group">
+        <label class="control-label">
+            Is this request for the whole day?123               
+        </label>
+        <div class="checkbox clip-check check-primary">
+            <input type="checkbox" value="" id="allDay" name="allDay" ng-model="model.allDay">
+            <label for="allDay"></label>
+        </div>
+    </div>                     
+                        
+    <div class="form-group">
+        <label class="control-label">
+            Please add any notes you may have for the approver
+        </label>
+        <div class="note-editor note-editor-modal">
+            <textarea class="form-control autosize msd-elastic: \n;" ng-model="model.notes" maxlength="300"></textarea>
+        </div>
+    </div>
+</fieldset>
                   </div>
                 </div>
                 <div class="row">

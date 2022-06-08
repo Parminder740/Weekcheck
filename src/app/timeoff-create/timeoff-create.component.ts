@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TimeoffCreateComponent implements OnInit {
   currTitle='CREATE TIME OFF'
   logo:Boolean=true
+  employeeName='piyush'
   constructor() { }
 
   ngOnInit(): void {
