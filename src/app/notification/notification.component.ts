@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class NotificationComponent implements OnInit {
   currTitle:any
   request:any
+  logo=true
+
   constructor() { }
 
   ngOnInit(): void {

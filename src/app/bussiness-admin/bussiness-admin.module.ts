@@ -1,16 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
 
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { BussinessAdminRoutingModule } from './bussiness-admin-routing.module';
-import { LocationComponent } from './location/location.component';
+import { CommonModule } from '@angular/common';
 import { EmpGroupComponent } from './emp-group/emp-group.component';
-import { ShiftRolesComponent } from './shift-roles/shift-roles.component';
-import { ShiftGroupsComponent } from './shift-groups/shift-groups.component';
-import { ReportsComponent } from './reports/reports.component';
+import { LocationComponent } from './location/location.component';
+import { MatCardModule } from '@angular/material/card';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatIconModule } from '@angular/material/icon';
-import { MatToolbar, MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
+import { NgModule } from '@angular/core';
+import { ReportsComponent } from './reports/reports.component';
+import { ShiftGroupsComponent } from './shift-groups/shift-groups.component';
+import { ShiftRolesComponent } from './shift-roles/shift-roles.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MatCardModule } from '@angular/material/card';
   ],
   imports: [
     CommonModule,
+    AccordionModule ,
     BussinessAdminRoutingModule,
     MatExpansionModule,
     MatIconModule,

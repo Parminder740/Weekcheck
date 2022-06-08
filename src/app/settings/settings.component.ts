@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  currTitle:any
+  currTitle="ACCOUNT SETTINGS"
   currency:any
   selected:any
   currentNumberEmployees:any
   subscriptionFinished:any
+  logo=true
 
   constructor() {
     this.selected = [

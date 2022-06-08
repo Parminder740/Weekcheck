@@ -7,10 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpGroupComponent implements OnInit {
 
-
+  currTitle="EMPLOYEE GROUPS"
+  employeeGroups:any
+  employeeGroup:any
+  groupOption:any
+  accorGroups:any
+  logo:boolean=true
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  editGrouping(a:any){
+
+  }
+  deleteBusinessGrouping(a:any){
+
+  }
+  addGrouping(){
+
+  }
 }

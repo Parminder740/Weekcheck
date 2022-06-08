@@ -1,108 +1,130 @@
 <!-- start: PAGE TITLE -->
+<div class="main-container app">
 
-<section id="page-title">
-    <div class="row">
-      <div class="col-sm-8">
-        <h1 class="mainTitle" translate="sidebar.nav.business.page.info.HEADER"></h1>
-      </div>
-      <div ncy-breadcrumb></div>
-    </div>
-  </section>
-  <!-- end: PAGE TITLE -->
 
-  <div class="container-fluid container-fullw bg-white">
+  <div class="content" [ngClass]="true ? 'offset-2p5':'offset-0p5'">
+    <div class="dynamic-page-area">
+      <section id="page-title">
+        <div class="row">
+          <div class="col-sm-8">
+            <h1 class="mainTitle" translate="sidebar.nav.business.page.info.HEADER">SHIFT ROLES</h1>
+          </div>
+          <div ncy-breadcrumb style="text-align: end;">Business Administration / Shift Roles</div>
+        </div>
+      </section>
+      <!-- end: PAGE TITLE -->
 
-  <p>Create and manage shift roles for your business. To add or remove roles from your business locations, please visit the <a ui-sref="app.settings.locations" style="text-decoration:underline ; color:#333">Locations</a> section.</p><br>
+      <div class="container-fluid container-fullw bg-white">
 
-    <!-- tabs -->
-    <div class="row">
-      <div class="col-md-12">
+        <p>Create and manage shift roles for your business. To add or remove roles from your business locations, please
+          visit the <a ui-sref="app.settings.locations" style="text-decoration:underline ; color:#333">Locations</a>
+          section.</p><br>
 
-          <div>
-            <div class="row">
-              <div class="col-md-3 vcenter">
-                <div ng-if="!businessRoles || businessRoles.length == 0">No shift roles have been created for this business.<span ng-if="businessRoles.length > 1">s</span></div>
-                <div ng-if="businessRoles.length > 0"><span ng-if="businessRoles.length > 1"></span></div>
+        <!-- tabs -->
+        <div class="row">
+          <div class="col-md-12">
+
+            <div>
+              <div class="row">
+                <div class="col-md-3 vcenter">
+                  <div ng-if="!businessRoles || businessRoles.length == 0">No shift roles have been created for this
+                    business.<span ng-if="businessRoles.length > 1">s</span></div>
+                  <div ng-if="businessRoles.length > 0"><span ng-if="businessRoles.length > 1"></span></div>
+                </div>
+                <div class="col-md-4">
+                  <label class="dropsection-link" for="search"
+                    style="font-size: 14px;position: relative;line-height: 2em;margin-left:20px;">Items per
+                    page:</label>
+                  <input type="number" min="1" max="100"
+                    class=" ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="pageSize"
+                    style="max-width:100%;width: 95px;margin-top: 0px;">
+                </div>
+                <div class="col-md-5" style="    text-align: center;">
+                  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    data-bs-whatever="@mdo"  style=" background-color: #0280ba; color:white;"><span>Add Shift Role</span> <i class="ti-add">+</i></button>
+                </div>
               </div>
-               <div class="col-md-4">
-               <label class="dropsection-link" for="search" style="font-size: 14px;position: relative;line-height: 2em;margin-left:20px;">Items per page:</label>
-               <input type="number" min="1" max="100" class=" ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="pageSize" style="max-width:100%;width: 95px;margin-top: 0px;">
-              </div>
-              <div class="col-md-5" style="    text-align: center;">
-                <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" ><span>Add Shift Role</span> <i class="ti-add">+</i></button>
-              </div>
-            </div>
-            <ul class="itemslist">
-              <li dir-paginate="shiftRole in businessRoles | itemsPerPage: pageSize" current-page="currentPage" ng-class="$even?'odd':'even'">
+              <ul class="itemslist">
+                <li dir-paginate="shiftRole in businessRoles | itemsPerPage: pageSize" current-page="currentPage"
+                  ng-class="$even?'odd':'even'">
                   <div class="row" style="padding-bottom: 0;">
-                      <div class="col-md-9" >
-                          <span editable-text="shiftRole.name" e-form="rowform" e-name="name" onbeforesave="validateName($data)" e-placeholder="Enter shift role name" style="line-height:33px"></span>
+                    <div class="col-md-9">
+                      <span editable-text="shiftRole.name" e-form="rowform" e-name="name"
+                        onbeforesave="validateName($data)" e-placeholder="Enter shift role name"
+                        style="line-height:33px"></span>
+                    </div>
+                    <div class="col-md-3 text-right">
+
+                      <form editable-form name="rowform" onbeforesave="saveShiftRole($data, shiftRole)"
+                        ng-show="rowform.$visible" class="form-buttons form-inline" style="margin:0px">
+
+                        <span class="material-icons" title="Save" ng-disabled="rowform.$waiting"
+                          ng-click="rowform.$submit()">edit</span>
+                        <span class="material-icons" title="Cancel" ng-disabled="rowform.$waiting"
+                          ng-click="rowform.$cancel()" style="margin-left:5px">delete</span>
+
+                      </form>
+                      <div class="buttons form-buttons" ng-show="!rowform.$visible">
+                        <button class="btn btn-default" title="Edit" ng-click="rowform.$show()">
+                          <span class="ti-pencil-alt"></span>
+                        </button>
+
+                        <button class="btn btn-default" ng-click="deleteBusinessRole(shiftRole)">
+                          <span class="ti-trash"></span>
+                        </button>
                       </div>
-                      <div class="col-md-3 text-right">
-
-                          <form editable-form name="rowform" onbeforesave="saveShiftRole($data, shiftRole)" ng-show="rowform.$visible" class="form-buttons form-inline" style="margin:0px">
-
-                            <span  class="material-icons" title="Save" ng-disabled="rowform.$waiting" ng-click="rowform.$submit()">edit</span>
-                              <span class="material-icons" title="Cancel" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" style="margin-left:5px">delete</span>
-
-                          </form>
-                          <div class="buttons form-buttons" ng-show="!rowform.$visible">
-                              <button class="btn btn-default" title="Edit" ng-click="rowform.$show()">
-                              <span class="ti-pencil-alt"></span>
-                              </button>
-
-                              <button class="btn btn-default" ng-click="deleteBusinessRole(shiftRole)">
-                              <span class="ti-trash"></span>
-                              </button>
-                          </div>
 
 
-                      </div>
+                    </div>
 
 
                   </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </div>
           </div>
+        </div>
       </div>
-    </div>
-  </div>
-   <div class="text-center">
-            <!-- <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls> -->
-   </div>
+      <div class="text-center">
+        <!-- <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls> -->
+      </div>
 
 
-<!--
+      <!--
    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Open modal for @mdo</button>
    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button>
    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
 
-   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-     <div class="modal-dialog">
-       <div class="modal-content" style="width: 125%;
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content" style="width: 125%;
        height: 394px;">
-         <div class="modal-header">
-           <h1 class="modal-title" id="exampleModalLabel">Add Shift Role</h1>
-           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-         </div>
-         <p>This shift role will be automatically added to your correct location</p>
-         <div class="modal-body">
-           <form>
-             <div class="mb-3">
-               <label for="recipient-name" class="col-form-label">Name</label>
-               <input type="text" class="form-control" id="recipient-name">
-             </div>
-             <!-- <div class="mb-3">
+            <div class="modal-header">
+              <h1 class="modal-title" id="exampleModalLabel">Add Shift Role</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <p>This shift role will be automatically added to your correct location</p>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="recipient-name" class="col-form-label">Name</label>
+                  <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <!-- <div class="mb-3">
                <label for="message-text" class="col-form-label">Message:</label>
                <textarea class="form-control" id="message-text"></textarea>
              </div> -->
-           </form>
-         </div>
-         <div >
-           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+              </form>
+            </div>
+            <div>
+              <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
 
-         </div>
-         <div><button type="button" class="btn btn-primary" style=" margin-left: 4%; margin-bottom: 4%; ">Submit</button></div>
-       </div>
-     </div>
-   </div>
+            </div>
+            <div><button type="button" class="btn btn-primary"
+                style=" margin-left: 4%; margin-bottom: 4%; ">Submit</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
