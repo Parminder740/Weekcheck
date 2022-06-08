@@ -38,6 +38,7 @@ import { TimeoffCreateComponent } from './timeoff-create/timeoff-create.componen
 import { TimeoffViewComponent } from './timeoff-view/timeoff-view.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +66,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
+    NgxPaginationModule,
     CommonModule,
     MatCheckboxModule,
     TabsModule,
@@ -79,8 +81,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     BussinessAdminModule,
     TooltipModule.forRoot(),
     AccordionModule.forRoot(),
+    TabsModule.forRoot(),
     DropdownModule,
-    NgSelectModule
+    NgSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
