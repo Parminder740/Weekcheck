@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shift-roles.component.scss']
 })
 export class ShiftRolesComponent implements OnInit {
-
+  even:any
+  pageSize:any
   constructor() { }
 
   ngOnInit(): void {

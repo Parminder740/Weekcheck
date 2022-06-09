@@ -31,6 +31,7 @@ export class LocationComponent implements OnInit {
   locationRoles:any
   locationEmployees:any
   locationGroups :any
+  pageSize:any
   constructor() { }
 
   ngOnInit(): void {
