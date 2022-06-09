@@ -10,6 +10,7 @@ export class ShiftGroupsComponent implements OnInit {
   shiftGroups:any
   shiftGroup:any
   groupOption:any
+  pageSize:any
   constructor() { }
 
   ngOnInit(): void {

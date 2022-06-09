@@ -42,7 +42,7 @@
                                                 Currently, there are no open requests.</div>
                                             <ul class="itemslist">
                                                 <li ng-repeat="reqitem in employeeRequests"
-                                                    (ngClass)="$even?'odd':'even'">
+                                                    (ngClass)="even?'odd':'even'">
                                                     <div class="row" style="padding-bottom: 0;">
                                                         <div class="col-md-1">
                                                             <div class="initial-box md">{{ reqitem.firstName.charAt(0)
@@ -98,7 +98,7 @@
                                             ng-if="sentRequests === undefined || sentRequests.length === 0">No sent
                                             requests to display</div>
                                         <ul class="itemslist">
-                                            <li ng-repeat="sentRequest in sentRequests" (ngClass)="$even?'odd':'even'">
+                                            <li ng-repeat="sentRequest in sentRequests" (ngClass)="even?'odd':'even'">
                                                 <div class="row" style="padding-bottom: 0;">
                                                     <div class="col-md-1">
                                                         <div class="initial-box md" style="padding-top:12px">{{
