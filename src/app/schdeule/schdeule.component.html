@@ -54,7 +54,7 @@
 
       <!-- start: SCHEDULE -->
 
-      <div class="container-fluid container-fullw bg-white">
+      <div *ngIf="FilterOption" class="container-fluid container-fullw bg-white">
         <div>
           <div class="row hide" id="filterSection"
             style="background: #F0F3F4; margin-bottom:15px; padding: 20px 20px 30px 20px; margin-left:0; margin-right:0;">
@@ -202,9 +202,9 @@
                     <div id="scheduler" kendo-WeekKeeperScheduler="scheduler" k-options="options" class="scheduler"></div>
                 </div>
             </div>
-        </div>
-    </div> -->
-        <!-- <div class="hidden-xs hidden-sm"> -->
+      </div> -->
+      </div>
+      <div class="hidden-xs hidden-sm">
         <div class="">
           <a (click)="showFilters()" style="margin-right: 6px;" class="dropsection-link schedule-tool-btn">
             <i class="fa fa-filter"></i> Filters</a>

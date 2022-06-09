@@ -7,7 +7,7 @@ import { MatAccordion } from '@angular/material/expansion';
 })
 export class EmployeesComponent implements OnInit {
   panelOpenState = false;
-  logo:boolean=true
+  logo: boolean = true
   task: any = false
   location: any
   searchText = []
@@ -23,6 +23,8 @@ export class EmployeesComponent implements OnInit {
   pref: any
   filterSelects: any
   open: boolean = true
+  filterOption: boolean = false
+  objemployee:any
   constructor() { }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class EmployeesComponent implements OnInit {
 
   }
   showFilters() {
-
+    this.filterOption = !this.filterOption
   }
   seniortyList() {
 
@@ -108,4 +110,11 @@ export class EmployeesComponent implements OnInit {
   toggled(a: any) {
 
   }
+  onLocationChange(){}
+
+
+
+
+
+
 }

@@ -11,12 +11,12 @@
             <h1 class="mainTitle" translate="sidebar.nav.employees.page.main.HEADER">EMPLOYEES</h1>
           </div>
           <div class="pull-right" style="margin-top: 10px;">
-            <a (click)="addEmployee()" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk">
+            <a (click)="addEmployee()" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk"    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
               Add
               <span class="fa fa-user"></span>
             </a>
             <div class="badge-btn emp-req-btn">
-              <a ui-sref="app.dashboard.employeeregister" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk">
+              <a routerLink="/dashboard/employeeregister" ui-sref="app.dashboard.employeeregister" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk">
                 Employee Register Request
                 <span class="notification-count badge" ng-hide="openEmployeeRequests.length == 0"></span>
               </a>
@@ -57,19 +57,19 @@
           <div class="col-md-3">
             <input class="wk-input" (ngModel)="searchText" placeholder="Search employees" style="width:100%">
           </div>
-          <div class="col-md-7"style="display: flex;">
+          <div class="col-md-7" style="display: flex;">
             <div class="col-md-6" style="display: flex;">
               <div class="col-md-7">
                 <label class="dropsection-link" for="search"
                   style="color: #000;font-size: 14px;line-height: 2em;position: relative;">Items per page:</label>
               </div>
-              <div class="col-md-5"style="display: flex;">
+              <div class="col-md-5" style="display: flex;">
                 <input type="number" min="1" max="100"
                   class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" (ngModel)="pageSize"
                   style="width: 95px;float: right;margin-top: 0px; ">
               </div>
             </div>
-            <div class="col-md-6" style="display: flex;" >
+            <div class="col-md-6" style="display: flex;">
               <a (click)="showFilters()" class="dropsection-link">
                 <i class="fa fa-filter"></i> Filters</a>
               <span style="color:#0280ba; padding-top:5px;" *ngIf="filterCount > 0">({{filterCount}})</span>
@@ -80,6 +80,8 @@
                 style="margin-left: 13px;">
                 <i class="fa fa-envelope"></i>Send</a>
             </div>
+
+
           </div>
           <div class="col-md-2" style="text-align:right">
 
@@ -117,7 +119,7 @@
             </div>
           </div>
         </div>
-        <div class="row hide" id="filterSection"
+        <div *ngIf="filterOption" class="row hide" id="filterSection"
           style="background: #F0F3F4; margin-bottom:15px; padding: 20px 20px 30px 20px; margin-left:0; margin-right:0;">
           <div class="col-md-12">
             <h4
@@ -430,6 +432,257 @@
      <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)">
     </dir-pagination-controls>
     </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- seniority List -->
+
+<div class="modal-header modal-header-edit">
+  <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
+</div>
+
+<div class="container-fluid bg-white" id="wk-modal">
+  <h4>Seniority List</h4>
+  <!-- <div ng-repeat="objemployee  in
+  employeeList">             <span >{{objemployee.name}}</span>          </div>
+  -->
+  <div class="row">
+      <div class="col-md-12">
+          <div class="location-heading" style="margin-bottom:10px">
+              <span class="ti-map-alt"></span> Seniority List <span class="sub-heading-title">
+                  Seniority List
+                  Detail
+              </span>
+          </div>
+
+          <div class="row" style="padding-bottom: 0;">
+              <div class="col-md-9 col-sm-9 col-xs-9" style="margin-top:8px">
+                  <a href="#" ng-click="sortType = 'firstName'; sortReverse = !sortReverse">
+                      Name
+                      <span ng-show="sortType == 'firstName' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'firstName' && sortReverse" class="fa fa-caret-up"></span>
+                  </a>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3 text-center">
+                  <a ng-click="sortType = 'hireDate'; sortReverse = !sortReverse">
+                      Hire Date
+                      <span ng-show="sortType == 'hireDate' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span ng-show="sortType == 'hireDate' && sortReverse" class="fa fa-caret-up"></span>
+                  </a>
+
+              </div>
+          </div>
+          <div class="no-items" ng-if="employeeList.length == 0">No Employess Found.</div>
+          <ul class="itemslist ">
+              <li ng-repeat="objemployee in employeeList | orderBy:sortType:sortReverse" ng-class="$even?'odd':'even'">
+                  <div class="row" style="padding-bottom: 0;">
+                      <div class="col-md-9 col-sm-9 col-xs-9" style="margin-top:8px">
+                          {{objemployee.firstName}} {{objemployee.lastName}}
+                      </div>
+                      <div class="col-md-3 col-sm-3 col-xs-3 text-right">  
+                          <div class="pull-right" >{{ objemployee.hireDate | date : 'MM/dd/yyyy' }}</div> 
+                      </div> 
+                  </div>
+              </li>
+          </ul>
+      </div>
+  </div>
+
+
+
+
+</div>
+
+
+<!-- Send Email -->
+
+
+
+<div>
+  <div class="modal-header modal-header-edit">
+      <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
+  </div>
+
+  <div class="container-fluid bg-white" id="wk-modal">
+      <h4>Send Email</h4>
+
+      <!-- <div>
+          <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
+              ng-model="sendEmail.employees" theme="select2" close-on-select="false" style="width:75%" ng-click="dropDownOnAnyClick($event)"
+              class="filterone">
+              <ui-select-match style="border-radius: 3px;" placeholder="Select employees...">{{$item.firstName}} {{$item.lastName}}</ui-select-match>
+              <ui-select-choices repeat="objemployee in employeeList">
+                  {{objemployee.firstName}} {{objemployee.lastName}}
+              </ui-select-choices>
+          </ui-select>
+
+          <div class="pull-right">
+              <button style="height: 30px; border-radius: 3px; padding-top: 3px;" type="submit" class="btn btn-dark-azure">
+                  Populate List
+              </button>
+          </div>
+      </div> -->
+
+      <div class="form-group">
+          <label class="control-label">
+              Employee(s) to send email
+          </label>
+          <!-- <oi-multiselect id="employees" class="cfl" name="employees" ng-options="employee.name for employee in employeeList track by employee.employeeID"
+              ng-model="selectedEmployees" multiple ng-placeholder="employeesMessage" style="border-radius: 3px;">
+          </oi-multiselect> -->
+
+          <!-- <ui-select multiple reset-search-input="true" on-remove="onFilterGroupChange($item)" ng-model="selectedEmployees" theme="select2"
+              close-on-select="false" style="border-radius: 3px;" ng-click="dropDownOnAnyClick($event)" class="filterone">
+              <ui-select-match placeholder="Select group...">{{$item.firstName}} {{$item.lastName}}</ui-select-match>
+              <ui-select-choices repeat="employee in employee">
+                  <span class="ui-select-item-primary" ng-bind-html="employee.firstName"></span>
+              </ui-select-choices>
+          </ui-select> -->
+
+          <!-- <div class="pull-right">
+              <button style="margin-top: 10px; height: 30px; border-radius: 3px; padding-top: 3px;" ng-click="populateList()" type="submit" class="btn btn-dark-azure">
+                  Populate List
+              </button>
+          </div> -->
+      </div>     
+
+      <div>
+          <input type="text" ng-model="title" placeholder="Title" style="width: 100%; margin-top: 20px;  border-radius: 3px;">
+      </div>
+
+
+      <div>
+          <textarea style="width: 100% !important; margin-top: 20px; border-radius: 3px;" rows="10" cols="50" ng-model="message" placeholder="Message"> </textarea>
+      </div>
+
+
+      <div class="pull-left">
+          <button style="margin-top: 10px; margin-bottom: 10px;" type="submit" class="btn btn-dark-azure" ng-click="sendEMailBulk()">
+              Send
+          </button>
+      </div>
+
+
+
+
+
+
+<div class="container">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 125%;height:400px;">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Add Employee Group Type</h1>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <fieldset class="horizontal-line horizontal-fields" style="margin-bottom:0; padding-bottom:5px;">
+          <legend>
+            Employee Details
+          </legend>
+
+          <div class="row" style="padding-bottom:0;">
+            <div class="col-sm-6">
+              <div text-container input="firstName" label="First Name" error="First name is required"
+                success="Thank You!">
+                <input text="text" name="firstName" ng-model="model.firstName" class="form-control" required />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div text-container input="lastName" label="Last Name" error="Last name is required" success="Thank You!">
+                <input text="text" name="lastName" ng-model="model.lastName" class="form-control" required />
+              </div>
+            </div>
+          </div>
+          <div class="row" style="padding-bottom:0;">
+            <div class="col-sm-6">
+              <span class="input-icon">
+                <input type="email" class="form-control" style=" margin-top: 20px;" name="email" placeholder="Email"
+                  ng-model="model.email" />
+                <i class="fa fa-envelope-o" style="color:#1c2b36"></i>
+              </span>
+            </div>
+            <div class="col-sm-6">
+              <br>
+              <!-- <div class="checkbox clip-check check-primary ">
+              <input type="checkbox" value="" id="sendInvite" name="sendInvite" ng-model="sendInvite.send">
+              <label for="sendInvite">Send an invitation via email</label>
+          </div> -->
+
+              <div class="checkbox">
+                <input type="checkbox" style="margin-left:0px !important; margin-top: 2px !important" value=""
+                  id="sendInvite" name="sendInvite" ng-model="sendInvite.send">
+                <label for="sendInvite">Send an invitation via email</label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="horizontal-line" style="margin-bottom:0; padding-bottom:5px;">
+          <legend>
+            Assign to Locations
+          </legend>
+          <div class="row" style="padding-bottom: 0">
+            <div class="col-md-12">
+
+              <div ng-class="{'has-error':locationsHasError, 'has-success':locationsHasSuccess}" input=""><label
+                  class="control-label">Selected
+                  Locations <span class="symbol required"></span></label> </div>
+
+              <!-- <ui-select multiple on-select="onLocationChange($item)" on-remove="onLocationChange($item)" ng-model="locations.selected"
+              theme="select2" style="width:100%" required ng-click="dropDownOnAnyClick($event)" class="filterone">
+              <ui-select-match placeholder="Select locations...">{{$item.name}}</ui-select-match>
+              <ui-select-choices repeat="location in locations | filter: $select.search"> -->
+              <span class="ui-select-item-primary" ng-bind-html="location.name | highlight: $select.search"></span>
+              <span class="ui-select-item-primary" ng-bind-html="location.address | highlight: $select.search"></span>
+              <!-- </ui-select-choices>
+          </ui-select> -->
+              <span class="error text-small block ng-binding ng-scope" ng-if="locationsHasError">At least one location
+                is required</span>
+              <div style="margin-top:10px">
+                <button type="button" class="btn btn-dark-azure btn-o" ng-click="selectAllLocations()">Select
+                  All</button>
+                <button type="button" class="btn btn-dark-azure btn-o" ng-click="resetLocations()">Reset</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="horizontal-line" ng-if="businessRoles.length > 1"
+          style="margin-bottom:0; padding-bottom:5px; margin-top:30px">
+          <legend>
+            Assign Shift Roles
+          </legend>
+
+          <div class="row">
+            <div class="col-sm-6">
+
+              <p>Primary shift role:</p>
+              <!-- <ui-select ng-model="model.primaryRoleID" on-select="onPrimaryRoleChange($item)" theme="bootstrap">
+              <ui-select-match placeholder="Select..." allow-clear="true">
+                  {{$select.selected.name}}
+              </ui-select-match>
+              <ui-select-choices repeat="role.roleID as role in businessRoles | filter: $select.search"> -->
+              <div ng-bind-html="role.name | highlight: $select.search"></div>
+              <!-- </ui-select-choices>
+          </ui-select> -->
+
+            </div>
+            <div class="col-sm-6">
+              <p>Secondary shift role:</p>
+              <!-- <ui-select ng-model="model.secondaryRoleID" theme="bootstrap" ng-disabled="!model.primaryRoleID">
+              <ui-select-match placeholder="Select..." allow-clear="true">
+                  {{$select.selected.name}}
+              </ui-select-match>
+              <ui-select-choices repeat="role.roleID as role in businessRoles | filter:{ roleID: '!' + model.primaryRoleID} | filter: $select.search"> -->
+              <div ng-bind-html="role.name | highlight: $select.search"></div>
+              <!-- </ui-select-choices>
+          </ui-select> -->
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
     </div>
   </div>
 </div>

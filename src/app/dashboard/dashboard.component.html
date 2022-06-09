@@ -28,14 +28,14 @@
             <h1 class="mainTitle">DASHBOARD</h1><br />
             <div>
               <div class="dashboard-top-left">
-                <a ui-sref="app.notification.view" style="margin-top:10px" class="btn btn-dark-wk">View
+                <a routerLink="/notifications" ui-sref="app.notification.view" style="margin-top:10px" class="btn btn-dark-wk">View
                   Notifications</a>
                 <div style="margin-top:10px" class="btn-spacer"></div>
-                <a ui-sref="app.employee.info" style="margin-top:10px" class="btn btn-dark-wk">View
+                <a routerLink="/profile" ui-sref="app.employee.info" style="margin-top:10px" class="btn btn-dark-wk">View
                   Preferences</a>
                 <div style="margin-top:10px" class="btn-spacer"></div>
                 <div class="badge-btn emp-req-btn">
-                  <a ui-sref="app.dashboard.employeeregister" style="margin-top:10px" class="btn btn-dark-wk">Employee
+                  <a routerLink="/dashboard/employeeregister" ui-sref="app.dashboard.employeeregister" style="margin-top:10px" class="btn btn-dark-wk">Employee
                     Register Request
                     <span class="notification-count badge"></span>
                   </a>
