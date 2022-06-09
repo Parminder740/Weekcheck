@@ -48,6 +48,7 @@
     "js": "^0.1.0",
     "kendo-ui-core": "^2022.2.510",
     "ngx-bootstrap": "^8.0.0",
+    "ngx-mat-select-search": "^4.1.2",
     "ngx-pagination": "^6.0.1",
     "ngx-tabset": "^2.2.0",
     "primeng": "^13.4.1",

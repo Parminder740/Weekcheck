@@ -163,21 +163,21 @@
                   <i class="fa fa-briefcase" aria-hidden="true"></i> ytgyugyi
                 </li>
                 <!-- ngRepeat: location in business.locations track by location.locationID -->
-                <li *ngFor="let location in business.locations" class="ng-scope">
+                <li *ngFor="let location of business.locations" class="ng-scope">
                   <a (click)="changeLocation(location)" href="#" class="menu-toggler">
                     <div class="ng-binding"> ytgyugyi</div>
                     <address class="ng-binding">
                       <i class="fa fa-building-o" aria-hidden="true"></i> gjfyj</address>
                   </a>
                 </li><!-- end ngRepeat: location in business.locations -->
-                <li *ngFor="let location in business.locations" class="ng-scope">
+                <li *ngFor="let location of business.locations" class="ng-scope">
                   <a (click)="changeLocation(location)" href="#" class="menu-toggler">
                     <div class="ng-binding"> dfghjk</div>
                     <address class="ng-binding">
                       <i class="fa fa-building-o" aria-hidden="true"></i> dfghjkl</address>
                   </a>
                 </li><!-- end ngRepeat: location in business.locations -->
-                <li *ngFor="let location in business.locations" class="ng-scope">
+                <li *ngFor="let location of business.locations" class="ng-scope">
                   <a (click)="changeLocation(location)" href="#" class="menu-toggler">
                     <div class="ng-binding"> dfghjk</div>
                     <address class="ng-binding">
