@@ -11,7 +11,7 @@ export class ProfileComponent implements OnInit {
   userInfo:any
   displayReminderTime:any
   logo=true
-
+toggle:boolean=false
   displayNotificationPref:any
   constructor() { }
   reminderOptions = [
@@ -42,5 +42,7 @@ export class ProfileComponent implements OnInit {
 ];
   ngOnInit(): void {
   }
-
+editmode(){
+ this.toggle=true
+}
 }

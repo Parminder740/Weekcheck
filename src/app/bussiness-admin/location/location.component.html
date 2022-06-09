@@ -6,17 +6,17 @@
     <div class="dynamic-page-area">
       <section id="page-title">
         <div class="row">
-          <div class="col-sm-8">
+          <div class="col-sm-8 d-flex">
             <h1 class="mainTitle" translate="sidebar.nav.business.page.info.HEADER">{{ currTitle }}</h1>
           </div>
           <div ncy-breadcrumb></div>
-          <div class="col-md-12" style="margin-top: 13px;">
+          <div class="col-md-12 d-flex" style="margin-top: 13px;">
             <div class="col-md-3" style="margin-top:5px;">
               <span style="font-family: Raleway;color: #777;"><i class="fa fa-building-o"></i>&nbsp; BUSINESS
                 CODE:</span>
               <span style="color: #333;font-family: Raleway;">{{businessCode}}</span>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 d-flex">
               <label class="dropsection-link" for="search"
                 style="font-size: 14px;position: relative;line-height: 2em;margin-left:20px;">Items per
                 page:</label>
@@ -29,28 +29,30 @@
       </section>
 
       <!-- end: PAGE TITLE -->
-
       <div class="container-fluid container-fullw bg-white">
-        <div class="row">
-          <div class="col-md-6 vcenter">
-            <div>{{locations.length}} location<span ng-if="locations.length > 1"></span></div>
-          </div>
-          <div class="col-md-6 text-right">
-            <button class="btn btn-light-wk" (click)="addLocation()"><span>Add</span> <i class="fa fa-map-marker"
-                style="font-size: 19px; margin-left:3px; margin-right:1px;"></i><sup><i
-                  class="ti-add">+</i></sup></button>
-          </div>
+      <div class="row">
+        <div class="col-md-6 vcenter d-flex">
+          <div>{{locations.length}} location<span *ngIf="locations.length > 1"></span></div>
         </div>
+        <div class="col-md-6 text-right">
+          <button class="btn btn-primary" (click)="addLocation()"><span>Add  </span>
+            <i class='fas fa fa-map-marker' style='color: white; font-weight: bolder;'></i>
+            <i class='fa plus'>+</i></button>
+        </div>
+      </div><br><br><br><br>
+
+      
+
         <div class="row">
           <div class="col-md-12">
             <accordion close-others="true" id="locations-accordion">
               <accordion-group ng-init="accorLocations = {isOpen: selectedLocation.locationID == location.locationID}"
-                is-open="accorLocations.isOpen" (ngClass)="{isOpen: accorLocations.isOpen}"
+                is-open="accorLocations.isOpen" [ngClass]="{isOpen: accorLocations.isOpen}"
                 dir-paginate="location in locations | itemsPerPage: pageSize" current-page="currentPage">
                 <div accordion-heading> <span id="{{location.locationID}}"
                     (click)="toggleAccordion(location)">{{location.name}}</span> <i class="pull-left fa"
                     (click)="toggleAccordion(location)"
-                    (ngClass)="{'fa-chevron-down': accorLocations.isOpen, 'fa-chevron-right': !accorLocations.isOpen}"></i>
+                    [ngClass]="{'fa-chevron-down': accorLocations.isOpen, 'fa-chevron-right': !accorLocations.isOpen}"></i>
                 </div>
                 <div class="container" style="position:relative">
                   <div class="accordion-buttons">
@@ -58,23 +60,23 @@
                     <div class="btn-group location-group settings-menu" dropdown on-toggle="toggled(open)">
                       <button id="settings-menu-btn" class="btn btn-default dropdown-toggle" type="button"
                         dropdown-toggle>
-                        <span><i class="ti-settings"></i></span>
+                        <span><i class="fa fa-settings"></i></span>
                         <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu dropdown-align-left">
                         <li><a (click)="editLocation()">Edit Details</a></li>
                         <li class="divider"></li>
-                        <li><a data-(click)="setSearchLocation()">Edit Employees</a></li>
-                        <li><a data-(click)="editEmployeeGroups()">Edit Employee Groups</a></li>
+                        <li><a (click)="setSearchLocation()">Edit Employees</a></li>
+                        <li><a (click)="editEmployeeGroups()">Edit Employee Groups</a></li>
                         <li class="divider"></li>
-                        <li><a data-(click)="editShiftGroups()">Edit Shift Groups</a></li>
-                        <li><a data-(click)="editShiftRoles()">Edit Shift Roles</a></li>
+                        <li><a (click)="editShiftGroups()">Edit Shift Groups</a></li>
+                        <li><a (click)="editShiftRoles()">Edit Shift Roles</a></li>
                         <li class="divider"></li>
-                        <li><a data-(click)="editAdmin()">Edit Administrators</a></li>
-                        <li><a data-(click)="editSchedulers()">Edit Schedulers</a></li>
-                        <li><a data-(click)="editSchedulerGroups()">Edit Scheduler Groups</a></li>
+                        <li><a (click)="editAdmin()">Edit Administrators</a></li>
+                        <li><a (click)="editSchedulers()">Edit Schedulers</a></li>
+                        <li><a (click)="editSchedulerGroups()">Edit Scheduler Groups</a></li>
                         <li class="divider"></li>
-                        <li><a data-(click)="deleteLocation()">Delete</a></li>
+                        <li><a (click)="deleteLocation()">Delete</a></li>
                       </ul>
 
                     </div>
@@ -88,7 +90,7 @@
                         <div class="pull-left" style="color:#333; font-weight: 300;">LOCATION DETAILS</div>
                         <div class="pull-right"
                           style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333"
-                          data-(click)="editLocation()">Edit <i class="fa fa-pencil"></i></div>
+                          (click)="editLocation()">Edit <i class="fa fa-pencil"></i></div>
                         <div style="clear:both"></div>
                         <br />
                         <div class="row">
@@ -126,16 +128,14 @@
                           <div>
                             <div
                               style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333"
-                              data-(click)="editEmployeeGroups()">Edit <i class="fa fa-pencil"></i>
+                              (click)="editEmployeeGroups()">Edit <i class="fa fa-pencil"></i>
                             </div>
                             <div ng-show="!locationGroupsFiltered || locationGroupsFiltered.length === 0"
                               style="color:gray; margin-top:7px">
                               No employee groups have been set up for this location.
                             </div>
                             <ul class="itemslist">
-                              <li
-                                ng-repeat="employeeGroup in locationGroupsFiltered = (locationGroups | filter:locationGroupsFilter(2))"
-                                (ngClass)="$even?'odd':'even'">
+                              <li *ngFor="employeeGroup of locationGroupsFiltered " [ngClass]="even?'odd':'even'">
                                 <span class="group-label">{{employeeGroup.groupingName}}</span>
                                 {{ getGroupingOptionNames(employeeGroup) }}
                               </li>
@@ -148,7 +148,7 @@
                               <span class="subheading">Shift Groups</span>
                               <span class="pull-right"
                                 style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333"
-                                data-(click)="editShiftGroups()">Edit <i class="fa fa-pencil"></i></span>
+                                (click)="editShiftGroups()">Edit <i class="fa fa-pencil"></i></span>
                               <div style="clear:both; height:5px;"></div>
                               <div>
                                 <div ng-show="!shiftGroupsFiltered || shiftGroupsFiltered.length === 0"
@@ -156,9 +156,7 @@
                                   No shift groups have been set up for this location.
                                 </div>
                                 <ul class="itemslist">
-                                  <li
-                                    ng-repeat="shiftGroup in shiftGroupsFiltered = (locationGroups | filter:locationGroupsFilter(1))"
-                                    (ngClass)="$even?'odd':'even'">
+                                  <li *ngFor="shiftGroup of shiftGroupsFiltered" [ngClass]="even?'odd':'even'">
                                     <span class="group-label">{{shiftGroup.groupingName}}</span>
                                     {{ getGroupingOptionNames(shiftGroup) }}
                                   </li>
@@ -169,14 +167,14 @@
                               <span class="subheading">Shift Roles</span>
                               <span class="pull-right"
                                 style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333"
-                                data-(click)="editShiftRoles()">Edit <i class="fa fa-pencil"></i></span>
+                                (click)="editShiftRoles()">Edit <i class="fa fa-pencil"></i></span>
                               <div style="clear:both; height:5px;"></div>
                               <div>
                                 <div ng-show="locationRoles.length === 0" style="color:gray; margin-top:7px">
                                   No shift roles have been set up for this location.
                                 </div>
                                 <ul class="itemslist">
-                                  <li ng-repeat="shiftRole in locationRoles" (ngClass)="$even?'odd':'even'">
+                                  <li *ngFor="shiftRole of locationRoles" [ngClass]="even?'odd':'even'">
                                     {{shiftRole.name}}
                                   </li>
                                 </ul>
@@ -190,12 +188,12 @@
                               <span class="subheading">Administrators</span>
                               <span class="pull-right"
                                 style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333"
-                                data-(click)="editAdmin()">Edit <i class="fa fa-pencil"></i></span>
+                                (click)="editAdmin()">Edit <i class="fa fa-pencil"></i></span>
                               <div style="clear:both; height:5px;"></div>
                               <ul class="itemslist">
-                                <li ng-repeat="admin in locationEmployees | filter:locationAdminFilter"
-                                  (ngClass)="$even?'odd':'even'"> <i class="fa fa-user"></i>
-                                  {{admin.firstName}} <span ng-if="admin.middleInitial">{{admin.middleInitial}}</span>
+                                <li *ngFor="admin of locationEmployees" [ngClass]="even?'odd':'even'"> <i
+                                    class="fa fa-user"></i>
+                                  {{admin.firstName}} <span *ngIf="admin.middleInitial">{{admin.middleInitial}}</span>
                                   {{admin.lastName}} </li>
                               </ul>
                             </div>
@@ -204,7 +202,7 @@
                               <span class="subheading">Schedulers</span>
                               <span class="pull-right"
                                 style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333"
-                                data-(click)="editSchedulers()">Edit <i class="fa fa-pencil"></i></span>
+                                (click)="editSchedulers()">Edit <i class="fa fa-pencil"></i></span>
                               <div style="clear:both; height:5px;"></div>
                               <div>Schedulers may be restricted to employee groups, and will be
                                 restricted to managing scheduling activity for only the employee
@@ -213,15 +211,15 @@
                                 has access to schedule all employees.</div>
                               <br>
                               <ul class="itemslist">
-                                <li ng-repeat="scheduler in locationEmployees | filter:locationSchedulerFilter"
-                                  style="border-bottom:1px dotted #ddd"> <i class="fa fa-user"></i>
+                                <li *ngFor="scheduler of locationEmployees " style="border-bottom:1px dotted #ddd"> <i
+                                    class="fa fa-user"></i>
                                   {{scheduler.firstName}}
-                                  <span ng-if="scheduler.middleInitial">{{scheduler.middleInitial}}</span>
+                                  <span *ngIf="scheduler.middleInitial">{{scheduler.middleInitial}}</span>
                                   {{scheduler.lastName}}
 
                                   <span class="pull-right"
                                     style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333; margin-top: 20px; margin-right:-10px;"
-                                    data-(click)="editSchedulerGroups()">Edit
+                                    (click)="editSchedulerGroups()">Edit
                                     <i class="fa fa-pencil"></i></span>
                                   <div ng-show="locationGroups.length === 0"
                                     style="color:gray; margin-top:7px; width: calc(100% - 30px)">
@@ -230,19 +228,17 @@
                                   <ul ng-show="scheduler.schedulerFocus && scheduler.schedulerFocus.length > 0"
                                     class="itemslist"
                                     style="margin-bottom:0; margin-top:10px; width: calc(100% - 20px); padding-right: 20px;">
-                                    <li ng-repeat="locationGroup in locationGroups | filter: {type:2}"
-                                      (ngClass)="$even?'odd':'even'">
+                                    <li *ngFor="locationGroup of locationGroups" [ngClass]="even?'odd':'even'">
                                       <div class="row" style="padding-bottom:0">
                                         <div class="col-md-5" style="color:gray;">
                                           <span class="group-label"
                                             style="width:100%">{{ locationGroup.groupingName }}</span>
                                         </div>
                                         <div class="col-md-7">
-                                          <div
-                                            ng-repeat="employeeGroupOpt in schedulerFocusGroups = ( scheduler.schedulerFocus | filter: {groupingName: locationGroup.groupingName} )">
+                                          <div *ngFor="employeeGroupOpt of schedulerFocusGroups ">
                                             {{employeeGroupOpt.groupingOptionName}}
                                           </div>
-                                          <span ng-if="schedulerFocusGroups.length === 0" style="color:gray">no option
+                                          <span *ngIf="schedulerFocusGroups.length === 0" style="color:gray">no option
                                             set</span>
 
                                         </div>
