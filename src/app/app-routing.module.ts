@@ -21,6 +21,7 @@ import { NotificationComponent } from './notification/notification.component';
 import { TimeoffViewComponent } from './timeoff-view/timeoff-view.component';
 import { TimeoffCreateComponent } from './timeoff-create/timeoff-create.component';
 import { SchdeuleComponent } from './schdeule/schdeule.component';
+import { EmpRegisterComponent } from './emp-register/emp-register.component';
 
 const routes: Routes = [
 
@@ -38,6 +39,7 @@ const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: "employees", component: EmployeesComponent },
+      {path:'dashboard/employeeregister',component:EmpRegisterComponent},
       { path: 'emp-group', component: EmpGroupComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'shift-groups', component: ShiftGroupsComponent },

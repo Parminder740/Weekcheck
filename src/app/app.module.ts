@@ -43,6 +43,7 @@ import { IntlModule } from "@progress/kendo-angular-intl";
 
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { EmpRegisterComponent } from './emp-register/emp-register.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +64,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TimeoffViewComponent,
     TimeoffCreateComponent,
     SchdeuleComponent,
+    EmpRegisterComponent,
  
   ],
   imports: [

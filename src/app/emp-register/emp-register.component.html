@@ -1,0 +1,193 @@
+<div class="main-container app">
+
+
+    <div class="content" [ngClass]="true ? 'offset-2p5':'offset-0p5'">
+
+
+
+        <!-- <header ng-include=" 'common/templates/topNavbar.tpl.html' " ng-controller="TopNavCtrl" class="navbar navbar-default navbar-static-top ng-scope">start: TOP NAVBAR -->
+
+        <!-- start: NAVBAR COLLAPSE -->
+
+
+        <!-- end: NAVBAR COLLAPSE -->
+        <!-- start: TOP NAVBAR -->
+        <!-- </header> -->
+
+
+        <div class="dynamic-page-area">
+            <div id="container" class="wrap-content container">
+                <!-- start: PAGE TITLE -->
+                <section id="page-title" class="ng-scope">
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <h1 class="mainTitle ng-scope ng-binding">Employee Register Request</h1>
+                        </div>
+                    </div>
+                </section>
+                <!-- end: PAGE TITLE -->
+
+                <div class="container-fluid container-fullw  bg-white ng-scope">
+
+                    <!-- tabs -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ngx-tabset class="tabbable">
+                                <ngx-tab>
+                                    <!--heading="Incoming Requests {{getRequestCount(employeeRequests)}}"-->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div
+                                                ng-show="employeeRequests === undefined || employeeRequests.length === 0">
+                                                Currently, there are no open requests.</div>
+                                            <ul class="itemslist">
+                                                <li ng-repeat="reqitem in employeeRequests"
+                                                    ng-class="$even?'odd':'even'">
+                                                    <div class="row" style="padding-bottom: 0;">
+                                                        <div class="col-md-1">
+                                                            <div class="initial-box md">{{ reqitem.firstName.charAt(0)
+                                                                }}{{ reqitem.lastName.charAt(0) }}</div>
+                                                        </div>
+                                                        <div class="col-md-4" style="margin-top:15px">
+                                                            {{reqitem.firstName}} {{reqitem.lastName}} <br />
+
+                                                        </div>
+                                                        <div class="col-md-2" style="margin-top:15px">
+                                                            {{reqitem.email}}
+                                                        </div>
+                                                        <div class="col-md-5 text-right" style="margin-top:8px">
+                                                            <button class="btn btn-default"
+                                                                ng-click="approve(reqitem)">Approve</button>
+                                                            <button class="btn btn-default"
+                                                                ng-click="deny(reqitem)">Deny</button>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <div class="table-responsive" ng-show="employeeRequests.length > 0"
+                                                style="display:none">
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>First Name</th>
+                                                            <th>Last Name</th>
+                                                            <th>Email</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr class="ng-scope" ng-repeat="reqitem in employeeRequests">
+                                                            <td class="ng-binding">{{ reqitem.firstName }}</td>
+                                                            <td class="ng-binding">{{ reqitem.lastName }}</td>
+                                                            <td class="ng-binding">{{ reqitem.email }}</td>
+                                                            <td><button ng-click="view(reqitem)"
+                                                                    class="btn btn-dark-azure"><i
+                                                                        class="ti-eye"></i>View</button></td>
+                                                        </tr>
+                                                        <!-- end ngRepeat: request in filteredData -->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ngx-tab>
+                                <ngx-tab>
+                                    <!--heading="Sent Requests {{getRequestCount(sentRequests)}}"-->
+                                    <div>
+                                        <div class="no-items"
+                                            ng-if="sentRequests === undefined || sentRequests.length === 0">No sent
+                                            requests to display</div>
+                                        <ul class="itemslist">
+                                            <li ng-repeat="sentRequest in sentRequests" ng-class="$even?'odd':'even'">
+                                                <div class="row" style="padding-bottom: 0;">
+                                                    <div class="col-md-1">
+                                                        <div class="initial-box md" style="padding-top:12px">{{
+                                                            sentRequest.firstName.charAt(0) }}{{
+                                                            sentRequest.lastName.charAt(0) }}</div>
+                                                    </div>
+                                                    <div class="col-md-4" style="margin-top:8px">
+                                                        {{sentRequest.firstName}} {{sentRequest.lastName}} <br />
+                                                        {{sentRequest.email}}
+                                                        <a ng-click="updateEmail(sentRequest)"
+                                                            ng-if="!sentRequest.email">Set email <span
+                                                                class="ti-pencil"></span></a>
+
+                                                    </div>
+                                                    <div class="col-md-3" style="margin-top:8px">
+                                                        <span ng-if="sentRequest.lastInviteSent">
+                                                            Email sent: <br />
+                                                            {{formatDate(sentRequest)}} {{formatTime(sentRequest)}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-md-4 text-right" style="margin-top:8px">
+                                                        <button class="btn btn-default"
+                                                            ng-click="resendEmail(sentRequest)"
+                                                            ng-if="sentRequest.email"><span
+                                                                ng-if="sentRequest.lastInviteSent">Resend</span><span
+                                                                ng-if="!sentRequest.lastInviteSent">Send</span>
+                                                            Invite</button>
+                                                        <button class="btn btn-default"
+                                                            ng-click="updateEmail(sentRequest)"><span
+                                                                class="ti-pencil"></span></button>
+                                                        <button class="btn btn-default"
+                                                            ng-click="deny(sentRequest)"><span
+                                                                class="ti-trash"></span></button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ngx-tab>
+                            </ngx-tabset>
+                        </div>
+                    </div>
+                    <!-- Update Email Modal -->
+                    <script type="text/ng-template" id="updateEmailReqModal.html">
+            <div class="modal-header modal-header-edit">
+                <button ng-click="close()" aria-hidden="true" class="close" type="button">&times;</button>
+            </div>
+            <div class="modal-body emp-request-modal">
+
+                <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                        <h3>Update Email</h3>
+                    </div>
+                </div>
+                <form ng-submit="form.submit(Form)" novalidate="" id="form1" name="Form" class="ng-pristine ng-valid">
+                    <div class="row">
+
+                        <div class="col-sm-10">
+                            <fieldset>
+                                <legend>
+                                    Employee Details
+                                </legend>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="modal-label">First Name:</span>{{ empReqItem.firstName }}
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                        <span class="modal-label">Last Name:</span>{{ empReqItem.lastName }}
+                                    </div>
+
+                                </div>
+                            </fieldset>
+                            <email-container input="email" label="Email">
+                                <span class="input-icon">
+							<input type="email" class="form-control" name="email" placeholder="Email" ng-model="empReqItem.email" required />
+							<i class="fa fa-envelope-o" style="color:#1c2b36"></i>
+						</span>
+                            </email-container>
+                            <br />
+                            <button class="btn btn-light-wk" type="submit">
+                        Submit
+                    </button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

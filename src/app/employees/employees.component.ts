@@ -108,4 +108,11 @@ export class EmployeesComponent implements OnInit {
   toggled(a: any) {
 
   }
+  onLocationChange(){}
+
+
+
+
+
+
 }
