@@ -20,7 +20,7 @@ export class SchdeuleComponent implements OnInit {
   events: SchedulerEvent[] = sampleData;
   weekStart: Day = Day.Wednesday;
   selectedDate: Date = displayDate;
-
+  FilterOption:boolean=false
   constructor() { }
 
   ngOnInit(): void {
@@ -40,6 +40,9 @@ export class SchdeuleComponent implements OnInit {
   saveClickFilters(){
 
   }
-  showFilters(){}
+  showFilters(){
+   this.FilterOption = !this.FilterOption
+    
+  }
   viewWeekStats(){}
 }
