@@ -11,12 +11,12 @@
             <h1 class="mainTitle" translate="sidebar.nav.employees.page.main.HEADER">EMPLOYEES</h1>
           </div>
           <div class="pull-right" style="margin-top: 10px;">
-            <a (click)="addEmployee()" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk">
+            <a (click)="addEmployee()" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk"    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
               Add
               <span class="fa fa-user"></span>
             </a>
             <div class="badge-btn emp-req-btn">
-              <a ui-sref="app.dashboard.employeeregister" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk">
+              <a routerLink="/dashboard/employeeregister" ui-sref="app.dashboard.employeeregister" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk">
                 Employee Register Request
                 <span class="notification-count badge" ng-hide="openEmployeeRequests.length == 0"></span>
               </a>
@@ -563,5 +563,126 @@
           </button>
       </div>
 
+
+
+
+
+
+<div class="container">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="width: 125%;height:400px;">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Add Employee Group Type</h1>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <fieldset class="horizontal-line horizontal-fields" style="margin-bottom:0; padding-bottom:5px;">
+          <legend>
+            Employee Details
+          </legend>
+
+          <div class="row" style="padding-bottom:0;">
+            <div class="col-sm-6">
+              <div text-container input="firstName" label="First Name" error="First name is required"
+                success="Thank You!">
+                <input text="text" name="firstName" ng-model="model.firstName" class="form-control" required />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div text-container input="lastName" label="Last Name" error="Last name is required" success="Thank You!">
+                <input text="text" name="lastName" ng-model="model.lastName" class="form-control" required />
+              </div>
+            </div>
+          </div>
+          <div class="row" style="padding-bottom:0;">
+            <div class="col-sm-6">
+              <span class="input-icon">
+                <input type="email" class="form-control" style=" margin-top: 20px;" name="email" placeholder="Email"
+                  ng-model="model.email" />
+                <i class="fa fa-envelope-o" style="color:#1c2b36"></i>
+              </span>
+            </div>
+            <div class="col-sm-6">
+              <br>
+              <!-- <div class="checkbox clip-check check-primary ">
+              <input type="checkbox" value="" id="sendInvite" name="sendInvite" ng-model="sendInvite.send">
+              <label for="sendInvite">Send an invitation via email</label>
+          </div> -->
+
+              <div class="checkbox">
+                <input type="checkbox" style="margin-left:0px !important; margin-top: 2px !important" value=""
+                  id="sendInvite" name="sendInvite" ng-model="sendInvite.send">
+                <label for="sendInvite">Send an invitation via email</label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="horizontal-line" style="margin-bottom:0; padding-bottom:5px;">
+          <legend>
+            Assign to Locations
+          </legend>
+          <div class="row" style="padding-bottom: 0">
+            <div class="col-md-12">
+
+              <div ng-class="{'has-error':locationsHasError, 'has-success':locationsHasSuccess}" input=""><label
+                  class="control-label">Selected
+                  Locations <span class="symbol required"></span></label> </div>
+
+              <!-- <ui-select multiple on-select="onLocationChange($item)" on-remove="onLocationChange($item)" ng-model="locations.selected"
+              theme="select2" style="width:100%" required ng-click="dropDownOnAnyClick($event)" class="filterone">
+              <ui-select-match placeholder="Select locations...">{{$item.name}}</ui-select-match>
+              <ui-select-choices repeat="location in locations | filter: $select.search"> -->
+              <span class="ui-select-item-primary" ng-bind-html="location.name | highlight: $select.search"></span>
+              <span class="ui-select-item-primary" ng-bind-html="location.address | highlight: $select.search"></span>
+              <!-- </ui-select-choices>
+          </ui-select> -->
+              <span class="error text-small block ng-binding ng-scope" ng-if="locationsHasError">At least one location
+                is required</span>
+              <div style="margin-top:10px">
+                <button type="button" class="btn btn-dark-azure btn-o" ng-click="selectAllLocations()">Select
+                  All</button>
+                <button type="button" class="btn btn-dark-azure btn-o" ng-click="resetLocations()">Reset</button>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="horizontal-line" ng-if="businessRoles.length > 1"
+          style="margin-bottom:0; padding-bottom:5px; margin-top:30px">
+          <legend>
+            Assign Shift Roles
+          </legend>
+
+          <div class="row">
+            <div class="col-sm-6">
+
+              <p>Primary shift role:</p>
+              <!-- <ui-select ng-model="model.primaryRoleID" on-select="onPrimaryRoleChange($item)" theme="bootstrap">
+              <ui-select-match placeholder="Select..." allow-clear="true">
+                  {{$select.selected.name}}
+              </ui-select-match>
+              <ui-select-choices repeat="role.roleID as role in businessRoles | filter: $select.search"> -->
+              <div ng-bind-html="role.name | highlight: $select.search"></div>
+              <!-- </ui-select-choices>
+          </ui-select> -->
+
+            </div>
+            <div class="col-sm-6">
+              <p>Secondary shift role:</p>
+              <!-- <ui-select ng-model="model.secondaryRoleID" theme="bootstrap" ng-disabled="!model.primaryRoleID">
+              <ui-select-match placeholder="Select..." allow-clear="true">
+                  {{$select.selected.name}}
+              </ui-select-match>
+              <ui-select-choices repeat="role.roleID as role in businessRoles | filter:{ roleID: '!' + model.primaryRoleID} | filter: $select.search"> -->
+              <div ng-bind-html="role.name | highlight: $select.search"></div>
+              <!-- </ui-select-choices>
+          </ui-select> -->
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+    </div>
   </div>
 </div>
