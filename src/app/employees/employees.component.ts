@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 export interface User {
   name: string;
 }
@@ -15,37 +15,94 @@ export class EmployeesComponent implements OnInit {
   panelOpenState = false;
   logo: boolean = true
   task: any = false
-  location:any
+  location: any
   searchText = []
   pageSize: any
   filterCount: any
-  isAdmin: boolean = true
   isScheduler: boolean = true
-  employee:any
   selectedEmployees = []
-  selectedEmployee = []
-  selectedLocation:any
-  selectedEmployeeLocationObj: any
-  locationID:any
-  isOpen:any
-  even:any
-  model:any
-  sendInvite:any
-  title:any
-  message:any
-  locationsHasError:any
-  locationsHasSuccess:any
+  selectedEmployee = {
+    userID: 12
+  }
+  selectedLocation: any = {
+    locationID: 12
+  }
+  user = {
+    isAdmin: () => {
+      return false
+    }
+  }
+  employee = {
+    employeeID: 12,
+    isBusinessAdmin: true,
+    isBusinessOwner: true,
+    scheduler: true
+  }
+  selectedEmployeeLocationObj: any= {
+    "12":{
+      groupingOptions: [],
+      schedulerFocus:[]
+    }
+  };
+  locationID: any
+  thisUser = {
+    employeeID: 12,
+    isAdmin: () => {
+      return false
+    }
+  }
+  isOpen: any
+  even: any
+  model = {
+    firstName: 'Parminder',
+    email:'abc@gmail.com',
+    lastName: 'singh'
+  }
+  sendInvite = {
+    send: true
+  }
+  title: any
+  message: any
+  locationsHasError: any
+  locationsHasSuccess: any
   pref: any
   filterSelects: any
   open: boolean = true
+  daysOfWeek=[]
+  selectedEmployeePreferences=[
+    {
+      type:12
+    }
+   
+  ]
   filterOption: boolean = false
-  objemployee:any
-  item:any
+  objemployee: any
+  item: any
   myControl = new FormControl('');
-  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
+  options: User[] = [{ name: 'Mary' }, { name: 'Shelley' }, { name: 'Igor' }];
   filteredOptions: Observable<User[]> | undefined;
-  accorEmployees:any=[]
-  
+  accorEmployees = {
+    isOpen: true
+  };
+  selectedCar: any = {};
+
+  cars = [
+    { id: 1, name: 'Volvo' },
+    { id: 2, name: 'Saab' },
+    { id: 3, name: 'Opel' },
+    { id: 4, name: 'Audi' },
+  ];
+  openEmployeeRequests = [];
+  thisSchedFocusOptions = [];
+  sortType = 'firstName';
+  sortReverse = false;
+  employeeList = [{
+    firstName: 'Parminder',
+    hireDate:new Date(),
+    lastName: 'singh'
+  }]
+  businessRoles = []
+
   constructor() { }
 
   ngOnInit(): void {
@@ -54,7 +111,7 @@ export class EmployeesComponent implements OnInit {
       map(value => (typeof value === 'string' ? value : value?.name)),
       map(name => (name ? this._filter(name) : this.options.slice())),
     );
- 
+
   }
   displayFn(user: User): string {
     return user && user.name ? user.name : '';
@@ -72,6 +129,15 @@ export class EmployeesComponent implements OnInit {
   addEmployee() {
 
   }
+  sendEMailBulk(){
+
+  }
+  selectAllLocations(){
+
+  }
+  resetLocations(){
+
+  }
   showFilters() {
     this.filterOption = !this.filterOption
   }
@@ -81,12 +147,16 @@ export class EmployeesComponent implements OnInit {
   sendEmail() {
 
   }
+  isAdmin() {
+
+  }
   isMultipleEmployeesSelected() {
 
   }
   clearFilters() {
 
   }
+
   saveFilters() {
 
   }
@@ -144,8 +214,8 @@ export class EmployeesComponent implements OnInit {
   toggled(a: any) {
 
   }
-  onLocationChange(){}
-  onFilterGroupChange(a:any){}
+  onLocationChange() { }
+  onFilterGroupChange(a: any) { }
 
 
 

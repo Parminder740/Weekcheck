@@ -47,6 +47,8 @@ import { EmpRegisterComponent } from './emp-register/emp-register.component';
 import { MatSelectModule } from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { FormsModule } from '@angular/forms'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -82,6 +84,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     MatIconModule,
     NgxPaginationModule,
     CommonModule,
+    FormsModule,
     MatCheckboxModule,
     TabsModule,
     MatToolbarModule,

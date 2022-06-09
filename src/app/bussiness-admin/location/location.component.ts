@@ -23,8 +23,9 @@ export class LocationComponent implements OnInit {
   locationGroup:any
   employeeGroupOpt:any
   schedulerFocusGroups=[]
-  accorLocations:any=[]
-  isOpen:any
+  accorLocations:any={
+    isOpen:true
+  }
   locationGroupsFiltered:any
   shiftGroupsFiltered:any
   even:any
