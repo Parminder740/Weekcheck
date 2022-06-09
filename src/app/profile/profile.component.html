@@ -1,18 +1,184 @@
-<div class="main-container app">
+
+      <div class="main-container app">
+        <div class="content" [ngClass]="logo ? 'offset-2p5':'offset-0p5'">
+          <div class="dynamic-page-area">
+            <!-- start: PAGE TITLE -->
+            <section id="page-title">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h1 class="mainTitle" translate="sidebar.nav.employee.page.info.HEADER">{{ currTitle }}</h1>
+                </div>
+                <div ncy-breadcrumb></div>
+              </div>
+            </section>
+            <!-- end: PAGE TITLE -->
+<div *ngIf="toggle == false">
+            <!-- start: EMPLOYEE INFO -->
+            <div class="container-fluid container-fullw bg-white">
+              <div class="row" style="border-bottom:1px solid #f0f0f0; margin-bottom: 25px; padding-bottom:5px;">
+                <div class="col-xs-4">
+                  <div flow-init="{singleFile:true}" flow-name="obj.flow"
+                    flow-file-added="!!{png:1,gif:1,jpg:1,jpeg:1}[$file.getExtension()]">
+                    <div class="user-image">
+                      <div class="thumbnail" style="width:100px;padding:0; border:0; border-radius:0">
+                        <!--<img src="assets/images/default-user.png" alt="" ng-if="!obj.flow.files.length && noImage">-->
+                        <div class="initial-box lg" ng-if="noImage && editMode === 0">
+                          {{ userInfo.firstName.charAt(0) }}{{ userInfo.lastName.charAt(0) }}</div>
+                        <img src="{{userInfo.userImage}}" alt=""
+                          ng-if="!obj.flow.files.length && editMode === 1 && userInfo.userImage == 'assets/images/default-user.png'"
+                          style="max-width:110px">
+
+                        <!--employee info edit window-->
+                        <img src="data:image/png;base64,{{userInfo.userImage}}" alt=""
+                          ng-if="!obj.flow.files.length && editMode === 1 && userInfo.userImage !== 'assets/images/default-user.png'"
+                          style="max-width:110px">
+
+                        <img src="data:image/png;base64,{{userInfo.userImage}}" alt="" ng-if="!noImage && editMode === 0">
+                        <img id="flowImgId" flow-img="obj.flow.files[0]" ng-if="obj.flow.files.length && editMode === 1"
+                          style="max-width:110px">
+
+                          <div class="col-xs-8 user-info">
+                              <span style="color: #0280ba;font-size:17px;">Piyush</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-8" ng-if="editMode === 0">
+                      <div style="text-align:right">
+                        <button class="btn btn-primary btn-o btn-default" style="margin-top:3px;" (click)="editmode()">Edit
+                          Profile
+                          <span>
+                              <i class='fa fa-pencil-square-o'></i>
+                          </span>
+
+                        </button>
+                        <button class="btn btn-primary btn-o btn-default" style="margin-top:3px;" routerLink="/BussinessSetup">Create
+                          Or Join Business
+                          <span>
+                              <i class='fa fa-pencil-square-o'></i>
+                          </span>
+                        </button>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="border-bottom:1px solid #f0f0f0; margin-bottom: 25px; padding-bottom:23px;">
+              <div class="col-md-6">
+                <div class="profile-section-title">Contact</div>
+
+                <div ng-if="editMode === 0">
+                  <span class="employee-section-title">Email:</span> {{ userInfo.email }}
+                  <br />
+                  <span class="employee-section-title">Phone:</span>
+                  <span ng-if="userInfo.phone">
+                    ({{ userInfo.phone.substring(0,3) }})
+                    {{ userInfo.phone.substring(3,6) }}-{{ userInfo.phone.substring(6) }}
+                  </span>
+                  <span ng-if="!userInfo.phone">None given</span>
+                </div>
+
+                <br />
+              </div>
+              <div class="col-md-6">
+                <div class="profile-section-title">Location</div>
+                <div ng-if="editMode === 0">
+                  <!--
+                  <span class="employee-section-title">Zip Code:</span> {{userInfo.zipCode}} <span ng-if="!userInfo.zipCode">Not provided</span>
+                  <br />
+                  <span class="employee-section-title">City:</span> {{userInfo.city}} <span ng-if="!userInfo.city">Not provided</span>
+                  <br /><br />
+                  -->
+                  <span class="employee-section-title">Time Zone:</span> {{userInfo.timeZone}}
+                  <br />
+                  <span class="employee-section-title">Date Of Hire:</span> {{ formatStartDate(userInfo.hireDate) }}
+                </div>
+
+                <div class="row" ng-if="editMode === 1">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label class="control-label">
+                        Time Zone
+                      </label>
+                      <!-- <ui-select ng-model="userInfo.timeZone">
+                                <ui-select-match placeholder="Select...">
+                                    {{$select.selected}}
+                                </ui-select-match>
+                                <ui-select-choices repeat="item in timezones | filter: $select.search">
+                                    <div class="ui-select-item-primary" ng-bind-html="item | highlight: $select.search"></div>
+                                    <small class="ui-select-item-secondary" ng-bind-html="timezoneService.getAbbreviation(item) | highlight: $select.search"></small>
+                                </ui-select-choices>
+                            </ui-select> -->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row" style="border-bottom:1px solid #f0f0f0; margin-bottom: 25px; padding-bottom:23px;">
+              <div class="col-md-6">
+                <div class="profile-section-title">Notifications</div>
+
+                <div ng-if="editMode === 0">
+                  <span class="employee-section-title">Notification Delivery:</span> {{ displayNotificationPref(userInfo) }}
+                </div>
+
+                <!-- <div class="form-group" ng-if="editMode === 1"> -->
+                <!-- <label class="control-label">
+                        How would you like to receive your notifications?
+                    </label> -->
+                <!-- <ui-select ng-model="userInfo.defaultPreferedNotificationMechanism" theme="bootstrap">
+                        <ui-select-match placeholder="Select...">
+                            {{$select.selected.value}}
+                        </ui-select-match>
+                        <ui-select-choices repeat="item.id as item in notificationOptions | filter: $select.search">
+                            <div ng-bind-html="item.value | highlight: $select.search"></div>
+                            <small ng-bind-html="item.display | highlight: $select.search"></small>
+                        </ui-select-choices>
+                    </ui-select> -->
+                <!-- </div> -->
 
 
-  <div class="content" [ngClass]="logo ? 'offset-2p5':'offset-0p5'">
-    <div class="dynamic-page-area">
-<!-- start: PAGE TITLE -->
-<section id="page-title">
-  <div class="row">
-      <div class="col-sm-8">
-          <h1 class="mainTitle" translate="sidebar.nav.employee.page.info.HEADER">{{ currTitle }}</h1>
-      </div>
-      <div ncy-breadcrumb></div>
-  </div>
-</section>
-<!-- end: PAGE TITLE -->
+
+
+              </div>
+              <div class="col-md-6">
+                <div class="profile-section-title">Reminders</div>
+                <!-- <div ng-if="userInfo.reminderMinutes > 0 && editMode === 0">
+              <span class="employee-section-title">Send Shift Reminders:</span>
+              <br>
+              <span>{{displayReminderTime(userInfo)}}</span> before shift
+               </div> -->
+                <div ng-if="!userInfo.reminderMinutes > 0 && editMode === 0">
+                  <span class="employee-section-title">Shift Reminders:</span> Off
+                </div>
+              </div>
+            </div>
+            <div class="row" style="border-bottom:1px solid #f0f0f0; margin-bottom: 25px; padding-bottom:23px;">
+              <div class="col-md-12">
+                <div class="profile-section-title">Weekday Schedule Preferences</div>
+                <br />
+              </div>
+              <div class="col-md-2">
+                <div ng-if="editMode === 0">
+                  <span class="employee-section-title">Preferred
+                    <br>Number
+                    <br> of Hours:</span>
+                  <br>
+                  <span ng-if="!userInfo.preferedHoursPerWeek">Not yet set</span>
+                  <span ng-if="userInfo.preferedHoursPerWeek">{{userInfo.preferedHoursPerWeek}} hours</span>
+                </div>
+              </div>
+            </div>
+      <!-- Change Email Modal -->
+
+
+</div>
+      <!-- EDit Profile -->
+
+      <div *ngIf="toggle">
 
 <!-- start: EMPLOYEE INFO -->
 <div class="container-fluid container-fullw bg-white">
@@ -75,16 +241,7 @@
               </div>
           </div>
       </div>
-      <div class="col-xs-8" ng-if="editMode === 0">
-          <div style="text-align:right">
-              <button class="btn btn-primary btn-o btn-default" style="margin-top:3px;" ng-click="setEditMode(1)">Edit Profile
-                  <span class="ti-pencil-alt"></span>
-              </button>
-              <button class="btn btn-primary btn-o btn-default" style="margin-top:3px;" ng-click="addOrJoin()">Create Or Join Business
-                  <span class="ti-pencil-alt"></span>
-              </button>
-          </div>
-      </div>
+
   </div>
   <div class="row" style="border-bottom:1px solid #f0f0f0; margin-bottom: 25px; padding-bottom:23px;">
       <div class="col-md-6">
@@ -319,4 +476,5 @@
   </script>
 </div>
 </div></div>
+</div>
 </div>
