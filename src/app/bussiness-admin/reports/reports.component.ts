@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportsComponent implements OnInit {
   logo=true
-
+  selLoc:any
+  startTime:any
+  endTime:any
+  even:any
   constructor() { }
 
   ngOnInit(): void {

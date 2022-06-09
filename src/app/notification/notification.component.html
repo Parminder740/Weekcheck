@@ -42,11 +42,11 @@
                 </thead>
                 <tbody>
                   <tr ng-repeat="request in filteredData track by $index"
-                    ng-class="{ 'not-viewed-notification': request.viewed == 'No', 'viewed-notification': request.viewed == 'Yes' }">
+                    (ngClass)="{ 'not-viewed-notification': request.viewed == 'No', 'viewed-notification': request.viewed == 'Yes' }">
 
 
-                    <!-- <tr ng-repeat="request in filteredData track by $index" ng-class="{ 'not-viewed-notification': request.viewed == 'No', 'viewed-notification': request.viewed == 'Yes' }" ng-hide="( !(isAdmin || isScheduler) && request.eventTypeText==='TimeOff')">               -->
-                    <!-- <tr ng-repeat="request in filteredData track by $index" ng-class="{ 'not-viewed-notification': request.viewed == 'No', 'viewed-notification': request.viewed == 'Yes' }" > -->
+                    <!-- <tr ng-repeat="request in filteredData track by $index" (ngClass)="{ 'not-viewed-notification': request.viewed == 'No', 'viewed-notification': request.viewed == 'Yes' }" ng-hide="( !(isAdmin || isScheduler) && request.eventTypeText==='TimeOff')">               -->
+                    <!-- <tr ng-repeat="request in filteredData track by $index" (ngClass)="{ 'not-viewed-notification': request.viewed == 'No', 'viewed-notification': request.viewed == 'Yes' }" > -->
 
                     <td>{{request.eventTypeText}}</td>
                     <td>{{request.message}}</td>

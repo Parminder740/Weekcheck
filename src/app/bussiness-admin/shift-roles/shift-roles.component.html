@@ -36,7 +36,7 @@
                     style="font-size: 14px;position: relative;line-height: 2em;margin-left:20px;">Items per
                     page:</label>
                   <input type="number" min="1" max="100"
-                    class=" ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="pageSize"
+                    class=" ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" (ngModel)="pageSize"
                     style="max-width:100%;width: 95px;margin-top: 0px;">
                 </div>
                 <div class="col-md-5" style="    text-align: center;">
@@ -46,7 +46,7 @@
               </div>
               <ul class="itemslist">
                 <li dir-paginate="shiftRole in businessRoles | itemsPerPage: pageSize" current-page="currentPage"
-                  ng-class="$even?'odd':'even'">
+                  (ngClass)="$even?'odd':'even'">
                   <div class="row" style="padding-bottom: 0;">
                     <div class="col-md-9">
                       <span editable-text="shiftRole.name" e-form="rowform" e-name="name"

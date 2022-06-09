@@ -1,5 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+export interface User {
+  name: string;
+}
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -9,25 +15,54 @@ export class EmployeesComponent implements OnInit {
   panelOpenState = false;
   logo: boolean = true
   task: any = false
-  location: any
+  location:any
   searchText = []
   pageSize: any
   filterCount: any
   isAdmin: boolean = true
   isScheduler: boolean = true
-  employee: any
+  employee:any
   selectedEmployees = []
   selectedEmployee = []
+  selectedLocation:any
   selectedEmployeeLocationObj: any
-  locationID: any
+  locationID:any
+  isOpen:any
+  even:any
+  model:any
+  sendInvite:any
+  title:any
+  message:any
+  locationsHasError:any
+  locationsHasSuccess:any
   pref: any
   filterSelects: any
   open: boolean = true
   filterOption: boolean = false
   objemployee:any
+  item:any
+  myControl = new FormControl('');
+  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
+  filteredOptions: Observable<User[]> | undefined;
+  accorEmployees:any=[]
+  
   constructor() { }
 
   ngOnInit(): void {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => (typeof value === 'string' ? value : value?.name)),
+      map(name => (name ? this._filter(name) : this.options.slice())),
+    );
+ 
+  }
+  displayFn(user: User): string {
+    return user && user.name ? user.name : '';
+  }
+  private _filter(name: string): User[] {
+    const filterValue = name.toLowerCase();
+
+    return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
   filterData() {
     this.task = !this.task
@@ -74,9 +109,8 @@ export class EmployeesComponent implements OnInit {
   toggleAccordion(a: any) {
 
   }
-  selectedLocation() {
-
-  }
+  // selectedLocation() {
+  // }
   emailEmployee() {
 
   }
@@ -111,7 +145,7 @@ export class EmployeesComponent implements OnInit {
 
   }
   onLocationChange(){}
-
+  onFilterGroupChange(a:any){}
 
 
 

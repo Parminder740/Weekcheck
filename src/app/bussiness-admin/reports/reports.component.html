@@ -49,7 +49,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="repeatSelect">Location : </label>
-                    <select name="repeatSelect" id="repeatSelect" ng-model="selLoc" ng-change="changeLocation(selLoc)"
+                    <select name="repeatSelect" id="repeatSelect" (ngModel)="selLoc" ng-change="changeLocation(selLoc)"
                       class="form-control">
                       <option ng-repeat="option in business" ng-selected="selectedItemvalue == option.locationID"
                         value=""></option>
@@ -62,7 +62,7 @@
                   <div class="form-group">
                     <div class="time">
                       <label>Start Time : </label>
-                      <input kendo-date-picker ng-model="startTime" onkeydown="return false;" required
+                      <input kendo-date-picker (ngModel)="startTime" onkeydown="return false;" required
                         class="form-control" style="width:100%;font-size: 13px;">
                       <button class="material-icons">date_range</button>
                     </div>
@@ -72,7 +72,7 @@
                   <div class="form-group">
                     <div class="time">
                       <label>End Time : </label>
-                      <input kendo-date-picker ng-model="endTime" onkeydown="return false;" required
+                      <input kendo-date-picker (ngModel)="endTime" onkeydown="return false;" required
                         class="form-control" style="width:70%;font-size: 13px;" />
                       <button class="material-icons">date_range</button>
                     </div>
@@ -90,7 +90,7 @@
                 <div class="col-sm-4 col-md-4">
                   <div class="form-group">
                     <label>Group : </label>
-                    <!-- <multiselect ng-model="selGrouping" ms-header="Select Groups" options="c.name for c in groups" data-multiple="true" data-compare-by="groupingOptionID"
+                    <!-- <multiselect (ngModel)="selGrouping" ms-header="Select Groups" options="c.name for c in groups" data-multiple="true" data-compare-by="groupingOptionID"
 								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150">
 							</multiselect> -->
                     <br>
@@ -102,7 +102,7 @@
                     <label>Role : </label>
                     <br>
                     <input type="text" placeholder="Select Roles" name="name">
-                    <!-- <multiselect ng-model="selRole" ms-header="Select Roles" options="c.name for c in roles" data-multiple="true" data-compare-by="roleID"
+                    <!-- <multiselect (ngModel)="selRole" ms-header="Select Roles" options="c.name for c in roles" data-multiple="true" data-compare-by="roleID"
 								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150">
 							</multiselect> -->
                   </div>
@@ -112,7 +112,7 @@
                     <label>Employee : </label>
                     <br>
                     <input type="text" placeholder="Select Employees" name="name">
-                    <!-- <multiselect ng-model="selEmpl" ms-header="Select Employees" options="c.firstName for c in emplists" data-multiple="true" data-compare-by="employeeID"
+                    <!-- <multiselect (ngModel)="selEmpl" ms-header="Select Employees" options="c.firstName for c in emplists" data-multiple="true" data-compare-by="employeeID"
 								scroll-after-rows="5" filter-after-rows="5" tabindex="-1" max-width="150">
 							</multiselect> -->
                   </div>
@@ -185,7 +185,7 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-body">
-                <table class="itemslist table table-bordered" ng-class="$even?'odd':'even'">
+                <table class="itemslist table table-bordered" (ngClass)="even?'odd':'even'">
                   <thead>
                     <tr>
                       <th>Employee Name</th>
@@ -217,7 +217,7 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-body">
-                <table class="itemslist table table-bordered" ng-class="$even?'odd':'even'">
+                <table class="itemslist table table-bordered" (ngClass)="even?'odd':'even'">
                   <tbody ng-repeat="option in empTotalGridData">
                     <tr class="even">
                       <td>Name</td>

@@ -21,7 +21,7 @@
                 style="font-size: 14px;position: relative;line-height: 2em;margin-left:20px;">Items per
                 page:</label>
               <input type="number" min="1" max="100"
-                class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" ng-model="pageSize"
+                class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" (ngModel)="pageSize"
                 style="max-width:100%;width: 95px;float: right;margin-right: 5px;margin-top: 0px;" />
             </div>
           </div>
@@ -45,12 +45,12 @@
           <div class="col-md-12">
             <accordion close-others="true" id="locations-accordion">
               <accordion-group ng-init="accorLocations = {isOpen: selectedLocation.locationID == location.locationID}"
-                is-open="accorLocations.isOpen" ng-class="{isOpen: accorLocations.isOpen}"
+                is-open="accorLocations.isOpen" (ngClass)="{isOpen: accorLocations.isOpen}"
                 dir-paginate="location in locations | itemsPerPage: pageSize" current-page="currentPage">
                 <div accordion-heading> <span id="{{location.locationID}}"
                     (click)="toggleAccordion(location)">{{location.name}}</span> <i class="pull-left fa"
                     (click)="toggleAccordion(location)"
-                    ng-class="{'fa-chevron-down': accorLocations.isOpen, 'fa-chevron-right': !accorLocations.isOpen}"></i>
+                    (ngClass)="{'fa-chevron-down': accorLocations.isOpen, 'fa-chevron-right': !accorLocations.isOpen}"></i>
                 </div>
                 <div class="container" style="position:relative">
                   <div class="accordion-buttons">
@@ -135,7 +135,7 @@
                             <ul class="itemslist">
                               <li
                                 ng-repeat="employeeGroup in locationGroupsFiltered = (locationGroups | filter:locationGroupsFilter(2))"
-                                ng-class="$even?'odd':'even'">
+                                (ngClass)="$even?'odd':'even'">
                                 <span class="group-label">{{employeeGroup.groupingName}}</span>
                                 {{ getGroupingOptionNames(employeeGroup) }}
                               </li>
@@ -158,7 +158,7 @@
                                 <ul class="itemslist">
                                   <li
                                     ng-repeat="shiftGroup in shiftGroupsFiltered = (locationGroups | filter:locationGroupsFilter(1))"
-                                    ng-class="$even?'odd':'even'">
+                                    (ngClass)="$even?'odd':'even'">
                                     <span class="group-label">{{shiftGroup.groupingName}}</span>
                                     {{ getGroupingOptionNames(shiftGroup) }}
                                   </li>
@@ -176,7 +176,7 @@
                                   No shift roles have been set up for this location.
                                 </div>
                                 <ul class="itemslist">
-                                  <li ng-repeat="shiftRole in locationRoles" ng-class="$even?'odd':'even'">
+                                  <li ng-repeat="shiftRole in locationRoles" (ngClass)="$even?'odd':'even'">
                                     {{shiftRole.name}}
                                   </li>
                                 </ul>
@@ -194,7 +194,7 @@
                               <div style="clear:both; height:5px;"></div>
                               <ul class="itemslist">
                                 <li ng-repeat="admin in locationEmployees | filter:locationAdminFilter"
-                                  ng-class="$even?'odd':'even'"> <i class="fa fa-user"></i>
+                                  (ngClass)="$even?'odd':'even'"> <i class="fa fa-user"></i>
                                   {{admin.firstName}} <span ng-if="admin.middleInitial">{{admin.middleInitial}}</span>
                                   {{admin.lastName}} </li>
                               </ul>
@@ -231,7 +231,7 @@
                                     class="itemslist"
                                     style="margin-bottom:0; margin-top:10px; width: calc(100% - 20px); padding-right: 20px;">
                                     <li ng-repeat="locationGroup in locationGroups | filter: {type:2}"
-                                      ng-class="$even?'odd':'even'">
+                                      (ngClass)="$even?'odd':'even'">
                                       <div class="row" style="padding-bottom:0">
                                         <div class="col-md-5" style="color:gray;">
                                           <span class="group-label"

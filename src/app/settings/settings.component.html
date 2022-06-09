@@ -24,7 +24,7 @@
 
                     <p-dropdown [options] = "selected " (ngModel)="selectedPlan" placeholder="Select Plan..." optionLabel="name" [showClear]="true"></p-dropdown>
 
-                    <!-- <ui-select ng-model="selectedPlan" on-select="onPlanChange($item)">
+                    <!-- <ui-select (ngModel)="selectedPlan" on-select="onPlanChange($item)">
                         <ui-select-match placeholder="Select Plan..."></ui-select-match>
                         <ui-select-choices repeat="plan in subscriptionPlans | filter: $select.search">
                             <span class="ui-select-item-primary" ng-bind-html="plan.description | highlight: $select.search"></span>
@@ -83,7 +83,7 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <label>
-                                <input type="checkbox" id="myCheckbox" ng-model="model.isHaveCupon"> I have a coupon
+                                <input type="checkbox" id="myCheckbox" (ngModel)="model.isHaveCupon"> I have a coupon
                             </label>
                         </div>
                         <div class="form-group" ng-show="model.isHaveCupon">
@@ -94,7 +94,7 @@
                                             <span class="input-group-addon"><i class="fa fa-scissors"
                                                     aria-hidden="true"></i></span>
                                             <input type="text" ng-required="true" class="form-control"
-                                                ng-model="couponcode" ng-readonly="isCheckCouponcode">
+                                                (ngModel)="couponcode" ng-readonly="isCheckCouponcode">
                                         </div>
                                     </div>
                                     <div class="col-md-4" ng-show="dis">
@@ -116,7 +116,7 @@
                                 <span class="input-group-addon"><i class="fa fa-credit-card"
                                         aria-hidden="true"></i></span>
                                 <input type="credit card" class="form-control" placeholder="Enter Card Number"
-                                    ng-model="card.number" minlength="19" maxlength="19" />
+                                    (ngModel)="card.number" minlength="19" maxlength="19" />
                             </div>
                         </div>
 
@@ -126,7 +126,7 @@
                             <span class="help-block text-muted small-font">Expiry Month</span>
                             <div class="input-group col-md-4">
                                 <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" placeholder="MM" ng-model="card.exp_month"
+                                <input type="text" class="form-control" placeholder="MM" (ngModel)="card.exp_month"
                                     minlength="2" maxlength="2" min="1" max="12" />
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                             <span class="help-block text-muted small-font">Expiry Year</span>
                             <div class="input-group col-md-4">
                                 <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                                <input type="text" class="form-control" placeholder="YY" ng-model="card.exp_year"
+                                <input type="text" class="form-control" placeholder="YY" (ngModel)="card.exp_year"
                                     minlength="2" maxlength="2" />
                             </div>
                         </div>
@@ -146,7 +146,7 @@
                             <span class="help-block text-muted small-font">CCV</span>
                             <div class="input-group col-md-4">
                                 <span class="input-group-addon"><i class="fa fa-lock" aria-hidden="true"></i></span>
-                                <input type="ccv" class="form-control" placeholder="CCV" ng-model="card.cvc"
+                                <input type="ccv" class="form-control" placeholder="CCV" (ngModel)="card.cvc"
                                     minlength="3" maxlength="3" />
                             </div>
                         </div>

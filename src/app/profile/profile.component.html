@@ -65,13 +65,13 @@
                   <label class="control-label">
                       First Name
                   </label>
-                  <input type="text" placeholder="Enter your first name" class="form-control" name="firstname" maxlength="20" ng-model="userInfo.firstName">
+                  <input type="text" placeholder="Enter your first name" class="form-control" name="firstname" maxlength="20" (ngModel)="userInfo.firstName">
               </div>
               <div class="form-group col-md-6">
                   <label class="control-label">
                       Last Name
                   </label>
-                  <input type="text" placeholder="Enter your last name" class="form-control" name="lastname" maxlength="15" ng-model="userInfo.lastName">
+                  <input type="text" placeholder="Enter your last name" class="form-control" name="lastname" maxlength="15" (ngModel)="userInfo.lastName">
               </div>
           </div>
       </div>
@@ -111,7 +111,7 @@
                   <label class="control-label">
                       Phone
                   </label>
-                  <input type="text" ui-mask="(999) 999-9999" placeholder="(xxx) xxx-xxxx" class="form-control" name="phone" ng-model="userInfo.phone">
+                  <input type="text" ui-mask="(999) 999-9999" placeholder="(xxx) xxx-xxxx" class="form-control" name="phone" (ngModel)="userInfo.phone">
               </div>
           </div>
           <br />
@@ -136,7 +136,7 @@
                       <label class="control-label">
                           Time Zone
                       </label>
-                      <!-- <ui-select ng-model="userInfo.timeZone">
+                      <!-- <ui-select (ngModel)="userInfo.timeZone">
                           <ui-select-match placeholder="Select...">
                               {{$select.selected}}
                           </ui-select-match>
@@ -164,7 +164,7 @@
               <label class="control-label">
                   How would you like to receive your notifications?
               </label>
-              <!-- <ui-select ng-model="userInfo.defaultPreferedNotificationMechanism" theme="bootstrap">
+              <!-- <ui-select (ngModel)="userInfo.defaultPreferedNotificationMechanism" theme="bootstrap">
                   <ui-select-match placeholder="Select...">
                       {{$select.selected.value}}
                   </ui-select-match>
@@ -192,7 +192,7 @@
                           Disable receiving notifications while you sleep?
                       </label>
                       <span class="checkbox clip-check check-primary" style="vertical-align:middle; margin-right:5px; display:inline-block">
-                          <input type="checkbox" value="" id="withholdAlertsWhenSleeping" name="withholdAlertsWhenSleeping" ng-model="userInfo.withholdAlertsWhenSleeping">
+                          <input type="checkbox" value="" id="withholdAlertsWhenSleeping" name="withholdAlertsWhenSleeping" (ngModel)="userInfo.withholdAlertsWhenSleeping">
                           <label for="withholdAlertsWhenSleeping" ></label>
                       </span>
                   </div>
@@ -219,13 +219,13 @@
                           <label class="control-label" style="display:block">
                               Sleep Start Time
                           </label>
-                          <input kendo-time-picker ng-model="userInfo.sleepStartTime" name="sleepStartTime" />
+                          <input kendo-time-picker (ngModel)="userInfo.sleepStartTime" name="sleepStartTime" />
                       </div>
                       <div class="form-group col-xs-6">
                           <label class="control-label" style="display:block">
                               Sleep End Time
                           </label>
-                          <input kendo-time-picker ng-model="userInfo.sleepEndTime" name="sleepEndTime" />
+                          <input kendo-time-picker (ngModel)="userInfo.sleepEndTime" name="sleepEndTime" />
                       </div>
                   </div>
               </div>
@@ -246,7 +246,7 @@
               <label class="control-label">
                   Send Shift Reminders
               </label>
-              <!-- <ui-select ng-model="userInfo.reminderMinutes" theme="bootstrap">
+              <!-- <ui-select (ngModel)="userInfo.reminderMinutes" theme="bootstrap">
                   <ui-select-match placeholder="Select...">
                       {{$select.selected.value}}
                   </ui-select-match>
@@ -278,7 +278,7 @@
               <label class="control-label">
                   Preferred Hours
               </label>
-              <input type="number" min="0" max="40" class="form-control" name="preferedHoursPerWeek" ng-model="userInfo.preferedHoursPerWeek"
+              <input type="number" min="0" max="40" class="form-control" name="preferedHoursPerWeek" (ngModel)="userInfo.preferedHoursPerWeek"
                   ng-change="validateHour()">
           </div>
       </div>
@@ -304,7 +304,7 @@
                   <p style="margin: 22px auto">Please provide your new email:</p>
 
                   <form>
-                      <input type="email" class="form-control" ng-required="true" placeholder="Email" ng-model="model.newemail" />
+                      <input type="email" class="form-control" ng-required="true" placeholder="Email" (ngModel)="model.newemail" />
                       <br>
                       <button class="btn btn-light-wk login-btn" ng-click="changeEmail()">
               Update

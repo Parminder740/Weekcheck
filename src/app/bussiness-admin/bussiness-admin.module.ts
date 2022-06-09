@@ -13,7 +13,8 @@ import { ShiftGroupsComponent } from './shift-groups/shift-groups.component';
 import { ShiftRolesComponent } from './shift-roles/shift-roles.component';
 import { TabsModule } from 'ngx-tabset';
 import {NgxPaginationModule} from 'ngx-pagination';
-
+import {CdkAccordionModule} from '@angular/cdk/accordion';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
   ],
   imports: [
     TabsModule,
+    MatPaginatorModule,
+    CdkAccordionModule,
     CommonModule,
     AccordionModule ,
     BussinessAdminRoutingModule,

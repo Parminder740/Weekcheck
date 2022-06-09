@@ -77,7 +77,7 @@
             <!-- start: LOCATION CHANGE -->
             <!--
                      <div class="form-group">
-                    <ui-select ng-model="selectedLocation" on-select="onLocationChange($item)" class="bare-dropdown">
+                    <ui-select (ngModel)="selectedLocation" on-select="onLocationChange($item)" class="bare-dropdown">
                       <ui-select-match placeholder="Select..."> <span class="ti-map-alt"></span> {{$select.selected.name}} <span style="color:gray">{{$select.selected.address}}</span></ui-select-match>
                       <ui-select-choices repeat="location in locations | filter: $select.search">
                         <div class="ui-select-item-primary" ng-bind-html="location.name | highlight: $select.search"></div>
