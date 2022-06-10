@@ -38,10 +38,10 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div
-                                                ng-show="employeeRequests === undefined || employeeRequests.length === 0">
+                                                *ngIf="employeeRequests === undefined || employeeRequests.length === 0">
                                                 Currently, there are no open requests.</div>
                                             <ul class="itemslist">
-                                                <li ng-repeat="reqitem in employeeRequests"
+                                                <li *ngFor="reqitem of employeeRequests"
                                                     (ngClass)="even?'odd':'even'">
                                                     <div class="row" style="padding-bottom: 0;">
                                                         <div class="col-md-1">
@@ -57,14 +57,14 @@
                                                         </div>
                                                         <div class="col-md-5 text-right" style="margin-top:8px">
                                                             <button class="btn btn-default"
-                                                                ng-click="approve(reqitem)">Approve</button>
+                                                                (click)="approve(reqitem)">Approve</button>
                                                             <button class="btn btn-default"
-                                                                ng-click="deny(reqitem)">Deny</button>
+                                                                (click)="deny(reqitem)">Deny</button>
                                                         </div>
                                                     </div>
                                                 </li>
                                             </ul>
-                                            <div class="table-responsive" ng-show="employeeRequests.length > 0"
+                                            <div class="table-responsive" *ngIf="employeeRequests.length > 0"
                                                 style="display:none">
                                                 <table class="table table-striped">
                                                     <thead>
@@ -76,11 +76,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr class="ng-scope" ng-repeat="reqitem in employeeRequests">
+                                                        <tr class="ng-scope" *ngFor="reqitem of employeeRequests">
                                                             <td class="ng-binding">{{ reqitem.firstName }}</td>
                                                             <td class="ng-binding">{{ reqitem.lastName }}</td>
                                                             <td class="ng-binding">{{ reqitem.email }}</td>
-                                                            <td><button ng-click="view(reqitem)"
+                                                            <td><button (click)="view(reqitem)"
                                                                     class="btn btn-dark-azure"><i
                                                                         class="ti-eye"></i>View</button></td>
                                                         </tr>
@@ -95,10 +95,10 @@
                                     <!--heading="Sent Requests {{getRequestCount(sentRequests)}}"-->
                                     <div>
                                         <div class="no-items"
-                                            ng-if="sentRequests === undefined || sentRequests.length === 0">No sent
+                                            *ngIf="sentRequests === undefined || sentRequests.length === 0">No sent
                                             requests to display</div>
                                         <ul class="itemslist">
-                                            <li ng-repeat="sentRequest in sentRequests" (ngClass)="even?'odd':'even'">
+                                            <li *ngFor="sentRequest of sentRequests" (ngClass)="even?'odd':'even'">
                                                 <div class="row" style="padding-bottom: 0;">
                                                     <div class="col-md-1">
                                                         <div class="initial-box md" style="padding-top:12px">{{
@@ -108,30 +108,30 @@
                                                     <div class="col-md-4" style="margin-top:8px">
                                                         {{sentRequest.firstName}} {{sentRequest.lastName}} <br />
                                                         {{sentRequest.email}}
-                                                        <a ng-click="updateEmail(sentRequest)"
-                                                            ng-if="!sentRequest.email">Set email <span
-                                                                class="ti-pencil"></span></a>
+                                                        <a (click)="updateEmail(sentRequest)"
+                                                            *ngIf="!sentRequest.email">Set email <span
+                                                                class="fa fa-pencil"></span></a>
 
                                                     </div>
                                                     <div class="col-md-3" style="margin-top:8px">
-                                                        <span ng-if="sentRequest.lastInviteSent">
+                                                        <span *ngIf="sentRequest.lastInviteSent">
                                                             Email sent: <br />
                                                             {{formatDate(sentRequest)}} {{formatTime(sentRequest)}}
                                                         </span>
                                                     </div>
                                                     <div class="col-md-4 text-right" style="margin-top:8px">
                                                         <button class="btn btn-default"
-                                                            ng-click="resendEmail(sentRequest)"
-                                                            ng-if="sentRequest.email"><span
-                                                                ng-if="sentRequest.lastInviteSent">Resend</span><span
-                                                                ng-if="!sentRequest.lastInviteSent">Send</span>
+                                                            (click)="resendEmail(sentRequest)"
+                                                            *ngIf="sentRequest.email"><span
+                                                                *ngIf="sentRequest.lastInviteSent">Resend</span><span
+                                                                *ngIf="!sentRequest.lastInviteSent">Send</span>
                                                             Invite</button>
                                                         <button class="btn btn-default"
-                                                            ng-click="updateEmail(sentRequest)"><span
-                                                                class="ti-pencil"></span></button>
+                                                            (click)="updateEmail(sentRequest)"><span
+                                                                class="fa fa-pencil"></span></button>
                                                         <button class="btn btn-default"
-                                                            ng-click="deny(sentRequest)"><span
-                                                                class="ti-trash"></span></button>
+                                                            (click)="deny(sentRequest)"><span
+                                                                class="fa fa-trash"></span></button>
                                                     </div>
                                                 </div>
                                             </li>
@@ -144,7 +144,7 @@
                     <!-- Update Email Modal -->
                     <script type="text/ng-template" id="updateEmailReqModal.html">
             <div class="modal-header modal-header-edit">
-                <button ng-click="close()" aria-hidden="true" class="close" type="button">&times;</button>
+                <button (click)="close()" aria-hidden="true" class="close" type="button">&times;</button>
             </div>
             <div class="modal-body emp-request-modal">
 
@@ -153,7 +153,7 @@
                         <h3>Update Email</h3>
                     </div>
                 </div>
-                <form ng-submit="form.submit(Form)" novalidate="" id="form1" name="Form" class="ng-pristine ng-valid">
+                <form [ngSubmit]="form.submit(Form)" novalidate="" id="form1" name="Form" class="ng-pristine ng-valid">
                     <div class="row">
 
                         <div class="col-sm-10">
@@ -172,7 +172,7 @@
                             </fieldset>
                             <email-container input="email" label="Email">
                                 <span class="input-icon">
-							<input type="email" class="form-control" name="email" placeholder="Email" (ngModel)="empReqItem.email" required />
+							<input type="email" class="form-control" name="email" placeholder="Email" [ngModel]="empReqItem.email" required />
 							<i class="fa fa-envelope-o" style="color:#1c2b36"></i>
 						</span>
                             </email-container>

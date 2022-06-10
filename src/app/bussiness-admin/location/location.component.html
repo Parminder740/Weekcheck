@@ -131,7 +131,7 @@
                               style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333"
                               (click)="editEmployeeGroups()">Edit <i class="fa fa-pencil"></i>
                             </div>
-                            <div ng-show="!locationGroupsFiltered || locationGroupsFiltered.length === 0"
+                            <div *ngIf="!locationGroupsFiltered || locationGroupsFiltered.length === 0"
                               style="color:gray; margin-top:7px">
                               No employee groups have been set up for this location.
                             </div>
@@ -152,7 +152,7 @@
                                 (click)="editShiftGroups()">Edit <i class="fa fa-pencil"></i></span>
                               <div style="clear:both; height:5px;"></div>
                               <div>
-                                <div ng-show="!shiftGroupsFiltered || shiftGroupsFiltered.length === 0"
+                                <div *ngIf="!shiftGroupsFiltered || shiftGroupsFiltered.length === 0"
                                   style="color:gray; margin-top:7px">
                                   No shift groups have been set up for this location.
                                 </div>
@@ -171,7 +171,7 @@
                                 (click)="editShiftRoles()">Edit <i class="fa fa-pencil"></i></span>
                               <div style="clear:both; height:5px;"></div>
                               <div>
-                                <div ng-show="locationRoles.length === 0" style="color:gray; margin-top:7px">
+                                <div *ngIf="locationRoles.length === 0" style="color:gray; margin-top:7px">
                                   No shift roles have been set up for this location.
                                 </div>
                                 <ul class="itemslist">
@@ -222,11 +222,11 @@
                                     style="text-align: right; text-transform: capitalize; font-size:11px; cursor: pointer; margin-bottom: 5px; color:#333; margin-top: 20px; margin-right:-10px;"
                                     (click)="editSchedulerGroups()">Edit
                                     <i class="fa fa-pencil"></i></span>
-                                  <div ng-show="locationGroups.length === 0"
+                                  <div *ngIf="locationGroups.length === 0"
                                     style="color:gray; margin-top:7px; width: calc(100% - 30px)">
                                     No groups exist to assign schedulers to.
                                   </div>
-                                  <ul ng-show="scheduler.schedulerFocus && scheduler.schedulerFocus.length > 0"
+                                  <ul *ngIf="scheduler.schedulerFocus && scheduler.schedulerFocus.length > 0"
                                     class="itemslist"
                                     style="margin-bottom:0; margin-top:10px; width: calc(100% - 20px); padding-right: 20px;">
                                     <li *ngFor="locationGroup of locationGroups" [ngClass]="even?'odd':'even'">
@@ -248,7 +248,7 @@
                                     </li>
                                   </ul>
 
-                                  <div ng-show="!scheduler.schedulerFocus || scheduler.schedulerFocus.length === 0"
+                                  <div *ngIf="!scheduler.schedulerFocus || scheduler.schedulerFocus.length === 0"
                                     style="color:gray">
                                     No scheduler restrictions
                                   </div>

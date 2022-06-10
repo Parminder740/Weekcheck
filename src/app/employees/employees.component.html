@@ -37,8 +37,8 @@
             employees found
           </div>
           <div class="col-md-6" style="padding-right:0">
-            <div class="form-group">abc
-              <ng-select [items]="cars" bindLabel="name" bindValue="id" [(ngModel)]="selectedCar"> </ng-select>
+            <div class="form-group">
+              <ng-select [items]="cars" bindLabel="name" bindValue="id" [ngModel]="selectedCar"> </ng-select>
               <!-- <ng-select >
                 <ng-option *ngFor="let car of cars" [value]="car.id">{{car.name}}</ng-option>
              </ng-select> -->
@@ -96,7 +96,7 @@
               <button class="btn btn-default dropdown-toggle" [ngClass]="{'disabled': isMultipleEmployeesSelected()}"
                 type="button" dropdown-toggle style="color:#1C2B36">
                 <span>Edit Multiple
-                  <i class="ti-settings"></i>
+                  <i class="fa fa-settings"></i>
                 </span>
                 <span class="caret"></span>
               </button>

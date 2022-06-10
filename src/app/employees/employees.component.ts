@@ -18,7 +18,7 @@ export class EmployeesComponent implements OnInit {
   location: any
   searchText = []
   pageSize: any
-  filterCount: any
+  filterCount=0
   isScheduler: boolean = true
   selectedEmployees = []
   selectedEmployee = {
@@ -80,7 +80,7 @@ export class EmployeesComponent implements OnInit {
   item: any
   myControl = new FormControl('');
   options: User[] = [{ name: 'Mary' }, { name: 'Shelley' }, { name: 'Igor' }];
-  filteredOptions: Observable<User[]> | undefined;
+  filteredOptions:any
   accorEmployees = {
     isOpen: true
   };
@@ -95,7 +95,7 @@ export class EmployeesComponent implements OnInit {
   openEmployeeRequests = [];
   thisSchedFocusOptions = [];
   sortType = 'firstName';
-  sortReverse = false;
+  sortReverse = true;
   employeeList = [{
     firstName: 'Parminder',
     hireDate:new Date(),

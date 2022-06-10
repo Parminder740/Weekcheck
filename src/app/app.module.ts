@@ -74,6 +74,7 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    NgMultiSelectDropDownModule,
     ButtonsModule,
     IntlModule,
     DateInputsModule,
@@ -101,7 +102,6 @@ import { FormsModule } from '@angular/forms';
     TabsModule.forRoot(),
     DropdownModule,
     NgSelectModule,
-    NgMultiSelectDropDownModule,
     MatSelectModule,
     NgxMatSelectSearchModule,
     MatAutocompleteModule

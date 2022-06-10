@@ -27,9 +27,9 @@ export class LocationComponent implements OnInit {
     isOpen:true
   }
   locationGroupsFiltered:any
-  shiftGroupsFiltered:any
+  shiftGroupsFiltered:any=[]
   even:any
-  locationRoles:any
+  locationRoles=[]
   locationEmployees:any
   locationGroups :any
   pageSize:any

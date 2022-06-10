@@ -12,7 +12,7 @@
         </div>
         <!-- <div class="col-sm-4">
     	<text-container input="weekday" label="Week Start" error="Week Start is required">
-            <ui-select name="weekday" (ngModel)="model.weekday" required>
+            <ui-select name="weekday" [ngModel]="model.weekday" required>
                 <ui-select-match placeholder="Select...">
                     {{$select.selected.day}}
                 </ui-select-match>
@@ -31,7 +31,7 @@
         </div>
         <!-- <div class="col-sm-4">
       <text-container input="state" label="State" error="State is required">
-          <ui-select name="state" (ngModel)="model.state" on-select="onStateChange($item)" required>
+          <ui-select name="state" [ngModel]="model.state" on-select="onStateChange($item)" required>
               <ui-select-match placeholder="Select...">
                   {{$select.selected.abbreviation}}
               </ui-select-match>

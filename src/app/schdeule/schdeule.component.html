@@ -67,7 +67,7 @@
               <label style="color:#000;">Employee Groups:</label>
 
               <!-- <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
-                    (ngModel)="filterSelects.selectedFilterGroups" theme="select2" close-on-select="false" style="width:100%"
+                    [ngModel]="filterSelects.selectedFilterGroups" theme="select2" close-on-select="false" style="width:100%"
                     (click)="dropDownOnAnyClick($event)" class="filterone">
                     <ui-select-match placeholder="Select group...">{{$item.groupingName}} / {{$item.groupingOptionName}}</ui-select-match>
                     <ui-select-choices group-by="groupingFn" repeat="groupOption in optionsData | filter: $select.search">
@@ -81,7 +81,7 @@
               <label style="color:#000;">Employees:</label>
 
               <!-- <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
-                    (ngModel)="filterSelects.selectedFilterEmployees" theme="select2" close-on-select="false" style="width:100%"
+                    [ngModel]="filterSelects.selectedFilterEmployees" theme="select2" close-on-select="false" style="width:100%"
                     (click)="dropDownOnAnyClick($event)" class="filterone">
                     <ui-select-match placeholder="Select group...">{{$item.name}}</ui-select-match>
                     <ui-select-choices repeat="employee in optionsDataEmployees | filter: $select.search">
@@ -106,7 +106,7 @@
               <label style="color:#000;">Shift Groups:</label>
 
               <!-- <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
-                    (ngModel)="filterSelects.selectedFilterShiftGroups" theme="select2" close-on-select="false" style="width:100%"
+                    [ngModel]="filterSelects.selectedFilterShiftGroups" theme="select2" close-on-select="false" style="width:100%"
                     (click)="dropDownOnAnyClick($event)" class="filterone">
                     <ui-select-match placeholder="Select group...">{{$item.groupingName}} / {{$item.groupingOptionName}}</ui-select-match>
                     <ui-select-choices group-by="groupingFn" repeat="groupOption in shiftOptionsData | filter: $select.search">
@@ -119,7 +119,7 @@
 
               <label style="color:#000;">Shift Roles:</label>
               <!-- <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
-                    (ngModel)="filterSelects.selectedFilterRoles" theme="select2" close-on-select="false" style="width:100%" (click)="dropDownOnAnyClick($event)">
+                    [ngModel]="filterSelects.selectedFilterRoles" theme="select2" close-on-select="false" style="width:100%" (click)="dropDownOnAnyClick($event)">
                     <ui-select-match placeholder="Select role...">{{$item.name}}</ui-select-match>
                     <ui-select-choices repeat="roleOption in optionsDataRoles | filter: $select.search">
                         <div ng-bind-html="roleOption.name | highlight: $select.search"></div>
@@ -143,22 +143,22 @@
                 <div class="schedule-tools">
                   <ul class="fieldlist" style="list-style-type: none;padding-left:0px">
                     <li style="float:left;">
-                      <input type="checkbox" id="checkPublish" class="k-checkbox" (ngModel)="filterOption.publish"
+                      <input type="checkbox" id="checkPublish" class="k-checkbox" [ngModel]="filterOption.publish"
                         ng-change="filterOptionChange()">
                       <label class="k-checkbox-label" for="checkPublish">Published</label>
                     </li>
                     <li style="float:left;margin-left:10px;">
-                      <input type="checkbox" id="chkTimeOff" class="k-checkbox" (ngModel)="filterOption.timeoff"
+                      <input type="checkbox" id="chkTimeOff" class="k-checkbox" [ngModel]="filterOption.timeoff"
                         ng-change="filterOptionChange()">
                       <label class="k-checkbox-label" for="chkTimeOff">Time Off</label>
                     </li>
                     <li style="float:left;margin-left:10px;">
-                      <input type="checkbox" id="chkAvailable" class="k-checkbox" (ngModel)="filterOption.available"
+                      <input type="checkbox" id="chkAvailable" class="k-checkbox" [ngModel]="filterOption.available"
                         ng-change="filterOptionChange()">
                       <label class="k-checkbox-label" for="chkAvailable">Available</label>
                     </li>
                     <li style="float:left;margin-left:10px;">
-                      <input type="checkbox" id="chkUnpublish" class="k-checkbox" (ngModel)="filterOption.unpublish"
+                      <input type="checkbox" id="chkUnpublish" class="k-checkbox" [ngModel]="filterOption.unpublish"
                         ng-change="filterOptionChange()">
                       <label class="k-checkbox-label" for="chkUnpublish">Un-Publish</label>
                     </li>
@@ -178,10 +178,10 @@
                 <div>
                     <div class="btn-group schedview" data-toggle="buttons">
                         <label class="btn btn-default" (ngClass)="{active: schedView == 'full'}">
-                    <input id="schedViewFull" name="schedViewRadio" (click)="setSchedView('full')" value="full" (ngModel)="$parent.schedView" type="radio">Full
+                    <input id="schedViewFull" name="schedViewRadio" (click)="setSchedView('full')" value="full" [ngModel]="$parent.schedView" type="radio">Full
                 </label>
                         <label class="btn btn-default" (ngClass)="{active: schedView == 'personal'}">
-                    <input id="schedViewPer" name="schedViewRadio" (click)="setSchedView('personal')" value="personal" (ngModel)="$parent.schedView" type="radio">Personal
+                    <input id="schedViewPer" name="schedViewRadio" (click)="setSchedView('personal')" value="personal" [ngModel]="$parent.schedView" type="radio">Personal
                 </label>
                     </div>
                 </div>

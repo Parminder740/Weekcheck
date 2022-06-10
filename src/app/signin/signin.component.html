@@ -11,11 +11,11 @@
               <div class="row">
                   <div class="col-md-6 form-group">
                       <label for="firstName">First name</label>
-                      <input id="firstName" name="firstName" type="text" class="form-control" ng-required="true" (ngModel)="model.firstName" readonly />
+                      <input id="firstName" name="firstName" type="text" class="form-control" ng-required="true" [ngModel]="model.firstName" readonly />
                   </div>
                   <div class="col-md-6 form-group">
                       <label for="lastName">Last name</label>
-                      <input type="text" class="form-control" ng-required="true" name="lastName" (ngModel)="model.lastName" readonly />
+                      <input type="text" class="form-control" ng-required="true" name="lastName" [ngModel]="model.lastName" readonly />
                   </div>
               </div>
               <div class="row">
@@ -23,7 +23,7 @@
                       <label for="email">Email</label>
                       <div class="has-feedback">
                           <span class="fa fa-envelope form-control-feedback" aria-hidden="true"></span>
-                          <input type="email" id="email" name="email" class="form-control" ng-required="true" (ngModel)="model.email" readonly />
+                          <input type="email" id="email" name="email" class="form-control" ng-required="true" [ngModel]="model.email" readonly />
                       </div>
                   </div>
               </div>
@@ -32,7 +32,7 @@
                   <div class="col-md-6 form-group" (ngClass)="{'has-error': regForm.password.$invalid && !regForm.password.$pristine}">
                       <label for="password">Password</label>
                       <div class="has-feedback">
-                          <input type="password" id="password" name="password" class="form-control" (ngModel)="model.password" ng-minlength="6" required/>
+                          <input type="password" id="password" name="password" class="form-control" [ngModel]="model.password" ng-minlength="6" required/>
                           <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span>
                       </div>
                       <!-- <span class="help-block" ng-show="regForm.password.$error.required && !regForm.password.$pristine">Password is required</span>
@@ -41,7 +41,7 @@
                   <div class="col-md-6 form-group" (ngClass)="{'has-error': regForm.confirmPassword.$error.match && !regForm.confirmPassword.$pristine}">
                       <label for="confirmPassword">Confirm Password</label>
                       <div class="has-feedback">
-                          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" (ngModel)="model.confirmPassword" validate-equal="model.password" required/>
+                          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" [ngModel]="model.confirmPassword" validate-equal="model.password" required/>
                           <span class="fa fa-lock form-control-feedback" aria-hidden="true"></span>
                       </div>
                       <!-- <span class="help-block" ng-show="regForm.confirmPassword.$error.match && !regForm.password.$pristine">Password mismatch</span> -->

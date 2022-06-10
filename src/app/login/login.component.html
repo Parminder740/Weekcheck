@@ -23,7 +23,7 @@
             </p>
             <!--<div class="form-group" (ngClass)="{ 'has-error' : Form.email.$invalid && !Form.email.$pristine }">
                             <span class="input-icon">
-							<input type="email" class="form-control" name="email" placeholder="Email" (ngModel)="model.email" required ng-readonly="emailLocked"/>
+							<input type="email" class="form-control" name="email" placeholder="Email" [ngModel]="model.email" required ng-readonly="emailLocked"/>
 							<i class="fa fa-user"></i> </span>
                             <span class="error text-small block" *ngIf="formUtils.isFieldInError(Form.email)">Email is required.</span>
                             <span class="error text-small block" *ngIf="formUtils.isInvalidEmail(Form.email)">Please, enter a valid email address.</span>
@@ -37,7 +37,7 @@
             </div>
             <!--<div class="form-group form-actions" (ngClass)="{ 'has-error' : Form.password.$invalid && !Form.password.$pristine }">
                             <span class="input-icon">
-							<input type="password" class="form-control password" name="password" placeholder="Password" (ngModel)="model.password" required />
+							<input type="password" class="form-control password" name="password" placeholder="Password" [ngModel]="model.password" required />
 							<i class="fa fa-lock"></i>
 							<a class="forgot" ui-sref="login.forgot">
                                 I forgot my password

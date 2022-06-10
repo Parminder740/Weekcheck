@@ -6,11 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emp-register.component.scss']
 })
 export class EmpRegisterComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
   formatDate:any
   reqitem:any
   sentRequests:any
@@ -19,4 +14,13 @@ export class EmpRegisterComponent implements OnInit {
   employeeRequests:any
   getRequestCount:any
   even:any
+  constructor() { }
+
+  ngOnInit(): void { }
+  
+  approve(a:any){}
+  deny(reqitem:any){}
+  view(reqitem:any){}
+  updateEmail(sentRequest:any){}
+  resendEmail(sentRequest:any){}
 }
