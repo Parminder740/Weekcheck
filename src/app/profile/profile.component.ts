@@ -6,11 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  currTitle="PROFILE"
+  currTitle="EMPLOYEE INFO"
   formatStartDate:any
   userInfo:any
   displayReminderTime:any
   logo=true
+  editMode=0
+  
+  // obj={
+  //   flow:{
+  //     files:{
+  //       length: {}
+  //     },
+  //     cancel:()=>{}
+  //   }
+    // }
+    noImage:boolean=true
+   
+  
 toggle:boolean=false
   displayNotificationPref:any
   constructor() { }
@@ -45,4 +58,8 @@ toggle:boolean=false
 editmode(){
  this.toggle=true
 }
+save(){}
+cancel(){}
+removeImage(){}
+openChangeEmail(){}
 }
