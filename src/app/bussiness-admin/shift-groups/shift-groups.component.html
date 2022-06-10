@@ -38,7 +38,7 @@
                         page:</label>
                       <input type="number" min="1" max="100"
                         class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max"
-                        ng-model="pageSize"
+                        (ngModel)="pageSize"
                         style="max-width:100%;width: 95px;float: right;margin-right: 5px;margin-top: 0px;">
                     </div>
                     <div class="col-md-5 text-right">
@@ -76,7 +76,7 @@
                           page:</label>
                         <input type="number" min="1" max="100"
                           class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max"
-                          ng-model="pageSize" style="max-width:100%;width: 95px;margin-right: 20px;margin-top: 0px;">
+                          (ngModel)="pageSize" style="max-width:100%;width: 95px;margin-right: 20px;margin-top: 0px;">
                       </div>
                       <div class="col-md-5 text-right">
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -84,8 +84,8 @@
                       </div>
                     </div> -->
                     <!-- <accordion close-others="true" id="groups-accordion">
-              <accordion-group ng-init="accorGroups = {isOpen: $index < 1}" is-open="accorGroups.isOpen" ng-class="{isOpen: accorGroups.isOpen}" dir-paginate="shiftGroup in shiftGroups | itemsPerPage: pageSize" current-page="currentPage" >
-                <accordion-heading> <span>{{shiftGroup.groupingName}}</span> <i class="pull-left fa" ng-class="{'fa-chevron-down': accorGroups.isOpen, 'fa-chevron-right': !accorGroups.isOpen}"></i> </accordion-heading> -->
+              <accordion-group ng-init="accorGroups = {isOpen: $index < 1}" is-open="accorGroups.isOpen" (ngClass)="{isOpen: accorGroups.isOpen}" dir-paginate="shiftGroup in shiftGroups | itemsPerPage: pageSize" current-page="currentPage" >
+                <accordion-heading> <span>{{shiftGroup.groupingName}}</span> <i class="pull-left fa" (ngClass)="{'fa-chevron-down': accorGroups.isOpen, 'fa-chevron-right': !accorGroups.isOpen}"></i> </accordion-heading> -->
                     <!-- <div class="container" style="position:relative">
                       <div class="accordion-buttons">
                         <button class="btn btn-default" ng-click="editGrouping(shiftGroup)"><span
@@ -102,7 +102,7 @@
                         <div class="col-md-6" style="border-right: 1px solid #eee">
                           <div>
                             <ul class="itemslist">
-                              <li ng-repeat="groupOption in shiftGroup.groupingOptions" ng-class="$even?'odd':'even'"
+                              <li ng-repeat="groupOption in shiftGroup.groupingOptions" (ngClass)="$even?'odd':'even'"
                                 style="color:#1c2b36;"> </li>
                             </ul>
                           </div>

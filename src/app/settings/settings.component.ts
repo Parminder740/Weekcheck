@@ -12,7 +12,9 @@ export class SettingsComponent implements OnInit {
   currentNumberEmployees:any
   subscriptionFinished:any
   logo=true
-
+  couponcode:any
+  model:any
+  card:any
   constructor() {
     this.selected = [
       {name: 'New York', code: 'NY'},

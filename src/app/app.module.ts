@@ -40,10 +40,15 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ButtonsModule } from "@progress/kendo-angular-buttons";
 import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 import { IntlModule } from "@progress/kendo-angular-intl";
-
+import { NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EmpRegisterComponent } from './emp-register/emp-register.component';
+import { MatSelectModule } from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { FormsModule } from '@angular/forms'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +84,7 @@ import { EmpRegisterComponent } from './emp-register/emp-register.component';
     MatIconModule,
     NgxPaginationModule,
     CommonModule,
+    FormsModule,
     MatCheckboxModule,
     TabsModule,
     MatToolbarModule,
@@ -95,6 +101,10 @@ import { EmpRegisterComponent } from './emp-register/emp-register.component';
     TabsModule.forRoot(),
     DropdownModule,
     NgSelectModule,
+    NgMultiSelectDropDownModule,
+    MatSelectModule,
+    NgxMatSelectSearchModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

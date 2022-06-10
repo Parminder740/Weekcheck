@@ -21,6 +21,7 @@ export class SchdeuleComponent implements OnInit {
   weekStart: Day = Day.Wednesday;
   selectedDate: Date = displayDate;
   FilterOption:boolean=false
+  filterOption:any
   constructor() { }
 
   ngOnInit(): void {

@@ -11,10 +11,10 @@ export class LocationComponent implements OnInit {
   logo = true
   currTitle = 'LOCATIONS'
   businessCode = 12
-  location: any
-  locations: any
+  location:any=[]
+  locations=[]
   open = true
-  weekdays: any
+  weekdays: any=[]
   employeeGroup: any
   shiftGroup:any
   shiftRole:any
@@ -22,6 +22,17 @@ export class LocationComponent implements OnInit {
   scheduler:any
   locationGroup:any
   employeeGroupOpt:any
+  schedulerFocusGroups=[]
+  accorLocations:any={
+    isOpen:true
+  }
+  locationGroupsFiltered:any
+  shiftGroupsFiltered:any
+  even:any
+  locationRoles:any
+  locationEmployees:any
+  locationGroups :any
+  pageSize:any
   constructor() { }
 
   ngOnInit(): void {
@@ -40,4 +51,5 @@ export class LocationComponent implements OnInit {
   toggled(open: any) { }
   getGroupingOptionNames(a:any){}
   pageChangeHandler(){}
+  
 }

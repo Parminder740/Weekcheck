@@ -18,4 +18,5 @@ export class EmpRegisterComponent implements OnInit {
   formatTime:any
   employeeRequests:any
   getRequestCount:any
+  even:any
 }

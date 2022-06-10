@@ -13,6 +13,10 @@ export class EmpGroupComponent implements OnInit {
   groupOption:any
   accorGroups:any
   logo:boolean=true
+  newPageNumber:any
+  pageSize:any
+  even:any
+  pageChangeHandler:any
   constructor() { }
 
   ngOnInit(): void {

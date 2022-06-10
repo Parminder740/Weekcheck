@@ -11,14 +11,16 @@
             <h1 class="mainTitle" translate="sidebar.nav.employees.page.main.HEADER">EMPLOYEES</h1>
           </div>
           <div class="pull-right" style="margin-top: 10px;">
-            <a (click)="addEmployee()" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk"    data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
+            <a (click)="addEmployee()" *ngIf="thisUser.isAdmin()" class="btn btn-dark-wk" data-bs-toggle="modal"
+              data-bs-target="#exampleModal" data-bs-whatever="@mdo">
               Add
               <span class="fa fa-user"></span>
             </a>
             <div class="badge-btn emp-req-btn">
-              <a routerLink="/dashboard/employeeregister" ui-sref="app.dashboard.employeeregister" ng-show="thisUser.isAdmin()" class="btn btn-dark-wk">
+              <a routerLink="/dashboard/employeeregister" ui-sref="app.dashboard.employeeregister"
+                *ngIf="thisUser.isAdmin()" class="btn btn-dark-wk">
                 Employee Register Request
-                <span class="notification-count badge" ng-hide="openEmployeeRequests.length == 0"></span>
+                <span class="notification-count badge" *ngIf="openEmployeeRequests.length == 0"></span>
               </a>
             </div>
           </div>
@@ -35,8 +37,12 @@
             employees found
           </div>
           <div class="col-md-6" style="padding-right:0">
-            <div class="form-group">
-              <!-- <ui-select (ngModel)="selectedLocation" on-select="onLocationChange($item)" class="bare-dropdown">
+            <div class="form-group">abc
+              <ng-select [items]="cars" bindLabel="name" bindValue="id" [(ngModel)]="selectedCar"> </ng-select>
+              <!-- <ng-select >
+                <ng-option *ngFor="let car of cars" [value]="car.id">{{car.name}}</ng-option>
+             </ng-select> -->
+              <!-- <ng-select [ngModel]="selectedLocation" on-select="onLocationChange($item)" class="bare-dropdown">
           <ui-select-match placeholder="Select...">
             <span class="ti-map-alt"></span> {{$select.selected.name}}
           </ui-select-match>
@@ -47,7 +53,7 @@
               <span *ngIf="location.state" ng-bind-html="', ' + location.state | highlight: $select.search">
               </span></small>
           </ui-select-choices>
-        </ui-select> -->
+        </ng-select> -->
             </div>
           </div>
 
@@ -55,7 +61,7 @@
 
         <div class="row employees-searchsection bottomborder" style="border-color:#bbb; margin-left:0; margin-right:0">
           <div class="col-md-3">
-            <input class="wk-input" (ngModel)="searchText" placeholder="Search employees" style="width:100%">
+            <input class="wk-input" [ngModel]="searchText" placeholder="Search employees" style="width:100%">
           </div>
           <div class="col-md-7" style="display: flex;">
             <div class="col-md-6" style="display: flex;">
@@ -65,7 +71,7 @@
               </div>
               <div class="col-md-5" style="display: flex;">
                 <input type="number" min="1" max="100"
-                  class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" (ngModel)="pageSize"
+                  class="form-control ng-pristine ng-untouched ng-valid ng-valid-min ng-valid-max" [ngModel]="pageSize"
                   style="width: 95px;float: right;margin-top: 0px; ">
               </div>
             </div>
@@ -74,10 +80,11 @@
                 <i class="fa fa-filter"></i> Filters</a>
               <span style="color:#0280ba; padding-top:5px;" *ngIf="filterCount > 0">({{filterCount}})</span>
               &nbsp;&nbsp;&nbsp;
-              <a (click)="seniortyList()" class="dropsection-link">
+              <a data-bs-toggle="modal" data-bs-target="#rajesh" data-bs-whatever="@mdo" (click)="seniortyList()"
+                class="dropsection-link">
                 <i class="fa fa-list"></i> Seniority List</a>
-              <a *ngIf="isAdmin || isScheduler" (click)="sendEmail()" class="dropsection-link"
-                style="margin-left: 13px;">
+              <a data-bs-toggle="modal" data-bs-target="#rohan" data-bs-whatever="@mdo" *ngIf="isAdmin || isScheduler"
+                (click)="sendEmail()" class="dropsection-link" style="margin-left: 13px;">
                 <i class="fa fa-envelope"></i>Send</a>
             </div>
 
@@ -85,8 +92,8 @@
           </div>
           <div class="col-md-2" style="text-align:right">
 
-            <div class="btn-group" dropdown ng-show="thisUser.isAdmin()">
-              <button class="btn btn-default dropdown-toggle" ng-class="{'disabled': !isMultipleEmployeesSelected()}"
+            <div class="btn-group" dropdown *ngIf="thisUser.isAdmin()">
+              <button class="btn btn-default dropdown-toggle" [ngClass]="{'disabled': isMultipleEmployeesSelected()}"
                 type="button" dropdown-toggle style="color:#1C2B36">
                 <span>Edit Multiple
                   <i class="ti-settings"></i>
@@ -130,7 +137,7 @@
             <label style="color:#000;">Employee Groups:</label>
 
             <!-- <p-dropdown multiple [options]="onFilterGroupChange($item)" reset-search-input="true"
-        on-remove="onFilterGroupChange($item)" (ngModel)="filterSelects.selectedFilterGroups" theme="select2"
+        on-remove="onFilterGroupChange($item)" [ngModel]="filterSelects.selectedFilterGroups" theme="select2"
         close-on-select="false" style="width:100%" (click)="dropDownOnAnyClick($event)" class="filterone">
         <ui-select-match placeholder="Select group...">{{$item.groupingName}} / {{$item.groupingOptionName}}
         </ui-select-match>
@@ -149,31 +156,44 @@
           </div>
           <div class="col-md-6">
             <label style="color:#000;">Shift Roles:</label>
-            <!-- <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true"
-        on-remove="onFilterGroupChange($item)" (ngModel)="filterSelects.selectedFilterRoles" theme="select2"
+            <!-- <mat-form-field>
+            <mat-select multiple on-select="onFilterGroupChange(item)" reset-search-input="true"
+        on-remove="onFilterGroupChange(item)" [ngModel]="filterSelects.selectedFilterRoles" theme="select2"
         close-on-select="false" style="width:100%" (click)="dropDownOnAnyClick($event)">
         <ui-select-match placeholder="Select role...">{{$item.name}}</ui-select-match>
+        <mat-option>
         <ui-select-choices repeat="roleOption in optionsDataRoles | filter: $select.search">
           <div ng-bind-html="roleOption.name | highlight: $select.search"></div>
         </ui-select-choices>
-      </ui-select> -->
+      </mat-select>
+    </mat-form-field> -->
+    <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Assignee</mat-label>
+        <input type="text" matInput formControl="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option.name}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
           </div>
         </div>
         <div class="row" style="margin-top:15px">
           <div class="col-md-12" style="padding-left: 43px">
-            <accordion close-others="true" id="employees-accordion">
-              <accordion-group ng-init="accorEmployees = {isOpen: selectedEmployee.employeeID == employee.employeeID}"
-                is-open="accorEmployees.isOpen"
-                ng-class="{'isOpen': accorEmployees.isOpen, 'disabled': !selectedLocation.locationID}"
-                dir-paginate="employee in (filteredEmployees = (employees | filter:searchText | filter:customFilterItems | itemsPerPage: pageSize)) track by $index"
-                current-page="currentPage" is-disabled="!selectedLocation.locationID">
+            <accordion [closeOthers]="true" id="employees-accordion">
+              <accordion-group
+                [(isOpen)]="accorEmployees.isOpen"
+                [ngClass]="{'isOpen': accorEmployees.isOpen, 'disabled': !selectedLocation.locationID}"
+                [isDisabled]="!selectedLocation.locationID">
 
                 <div accordion-heading>
-                  <i class="fa fa-angle-left"></i>
-                  <input type="checkbox" (ngModel)="selectedEmployees[employee.employeeID]"
-                    (click)="checkboxClick('$event')" style="left:-25px; position:absolute" />
-                  <span id="{{employee.employeeID}}" (click)="toggleAccordion(employee)">piyush goyal</span>
-                  <span *ngIf="selectedLocation">
+            
+                  <input type="checkbox" [ngModel]="selectedEmployees[employee.employeeID]"
+                    (click)="checkboxClick($event)" style="left:-25px; position:absolute" />
+                  <span id="{{employee.employeeID}}">piyush goyal</span>
+                  <span *ngIf="selectedLocation.locationID">
                     <span *ngIf="employee.scheduler && !employee.isBusinessAdmin && !employee.isBusinessOwner"
                       (click)="toggleAccordion(employee)">|
                       <small>Scheduler</small>
@@ -188,31 +208,30 @@
                   </span>
 
                   <i class="fa fa-angle-left" (click)="toggleAccordion(employee)"
-                    ng-class="{'fa-chevron-down': accorEmployees.isOpen, 'fa-chevron-right': !accorEmployees.isOpen}"></i>
+                    [ngClass]="{'fa-chevron-down': accorEmployees.isOpen, 'fa-chevron-right': !accorEmployees.isOpen}"></i>
 
                 </div>
                 <div class="container" style="position:relative; padding-top:10px">
                   <div class="accordion-buttons">
-                    <div class="btn-group settings-menu" dropdown on-toggle="toggled(open)"
-                      ng-show="thisUser.isAdmin()">
+                    <div class="btn-group settings-menu" dropdown (toggle)="toggled(open)"
+                      *ngIf="thisUser.isAdmin()">
                       <button id="settings-menu-btn" class="btn btn-default dropdown-toggle" type="button"
                         dropdown-toggle>
                         <span>
-                          <i class="ti-settings"></i>
+                          <i class="fa fa-setting"></i>
                         </span>
                         <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu dropdown-align-left">
                         <li>
-                          <a (click)="emailEmployee()" ng-hide="thisUser.employeeID === employee.employeeID">Message</a>
+                          <a (click)="emailEmployee()" *ngIf="thisUser.employeeID === employee.employeeID">Message</a>
                         </li>
                         <li>
-                          <a (click)="editProfile()" ng-show="thisUser.employeeID === employee.employeeID">Edit
-                            Profile</a>
+                          <a (click)="editProfile()" *ngIf="thisUser.employeeID === employee.employeeID">Edit Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                          <a (click)="editAccess()" ng-hide="employee.isBusinessAdmin">Edit Permissions</a>
+                          <a (click)="editAccess()" *ngIf="employee.isBusinessAdmin">Edit Permissions</a>
                         </li>
                         <li>
                           <a (click)="editRoles()">Edit Shift Roles</a>
@@ -243,14 +262,14 @@
                     </div>
                     <div class="col-sm-4" id="wk-modal"
                       style="vertical-align: bottom; margin-top: 0px; padding-left: 35px;">
-                      <div ng-show="selectedEmployee.userID != null">
-                        <div ng-show="user.isAdmin()" class="employee-section-title">Business Admin</div>
-                        <div class="btn-group" ng-show="user.isAdmin()">
+                      <div *ngIf="selectedEmployee.userID != null">
+                        <div *ngIf="user.isAdmin()" class="employee-section-title">Business Admin</div>
+                        <div class="btn-group" *ngIf="user.isAdmin()">
                           <label
                             ng-disabled="selectedEmployee.isBusinessOwner || thisUser.employeeID === selectedEmployee.employeeID"
-                            class="btn btn-primary" ng-change="updateEmployeeAccess()" (ngModel)="selectedEmployee"
+                            class="btn btn-primary" ng-change="updateEmployeeAccess()" [ngModel]="selectedEmployee"
                             btn-radio="false">No</label>
-                          <label class="btn btn-primary" ng-change="updateEmployeeAccess()" (ngModel)="selectedEmployee"
+                          <label class="btn btn-primary" ng-change="updateEmployeeAccess()" [ngModel]="selectedEmployee"
                             btn-radio="true">Yes</label>
                         </div>
                       </div>
@@ -260,12 +279,12 @@
                     </div>
                     <div class="col-sm-6">
                       <span class="employee-section-title">Email</span>
-                      <!-- <span class="pull-right" style="cursor: pointer; text-transform: uppercase;" (click)="editDateOfHire()" ng-show="thisUser.isAdmin()">Edit
+                      <!-- <span class="pull-right" style="cursor: pointer; text-transform: uppercase;" (click)="editDateOfHire()" *ngIf="thisUser.isAdmin()">Edit
                                     <i class="fa fa-pencil"></i>
                                 </span> -->
                       <br />
                       <span class="employee-section-title">Phone</span>
-                      <!-- <span class="pull-right" style="cursor: pointer; text-transform: uppercase;" (click)="editDateOfHire()" ng-show="thisUser.isAdmin()">Edit
+                      <!-- <span class="pull-right" style="cursor: pointer; text-transform: uppercase;" (click)="editDateOfHire()" *ngIf="thisUser.isAdmin()">Edit
                                     <i class="fa fa-pencil"></i>
                                 </span> -->
                       <!-- <span *ngIf="selectedEmployee">{{ selectedEmployee }}</span> -->
@@ -275,7 +294,7 @@
                       <!-- <span *ngIf="selectedEmployee">{{ formatStartDate(selectedEmployee.hireDate) }}</span> -->
                       <span *ngIf="!selectedEmployee">None given</span>
                       <span class="pull-right" style="cursor: pointer; text-transform: uppercase;"
-                        (click)="editDateOfHire()" ng-show="thisUser.isAdmin()">Edit
+                        (click)="editDateOfHire()" *ngIf="thisUser.isAdmin()">Edit
                         <i class="fa fa-pencil"></i>
                       </span>
                     </div>
@@ -283,27 +302,27 @@
                   <div class="row">
                     <div class="col-sm-6">
                       <p>
-                        <div class="employee-section-title">
-                          Shift Roles
-                          <span class="pull-right" style="cursor: pointer;" (click)="editRoles()"
-                            ng-show="thisUser.isAdmin()">Edit
-                            <i class="fa fa-pencil"></i>
-                          </span>
-                        </div>
-                        <!-- <div>
+                      <div class="employee-section-title">
+                        Shift Roles
+                        <span class="pull-right" style="cursor: pointer;" (click)="editRoles()"
+                          *ngIf="thisUser.isAdmin()">Edit
+                          <i class="fa fa-pencil"></i>
+                        </span>
+                      </div>
+                      <!-- <div>
                                         <span ng-bind-html="displayRoles(selectedEmployee)"></span>
                                     </div> -->
 
 
-                        <p>
-                          <div class="employee-section-title" style="border-top:1px solid #f7f7f7;padding-top:15px;">
-                            Locations assigned to
-                            <span class="pull-right" style="cursor: pointer;" (click)="editLocations()"
-                              ng-show="thisUser.isAdmin()">Edit
-                              <i class="fa fa-pencil"></i>
-                            </span>
-                          </div>
-                          <!-- <div>
+                      <p>
+                      <div class="employee-section-title" style="border-top:1px solid #f7f7f7;padding-top:15px;">
+                        Locations assigned to
+                        <span class="pull-right" style="cursor: pointer;" (click)="editLocations()"
+                          *ngIf="thisUser.isAdmin()">Edit
+                          <i class="fa fa-pencil"></i>
+                        </span>
+                      </div>
+                      <!-- <div>
                     <span class="location" *ngFor="location in selectedEmployee.locations">
                       {{location.name}}
                     </span> -->
@@ -311,22 +330,60 @@
 
 
                     <p>
+                    <div class="employee-section-title"
+                      style="border-top:1px solid #f7f7f7;padding-top:15px; margin-bottom: 8px;">
+                      Groups assigned to
+                      <span class="pull-right" style="cursor: pointer;" (click)="editGroups()"
+                        *ngIf="thisUser.isAdmin()">Edit
+                        <i class="fa fa-pencil"></i>
+                      </span>
+                    </div>
+
+                    <div>
+                      <div
+                        *ngIf="selectedEmployeeLocationObj[selectedLocation.locationID.toString()].groupingOptions.length === 0">
+                        Not assigned to any employee groups.
+                      </div>
+                      <ul class="itemslist" style="margin-bottom:0;"
+                        *ngIf="selectedEmployeeLocationObj[selectedLocation.locationID.toString()].groupingOptions.length > 0">
+                        <li
+                          *ngFor="locationGroup in selectedEmployeeLocationGroups[selectedLocation.locationID.toString()]">
+                          <div class="row" style="padding-bottom:0">
+                            <div class="col-md-5">
+                              <!-- {{ locationGroup.groupingName }}: -->
+                            </div>
+                            <div class="col-md-7">
+                              <!-- <div
+                              *ngFor="employeeGroupOpt in thisGroupingOptions = (selectedEmployeeLocationObj[selectedLocation.locationID.toString()].groupingOptions | filter: {groupingID: locationGroup.groupingID})">
+                              {{employeeGroupOpt.groupingOptionName}}
+                            </div> -->
+                            </div>
+                          </div>
+
+                        </li>
+                      </ul>
+                    </div>
+
+
+                    <p>
+                    <div *ngIf="selectedEmployee ">
                       <div class="employee-section-title"
                         style="border-top:1px solid #f7f7f7;padding-top:15px; margin-bottom: 8px;">
-                        Groups assigned to
-                        <span class="pull-right" style="cursor: pointer;" (click)="editGroups()"
-                          ng-show="thisUser.isAdmin()">Edit
+                        Scheduler Restricted to the following Employee Groups
+                        <span class="pull-right" style="text-transform: capitalize; font-size:11px; cursor: pointer;"
+                          (click)="editAccess()" *ngIf="thisUser.isAdmin()">Edit
                           <i class="fa fa-pencil"></i>
                         </span>
                       </div>
-
                       <div>
                         <div
-                          *ngIf="selectedEmployeeLocationObj[selectedLocation.toString()].groupingOptions.length === 0">
-                          Not assigned to any employee groups.
+                          *ngIf="selectedEmployeeLocationObj[selectedLocation.locationID.toString()].schedulerFocus.length == 0">
+                          No scheduler restrictions.
                         </div>
+
                         <ul class="itemslist" style="margin-bottom:0;"
-                          *ngIf="selectedEmployeeLocationObj[selectedLocation.toString()].groupingOptions.length > 0">
+                          *ngIf="selectedEmployeeLocationObj[selectedLocation.locationID.toString()].schedulerFocus.length > 0">
+
                           <li
                             *ngFor="locationGroup in selectedEmployeeLocationGroups[selectedLocation.locationID.toString()]">
                             <div class="row" style="padding-bottom:0">
@@ -335,88 +392,48 @@
                               </div>
                               <div class="col-md-7">
                                 <!-- <div
-                              *ngFor="employeeGroupOpt in thisGroupingOptions = (selectedEmployeeLocationObj[selectedLocation.locationID.toString()].groupingOptions | filter: {groupingID: locationGroup.groupingID})">
-                              {{employeeGroupOpt.groupingOptionName}}
-                            </div> -->
+                                *ngFor="employeeGroupOpt in thisSchedFocusOptions = (selectedEmployeeLocationObj[selectedLocation.locationID.toString()].schedulerFocus | filter: {groupingName: locationGroup.groupingName})">
+                                {{employeeGroupOpt.groupingOptionName}}
+                              </div> -->
+                                <div *ngIf="thisSchedFocusOptions.length == 0 || !thisSchedFocusOptions"
+                                  style="color:gray">
+                                  None set
+                                </div>
                               </div>
                             </div>
 
                           </li>
                         </ul>
                       </div>
-
-
-                      <p>
-                        <div *ngIf="selectedEmployee ">
-                          <div class="employee-section-title"
-                            style="border-top:1px solid #f7f7f7;padding-top:15px; margin-bottom: 8px;">
-                            Scheduler Restricted to the following Employee Groups
-                            <span class="pull-right"
-                              style="text-transform: capitalize; font-size:11px; cursor: pointer;"
-                              (click)="editAccess()" ng-show="thisUser.isAdmin()">Edit
-                              <i class="fa fa-pencil"></i>
-                            </span>
-                          </div>
-                          <div>
-                            <div
-                              *ngIf="selectedEmployeeLocationObj[selectedLocation.toString()].schedulerFocus.length == 0">
-                              No scheduler restrictions.
-                            </div>
-
-                            <ul class="itemslist" style="margin-bottom:0;"
-                              *ngIf="selectedEmployeeLocationObj[selectedLocation.toString()].schedulerFocus.length > 0">
-
-                              <li
-                                *ngFor="locationGroup in selectedEmployeeLocationGroups[selectedLocation.locationID.toString()]">
-                                <div class="row" style="padding-bottom:0">
-                                  <div class="col-md-5">
-                                    <!-- {{ locationGroup.groupingName }}: -->
-                                  </div>
-                                  <div class="col-md-7">
-                                    <!-- <div
-                                *ngFor="employeeGroupOpt in thisSchedFocusOptions = (selectedEmployeeLocationObj[selectedLocation.locationID.toString()].schedulerFocus | filter: {groupingName: locationGroup.groupingName})">
-                                {{employeeGroupOpt.groupingOptionName}}
-                              </div> -->
-                                    <div ng-show="thisSchedFocusOptions.length == 0 || !thisSchedFocusOptions"
-                                      style="color:gray">
-                                      None set
-                                    </div>
-                                  </div>
-                                </div>
-
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
+                    </div>
 
 
                   </div>
                   <div class="col-sm-6">
                     <p>
-                      <div class="employee-section-title">
-                        Schedule Preferences
-                      </div>
-                      <p>Displaying schedule preferences for location: </p>
-                      <div>
-                        <!-- <div ng-controller="SelectEmployeePreferencesCtrl" ng-init="selectedEmployees[employee.employeeID]" *ngIf="selectedEmployee.employeeID == employee.employeeID" ng-include="'employee/templates/preferenceSettings.tpl.html'" /> -->
-                        <div class="container preferences" style="border:1px solid #ccc; border-radius:4px">
-                          <div class="row" *ngFor="thisDay in daysOfWeek track by $index">
-                            <!-- <div class="col-xs-2 col-md-2">{{thisDay}}</div> -->
-                            <div class="col-xs-10 col-md-10">
-                              <span
-                                *ngFor="pref in selectedEmployeePreferences | filter: {day:($index===6?0:$index + 1)}"
-                                [ngClass]="{'unavailable-shift': pref.type == 15}">
-                                <i class="fa fa-thumbs-up" style="color:#0280ba" *ngIf="pref.type == 1"></i>
-                                <i class="fa fa-thumbs-down" style="color:#000" *ngIf="pref.type == 2"></i>
-                                <i class="fa fa-user-times" style="color:gray" *ngIf="pref.type == 3"></i>
+                    <div class="employee-section-title">
+                      Schedule Preferences
+                    </div>
+                    <p>Displaying schedule preferences for location: </p>
+                    <div>
+                      <!-- <div ng-controller="SelectEmployeePreferencesCtrl" ng-init="selectedEmployees[employee.employeeID]" *ngIf="selectedEmployee.employeeID == employee.employeeID" ng-include="'employee/templates/preferenceSettings.tpl.html'" /> -->
+                      <div class="container preferences" style="border:1px solid #ccc; border-radius:4px">
+                        <div class="row" *ngFor="let thisDay of daysOfWeek, let i = index">
+                          <!-- <div class="col-xs-2 col-md-2">{{thisDay}}</div> -->
+                          <div class="col-xs-10 col-md-10">
+                            <span *ngFor="let pref of selectedEmployeePreferences"
+                              [ngClass]="{'unavailable-shift': pref.type == 15}">
+                              <i class="fa fa-thumbs-up" style="color:#0280ba" *ngIf="pref.type == 1"></i>
+                              <i class="fa fa-thumbs-down" style="color:#000" *ngIf="pref.type == 2"></i>
+                              <i class="fa fa-user-times" style="color:gray" *ngIf="pref.type == 3"></i>
 
-                                <span *ngIf="isAllDay(pref)" style="color:#333;">All Day</span>
-                                <!-- <span *ngIf="!isAllDay(pref)" style="color:#333;">{{formatTime(pref.startTime)}} - {{formatTime(pref.endTime)}}</span> -->
-                              </span>
-                            </div>
+                              <span *ngIf="isAllDay(pref)" style="color:#333;">All Day</span>
+                              <!-- <span *ngIf="!isAllDay(pref)" style="color:#333;">{{formatTime(pref.startTime)}} - {{formatTime(pref.endTime)}}</span> -->
+                            </span>
                           </div>
                         </div>
                       </div>
+                    </div>
 
                   </div>
                 </div>
@@ -434,254 +451,246 @@
     </div> -->
     </div>
   </div>
-</div>
+  <div class="container">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content" style="width: 125%;height:400px;">
+          <div class="modal-header">
+            <h1 class="modal-title" id="exampleModalLabel">Add Employee Group Type</h1>
 
-<!-- seniority List -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-<div class="modal-header modal-header-edit">
-  <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
-</div>
-
-<div class="container-fluid bg-white" id="wk-modal">
-  <h4>Seniority List</h4>
-  <!-- <div ng-repeat="objemployee  in
-  employeeList">             <span >{{objemployee.name}}</span>          </div>
-  -->
-  <div class="row">
-      <div class="col-md-12">
-          <div class="location-heading" style="margin-bottom:10px">
-              <span class="ti-map-alt"></span> Seniority List <span class="sub-heading-title">
-                  Seniority List
-                  Detail
-              </span>
           </div>
+          <fieldset class="horizontal-line horizontal-fields" style="margin-bottom:0; padding-bottom:5px;">
+            <legend>
+              Employee Details
+            </legend>
 
-          <div class="row" style="padding-bottom: 0;">
-              <div class="col-md-9 col-sm-9 col-xs-9" style="margin-top:8px">
-                  <a href="#" ng-click="sortType = 'firstName'; sortReverse = !sortReverse">
-                      Name
-                      <span ng-show="sortType == 'firstName' && !sortReverse" class="fa fa-caret-down"></span>
-                      <span ng-show="sortType == 'firstName' && sortReverse" class="fa fa-caret-up"></span>
-                  </a>
+            <div class="row" style="padding-bottom:0;">
+              <div class="col-sm-6">
+                <div text-container input="firstName" label="First Name" error="First name is required"
+                  success="Thank You!">
+                  <input text="text" name="firstName" [ngModel]="model.firstName" class="form-control" required />
+                </div>
               </div>
-              <div class="col-md-3 col-sm-3 col-xs-3 text-center">
-                  <a ng-click="sortType = 'hireDate'; sortReverse = !sortReverse">
-                      Hire Date
-                      <span ng-show="sortType == 'hireDate' && !sortReverse" class="fa fa-caret-down"></span>
-                      <span ng-show="sortType == 'hireDate' && sortReverse" class="fa fa-caret-up"></span>
-                  </a>
-
-              </div>
-          </div>
-          <div class="no-items" ng-if="employeeList.length == 0">No Employess Found.</div>
-          <ul class="itemslist ">
-              <li ng-repeat="objemployee in employeeList | orderBy:sortType:sortReverse" ng-class="$even?'odd':'even'">
-                  <div class="row" style="padding-bottom: 0;">
-                      <div class="col-md-9 col-sm-9 col-xs-9" style="margin-top:8px">
-                          {{objemployee.firstName}} {{objemployee.lastName}}
-                      </div>
-                      <div class="col-md-3 col-sm-3 col-xs-3 text-right">  
-                          <div class="pull-right" >{{ objemployee.hireDate | date : 'MM/dd/yyyy' }}</div> 
-                      </div> 
-                  </div>
-              </li>
-          </ul>
-      </div>
-  </div>
-
-
-
-
-</div>
-
-
-<!-- Send Email -->
-
-
-
-<div>
-  <div class="modal-header modal-header-edit">
-      <button type="button" class="close" aria-hidden="true" ng-click="close()">&times;</button>
-  </div>
-
-  <div class="container-fluid bg-white" id="wk-modal">
-      <h4>Send Email</h4>
-
-      <!-- <div>
-          <ui-select multiple on-select="onFilterGroupChange($item)" reset-search-input="true" on-remove="onFilterGroupChange($item)"
-              ng-model="sendEmail.employees" theme="select2" close-on-select="false" style="width:75%" ng-click="dropDownOnAnyClick($event)"
-              class="filterone">
-              <ui-select-match style="border-radius: 3px;" placeholder="Select employees...">{{$item.firstName}} {{$item.lastName}}</ui-select-match>
-              <ui-select-choices repeat="objemployee in employeeList">
-                  {{objemployee.firstName}} {{objemployee.lastName}}
-              </ui-select-choices>
-          </ui-select>
-
-          <div class="pull-right">
-              <button style="height: 30px; border-radius: 3px; padding-top: 3px;" type="submit" class="btn btn-dark-azure">
-                  Populate List
-              </button>
-          </div>
-      </div> -->
-
-      <div class="form-group">
-          <label class="control-label">
-              Employee(s) to send email
-          </label>
-          <!-- <oi-multiselect id="employees" class="cfl" name="employees" ng-options="employee.name for employee in employeeList track by employee.employeeID"
-              ng-model="selectedEmployees" multiple ng-placeholder="employeesMessage" style="border-radius: 3px;">
-          </oi-multiselect> -->
-
-          <!-- <ui-select multiple reset-search-input="true" on-remove="onFilterGroupChange($item)" ng-model="selectedEmployees" theme="select2"
-              close-on-select="false" style="border-radius: 3px;" ng-click="dropDownOnAnyClick($event)" class="filterone">
-              <ui-select-match placeholder="Select group...">{{$item.firstName}} {{$item.lastName}}</ui-select-match>
-              <ui-select-choices repeat="employee in employee">
-                  <span class="ui-select-item-primary" ng-bind-html="employee.firstName"></span>
-              </ui-select-choices>
-          </ui-select> -->
-
-          <!-- <div class="pull-right">
-              <button style="margin-top: 10px; height: 30px; border-radius: 3px; padding-top: 3px;" ng-click="populateList()" type="submit" class="btn btn-dark-azure">
-                  Populate List
-              </button>
-          </div> -->
-      </div>     
-
-      <div>
-          <input type="text" ng-model="title" placeholder="Title" style="width: 100%; margin-top: 20px;  border-radius: 3px;">
-      </div>
-
-
-      <div>
-          <textarea style="width: 100% !important; margin-top: 20px; border-radius: 3px;" rows="10" cols="50" ng-model="message" placeholder="Message"> </textarea>
-      </div>
-
-
-      <div class="pull-left">
-          <button style="margin-top: 10px; margin-bottom: 10px;" type="submit" class="btn btn-dark-azure" ng-click="sendEMailBulk()">
-              Send
-          </button>
-      </div>
-
-
-
-
-
-
-<div class="container">
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content" style="width: 125%;height:400px;">
-        <div class="modal-header">
-          <h1 class="modal-title" id="exampleModalLabel">Add Employee Group Type</h1>
-
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-        </div>
-        <fieldset class="horizontal-line horizontal-fields" style="margin-bottom:0; padding-bottom:5px;">
-          <legend>
-            Employee Details
-          </legend>
-
-          <div class="row" style="padding-bottom:0;">
-            <div class="col-sm-6">
-              <div text-container input="firstName" label="First Name" error="First name is required"
-                success="Thank You!">
-                <input text="text" name="firstName" ng-model="model.firstName" class="form-control" required />
+              <div class="col-sm-6">
+                <div text-container input="lastName" label="Last Name" error="Last name is required"
+                  success="Thank You!">
+                  <input text="text" name="lastName" [ngModel]="model.lastName" class="form-control" required />
+                </div>
               </div>
             </div>
-            <div class="col-sm-6">
-              <div text-container input="lastName" label="Last Name" error="Last name is required" success="Thank You!">
-                <input text="text" name="lastName" ng-model="model.lastName" class="form-control" required />
+            <div class="row" style="padding-bottom:0;">
+              <div class="col-sm-6">
+                <span class="input-icon">
+                  <input type="email" class="form-control" style=" margin-top: 20px;" name="email" placeholder="Email"
+                    [ngModel]="model.email" />
+                  <i class="fa fa-envelope-o" style="color:#1c2b36"></i>
+                </span>
               </div>
-            </div>
-          </div>
-          <div class="row" style="padding-bottom:0;">
-            <div class="col-sm-6">
-              <span class="input-icon">
-                <input type="email" class="form-control" style=" margin-top: 20px;" name="email" placeholder="Email"
-                  ng-model="model.email" />
-                <i class="fa fa-envelope-o" style="color:#1c2b36"></i>
-              </span>
-            </div>
-            <div class="col-sm-6">
-              <br>
-              <!-- <div class="checkbox clip-check check-primary ">
-              <input type="checkbox" value="" id="sendInvite" name="sendInvite" ng-model="sendInvite.send">
+              <div class="col-sm-6">
+                <br>
+                <!-- <div class="checkbox clip-check check-primary ">
+              <input type="checkbox" value="" id="sendInvite" name="sendInvite" [ngModel]="sendInvite.send">
               <label for="sendInvite">Send an invitation via email</label>
           </div> -->
 
-              <div class="checkbox">
-                <input type="checkbox" style="margin-left:0px !important; margin-top: 2px !important" value=""
-                  id="sendInvite" name="sendInvite" ng-model="sendInvite.send">
-                <label for="sendInvite">Send an invitation via email</label>
+                <div class="checkbox">
+                  <input type="checkbox" style="margin-left:0px !important; margin-top: 2px !important" value=""
+                    id="sendInvite" name="sendInvite" [ngModel]="sendInvite.send">
+                  <label for="sendInvite">Send an invitation via email</label>
+                </div>
               </div>
             </div>
-          </div>
-        </fieldset>
-        <fieldset class="horizontal-line" style="margin-bottom:0; padding-bottom:5px;">
-          <legend>
-            Assign to Locations
-          </legend>
-          <div class="row" style="padding-bottom: 0">
-            <div class="col-md-12">
+          </fieldset>
+          <fieldset class="horizontal-line" style="margin-bottom:0; padding-bottom:5px;">
+            <legend>
+              Assign to Locations
+            </legend>
+            <div class="row" style="padding-bottom: 0">
+              <div class="col-md-12">
 
-              <div ng-class="{'has-error':locationsHasError, 'has-success':locationsHasSuccess}" input=""><label
-                  class="control-label">Selected
-                  Locations <span class="symbol required"></span></label> </div>
+                <div [ngClass]="{'has-error':locationsHasError, 'has-success':locationsHasSuccess}" input=""><label
+                    class="control-label">Selected
+                    Locations <span class="symbol required"></span></label> </div>
 
-              <!-- <ui-select multiple on-select="onLocationChange($item)" on-remove="onLocationChange($item)" ng-model="locations.selected"
-              theme="select2" style="width:100%" required ng-click="dropDownOnAnyClick($event)" class="filterone">
+                <!-- <ui-select multiple on-select="onLocationChange($item)" on-remove="onLocationChange($item)" [ngModel]="locations.selected"
+              theme="select2" style="width:100%" required (click)="dropDownOnAnyClick($event)" class="filterone">
               <ui-select-match placeholder="Select locations...">{{$item.name}}</ui-select-match>
               <ui-select-choices repeat="location in locations | filter: $select.search"> -->
-              <span class="ui-select-item-primary" ng-bind-html="location.name | highlight: $select.search"></span>
-              <span class="ui-select-item-primary" ng-bind-html="location.address | highlight: $select.search"></span>
-              <!-- </ui-select-choices>
+                <!-- <span class="ui-select-item-primary" [innerHTML]="location.name"></span>
+                <span class="ui-select-item-primary" [innerHTML]="location.address"></span> -->
+                <!-- </ui-select-choices>
           </ui-select> -->
-              <span class="error text-small block ng-binding ng-scope" ng-if="locationsHasError">At least one location
-                is required</span>
-              <div style="margin-top:10px">
-                <button type="button" class="btn btn-dark-azure btn-o" ng-click="selectAllLocations()">Select
-                  All</button>
-                <button type="button" class="btn btn-dark-azure btn-o" ng-click="resetLocations()">Reset</button>
+                <span class="error text-small block ng-binding ng-scope" *ngIf="locationsHasError">At least one
+                  location
+                  is required</span>
+                <div style="margin-top:10px">
+                  <button type="button" class="btn btn-dark-azure btn-o" (click)="selectAllLocations()">Select
+                    All</button>
+                  <button type="button" class="btn btn-dark-azure btn-o" (click)="resetLocations()">Reset</button>
+                </div>
               </div>
             </div>
-          </div>
-        </fieldset>
-        <fieldset class="horizontal-line" ng-if="businessRoles.length > 1"
-          style="margin-bottom:0; padding-bottom:5px; margin-top:30px">
-          <legend>
-            Assign Shift Roles
-          </legend>
+          </fieldset>
+          <fieldset class="horizontal-line" *ngIf="businessRoles.length > 1"
+            style="margin-bottom:0; padding-bottom:5px; margin-top:30px">
+            <legend>
+              Assign Shift Roles
+            </legend>
 
-          <div class="row">
-            <div class="col-sm-6">
+            <div class="row">
+              <div class="col-sm-6">
 
-              <p>Primary shift role:</p>
-              <!-- <ui-select ng-model="model.primaryRoleID" on-select="onPrimaryRoleChange($item)" theme="bootstrap">
+                <p>Primary shift role:</p>
+                <!-- <ui-select [ngModel]="model.primaryRoleID" on-select="onPrimaryRoleChange($item)" theme="bootstrap">
               <ui-select-match placeholder="Select..." allow-clear="true">
                   {{$select.selected.name}}
               </ui-select-match>
               <ui-select-choices repeat="role.roleID as role in businessRoles | filter: $select.search"> -->
-              <div ng-bind-html="role.name | highlight: $select.search"></div>
-              <!-- </ui-select-choices>
+                <!-- <div ng-bind-html="role.name | highlight: $select.search"></div> -->
+                <!-- </ui-select-choices>
           </ui-select> -->
 
-            </div>
-            <div class="col-sm-6">
-              <p>Secondary shift role:</p>
-              <!-- <ui-select ng-model="model.secondaryRoleID" theme="bootstrap" ng-disabled="!model.primaryRoleID">
+              </div>
+              <div class="col-sm-6">
+                <p>Secondary shift role:</p>
+                <!-- <ui-select [ngModel]="model.secondaryRoleID" theme="bootstrap" ng-disabled="!model.primaryRoleID">
               <ui-select-match placeholder="Select..." allow-clear="true">
                   {{$select.selected.name}}
               </ui-select-match>
               <ui-select-choices repeat="role.roleID as role in businessRoles | filter:{ roleID: '!' + model.primaryRoleID} | filter: $select.search"> -->
-              <div ng-bind-html="role.name | highlight: $select.search"></div>
-              <!-- </ui-select-choices>
+                <div ng-bind-html="role.name | highlight: $select.search"></div>
+                <!-- </ui-select-choices>
           </ui-select> -->
+              </div>
             </div>
+
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="modal fade" id="rohan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title" id="exampleModalLabel">Send Email</h1>
+
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
           </div>
 
-        </fieldset>
+
+          <div>
+
+
+            <div class="container-fluid bg-white" id="wk-modal">
+              <h4>Send Email</h4>
+
+              <div class="form-group">
+                <label class="control-label">
+                  Employee(s) to send email
+                </label>
+                <ng-select id="employees" class="cfl" name="employees"
+                  ng-options="employee.name for employee in employeeList track by employee.employeeID"
+                  [ngModel]="selectedEmployees" placeholder="employeesMessage" style="border-radius: 3px;">
+                </ng-select>
+
+              </div>
+
+              <div>
+                <input type="text" [ngModel]="title" placeholder="Title"
+                  style="width: 100%; margin-top: 20px;  border-radius: 3px;">
+              </div>
+
+
+              <div>
+                <textarea style="width: 100% !important; margin-top: 20px; border-radius: 3px;" rows="10" cols="50"
+                  [ngModel]="message" placeholder="Message"> </textarea>
+              </div>
+
+
+              <div class="pull-left">
+                <button style="margin-top: 10px; margin-bottom: 10px;" type="submit" class="btn btn-dark-azure"
+                  (click)="sendEMailBulk()">
+                  Send
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="modal fade" id="rajesh" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <div>
+
+          <div class="container-fluid bg-white" id="wk-modal">
+            <h4>Seniority List</h4>
+            <!-- <div ng-repeat="objemployee  in
+  employeeList">             <span >{{objemployee.name}}</span>          </div>
+  -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="location-heading" style="margin-bottom:10px">
+                  <span class="ti-map-alt"></span> Seniority List <span class="sub-heading-title">
+                    Seniority List
+                    Detail
+                  </span>
+                </div>
+
+                <div class="row" style="padding-bottom: 0;">
+                  <div class="col-md-9 col-sm-9 col-xs-9" style="margin-top:8px">
+                    <a href="#" (click)="sortType = 'firstName'; sortReverse = !sortReverse">
+                      Name
+                      <span *ngIf="sortType == 'firstName' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span *ngIf="sortType == 'firstName' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-xs-3 text-center">
+                    <a (click)="sortType = 'hireDate'; sortReverse = !sortReverse">
+                      Hire Date
+                      <span *ngIf="sortType == 'hireDate' && !sortReverse" class="fa fa-caret-down"></span>
+                      <span *ngIf="sortType == 'hireDate' && sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+
+                  </div>
+                </div>
+                <div class="no-items" *ngIf="employeeList.length == 0">No Employess Found.</div>
+                <ul class="itemslist ">
+                  <li *ngFor="let objemployee of employeeList "
+                    [ngClass]="even?'odd':'even'">
+                    <div class="row" style="padding-bottom: 0;">
+                      <div class="col-md-9 col-sm-9 col-xs-9" style="margin-top:8px">
+                        {{objemployee.firstName}} {{objemployee.lastName}}
+                      </div>
+                      <div class="col-md-3 col-sm-3 col-xs-3 text-right">
+                        <div class="pull-right">{{ objemployee.hireDate | date : 'MM/dd/yyyy' }}</div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
