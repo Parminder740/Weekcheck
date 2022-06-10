@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http";
 import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { AddOrJoinBussinessComponent } from './add-or-join-bussiness/add-or-join-bussiness.component';
 import { AppComponent } from './app.component';
@@ -40,19 +41,18 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ButtonsModule } from "@progress/kendo-angular-buttons";
 import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 import { IntlModule } from "@progress/kendo-angular-intl";
-import { NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { EmpRegisterComponent } from './emp-register/emp-register.component';
 import { MatSelectModule } from '@angular/material/select';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-
     RegisterComponent,
     LoginComponent,
     AddOrJoinBussinessComponent,
@@ -70,9 +70,10 @@ import { FormsModule } from '@angular/forms';
     TimeoffCreateComponent,
     SchdeuleComponent,
     EmpRegisterComponent,
- 
+
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     NgMultiSelectDropDownModule,
     ButtonsModule,

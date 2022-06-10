@@ -22,7 +22,7 @@
                     <div class="user-image">
                       <div class="thumbnail" style="width:100px;padding:0; border:0; border-radius:0">
                         <!--<img src="assets/images/default-user.png" alt="" ng-if="!obj.flow.files.length && noImage">-->
-                        <div class="initial-box lg" ng-if="noImage && editMode === 0">
+                        <div class="initial-box lg" *ngIf="noImage && editMode === 0">
                           {{ userInfo.firstName.charAt(0) }}{{ userInfo.lastName.charAt(0) }}</div>
                         <img src="{{userInfo.userImage}}" alt=""
                           ng-if="!obj.flow.files.length && editMode === 1 && userInfo.userImage == 'assets/images/default-user.png'"

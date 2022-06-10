@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { SigninComponent } from '../signin/signin.component';
+import { HttpClient } from "@angular/common/http";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,7 +18,7 @@ export class RegisterComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
- openSignin(){
-   this.dialog.open(SigninComponent)
- }
+  openSignin() {
+    this.dialog.open(SigninComponent)
+  }
 }

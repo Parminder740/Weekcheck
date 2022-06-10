@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class EmpGroupComponent implements OnInit {
 
   currTitle="EMPLOYEE GROUPS"
-  employeeGroups:any
+  employeeGroups={
+    length:0
+  }
   employeeGroup:any
   groupOption:any
   accorGroups:any
@@ -16,6 +18,9 @@ export class EmpGroupComponent implements OnInit {
   newPageNumber:any
   pageSize:any
   even:any
+  accorGroupsany:any={
+    isOpen: true
+  }
   pageChangeHandler:any
   constructor() { }
 

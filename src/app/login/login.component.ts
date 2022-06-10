@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { RegisterComponent } from '../register/register.component';
+import { WeekcheckService } from "../weekcheck.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(public dialog: MatDialog) { }
+  data: any
+  constructor(public dialog: MatDialog, private loginService: WeekcheckService) { }
 
   ngOnInit(): void {
   }
@@ -18,5 +19,10 @@ export class LoginComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
     });
+  }
+  checkEmployee() {
+    this.loginService.employeeLogin().subscribe((data) => {
+      console.log(data)
+    })
   }
 }
