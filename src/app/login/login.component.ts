@@ -30,19 +30,10 @@ export class LoginComponent implements OnInit {
 
     this.data= `username=${this.email.value}&password=${this.password.value}&grant_type=password`;
     this.loginService.employeeLogin(this.data).subscribe((token)=>{
-    
-     // console.log(token)
-      this.token_value=token
-      console.log(this.token_value.access_token)
+          this.token_value=token
      localStorage.setItem("token",JSON.stringify(this.token_value.access_token))
-
-  
-     console.log(localStorage.getItem('token'));  
-
-      // this.token=token
-      // localStorage.setItem("token",this.token)}
     }
     )
-   // this.loginService.employee().subscribe((r)=>console.log("new",r))
+  //  this.loginService.employee().subscribe((r)=>console.log("new",r))
   }
 }
