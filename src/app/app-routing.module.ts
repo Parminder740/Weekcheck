@@ -22,13 +22,14 @@ import { TimeoffViewComponent } from './timeoff-view/timeoff-view.component';
 import { TimeoffCreateComponent } from './timeoff-create/timeoff-create.component';
 import { SchdeuleComponent } from './schdeule/schdeule.component';
 import { EmpRegisterComponent } from './emp-register/emp-register.component';
+import { SigninComponent } from "./signin/signin.component";
 
 const routes: Routes = [
 
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: "login", component: LoginComponent },
+  { path: '', redirectTo: '/signin', pathMatch: 'full' },
+  { path: "signin", component: LoginComponent },
   { path: "register", component: RegisterComponent },
-
+  { path: "account/authorization/login", component: SigninComponent },
   { path: "addorjoin", component: AddOrJoinBussinessComponent },
   { path: 'BussinessSetup', component: BussinessSetComponent },
   { path: '', component: BussinessSetComponent },
@@ -38,8 +39,8 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent },
-      { path: "employees", component: EmployeesComponent },
-      {path:'dashboard/employeeregister',component:EmpRegisterComponent},
+      { path: 'employees', component: EmployeesComponent },
+      { path: 'dashboard/employeeregister', component: EmpRegisterComponent },
       { path: 'emp-group', component: EmpGroupComponent },
       { path: 'reports', component: ReportsComponent },
       { path: 'shift-groups', component: ShiftGroupsComponent },

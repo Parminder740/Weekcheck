@@ -5,24 +5,40 @@ import { registerEscClick } from 'ngx-bootstrap/utils';
   providedIn: 'root'
 })
 export class WeekcheckService {
+  baseURL="http://weekcheck.azurewebsites.net/"
   token: any=localStorage.getItem('token');
-  
-
-  constructor(private http: HttpClient) {
-
-  }
-
+  constructor(private http: HttpClient) {}
 
   employeeLogin(data: any) {
-    return this.http.post("http://weekcheck.azurewebsites.net/Token", data)
+    return this.http.post(`${this.baseURL}Token`, data)
   }
-  employee() {
-    let headers={
-      Authorization:"Bearer " + this.token
+  // employee() {
+  //   let headers={
+  //     'Content-Type': 'application/json',
+  //     Authorization:"Bearer " + this.token
+  //   }
+  //   return this.http.get(`https://weekcheck.com/wkapi/employees/me` ,{headers})
+  // }
+sendMail(data:any){
+  let headers={
+    'Content-Type': 'application/json',
+    Authorization:"Bearer " + this.token
+  }
+  return this.http.post(`${this.baseURL}wkapi/Employees` ,data)
+}
 
-    }
-    return this.http.get(`https://weekcheck.com/wkapi/employees/me` ,{ headers },)
+employee(){
+  let headers={
+    'Content-Type': 'application/json',
+    Authorization:"Bearer " + this.token
   }
+  return this.http.get(`${this.baseURL}wkapi/Employees`)
+}
+
 }
 
 
+
+
+
+// http://localhost:51804/wkapi/Employees

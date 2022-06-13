@@ -34,6 +34,6 @@ export class LoginComponent implements OnInit {
      localStorage.setItem("token",JSON.stringify(this.token_value.access_token))
     }
     )
-   this.loginService.employee().subscribe((r)=>console.log("new",r))
+  //  this.loginService.employee().subscribe((r)=>console.log("new",r))
   }
 }

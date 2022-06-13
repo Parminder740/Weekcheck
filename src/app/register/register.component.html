@@ -2,10 +2,10 @@
   <mat-icon class="mat" (click)="onNoClick()">cancel</mat-icon><br>
   <h3>Register</h3>
   <p>Please provide the following information to create your porjects</p>
-  <div class="inp">
-  <input type="text" placeholder="First Name"><br><br>
-  <input type="text" placeholder="Last Name"><br><br>
-  <input type="text" placeholder="Email"><br><br>
+  <div  class="inp">
+  <input class="form-control" [formControl]="firstName" type="text" placeholder="First Name"><br><br>
+  <input class="form-control" [formControl]="lastName" placeholder="Last Name"><br><br>
+  <input class="form-control" [formControl]="email"  type="text" placeholder="Email"><br><br>
   <button class="register" mat-raised-button  (click)="openSignin()">Register</button>
 </div>
 </div>
