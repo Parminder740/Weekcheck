@@ -5,21 +5,24 @@ import { registerEscClick } from 'ngx-bootstrap/utils';
   providedIn: 'root'
 })
 export class WeekcheckService {
-  token:any;
- 
-  constructor(private http: HttpClient) { 
+  token: any=localStorage.getItem('token');
   
+
+  constructor(private http: HttpClient) {
+
   }
 
 
-  employeeLogin(data:any) {
+  employeeLogin(data: any) {
+    return this.http.post("http://weekcheck.azurewebsites.net/Token", data)
+  }
+  employee() {
+    let headers={
+      Authorization:"Bearer " + this.token
 
-  
-    return this.http.post("http://weekcheck.azurewebsites.net/Token",data )
-}
-employee() {
- // return this.http.get(`${this.headers}+https://weekcheck.com/wkapi/employees/me` {} ,)
-}
+    }
+    return this.http.get(`https://weekcheck.com/wkapi/employees/me` ,{ headers },)
+  }
 }
 
 
