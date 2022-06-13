@@ -95,27 +95,27 @@
                         <div style="clear:both"></div>
                         <br />
                         <div class="row">
-                          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex">
                             <div class="subheading-blue"><i class="fa fa-building-o"></i> Address</div>
                             <div class="info-details" style="word-break: break-all;">
                               {{location.address}} <br /> {{location.city}}, {{location.state}}
                               {{location.zip}} </div>
                             <br />
                           </div>
-                          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex">
                             <div class="subheading-blue"><i class="fa fa-calendar-o"></i> Week Start
                             </div>
                             <div class="info-details"> {{weekdays[location.firstDayOfWeek]}} </div>
                           </div>
                         </div>
                         <div class="row">
-                          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex">
                             <div class="subheading-blue"><i class="fa fa-user"></i> Employees</div>
                             <div class="info-details"><a (click)="setSearchLocation()"
                                 style="color:#333; border-bottom:1px dotted;">{{location.totalEmployees}}
                                 total</a></div>
                           </div>
-                          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12">
+                          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 d-flex">
                             <div class="subheading-blue"><i class="fa fa-lock"></i> Business Code</div>
                             <div class="info-details">{{businessCode}}</div>
                           </div>
