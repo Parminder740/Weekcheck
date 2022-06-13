@@ -35,7 +35,8 @@
           <div>{{locations.length}} location<span *ngIf="locations.length > 1"></span></div>
         </div>
         <div class="col-md-6 text-right">
-          <button class="btn btn-primary" (click)="addLocation()"><span>Add  </span>
+          <button class="btn btn-primary" (click)="addLocation()"  data-bs-toggle="modal"
+          data-bs-target="#exampleModal" data-bs-whatever="@mdo"><span>Add  </span>
             <i class='fas fa fa-map-marker' style='color: white; font-weight: bolder;'></i>
             <i class='fa plus'>+</i></button>
         </div>
@@ -276,3 +277,71 @@
     </div>
   </div>
 </div>
+
+
+<div class="container">
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" style="height:520px;">
+        <div class="modal-header">
+          <h1 class="modal-title" id="exampleModalLabel">Add New Location</h1>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <p style="margin-left: 10px;">Location Details</p>
+        <br> <br>
+        <div class="row">
+          <div class="col-sm" style="margin-left: 10px;">
+            <label>Name</label><br>
+            <input type="text"  class="form-control" style="width:110%;">
+          </div>
+          
+          <div class="col-sm" style="margin-left: 40px;">
+            <label>week start</label><br>
+            <input type="text"  class="form-control" style="width:60%;" >
+          </div>
+        </div>
+
+          <div class="row"  style="margin-left: 0px;">
+            <div class="col-sm" >
+           <label>Address</label><br>
+          <input type="text"  class="form-control" style="width:110%">
+          </div>
+
+          <div class="col-sm" style="margin-left: 40px;">
+            <label>State</label><br>
+            <input type="text"  class="form-control" style="width:60%;">
+          </div>
+        </div>
+       
+        <div class="row" style="margin-left: 0px;">
+          <div class="col-sm">
+         <label>City</label><br>
+        <input type="text"  class="form-control" style="width:110%">
+        </div>
+
+        <div class="col-sm" style="margin-left: 40px;">
+          <label>Zip Code</label><br>
+          <input type="text"  class="form-control"  style="width:60%;">
+        </div>
+      </div>
+       
+       
+        <p style="margin-left: 10px;">Quick Import<p>
+
+          <div class="col-sm" style="margin-left: 10px;">
+            <label>Copy info from:</label><br>
+            <input type="text"  class="form-control" style="width:82%">
+          </div><br>
+           
+         
+          
+          <div><button type="button" class="btn btn-"
+              style=" margin-left: 4%; margin-bottom: 4%;     background-color: #0280ba; color: white; ">Submit</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
